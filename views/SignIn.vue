@@ -6,11 +6,11 @@
         <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-header">
-            <h2 class="modal-title content-justify-center text-center" id="exampleModalLabel">Sign In to an account</h2>
+        <div class="modal-header text-center">
+            <h2 class="modal-title w-100" id="exampleModalLabel">Sign In to an account</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -81,7 +81,7 @@ const signin = () => {
 
 <script>
 export default {
-    name: "LogIn",  
+    name: "logIn",  
     // components: {
     //     sideNav
     // },

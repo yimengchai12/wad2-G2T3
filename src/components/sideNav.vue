@@ -6,7 +6,10 @@
             </a>
             <ul class="navbar-bar d-flex flex-column mt-5 w-100">
                 <li class="nav-item w-100">
-                    <router-link to="/sign-in" class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign in</router-link>
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
+                </li>
+                <li class="nav-item w-100">
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#register">Register</a>
                 </li>
                 <li class="nav-item w-100">
                     <a class="nav-link text-light pl-4">Marketplace</a>
