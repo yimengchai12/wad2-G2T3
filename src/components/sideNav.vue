@@ -6,6 +6,9 @@
             </a>
             <ul class="navbar-bar d-flex flex-column mt-5 w-100">
                 <li class="nav-item w-100">
+                    <router-link to="/sign-in" class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign in</router-link>
+                </li>
+                <li class="nav-item w-100">
                     <a class="nav-link text-light pl-4">Marketplace</a>
                 </li>
                 <li class="nav-item dropdown w-100">
@@ -19,10 +22,16 @@
             </ul>
         </nav>
     </div>
+    
 </template>
 <script>
+
+
 export default {
-    name: 'sideNav'
+    name: 'sideNav',
+    components: {
+    
+    }
 }
 </script>
 <style scoped>

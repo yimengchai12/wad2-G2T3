@@ -1,27 +1,60 @@
 <template>
-    <h1>Sign In to an account</h1>
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+        <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title content-justify-center text-center" id="exampleModalLabel">Sign In to an account</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p><input type="text" placeholder="Email" v-model="email" @keyup.enter="signin"/></p>
+            <p><input type="password" placeholder="Password" v-model="password" @keyup.enter="signin"/></p>
+            <p v-if="errMsg">{{ errMsg }}</p>
+            <p><button @click="signin" >Sign In</button></p> 
+
+        </div>
+        
+        </div>
+    </div>
+    </div>
+
+    <!-- <h1>Sign In to an account</h1>
     <p><input type="text" placeholder="Email" v-model="email" /></p>
     <p><input type="password" placeholder="Password" v-model="password" /></p>
     <p v-if="errMsg">{{ errMsg }}</p>
-    <p><button @click="signin">Sign In</button></p>
+    <p><button @click="signin">Sign In</button></p>  -->
 
 </template>
 
 <script setup>
+// import sideNav from "../src/components/sideNav.vue"
+
 import { ref } from 'vue';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'vue-router'
+
 const email = ref("");
 const password = ref("");
 const errMsg = ref();
 const router = useRouter();
 
+console.log(email.value);
+
+
 const signin = () => {
     const auth = getAuth();
+    console.log(email.value);
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             console.log("Successfully signed in!");
-            router.push('/sign-in')
+            router.push('/register')
         })
         .catch((error) => {
             console.log(error.code);
@@ -40,5 +73,17 @@ const signin = () => {
                     break;
             }
         })
+       
 }
+
+
+</script>
+
+<script>
+export default {
+    name: "LogIn",  
+    // components: {
+    //     sideNav
+    // },
+} 
 </script>

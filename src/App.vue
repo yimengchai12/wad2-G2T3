@@ -3,10 +3,10 @@
   <div id="app">
   <sideNav></sideNav>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <!-- <router-link to="/">Home</router-link> |
     <router-link to="/register">Register</router-link> |
     <router-link to="/sign-in">Login</router-link> |
-    <router-link to="/feed">Feed</router-link> |
+    <router-link to="/feed">Feed</router-link> | -->
     <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
   </nav>
   <router-view />
