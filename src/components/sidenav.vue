@@ -37,7 +37,7 @@ export default {
     }
 
     .navbar {
-        width 250px;
+        width: 250px;
         height: 100vh;
         position: fixed;
         /* margin-left: -300px; */
