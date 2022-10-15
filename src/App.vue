@@ -54,7 +54,7 @@ import sideNav from "./components/sideNav.vue"
 export default {
   name: 'App',
   components: {
-    sideNav
+    sideNav : sideNav
   }
 }
 </script>
