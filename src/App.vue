@@ -1,5 +1,5 @@
 <template>
-  <sidenav></sidenav>
+  <sideNav></sideNav>
   <div id="app">
   <nav>
     <router-link to="/">Home</router-link> |
@@ -9,7 +9,6 @@
     <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
   </nav>
   <router-view />
-  <headerB/>
   </div>
 </template>
 
@@ -50,12 +49,12 @@ const handleSignOut = () => {
 
 <script>
 
-import sidenav from "./components/sidenav.vue"
+import sideNav from "./components/sideNav.vue"
 
 export default {
   name: 'App',
   components: {
-    sidenav: sidenav,
+    sideNav
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidenav">
+        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sideNav">
             <a href="#" class="navbar-brand text-light mt-5">
                 <div class="display-5 font-weight-bold"></div>
             </a>
@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-    name: 'sidenav'
+    name: 'sideNav'
 }
 </script>
 <style scoped>
