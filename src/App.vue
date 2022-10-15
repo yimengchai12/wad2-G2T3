@@ -1,7 +1,6 @@
 <template>
-  
-  <div id="app">
   <sideNav></sideNav>
+  <div id="app">
   <nav>
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/register">Register</router-link> |
@@ -60,7 +59,6 @@ export default {
 }
 </script>
 
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -70,5 +68,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+@import'~bootstrap/dist/css/bootstrap.css'
 </style>
 
