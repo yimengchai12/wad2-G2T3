@@ -1,4 +1,5 @@
 <template>
+  <sidenav></sidenav>
   <div id="app">
   <nav>
     <router-link to="/">Home</router-link> |
@@ -49,10 +50,12 @@ const handleSignOut = () => {
 
 <script>
 
+import sidenav from "./components/sidenav.vue"
 
 export default {
   name: 'App',
   components: {
+    sidenav: sidenav,
   }
 }
 </script>
