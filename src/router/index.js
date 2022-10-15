@@ -8,7 +8,7 @@ const router = createRouter({
         { path: "/register", component: () => import("../../views/RegisterPage.vue") },
         { path: "/sign-in", component: () => import("../../views/SignIn.vue") },
         { 
-          path: "/feed", 
+          path: "/profile", 
           component: () => import("../../views/FeedPage.vue"),
           meta: { requiresAuth: true, 
             },

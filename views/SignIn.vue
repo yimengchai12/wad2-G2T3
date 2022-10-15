@@ -1,3 +1,4 @@
+
 <template>
     <!-- Button trigger modal -->
 
@@ -17,10 +18,10 @@
             <p><input type="text" placeholder="Email" v-model="email" @keyup.enter="signin"/></p>
             <p><input type="password" placeholder="Password" v-model="password" @keyup.enter="signin"/></p>
             <p v-if="errMsg">{{ errMsg }}</p>
-            <p><button @click="signin" >Sign In</button></p> 
+            <p><button @click="signin" class="btn btn-primary">Sign In</button></p> 
 
         </div>
-        
+
         </div>
     </div>
     </div>
@@ -40,11 +41,15 @@ import { ref } from 'vue';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'vue-router'
 
+// import { Modal } from 'bootstrap'
 const email = ref("");
 const password = ref("");
 const errMsg = ref();
 const router = useRouter();
 
+const myModalEl = document.getElementById('login')
+const modal = new mdb.Modal(myModalEl)
+modal.hide()
 console.log(email.value);
 
 
@@ -54,7 +59,8 @@ const signin = () => {
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             console.log("Successfully signed in!");
-            router.push('/register')
+            router.push('/profile');
+            myModal.hide();
         })
         .catch((error) => {
             console.log(error.code);
@@ -86,4 +92,6 @@ export default {
     //     sideNav
     // },
 } 
+
+
 </script>

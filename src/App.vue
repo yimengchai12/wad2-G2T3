@@ -1,5 +1,7 @@
 <template>
+
   <sideNav></sideNav>
+
   <div id="app">
   <nav>
     <!-- <router-link to="/">Home</router-link> |

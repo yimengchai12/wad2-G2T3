@@ -1,5 +1,5 @@
 <template>
-    <sideNav></sideNav>
+    <!-- <sideNav></sideNav> -->
     <div>home</div>
 
     <logIn></logIn>
@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import sideNav from "../src/components/sideNav.vue"
+// import sideNav from "../src/components/sideNav.vue"
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
 
 export default {
     name: "homePage",  
     components: {
-        sideNav,
+        // sideNav,
         logIn, 
         registerUser
     },

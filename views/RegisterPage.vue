@@ -10,7 +10,7 @@
     <div class="modal-body">
         <p><input type="text" placeholder="Email" v-model="email" @keyup.enter="signin"/></p>
         <p><input type="password" placeholder="Password" v-model="password" @keyup.enter="register"/></p>
-        <p><button @click="register" >Register</button></p> 
+        <p><button @click="register" class="btn btn-primary">Register</button></p> 
 
     </div>
     

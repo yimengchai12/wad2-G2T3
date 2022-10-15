@@ -5,6 +5,9 @@ import router from "./router"
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+window.bootstrap = require('bootstrap')
+
+
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
