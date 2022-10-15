@@ -50,8 +50,8 @@ export default {
 
     }
 
-    /* .nav-link:active,
-    .nav-link:focus, */
+    .nav-link:active,
+    .nav-link:focus,
     .nav-link:hover{
         background-color: #ffffff26;
     }
@@ -60,8 +60,8 @@ export default {
         background-color: #7952B3;
     }
 
-    /* .dropdown-item:active,
-    .dropdown-item:focus, */
+    .dropdown-item:active,
+    .dropdown-item:focus,
     .dropdown-item:hover{
         background-color: #ffffff26;
     }
