@@ -6,10 +6,15 @@
             </a>
             <ul class="navbar-bar d-flex flex-column mt-5 w-100">
                 <li class="nav-item w-100">
-                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" v-if="!isLoggedIn">Sign in</a>
                 </li>
                 <li class="nav-item w-100">
-                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#register">Register</a>
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#register" v-if="!isLoggedIn">Register</a>
+                </li>
+                <li class="nav-item w-100">
+           
+                        <router-link to="/profile" class="nav-link text-light pl-4" v-if="isLoggedIn">Profile</router-link>
+                 
                 </li>
                 <li class="nav-item w-100">
                     <a class="nav-link text-light pl-4">Marketplace</a>
@@ -22,11 +27,48 @@
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">3rd Option</a></li>
                     </ul>
                 </li>
+                <li class="nav-item w-100">
+                    <a class="nav-link text-light pl-4" @click="handleSignOut" v-if="isLoggedIn">Sign out</a>
+                </li>
             </ul>
         </nav>
     </div>
     
 </template>
+
+<script setup>
+import { onMounted, ref} from "vue";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import router from "../router";
+
+const isLoggedIn = ref(false);
+
+let auth;
+onMounted(()=>{
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+    } else {
+      isLoggedIn.value = false;
+    }
+  });
+});
+
+const handleSignOut = () => {
+  signOut(auth)
+    .then(() => {
+      console.log("Successfully signed out!");
+      router.push("/");
+    })
+    .catch((error) => {
+      console.log(error.code);
+      alert(error.message);
+    })
+}
+</script>
+
+
 <script>
 
 

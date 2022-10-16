@@ -7,6 +7,7 @@
     
 </template>
 
+
 <script>
 // import sideNav from "../src/components/sideNav.vue"
 import logIn from "./SignIn.vue"

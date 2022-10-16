@@ -1,20 +1,21 @@
 <template>
-
   <sideNav></sideNav>
+  
 
   <div id="app">
-  <nav>
+    
+  <!-- <nav> -->
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/register">Register</router-link> |
     <router-link to="/sign-in">Login</router-link> |
     <router-link to="/feed">Feed</router-link> | -->
-    <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
-  </nav>
-  <router-view />
+    <!-- <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button> -->
+  <!-- </nav> -->
+   <router-view />
   </div>
 </template>
 
-<script setup>
+<!-- <script setup>
 import { onMounted, ref} from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "./router";
@@ -46,7 +47,7 @@ const handleSignOut = () => {
 }
 
 
-</script>
+</script> -->
 
 
 <script>
@@ -56,7 +57,7 @@ import sideNav from "./components/sideNav.vue"
 export default {
   name: 'App',
   components: {
-    sideNav : sideNav
+    sideNav 
   }
 }
 </script>

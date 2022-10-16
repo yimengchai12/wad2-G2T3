@@ -7,7 +7,7 @@
         <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header text-center">
@@ -40,17 +40,14 @@
 import { ref } from 'vue';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'vue-router'
-
-// import { Modal } from 'bootstrap'
+// import $ from 'jquery'
 const email = ref("");
 const password = ref("");
 const errMsg = ref();
 const router = useRouter();
 
-const myModalEl = document.getElementById('login')
-const modal = new mdb.Modal(myModalEl)
-modal.hide()
-console.log(email.value);
+
+
 
 
 const signin = () => {
@@ -59,8 +56,8 @@ const signin = () => {
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             console.log("Successfully signed in!");
-            router.push('/profile');
-            myModal.hide();
+            router.push('/feed');
+
         })
         .catch((error) => {
             console.log(error.code);
