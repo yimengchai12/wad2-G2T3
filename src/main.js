@@ -30,7 +30,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const fb = initializeApp(firebaseConfig);
-const storage = getStorage(fb);
+getStorage(fb);
 
 
 

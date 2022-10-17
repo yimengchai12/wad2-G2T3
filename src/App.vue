@@ -13,7 +13,7 @@
     <router-link to="/feed">Feed</router-link> | -->
     <!-- <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button> -->
   <!-- </nav> -->
-   <!-- <router-view /> -->
+   <router-view />
   </div>
 </template>
 
