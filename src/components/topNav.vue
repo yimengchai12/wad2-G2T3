@@ -10,8 +10,11 @@
 </template>
 <script>
 export default {
+    name: 'topNav',
+    components: {
     name: 'topNav'
     
+    }
 }
 </script>
 <style>

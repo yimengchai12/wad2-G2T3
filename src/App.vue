@@ -54,13 +54,16 @@ const handleSignOut = () => {
 <script>
 
 import sideNav from "./components/sideNav.vue"
-import topNav from "./components/topNav.vue";
+import topNav from "./components/topNav.vue"
+import homepageCarousel from "./components/homepageCarousel.vue";
+
 
 export default {
   name: 'App',
   components: {
     sideNav,
-    topNav
+    topNav,
+    homepageCarousel
 }
 }
 </script>
