@@ -5,6 +5,7 @@
   <div id="app">
     <topNav></topNav>
     <sideNav></sideNav>
+    WHERE THE FK
   <!-- <nav> -->
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/register">Register</router-link> |
