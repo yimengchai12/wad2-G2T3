@@ -1,4 +1,4 @@
-<template>
+<template lang="">
     <div>
         <header>
             <div class="container">
@@ -16,7 +16,7 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style lang="">
     header {
         height: 80px;
         background-color: #7952B3;
