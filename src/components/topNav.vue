@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <header>
             <div class="container">
@@ -16,7 +16,7 @@ export default {
     }
 }
 </script>
-<style lang="">
+<style>
     header {
         height: 80px;
         background-color: #7952B3;
