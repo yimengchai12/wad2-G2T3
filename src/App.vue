@@ -1,4 +1,5 @@
 <template>
+  <TopNav></TopNav>
   <sideNav></sideNav>
   
 
@@ -53,12 +54,14 @@ const handleSignOut = () => {
 <script>
 
 import sideNav from "./components/sideNav.vue"
+import TopNav from "./components/topNav.vue";
 
 export default {
   name: 'App',
   components: {
-    sideNav 
-  }
+    sideNav,
+    TopNav
+}
 }
 </script>
 
