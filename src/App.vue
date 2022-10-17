@@ -1,11 +1,10 @@
 <template>
-  
-  
+
 
   <div id="app">
     <topNav></topNav>
     <sideNav></sideNav>
-    WHERE THE FK
+
   <!-- <nav> -->
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/register">Register</router-link> |
@@ -73,7 +72,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 </style>
