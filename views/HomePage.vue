@@ -10,6 +10,7 @@
     <logIn></logIn>
     <registerUser></registerUser>
     <homepageCarousel></homepageCarousel>
+    <imagePage></imagePage>
     
 </template>
 
@@ -22,6 +23,7 @@ import sideNav from "../src/components/sideNav.vue"
 import topNav from "../src/components/topNav.vue";
 import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
+import imagePage from "./ImagePage.vue";
 
 export default {
     name: "homePage",  
@@ -31,7 +33,8 @@ export default {
         registerUser,
         sideNav,
         topNav,
-        homepageCarousel
+        homepageCarousel,
+        imagePage
     },
     
     methods: {
