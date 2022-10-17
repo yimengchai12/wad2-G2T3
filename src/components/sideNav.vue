@@ -20,7 +20,7 @@
                     <a class="nav-link text-light pl-4">Marketplace</a>
                 </li>
                 <li class="nav-item dropdown w-100">
-                    <a class="nav-link dropdown-toggle text-light pl-4" id="creators_dropdown" role="button" data-toggle="dropdown" aria-expanded="false">Creators</a>
+                    <a class="nav-link dropdown-toggle text-light pl-4" id="creators_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Creators</a>
                     <ul class="dropdown-menu w-100" aria-labelledby="creators_dropdown">
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">Create Listing</a></li>
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">2nd Option</a></li>
