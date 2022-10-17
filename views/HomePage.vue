@@ -1,5 +1,7 @@
 <template>
-    <!-- <sideNav></sideNav> -->
+    <topNav></topNav>
+    <sideNav></sideNav>
+    <homepageCarousel></homepageCarousel>
     <div>home</div>
 
     <logIn></logIn>
@@ -12,13 +14,19 @@
 // import sideNav from "../src/components/sideNav.vue"
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
+import sideNav from "./components/sideNav.vue"
+import topNav from "./components/topNav.vue"
+import homepageCarousel from "./components/homepageCarousel.vue";
 
 export default {
     name: "homePage",  
     components: {
-        // sideNav,
+        sideNav,
         logIn, 
-        registerUser
+        registerUser,
+        sideNav,
+        topNav,
+        homepageCarousel
     },
 } 
 </script>
