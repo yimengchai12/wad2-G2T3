@@ -11,12 +11,12 @@
 
 
 <script>
-// import sideNav from "../src/components/sideNav.vue"
+
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
-import sideNav from "./components/sideNav.vue"
-import topNav from "./components/topNav.vue"
-import homepageCarousel from "./components/homepageCarousel.vue";
+import sideNav from "./src/components/sideNav.vue"
+import topNav from "./src/components/topNav.vue"
+import homepageCarousel from "./src/components/homepageCarousel.vue";
 
 export default {
     name: "homePage",  
@@ -24,7 +24,6 @@ export default {
         sideNav,
         logIn, 
         registerUser,
-        sideNav,
         topNav,
         homepageCarousel
     },
