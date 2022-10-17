@@ -5,7 +5,8 @@
   <div id="app">
     <topNav></topNav>
     <sideNav></sideNav>
-    WHERE THE FK
+    <homepageCarousel></homepageCarousel>
+    
   <!-- <nav> -->
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/register">Register</router-link> |
@@ -55,13 +56,16 @@ const handleSignOut = () => {
 <script>
 
 import sideNav from "./components/sideNav.vue"
-import topNav from "./components/topNav.vue";
+import topNav from "./components/topNav.vue"
+import homepageCarousel from "./components/homepageCarousel.vue";
+
 
 export default {
   name: 'App',
   components: {
     sideNav,
-    topNav
+    topNav,
+    homepageCarousel
 }
 }
 </script>

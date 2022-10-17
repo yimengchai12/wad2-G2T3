@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <header>
             <div class="container">
@@ -10,10 +10,13 @@
 </template>
 <script>
 export default {
+    name: 'topNav',
+    components: {
     
+    }
 }
 </script>
-<style lang="">
+<style scoped>
     header {
         height: 80px;
         background-color: #7952B3;
