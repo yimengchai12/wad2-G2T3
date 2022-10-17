@@ -12,7 +12,7 @@
     <router-link to="/feed">Feed</router-link> | -->
     <!-- <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button> -->
   <!-- </nav> -->
-   <router-view />
+   <!-- <router-view /> -->
   </div>
 </template>
 
@@ -75,6 +75,5 @@ export default {
   margin-top: 60px;
 }
 
-@import'~bootstrap/dist/css/bootstrap.css'
 </style>
 
