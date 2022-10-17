@@ -4,6 +4,7 @@
   <div id="app">
     <topNav></topNav>
     <sideNav></sideNav>
+    <homepageCarousel></homepageCarousel>
 
   <!-- <nav> -->
     <!-- <router-link to="/">Home</router-link> |

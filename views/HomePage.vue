@@ -6,6 +6,7 @@
 
     <logIn></logIn>
     <registerUser></registerUser>
+    <homepageCarousel></homepageCarousel>
     
 </template>
 
@@ -16,6 +17,7 @@ import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
 import sideNav from "../src/components/sideNav.vue"
 import topNav from "../src/components/topNav.vue";
+import homepageCarousel from "../src/components/homepageCarousel.vue";
 
 export default {
     name: "homePage",  
@@ -24,7 +26,8 @@ export default {
         logIn, 
         registerUser,
         sideNav,
-        topNav
+        topNav,
+        homepageCarousel
     },
 } 
 </script>
