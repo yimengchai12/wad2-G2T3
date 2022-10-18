@@ -1,24 +1,39 @@
 <template>
-    <!-- <sideNav></sideNav> -->
-    <topNav></topNav>
-    <sideNav></sideNav>
+    <body>
+        <div class="container-fluid backdrop">
+            
+                <topNav></topNav>
+            
+
+            <div class="row notTopNav">
+                <div class="p-0 sidenav-parent">
+                    <div class="col-2 p-0"><sideNav></sideNav></div>
+                </div>
+                <div class="col-10" style="position:relative; left:16vw"><homepageCarousel></homepageCarousel></div>
+            </div>
+            
     <div>home</div>
     <div class="form-group">
         <input type="file" @change="uploadImage" class="form-control">
     </div>
 
-    <logIn></logIn>
-    <registerUser></registerUser>
-    <homepageCarousel></homepageCarousel>
-    <imagePage></imagePage>
-    
+            <logIn></logIn>
+            <registerUser></registerUser>
+            <imagePage></imagePage>
+        </div>
+        <div style="height:1000px;">qweifqwef</div>
+    </body>
 </template>
 
 
 <script>
-// import sideNav from "../src/components/sideNav.vue"
+
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
+import sideNav from "../src/components/sideNav.vue"
+import topNav from "../src/components/topNav.vue"
+import homepageCarousel from "../src/components/homepageCarousel.vue"
+
 import sideNav from "../src/components/sideNav.vue"
 import topNav from "../src/components/topNav.vue";
 import homepageCarousel from "../src/components/homepageCarousel.vue";
@@ -28,7 +43,7 @@ import imagePage from "./ImagePage.vue";
 export default {
     name: "homePage",  
     components: {
-        // sideNav,
+        sideNav,
         logIn, 
         registerUser,
         sideNav,
@@ -80,4 +95,18 @@ export default {
         }
     }
 } 
+
+
 </script>
+
+<style>
+    .backdrop {
+        background-color:#08090d;
+    }
+    .notTopNav {
+        margin-top: 80px;
+    }
+    .sidenav-parent {
+        position:fixed;
+    }
+</style>
