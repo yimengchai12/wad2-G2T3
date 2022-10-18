@@ -14,9 +14,7 @@
                     <logIn></logIn>
                     <registerUser></registerUser>
                     <imagePage></imagePage>
-                    <div class="form-group">
-                        <input type="file" @change="uploadImage" class="form-control">
-                    </div>
+                
                 
                 </div>
            

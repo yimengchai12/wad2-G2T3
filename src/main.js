@@ -32,10 +32,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const fb = initializeApp(firebaseConfig);
 getStorage(fb);
-getFirestore(fb);
+const db = getFirestore(fb);
+db;
 
-
-
+export {db}
 
 
 
