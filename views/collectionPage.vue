@@ -1,21 +1,16 @@
 <template>
     <body>
         <div class="container-fluid backdrop">
-            
-                <topNav></topNav>
-            
-
+            <topNav></topNav>
             <div class="row notTopNav">
-                <div class="col-2 p-0"><sideNav></sideNav></div>
-                <div class="col-10"><homepageCarousel></homepageCarousel></div>
+                <div class="col-2 p-0 m-0"><sideNav></sideNav></div>
+                
             </div>
-            <div>home</div>
+        <div>home</div>
 
-            <logIn></logIn>
-            <registerUser></registerUser>
-        
+        <logIn></logIn>
+        <registerUser></registerUser>
         </div>
-        <div style="height:1000px;">qweifqwef</div>
     </body>
 </template>
 
@@ -26,17 +21,16 @@ import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
 import sideNav from "../src/components/sideNav.vue"
 import topNav from "../src/components/topNav.vue"
-import homepageCarousel from "../src/components/homepageCarousel.vue"
 
 
 export default {
-    name: "homePage",  
+    name: "collectionPage",  
     components: {
         sideNav,
         logIn, 
         registerUser,
         topNav,
-        homepageCarousel,
+       
     },
 } 
 

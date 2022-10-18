@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div id="carouselExampleCaptions" class="carousel slide homepageCarou" data-bs-ride="false">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -8,24 +8,29 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img class="d-block w-100" alt="...">
+                <img src="../assets/idp.jpg" class="d-block img-fluid carouimg" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
+
+                    <router-link to="/collection" class="btn btn-info pl-4" role="button">Collection</router-link>
+
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img class="d-block w-100" alt="...">
+                <img src="../assets/idp.jpg" class="d-block carouimg img-fluid" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the second slide.</p>
+                    <router-link to="/collection" class="btn btn-info pl-4" role="button">Collection</router-link>
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img class="d-block w-100" alt="...">
+                <img src="../assets/idp.jpg" class="d-block carouimg img-fluid" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
+                    <router-link to="/collection" class="btn btn-info pl-4" role="button">Collection</router-link>
                 </div>
                 </div>
             </div>
@@ -51,5 +56,15 @@ export default {
 }
 </script>
 <style>
-    
+    .homepageCarou {
+        background-color: #120c18;
+        height: 600px;
+        border: 1px solid #25192f;
+        border-radius: 20px;
+    }
+
+    .carouimg {
+        height:600px;
+
+    }
 </style>
