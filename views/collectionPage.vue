@@ -3,7 +3,9 @@
         <div class="container-fluid backdrop">
             <topNav></topNav>
             <div class="row notTopNav">
-                <div class="col-2 p-0 m-0"><sideNav></sideNav></div>
+                <div class="p-0 sidenav-parent">
+                    <div class="col-2 p-0"><sideNav></sideNav></div>
+                </div>
                 
             </div>
         <div>home</div>
@@ -43,5 +45,8 @@ export default {
     }
     .notTopNav {
         margin-top: 80px;
+    }
+    .sidenav-parent {
+        position:fixed;
     }
 </style>

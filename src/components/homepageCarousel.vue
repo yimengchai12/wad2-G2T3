@@ -12,9 +12,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
-
                     <router-link to="/collection" class="btn btn-info pl-4" role="button">Collection</router-link>
-
                 </div>
                 </div>
                 <div class="carousel-item">

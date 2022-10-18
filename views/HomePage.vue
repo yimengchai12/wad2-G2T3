@@ -6,8 +6,10 @@
             
 
             <div class="row notTopNav">
-                <div class="col-2 p-0"><sideNav></sideNav></div>
-                <div class="col-10"><homepageCarousel></homepageCarousel></div>
+                <div class="p-0 sidenav-parent">
+                    <div class="col-2 p-0"><sideNav></sideNav></div>
+                </div>
+                <div class="col-10" style="position:relative; left:16vw"><homepageCarousel></homepageCarousel></div>
             </div>
             <div>home</div>
 
@@ -49,5 +51,8 @@ export default {
     }
     .notTopNav {
         margin-top: 80px;
+    }
+    .sidenav-parent {
+        position:fixed;
     }
 </style>
