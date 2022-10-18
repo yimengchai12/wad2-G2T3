@@ -94,7 +94,6 @@ export default {
     .navbar {
        
         height: 100vh;
-        
         /* margin-left: -300px; */
         background-color: #120c18;
         transition: 0.3s ease;
