@@ -33,10 +33,7 @@ import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
 import sideNav from "../src/components/sideNav.vue"
 import topNav from "../src/components/topNav.vue"
-import homepageCarousel from "../src/components/homepageCarousel.vue"
 
-import sideNav from "../src/components/sideNav.vue"
-import topNav from "../src/components/topNav.vue";
 import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 import imagePage from "./ImagePage.vue";
@@ -47,7 +44,6 @@ export default {
         sideNav,
         logIn, 
         registerUser,
-        sideNav,
         topNav,
         homepageCarousel,
         imagePage
