@@ -1,6 +1,5 @@
 <template>
     <body>
-        
         <div class="container-fluid backdrop">
             
                 <topNav></topNav>
@@ -10,19 +9,22 @@
                 <div class="p-0 sidenav-parent">
                     <div class="col-2 p-0"><sideNav></sideNav></div>
                 </div>
-                <div class="col-10" style="position:relative; left:16vw"><homepageCarousel></homepageCarousel></div>
+                <div class="col-10" style="position:relative; left:16vw">
+                    <homepageCarousel></homepageCarousel>
+                    <logIn></logIn>
+                    <registerUser></registerUser>
+                    <imagePage></imagePage>
+                    <div class="form-group">
+                        <input type="file" @change="uploadImage" class="form-control">
+                    </div>
+                
+                </div>
+           
+        
+        
             </div>
-            
-    <div>home</div>
-    <div class="form-group">
-        <input type="file" @change="uploadImage" class="form-control">
-    </div>
-
-            <logIn></logIn>
-            <registerUser></registerUser>
-            <imagePage></imagePage> 
+            <div style="height:1000px;">qweifqwef</div>
         </div>
-        <div style="height:1000px;">qweifqwef</div>
     </body>
 </template>
 
