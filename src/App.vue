@@ -52,7 +52,6 @@ const handleSignOut = () => {
 <script>
 
 
-
 export default {
   name: 'App',
   components: {

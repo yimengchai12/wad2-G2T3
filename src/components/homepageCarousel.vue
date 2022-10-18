@@ -65,4 +65,8 @@ export default {
         height:600px;
 
     }
+
+    #carouselExampleCaptions {
+        position:relative;
+    }
 </style>

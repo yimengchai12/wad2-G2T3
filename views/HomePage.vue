@@ -1,5 +1,6 @@
 <template>
     <body>
+        
         <div class="container-fluid backdrop">
             
                 <topNav></topNav>
@@ -19,7 +20,7 @@
 
             <logIn></logIn>
             <registerUser></registerUser>
-            <imagePage></imagePage>
+            <imagePage></imagePage> 
         </div>
         <div style="height:1000px;">qweifqwef</div>
     </body>
