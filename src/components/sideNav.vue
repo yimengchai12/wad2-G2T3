@@ -1,10 +1,10 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sideNav">
+        <nav class="navbar navbar-expand d-flex flex-column navborder" id="sideNav">
             <a href="#" class="navbar-brand text-light mt-5">
                 <div class="display-5 font-weight-bold"></div>
             </a>
-            <ul class="navbar-bar d-flex flex-column mt-5 w-100">
+            <ul class="navbar-bar d-flex flex-column mt-5 w-100" style="list-style-type:none;">
                 <li class="nav-item w-100">
                     <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" v-if="!isLoggedIn">Sign in</a>
                 </li>
@@ -84,7 +84,6 @@ export default {
         margin:0;
         padding:0;
         box-sizing: border-box;
-
     }
 
     body {
@@ -97,7 +96,7 @@ export default {
         height: 100vh;
         position: fixed;
         /* margin-left: -300px; */
-        background-color: #7952B3;
+        background-color: #120c18;
         transition: 0.3s ease;
     }
 
@@ -109,16 +108,20 @@ export default {
     .nav-link:active,
     .nav-link:focus,
     .nav-link:hover{
-        background-color: #ffffff26;
+        background-color: #25192f;
     }
 
     .dropdown-menu{
-        background-color: #7952B3;
+        background-color: #120c18;
     }
 
     .dropdown-item:active,
     .dropdown-item:focus,
     .dropdown-item:hover{
-        background-color: #ffffff26;
+        background-color: #25192f;
+    }
+
+    .navborder {
+        border-right: 1px solid #25192f;
     }
 </style>
