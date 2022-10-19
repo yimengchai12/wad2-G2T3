@@ -14,6 +14,7 @@
                     <logIn></logIn>
                     <registerUser></registerUser>
                     <imagePage></imagePage>
+                    <messageBox></messageBox>
                 
                 
                 </div>
@@ -21,7 +22,6 @@
         
         
             </div>
-            <div style="height:1000px;">qweifqwef</div>
         </div>
     </body>
 </template>
@@ -37,6 +37,7 @@ import topNav from "../src/components/topNav.vue"
 import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 import imagePage from "./ImagePage.vue";
+import messageBox from "../src/components/Chat.vue";
 
 export default {
     name: "homePage",  
@@ -46,7 +47,8 @@ export default {
         registerUser,
         topNav,
         homepageCarousel,
-        imagePage
+        imagePage,
+        messageBox
     },
     
     methods: {
