@@ -19,17 +19,30 @@
             </div>
 
             <div class="form-group">
-                <button class="btn btn-primary" @click="saveData">Save Data</button>
+                <button class="btn btn-primary" @click="saveData" >Save Data</button>
             </div>
         </div>
     </div>
+
+    <h3>Image List</h3>
+
+    <div v-for="image in imagesObj" :key="image">
+    <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{image.title}}</h5>
+            <p class="card-text">{{image.details}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+</div>
 
 </template>
 
 <script>
 
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, getDocs } from "firebase/firestore"; 
 import { db } from "../src/main.js";
 
 
@@ -38,6 +51,7 @@ export default {
 
     data() {
         return {
+            imagesObj: [],
             images: {
                 title: "",
                 details: "",
@@ -49,20 +63,41 @@ export default {
 
     components: {
     },
+
+    created(){
+        this.readData();
+    },
     
     methods: {
 
+        async readData(){
+            const querySnapshot = await getDocs(collection(db, "images"));
+            querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            this.imagesObj.push(doc.data());
+  
+        });
+
+        },
+
         async saveData(){
-            const docRef = await addDoc(collection(db, "images"), this.images)
-            console.log(docRef.id)
-            // .then(docRef =>{
-            //     console.log("Document written with ID: ", docRef.id);
-            // })
-            
+            await addDoc(collection(db, "images"), this.images)
+            .then((docRef) =>{
+                console.log("Document written with ID: ", docRef.id);
+                this.reset();
+            })
+
+            this.readData();
             // .catch(error => {
             //     console.error("Error adding document: ");
             // });
         },
+
+        reset(){
+                Object.assign(this.$data, this.$options.data.apply(this) )
+        },
+
 
         uploadImage(e){
             let file = e.target.files[0];
@@ -103,7 +138,9 @@ export default {
             console.log(e.target.files[0]);
             
         }
-    }
+    },
+
+    
 } 
 
 </script>
