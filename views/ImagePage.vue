@@ -3,15 +3,15 @@
     <div>
         <div class="image" >
             <div class="form-group">
-                <input type="text" placeholder="Title" v-model="title" class="form-control">
+                <input type="text" placeholder="Title" v-model="images.title" class="form-control">
             </div>
 
             <div class="form-group">
-                <textarea placeholder="Details" v-model="details" class="form-control" rows="3" cols="50"></textarea>
+                <textarea placeholder="Details" v-model="images.details" class="form-control" rows="3" cols="50"></textarea>
             </div>
 
             <div class="form-group">
-                <input type="text" placeholder="Tag" v-model="tag" class="form-control">
+                <input type="text" placeholder="Tag" v-model="images.tag" class="form-control">
             </div>
 
             <div class="form-group">
@@ -38,9 +38,12 @@ export default {
 
     data() {
         return {
-            details: "",
-            tag: "",
-            title: "",
+            images: {
+                title: "",
+                details: "",
+                tag: "",
+                image: "",
+            },
         }
     },
 
@@ -50,18 +53,15 @@ export default {
     methods: {
 
         async saveData(){
-            try {
-  const docRef = await addDoc(collection(db, "users"), {
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-  });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
-
-
+            const docRef = await addDoc(collection(db, "images"), this.images)
+            console.log(docRef.id)
+            // .then(docRef =>{
+            //     console.log("Document written with ID: ", docRef.id);
+            // })
+            
+            // .catch(error => {
+            //     console.error("Error adding document: ");
+            // });
         },
 
         uploadImage(e){
