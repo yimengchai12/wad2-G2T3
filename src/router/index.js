@@ -19,7 +19,14 @@ const router = createRouter({
             component: () => import("../../views/ProfilePage.vue"),
             meta: { requiresAuth: true, 
                 },
+            },
+        { 
+            path: "/feedpage", 
+            component: () => import("../../views/FeedPage.vue"),
+            meta: { requiresAuth: true, 
+                },
             }
+
     ]
 })
 

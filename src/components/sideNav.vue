@@ -17,6 +17,11 @@
                  
                 </li>
                 <li class="nav-item">
+           
+                    <router-link to="/feedpage" class="nav-link text-light pl-4" v-if="isLoggedIn">Feedpage</router-link>
+    
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-light pl-4">Marketplace</a>
                 </li>
                 <li class="nav-item dropdown">

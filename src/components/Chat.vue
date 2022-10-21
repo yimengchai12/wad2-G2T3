@@ -7,7 +7,7 @@
 <script>
     import Talk from 'talkjs';
     export default {
-        name: 'FeedPage',
+        name: 'ChatPage',
         props: {
             currentUser: {
               type: Object,
