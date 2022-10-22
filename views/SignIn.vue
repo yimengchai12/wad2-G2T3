@@ -18,7 +18,9 @@
             <p><input type="text" placeholder="Email" v-model="email" @keyup.enter="signin"/></p>
             <p><input type="password" placeholder="Password" v-model="password" @keyup.enter="signin"/></p>
             <p v-if="errMsg">{{ errMsg }}</p>
-            <p><button @click="signin" class="btn btn-primary">Sign In</button></p> 
+            <p v-if="success">{{ success }}</p>
+            <p><button @click="signin" class="btn btn-primary" v-if="!signedin">Sign In</button> 
+            <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Close</button></p>
 
         </div>
 
@@ -40,22 +42,29 @@
 import { ref } from 'vue';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'vue-router'
+
+
+
 // import $ from 'jquery'
 const email = ref("");
 const password = ref("");
 const errMsg = ref();
 const router = useRouter();
-
+const success = ref("")
+const signedin = ref(false)
 
 
 
 
 const signin = () => {
+   
     const auth = getAuth();
     console.log(email.value);
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             console.log("Successfully signed in!");
+            success.value="Successfully signed in!"
+            signedin.value=true
             router.push('/');
 
         })
@@ -88,6 +97,11 @@ export default {
     // components: {
     //     sideNav
     // },
+    data(){
+        return {
+            login : 'login'
+        }
+    }
 } 
 
 
