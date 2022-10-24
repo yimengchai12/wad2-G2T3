@@ -16,21 +16,21 @@
                     </div>
                     <img src="#" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item cc1">
                     <div class="d-none d-md-inline-block" style="width:40%;">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    <img src="../assets/idp.jpg" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
+                    <img src="#" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item cc1">
                     <div class="d-none d-md-inline-block" style="width:40%;">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    <img src="../assets/idp.jpg" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
+                    <img src="#" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -156,7 +156,7 @@ export default {
         background-size:contain;
         background-repeat: no-repeat;
         background-position: right;
-        border-radius: 15px;
+        border-radius: 20px;
     }
 </style>
 
