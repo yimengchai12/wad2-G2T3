@@ -8,13 +8,13 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div> -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="d-none d-md-inline-block" style="width:40%;">
+                <div class="carousel-item active cc1" >
+                    <div class="d-none d-md-inline-block " style="width:40%;">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    <img src="../assets/idp.jpg" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
+                    <img src="#" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
                 </div>
                 <div class="carousel-item">
                     <div class="d-none d-md-inline-block" style="width:40%;">
@@ -69,9 +69,10 @@ export default {
     .homepageCarou {
         background-color: #120c18;
         height: 600px;
-        border: 1px solid #25192f;
+        outline: 1px solid #25192f;
         border-radius: 20px;
         width: 65vw;
+        margin-top: 1px;
     }
 
     .carousel-inner {
@@ -148,6 +149,14 @@ export default {
         0% { background-position: 0 0; }
         50% { background-position: 400% 0; }
         100% { background-position: 0 0; }
+    }
+
+    .cc1 {
+        background-image: url("../assets/idp.jpg");
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        border-radius: 15px;
     }
 </style>
 
