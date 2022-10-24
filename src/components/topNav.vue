@@ -3,7 +3,7 @@
         <div class="row">
             <header class="headerfixed">
                     <div class="col-2">
-                        <a href="/" class="navbar-brand text-light vertical-center">
+                        <a href="/" class="navbar text-light vertical-center text-decoration-none p-3">
                             <div class="display-5 font-weight-bold">Homepage</div>
                         </a>
                     </div>

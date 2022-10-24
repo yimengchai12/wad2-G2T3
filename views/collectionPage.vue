@@ -1,7 +1,6 @@
 <template>
     <body>
-        <topNav></topNav>
-        <sideNav></sideNav>
+        <navBars></navBars>
          
         <div class="container-fluid backdrop">
             
@@ -22,17 +21,16 @@
 
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
-import sideNav from "../src/components/sideNav.vue"
-import topNav from "../src/components/topNav.vue"
+import navBars from "../src/components/navBars.vue"
 
 
 export default {
     name: "collectionPage",  
     components: {
-        sideNav,
+        navBars,
         logIn, 
         registerUser,
-        topNav,
+        
        
     },
 } 

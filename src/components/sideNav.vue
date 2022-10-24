@@ -2,7 +2,7 @@
     <div id="navigation" class="sidenav-parent p-0">
         <nav class="navbar navbar-expand d-flex flex-column navborder" id="sideNav">
             
-            <ul class="navbar-bar d-flex flex-column mt-0 p-2" style="list-style-type:none; width:100%">
+            <ul class="navbar-bar d-flex flex-column pt-2 px-3" style="list-style-type:none; width:100%">
                 <li class="nav-item">
            
                         <router-link to="/profile" class="nav-link text-light pl-4" v-if="isLoggedIn">Profile</router-link>

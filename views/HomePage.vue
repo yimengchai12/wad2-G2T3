@@ -1,8 +1,6 @@
 <template>
     <body>
-        <topNav></topNav>
-        
-        <sideNav></sideNav>
+        <navBars></navBars>
         <pageBody>
                     <div class="row light-text">
                         <homepageCarousel></homepageCarousel>
@@ -19,13 +17,12 @@
     </body>
 </template>
 
-
 <script>
 import pageBody from "../src/components/pageBody.vue"
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
-import sideNav from "../src/components/sideNav.vue"
-import topNav from "../src/components/topNav.vue"
+import navBars from "../src/components/navBars.vue"
+
 
 import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
@@ -52,10 +49,9 @@ onMounted(()=>{
 export default {
     name: "homePage",  
     components: {
-        sideNav,
+        navBars,
         logIn, 
         registerUser,
-        topNav,
         homepageCarousel,
         imagePage,
         messageBox,
