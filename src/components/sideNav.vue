@@ -1,10 +1,8 @@
 <template>
-    <div>
+    <div id="navigation" class="w-75">
         <nav class="navbar navbar-expand d-flex flex-column navborder" id="sideNav">
-            <a href="#" class="navbar-brand text-light mt-5">
-                <div class="display-5 font-weight-bold"></div>
-            </a>
-            <ul class="navbar-bar d-flex flex-column mt-5" style="list-style-type:none;">
+            
+            <ul class="navbar-bar d-flex flex-column mt-0 p-2" style="list-style-type:none; width:100%">
                 <li class="nav-item">
                     <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" v-if="!isLoggedIn">Sign in</a>
                 </li>
@@ -89,6 +87,7 @@ export default {
         margin:0;
         padding:0;
         box-sizing: border-box;
+        
     }
 
     body {
@@ -97,11 +96,11 @@ export default {
     }
 
     .navbar {
-       
         height: 100vh;
         /* margin-left: -300px; */
         background-color: #120c18;
         transition: 0.3s ease;
+        
     }
 
     .nav-link {
@@ -113,6 +112,7 @@ export default {
     .nav-link:focus,
     .nav-link:hover{
         background-color: #25192f;
+        border-radius: 5px;
     }
 
     .dropdown-menu{
@@ -123,9 +123,12 @@ export default {
     .dropdown-item:focus,
     .dropdown-item:hover{
         background-color: #25192f;
+        border-radius: 5px;
     }
 
     .navborder {
         border-right: 1px solid #25192f;
     }
+
+
 </style>

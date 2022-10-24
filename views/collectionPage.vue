@@ -4,14 +4,14 @@
             <topNav></topNav>
             <div class="row notTopNav">
                 <div class="p-0 sidenav-parent">
-                    <div class="col-2 p-0"><sideNav></sideNav></div>
+                    <div class="p-0"><sideNav></sideNav></div>
                 </div>
-                
             </div>
-        <div>home</div>
-
-        <logIn></logIn>
-        <registerUser></registerUser>
+            <div class="not-suidenav-parent">
+                
+                <logIn></logIn>
+                <registerUser></registerUser>
+            </div>
         </div>
     </body>
 </template>
@@ -41,12 +41,19 @@ export default {
 
 <style>
     .backdrop {
-        background-color:#08090d;
+        background-color: #120c18
+        /* background-color:#08090d; */
     }
     .notTopNav {
         margin-top: 80px;
     }
     .sidenav-parent {
         position:fixed;
+        width:330px
+    }
+
+    .not-sidenav-parent{
+        position:relative; 
+        left:250px;
     }
 </style>

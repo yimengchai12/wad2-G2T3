@@ -7,15 +7,18 @@
 
             <div class="row notTopNav">
                 <div class="p-0 sidenav-parent">
-                    <div class="col-2 p-0"><sideNav></sideNav></div>
+                    <div class="p-0"><sideNav></sideNav></div>
                 </div>
-                <div class="col-10" style="position:relative; left:16vw">
-                    <homepageCarousel></homepageCarousel>
+                <div class="col-10 not-sidenav-parent">
+                    <div class="row">
+                        <homepageCarousel></homepageCarousel>
+                    </div>  
+                    <div class="row mt-5 pt-5">
                     <logIn></logIn>
                     <registerUser></registerUser>
                     <imagePage></imagePage>
                     <messageBox></messageBox>
-                
+                    </div>
                 
                 </div>
            
@@ -117,12 +120,22 @@ export default {
 
 <style>
     .backdrop {
-        background-color:#08090d;
+        background-color: #120c18
+        /* background-color:#08090d; */
     }
     .notTopNav {
         margin-top: 80px;
     }
     .sidenav-parent {
         position:fixed;
+        width:330px
+    }
+
+    .not-sidenav-parent{
+        position:relative; 
+        left:250px;
+    }
+    *{
+        color: #fefffe;
     }
 </style>
