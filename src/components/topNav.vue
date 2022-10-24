@@ -4,7 +4,7 @@
             <header class="headerfixed">
                     <div class="col-2">
                         <a href="/" class="navbar text-light vertical-center text-decoration-none p-3">
-                            <div class="display-5 font-weight-bold">Homepage</div>
+                            <div class="display-5 font-weight-bold">Avalon</div>
                         </a>
                     </div>
                     <div class="col-10">

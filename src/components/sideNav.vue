@@ -2,7 +2,7 @@
     <div id="navigation" class="sidenav-parent p-0">
         <nav class="navbar navbar-expand d-flex flex-column navborder" id="sideNav">
             
-            <ul class="navbar-bar d-flex flex-column pt-2 px-3" style="list-style-type:none; width:100%">
+            <ul class="navbar-bar d-flex flex-column pt-2 px-3" style="list-style-type:none; width:100%; display: inline-block; text-align: left; ">
                 <li class="nav-item">
            
                         <router-link to="/profile" class="nav-link text-light pl-4" v-if="isLoggedIn">Profile</router-link>
@@ -83,62 +83,54 @@ export default {
 }
 </script>
 <style scoped>
-    * {
-        margin:0;
-        padding:0;
-        box-sizing: border-box;
-        
-    }
 
-    body {
-        min-height: 100vh;
-        background-color: white;
-    }
+/* BELOW IS SIDENAV */
+.navbar {
+    height: 100vh;
+    /* margin-left: -300px; */
+    background-color: #120c18;
+    transition: 0.3s ease;
+    
+}
 
-    .navbar {
-        height: 100vh;
-        /* margin-left: -300px; */
-        background-color: #120c18;
-        transition: 0.3s ease;
-        
-    }
+.nav-link {
+    font-size: 1em;
 
-    .nav-link {
-        font-size: 1em;
+}
 
-    }
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover{
+    background-color: #25192f;
+    border-radius: 5px;
+}
 
-    .nav-link:active,
-    .nav-link:focus,
-    .nav-link:hover{
-        background-color: #25192f;
-        border-radius: 5px;
-    }
+.dropdown-menu{
+    background-color: #120c18;
+}
 
-    .dropdown-menu{
-        background-color: #120c18;
-    }
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover{
+    background-color: #25192f;
+    border-radius: 5px;
+}
 
-    .dropdown-item:active,
-    .dropdown-item:focus,
-    .dropdown-item:hover{
-        background-color: #25192f;
-        border-radius: 5px;
-    }
+.navborder {
+    border-right: 1px solid #25192f;
+}
 
-    .navborder {
-        border-right: 1px solid #25192f;
-    }
+.nav-item{
+    margin-bottom: 20px;
+    margin-top:0;
+}
+.sidenav-parent {
+    position:fixed;
+    width:240px;
+    margin-top: 80px;
 
-    /* .nav-item{
-        margin-bottom: 20px;
-        margin-top:0;
-    } */
-    .sidenav-parent {
-        position:fixed;
-        width:240px;
-        margin-top: 80px;
-
-    }
+}
+/* END OF SIDENAV */
+    
 
 </style>
