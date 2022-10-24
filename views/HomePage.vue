@@ -3,38 +3,25 @@
         <topNav></topNav>
         
         <sideNav></sideNav>
-        
-        <div class="container-fluid backdrop">
-            
-                
-            
-
-            <div class="row notTopNav light-text">
-                
-                <div class="col-10 not-sidenav-parent">
-                    <div class="row">
+        <pageBody>
+                    <div class="row light-text">
                         <homepageCarousel></homepageCarousel>
                     </div>  
-                    <div class="row mt-5 pt-5">
-                    
+                    <div class="row mt-5 pt-5 light-text">
                     <imagePage></imagePage>
-                    <messageBox></messageBox>
                     </div>
-                
-                </div>
-           
-                
+                    <messageBox></messageBox>
+        </pageBody>
+
+        <logIn></logIn>
+        <registerUser></registerUser>
         
-            </div>
-            <logIn></logIn>
-            <registerUser></registerUser>
-        </div>
     </body>
 </template>
 
 
 <script>
-
+import pageBody from "../src/components/pageBody.vue"
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
 import sideNav from "../src/components/sideNav.vue"
@@ -71,7 +58,8 @@ export default {
         topNav,
         homepageCarousel,
         imagePage,
-        messageBox
+        messageBox,
+        pageBody
     },
     
     methods: {

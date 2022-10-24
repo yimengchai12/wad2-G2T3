@@ -23,39 +23,10 @@ export default {
     name: 'topNav',
     // components: {
     // name: 'topNav'
-    
     // }
 }
 </script>
 <style>
-    header {
-        height: 80px;
-        background-color: #120c18;
-    }
-    .headerfixed {
-        position:fixed;
-        z-index: 99;
-        padding:0;
-
-    }
-
-    .center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    }
-
-    .vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    margin-left: 0;
-    }
 
     
 </style>
