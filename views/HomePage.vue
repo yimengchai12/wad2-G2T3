@@ -5,7 +5,7 @@
                 <topNav></topNav>
             
 
-            <div class="row notTopNav">
+            <div class="row notTopNav light-text">
                 <div class="p-0 sidenav-parent">
                     <div class="p-0"><sideNav></sideNav></div>
                 </div>
@@ -14,17 +14,18 @@
                         <homepageCarousel></homepageCarousel>
                     </div>  
                     <div class="row mt-5 pt-5">
-                    <logIn></logIn>
-                    <registerUser></registerUser>
+                    
                     <imagePage></imagePage>
                     <messageBox></messageBox>
                     </div>
                 
                 </div>
            
-        
+                
         
             </div>
+            <logIn></logIn>
+            <registerUser></registerUser>
         </div>
     </body>
 </template>
@@ -135,7 +136,7 @@ export default {
         position:relative; 
         left:250px;
     }
-    *{
+    .light-text {
         color: #fefffe;
     }
 </style>

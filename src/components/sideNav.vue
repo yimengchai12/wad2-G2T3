@@ -4,12 +4,6 @@
             
             <ul class="navbar-bar d-flex flex-column mt-0 p-2" style="list-style-type:none; width:100%">
                 <li class="nav-item">
-                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" v-if="!isLoggedIn">Sign in</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#register" v-if="!isLoggedIn">Register</a>
-                </li>
-                <li class="nav-item">
            
                         <router-link to="/profile" class="nav-link text-light pl-4" v-if="isLoggedIn">Profile</router-link>
                  
@@ -29,6 +23,12 @@
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">2nd Option</a></li>
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">3rd Option</a></li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" v-if="!isLoggedIn">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#register" v-if="!isLoggedIn">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light pl-4" @click="handleSignOut" v-if="isLoggedIn">Sign out</a>
@@ -104,7 +104,7 @@ export default {
     }
 
     .nav-link {
-        font-size: 1.25em;
+        font-size: 1em;
 
     }
 
@@ -129,6 +129,11 @@ export default {
     .navborder {
         border-right: 1px solid #25192f;
     }
+
+    /* .nav-item{
+        margin-bottom: 20px;
+        margin-top:0;
+    } */
 
 
 </style>
