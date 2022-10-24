@@ -1,0 +1,20 @@
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+    }
+.backdrop {
+    background-color: #120c18
+    /* background-color:#08090d; */
+}
+.notTopNav {
+    margin-top: 80px;
+}
+
+
+.not-sidenav-parent{
+    position:relative; 
+    left:250px;
+}
+.light-text {
+    color: #fefffe;
+}

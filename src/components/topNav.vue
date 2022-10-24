@@ -1,9 +1,8 @@
 <template>
-    
-    <div class="row">
-        <div class="headerfixed">
-            <header>
-                    <div class="col-2 float-left">
+    <div class="container-fluid">
+        <div class="row">
+            <header class="headerfixed">
+                    <div class="col-2">
                         <a href="/" class="navbar-brand text-light vertical-center">
                             <div class="display-5 font-weight-bold">Homepage</div>
                         </a>
@@ -58,9 +57,5 @@ export default {
     margin-left: 0;
     }
 
-    .move-left {
-    left:0%;
     
-    margin-left: 0;
-    }
 </style>

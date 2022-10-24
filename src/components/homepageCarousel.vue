@@ -14,7 +14,7 @@
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    <img src="#" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
+                    
                 </div>
                 <div class="carousel-item cc1">
                     <div class="d-none d-md-inline-block" style="width:40%;">
@@ -22,7 +22,7 @@
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    <img src="#" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
+                    
                 </div>
                 <div class="carousel-item cc1">
                     <div class="d-none d-md-inline-block" style="width:40%;">
@@ -30,7 +30,7 @@
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    <img src="#" class="d-inline-block img-fluid carouimg" style="width:60%" alt="...">
+                    
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">

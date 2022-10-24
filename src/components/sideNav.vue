@@ -1,5 +1,5 @@
 <template>
-    <div id="navigation" class="w-75">
+    <div id="navigation" class="sidenav-parent p-0">
         <nav class="navbar navbar-expand d-flex flex-column navborder" id="sideNav">
             
             <ul class="navbar-bar d-flex flex-column mt-0 p-2" style="list-style-type:none; width:100%">
@@ -134,6 +134,11 @@ export default {
         margin-bottom: 20px;
         margin-top:0;
     } */
+    .sidenav-parent {
+        position:fixed;
+        width:240px;
+        margin-top: 80px;
 
+    }
 
 </style>

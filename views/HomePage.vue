@@ -1,14 +1,16 @@
 <template>
     <body>
+        <topNav></topNav>
+        
+        <sideNav></sideNav>
+        
         <div class="container-fluid backdrop">
             
-                <topNav></topNav>
+                
             
 
             <div class="row notTopNav light-text">
-                <div class="p-0 sidenav-parent">
-                    <div class="p-0"><sideNav></sideNav></div>
-                </div>
+                
                 <div class="col-10 not-sidenav-parent">
                     <div class="row">
                         <homepageCarousel></homepageCarousel>
@@ -120,23 +122,7 @@ export default {
 </script>
 
 <style>
-    .backdrop {
-        background-color: #120c18
-        /* background-color:#08090d; */
-    }
-    .notTopNav {
-        margin-top: 80px;
-    }
-    .sidenav-parent {
-        position:fixed;
-        width:330px
-    }
+    
 
-    .not-sidenav-parent{
-        position:relative; 
-        left:250px;
-    }
-    .light-text {
-        color: #fefffe;
-    }
+    
 </style>
