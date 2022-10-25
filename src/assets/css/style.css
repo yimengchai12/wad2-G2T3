@@ -2,10 +2,16 @@ html {
     overflow: -moz-scrollbars-vertical; 
     overflow-y: scroll;
     }
+
+    /* pageBody */
 .backdrop {
     background-color: #120c18
     /* background-color:#08090d; */
 }
+
+/* pageBody END */
+
+/* top and side navBars */
 .notTopNav {
     margin-top: 80px;
 }
@@ -49,6 +55,9 @@ margin-left: 0;
 
 }
 
+/* top and side navBar END */
+
+/* homepageCarousel */
 .homepageCarou {
     background-color: #120c18;
     height: 600px;
@@ -141,3 +150,5 @@ border-radius: 10px;
     background-position: right;
     border-radius: 20px;
 }
+
+/* homepageCarousel END */
