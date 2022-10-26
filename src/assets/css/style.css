@@ -30,7 +30,13 @@ html {
 }
 
 
+.topnav-brand {
+    filter: brightness(100%);
+}
 
+.topnav-brand:hover {
+    filter: brightness(80%);
+}
 
 .center {
 margin: 0;

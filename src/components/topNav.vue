@@ -20,7 +20,7 @@
 
     
     <header class="headerfixed">
-        <h1 id="nav-title"><a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3">AVALON</a></h1>
+        <h1 id="nav-title"><a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3"><img src="../assets/Avalon-1.png" style="width:129.44px;" class="img-fluid topnav-brand"></a></h1>
         <nav>
             <ul>
                 <li> 
