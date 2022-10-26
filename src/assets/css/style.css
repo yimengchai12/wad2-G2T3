@@ -68,14 +68,24 @@ margin-left: 0;
     width: 75vw;
     margin-top: 1px;
 }
-
+.carou-border{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
 .carousel-inner {
     align-items: center;
+    height:inherit; 
 }
-.carouimg {
-    height:600px;
 
+.carousel-item{
+    height:inherit;
 }
+
+.height-inherit {
+    height:inherit;
+}
+
+
 
 #carouselExampleCaptions {
     position:relative;
@@ -253,7 +263,7 @@ border-radius: 10px;
 }
 
 .cc1 {
-    background-image: url("../idp.jpg");
+    background-image: url("../cyberpunk.jpg");
     background-size:contain;
     background-repeat: no-repeat;
     background-position: right;
