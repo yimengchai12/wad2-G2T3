@@ -11,7 +11,7 @@
             </div>
 
             <div class="form-group">
-                <input type="text" placeholder="Tag" v-model="images.tag" class="form-control">
+                <input type="text" @keyup.enter="addTag" placeholder="Tag" v-model="tag" class="form-control">
             </div>
 
             <div class="form-group">
@@ -26,13 +26,13 @@
 
     <h3>Image List</h3>
 
-    <div v-for="image in imagesObj" :key="image">
+    <div v-for="imag in imagesObj" :key="imag">
     <div class="card" style="width: 18rem;">
-        <img src="" class="card-img-top" alt="">
+        <img :src="imag.image" class="card-img-top" alt="">
         <div class="card-body">
-            <h5 class="card-title">{{image.title}}</h5>
-            <p class="card-text">{{image.details}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">{{imag.title}}</h5>
+            <p class="card-text">{{imag.details}}</p>
+            <button @click="deleteData(imag.id)" class="btn btn-primary">Go somewhere</button>
         </div>
     </div>
 </div>
@@ -41,9 +41,10 @@
 
 <script>
 
-import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"; 
 import { db } from "../src/main.js";
+
 
 
 export default {
@@ -55,9 +56,10 @@ export default {
             images: {
                 title: "",
                 details: "",
-                tag: "",
-                image: "",
+                tags: [],
+                image: null,
             },
+            tag:null
         }
     },
 
@@ -67,8 +69,24 @@ export default {
     created(){
         this.readData();
     },
+
+    firestore(){
+        return{
+            images: db.collection('images'),
+        }
+    },
     
     methods: {
+
+        async deleteData(d){
+            alert(d)
+            await deleteDoc(doc(db, "images",d ));
+        },
+
+        addTag(){
+            this.images.tags.push(this.tag);
+            this.tag='';
+        },
 
         async readData(){
             const querySnapshot = await getDocs(collection(db, "images"));
@@ -89,6 +107,8 @@ export default {
             })
 
             this.readData();
+            
+
             // .catch(error => {
             //     console.error("Error adding document: ");
             // });
@@ -124,6 +144,11 @@ export default {
                         console.log('Upload is running');
                         break;
                     }
+
+                    getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
+                        this.images.image = url;
+                        console.log(url);
+                    });
                 }, 
                 (error) => {
                     // Handle unsuccessful uploads
@@ -138,6 +163,8 @@ export default {
             console.log(e.target.files[0]);
             
         }
+
+        
     },
 
     

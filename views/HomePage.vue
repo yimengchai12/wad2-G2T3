@@ -20,6 +20,9 @@
                     <!-- <imagePage></imagePage> -->
                     </div>
                     <!-- <messageBox></messageBox> -->
+                    <div>
+                        <imagePage></imagePage>
+                    </div>
 
         </pageBody>
 
@@ -34,6 +37,7 @@ import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 import homepageListing from "../src/components/homepageListing.vue"
+import imagePage from "./ImagePage.vue"
 
 import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
@@ -64,7 +68,7 @@ export default {
         logIn, 
         registerUser,
         homepageCarousel,
-        // imagePage,
+        imagePage,
         // messageBox,
         pageBody,
         homepageListing
