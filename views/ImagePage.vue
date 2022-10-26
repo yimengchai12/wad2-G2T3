@@ -32,7 +32,7 @@
         <div class="card-body">
             <h5 class="card-title">{{imag.title}}</h5>
             <p class="card-text">{{imag.details}}</p>
-            <button @click="deleteData(imag.id)" class="btn btn-primary">Go somewhere</button>
+            <button @click="deleteData(imag.title)" class="btn btn-primary">Go somewhere</button>
         </div>
     </div>
 </div>
@@ -42,7 +42,7 @@
 <script>
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"; 
+import { collection, setDoc, getDocs, deleteDoc, doc } from "firebase/firestore"; 
 import { db } from "../src/main.js";
 
 
@@ -79,7 +79,6 @@ export default {
     methods: {
 
         async deleteData(d){
-            alert(d)
             await deleteDoc(doc(db, "images",d ));
         },
 
@@ -100,9 +99,9 @@ export default {
         },
 
         async saveData(){
-            await addDoc(collection(db, "images"), this.images)
-            .then((docRef) =>{
-                console.log("Document written with ID: ", docRef.id);
+            await setDoc(doc(db, "images", this.images.title), this.images)
+            .then(() =>{
+                // console.log("Document written with ID: ", docRef.id);
                 this.reset();
             })
 
