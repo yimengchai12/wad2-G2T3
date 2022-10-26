@@ -36,11 +36,11 @@
                     
                 </li>
                 <li class="nav-item" id="signout">
-                    <a class="nav-link light-text pl-4" v-if="isLoggedIn" @click="handleSignOut" >Sign out</a>
+                    <a class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1 pl-4" v-if="isLoggedIn" @click="handleSignOut" >Sign out</a>
                 </li>
                 <li class="nav-item">
            
-                    <router-link to="/profile" class="nav-link light-text pl-4" v-if="isLoggedIn">Profile</router-link>
+                    <router-link to="/profile" class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1" v-if="isLoggedIn">Profile</router-link>
     
                 </li>
             </ul>
