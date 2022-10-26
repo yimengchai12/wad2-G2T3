@@ -1,9 +1,12 @@
 <template>
+    <logIn></logIn>
+    <registerUser></registerUser>
     <body>
         <navBars></navBars>
+        
+        
         <div>
-            <logIn></logIn>
-            <registerUser></registerUser>
+            
         </div>
         
         <pageBody>

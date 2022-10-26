@@ -17,6 +17,7 @@
                     </p>
                     <p>
                         <button @click="register" class="btn btn-primary">Register</button>
+                        <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Close</button>
                     </p>
                 </div>
             </div>

@@ -7,7 +7,7 @@
         <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div class="modal" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header text-center">
@@ -106,3 +106,13 @@ export default {
 
 
 </script>
+
+
+<style>
+.modal-header{
+    background-color: #c9ff06;
+}
+.modal-body{
+    background-color: rgb(185, 84, 210);
+}
+</style>
