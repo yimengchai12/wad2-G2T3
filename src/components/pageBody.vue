@@ -1,12 +1,10 @@
 <template>
     <div class="container-fluid backdrop">
-            
-            <div class="row notTopNav">
-                <div class="col-10 not-sidenav-parent">
+            <div class="notTopNav">
+                <div class="col not-sidenav-parent">
                 <slot></slot>
                 </div>
             </div>
-            
         </div>
 </template>
 <script>

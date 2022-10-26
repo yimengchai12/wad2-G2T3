@@ -1,18 +1,26 @@
 <template>
     <body>
         <navBars></navBars>
+        <div>
+            <logIn></logIn>
+            <registerUser></registerUser>
+        </div>
+        
         <pageBody>
-                    <div class="row light-text">
+
+            
+                    <div class="row light-text m-0">
                         <homepageCarousel></homepageCarousel>
                     </div>  
                     <div class="row mt-5 pt-5 light-text">
-                    <imagePage></imagePage>
+                        <homepageListing></homepageListing>
+                    <!-- <imagePage></imagePage> -->
                     </div>
-                    <messageBox></messageBox>
+                    <!-- <messageBox></messageBox> -->
+
         </pageBody>
 
-        <logIn></logIn>
-        <registerUser></registerUser>
+        
         
     </body>
 </template>
@@ -22,12 +30,12 @@ import pageBody from "../src/components/pageBody.vue"
 import logIn from "./SignIn.vue"
 import registerUser from "./RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
-
+import homepageListing from "../src/components/homepageListing.vue"
 
 import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
-import imagePage from "./ImagePage.vue";
-import messageBox from "../src/components/Chat.vue";
+// import imagePage from "./ImagePage.vue";
+// import messageBox from "../src/components/Chat.vue";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { onMounted } from "vue";
 
@@ -53,9 +61,10 @@ export default {
         logIn, 
         registerUser,
         homepageCarousel,
-        imagePage,
-        messageBox,
-        pageBody
+        // imagePage,
+        // messageBox,
+        pageBody,
+        homepageListing
     },
     
     methods: {

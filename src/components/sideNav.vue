@@ -2,17 +2,13 @@
     <div id="navigation" class="sidenav-parent p-0">
         <nav class="navbar navbar-expand d-flex flex-column navborder" id="sideNav">
             
-            <ul class="navbar-bar d-flex flex-column pt-2 px-3" style="list-style-type:none; width:100%; display: inline-block; text-align: left; ">
-                <li class="nav-item">
-           
-                        <router-link to="/profile" class="nav-link text-light pl-4" v-if="isLoggedIn">Profile</router-link>
-                 
-                </li>
-                <li class="nav-item">
+            <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:100%; display: inline-block; text-align: left; ">
+                
+                <!-- <li class="nav-item">
            
                     <router-link to="/feedpage" class="nav-link text-light pl-4" v-if="isLoggedIn">Feedpage</router-link>
     
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link text-light pl-4">Marketplace</a>
                 </li>
@@ -24,52 +20,22 @@
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">3rd Option</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" v-if="!isLoggedIn">Sign in</a>
+                <!-- <li class="nav-item" v-if="!isLoggedIn" id="login">
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" >Sign in</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#register" v-if="!isLoggedIn">Register</a>
+                <li class="nav-item" v-if="!isLoggedIn" id="register">
+                    <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#register" >Register</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light pl-4" @click="handleSignOut" v-if="isLoggedIn">Sign out</a>
-                </li>
+                <li class="nav-item" v-if="isLoggedIn" id="signout">
+                    <a class="nav-link text-light pl-4" @click="handleSignOut" >Sign out</a>
+                </li> -->
             </ul>
         </nav>
     </div>
     
 </template>
 
-<script setup>
-import { onMounted, ref} from "vue";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import router from "../router";
 
-const isLoggedIn = ref(false);
-
-let auth;
-onMounted(()=>{
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      isLoggedIn.value = true;
-    } else {
-      isLoggedIn.value = false;
-    }
-  });
-});
-
-const handleSignOut = () => {
-  signOut(auth)
-    .then(() => {
-      console.log("Successfully signed out!");
-      router.push("/");
-    })
-    .catch((error) => {
-      console.log(error.code);
-      alert(error.message);
-    })
-}
-</script>
 
 
 <script>
@@ -90,12 +56,13 @@ export default {
     /* margin-left: -300px; */
     background-color: #120c18;
     transition: 0.3s ease;
-    
+    padding-top:0;
 }
 
 .nav-link {
+   
     font-size: 1em;
-
+    line-height:40px;
 }
 
 .nav-link:active,
@@ -103,6 +70,7 @@ export default {
 .nav-link:hover{
     background-color: #25192f;
     border-radius: 5px;
+    
 }
 
 .dropdown-menu{
@@ -121,14 +89,12 @@ export default {
 }
 
 .nav-item{
-    margin-bottom: 20px;
     margin-top:0;
 }
 .sidenav-parent {
     position:fixed;
     width:240px;
-    margin-top: 80px;
-
+    z-index: 99;
 }
 /* END OF SIDENAV */
     
