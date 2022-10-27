@@ -157,7 +157,18 @@ export default {
         // User doesn't have permission to access the object
                     break;
                 }
-            }
+                }, 
+                // () => {
+                    
+                //     uploadTask.snapshot.ref.getDownloadURL().then(
+                //         function(downloadURL){
+                //             console.log('File available at', downloadURL);
+                //         }
+                //     )
+                //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                //         console.log('File available at', downloadURL);
+                //     });
+                // }
             );
             console.log(e.target.files[0]);
             
