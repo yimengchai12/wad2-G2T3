@@ -24,6 +24,7 @@ html {
     position:relative; 
     padding-left: 280px;
     width:max-content;
+
 }
 .light-text {
     color: #fefffe;
@@ -176,7 +177,7 @@ border-radius: 10px;
 }
 
 .signin-on-hover:active {
-    color: #e42474;
+    color:#fefffe;
 }
 
 .signin-on-hover:active:after {
@@ -253,9 +254,6 @@ border-radius: 10px;
     top: 0;
     border-radius: 500px;
 }
-
-
-
 @keyframes glowing {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }

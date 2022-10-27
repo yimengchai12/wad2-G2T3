@@ -95,6 +95,7 @@ export default {
     position:fixed;
     width:240px;
     z-index: 99;
+    margin-top:80px;
 }
 /* END OF SIDENAV */
     
