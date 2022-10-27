@@ -8,29 +8,38 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div> -->
             <div class="carousel-inner">
-                <div class="carousel-item active cc1" >
-                    <div class="d-none d-md-inline-block " style="width:40%;">
-                    <h5>First slide label</h5>
+                <div class="carousel-item active cc1">
+                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-block ">
+                    <div class="d-flex justify-content-center">
+                    <div class="vertical-center text-start">
+                    <h1>First slide label</h1>
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    
+                    </div>
+                    </div>
                 </div>
                 <div class="carousel-item cc1">
-                    <div class="d-none d-md-inline-block" style="width:40%;">
-                    <h5>Second slide label</h5>
+                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-block ">
+                    <div class="d-flex justify-content-center">
+                    <div class="vertical-center text-start">
+                    <h1>First slide label</h1>
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    
+                    </div>
+                    </div>
                 </div>
                 <div class="carousel-item cc1">
-                    <div class="d-none d-md-inline-block" style="width:40%;">
-                    <h5>Third slide label</h5>
+                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-block ">
+                    <div class="d-flex justify-content-center">
+                    <div class="vertical-center text-start">
+                    <h1>First slide label</h1>
                     <p>Some representative placeholder content for the first slide.</p>
                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
                     </div>
-                    
+                    </div>
+                    </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
