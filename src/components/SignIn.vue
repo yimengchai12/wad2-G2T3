@@ -10,7 +10,7 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h2 class="modal-title w-100" id="exampleModalLabel">
-                        <img src="../src/assets/Avalon-1.png" style="width:129.44px;">
+                        <img src="../assets/Avalon-1.png" style="width:129.44px;">
                     </h2>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
