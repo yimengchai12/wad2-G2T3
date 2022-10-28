@@ -54,6 +54,10 @@ export default {
         return {
             imagesObj: [],
             images: {
+                userid: "", 
+                email: "", 
+                listDate: "",
+                price: "",
                 title: "",
                 details: "",
                 tags: [],
@@ -182,3 +186,9 @@ export default {
 
 </script>
 
+<style>
+img { 
+                -webkit-filter: blur(1px); 
+                filter: blur(1px); 
+            } 
+</style>

@@ -21,7 +21,7 @@
                             Log in to buy and sell art from artists all over the world!
                         </h5>
                     </div>
-                    <div class="field field_v1" v-if="!signedin">
+                    <div class="field field_v1" v-if="!isLoggedIn">
                         <label for="signin-email" class="ha-screen-reader">Email</label>
                         <input id="signin-email" type="text" class="field__input" placeholder="Please enter your email" v-model="email"
                             @keyup.enter="signin">
@@ -29,7 +29,7 @@
                             <span class="field__label">Email</span>
                         </span>
                     </div>
-                    <div class="field field_v2" v-if="!signedin">
+                    <div class="field field_v2" v-if="!isLoggedIn">
                         <label for="signin-password" class="ha-screen-reader">Password</label>
                         <input type="password" id="signin-password" class="field__input"
                             placeholder="Please enter your password" v-model="password" @keyup.enter="signin">
@@ -42,11 +42,11 @@
                     <p v-if="errMsg" class="light-text">{{ errMsg }}</p>
                     <p v-if="success" class="light-text">{{ success }}</p>
                 <div class="mb-3">
-                    <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75" v-if="!signedin">
+                    <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75" v-if="!isLoggedIn">
                         Sign In
                     </button>
                     <button type="button" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75"
-                        data-bs-dismiss="modal" v-if="signedin">
+                        data-bs-dismiss="modal" v-if="isLoggedIn">
                         Close
                     </button>
                 </div>
@@ -65,8 +65,8 @@
 <script setup>
 // import sideNav from "../src/components/sideNav.vue"
 
-import { ref } from "vue";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { ref, onMounted } from "vue";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "vue-router";
 
 // import $ from 'jquery'
@@ -76,9 +76,29 @@ const errMsg = ref();
 const router = useRouter();
 const success = ref("");
 const signedin = ref(false);
+const isLoggedIn = ref(false);
+
+const auth = getAuth();
+
+onMounted(()=>{
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log('signedin')
+      isLoggedIn.value = true;
+
+    } else {
+      isLoggedIn.value = false;
+      success.value = "";
+      password.value="";
+      email.value="";
+      console.log('signedout')
+    }
+  });
+});
+
 
 const signin = () => {
-    const auth = getAuth();
+    
     console.log(email.value);
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
