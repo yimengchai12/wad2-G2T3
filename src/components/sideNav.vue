@@ -1,6 +1,6 @@
 <template>
     
-    <div  class="sidenav-parent sidenav-position margin-not-mobile p-0" >
+    <div  class="sidenav-parent sidenav-position margin-not-mobile backdrop p-0" >
         <nav class="navbar navbar-expand-md navborder" id="sideNav" >
             <div id="navigation" style="width:33vw;" class="offcanvas offcanvas-start backdrop margin-mobile">
             <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:inherit; text-align: left; ">
