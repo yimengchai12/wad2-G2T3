@@ -121,4 +121,7 @@ export default {
         margin-top:80px; 
     }
 }
+
+
+
 </style>
