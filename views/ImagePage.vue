@@ -12,6 +12,12 @@
 
             <div class="form-group">
                 <input type="text" @keyup.enter="addTag" placeholder="Tag" v-model="tag" class="form-control">
+                <div class="d-flex">
+                    <p v-for="(tag,index) in images.tags" :key="tag" class="text-start p-2 bg-danger me-2">
+                        <button type="button" class="btn-close btn-close-white" aria-label="Close" @click="deleteTag(tag,index)"></button>
+                        <span class="p-1 me-2 text-light"> {{tag}}</span>  
+                    </p>
+                </div>
             </div>
 
             <div class="form-group">
@@ -81,6 +87,10 @@ export default {
     },
     
     methods: {
+
+        deleteTag(tag,index){
+            this.images.tags.splice(index,1);
+        },
 
         async deleteData(d){
             await deleteDoc(doc(db, "images",d ));

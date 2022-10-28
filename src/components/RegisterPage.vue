@@ -10,7 +10,10 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <input type="text" placeholder="Email" v-model="email" @keyup.enter="signin" />
+                        <input type="text" placeholder="Name" v-model="name" @keyup.enter="register" />
+                    </p>
+                    <p>
+                        <input type="text" placeholder="Email" v-model="email" @keyup.enter="register" />
                     </p>
                     <p>
                         <input type="password" placeholder="Password" v-model="password" @keyup.enter="register" />
@@ -36,15 +39,25 @@
 import { ref } from "vue";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "vue-router";
+import { setDoc, doc } from "firebase/firestore"; 
+import { db } from "../main.js";
+
+const name = ref("")
 const email = ref("");
 const password = ref("");
 const router = useRouter();
 
 const register = () => {
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-        .then(() => {
+        .then((user) => {
             console.log("Successfully registered!");
-            router.push("/sign-in");
+            console.log(user.user.uid);
+            setDoc(doc(db, "profiles", user.user.uid), {
+                name: name.value ,
+                email: email.value,
+                images: []
+            })
+            router.push("/");
         })
         .catch((error) => {
             console.log(error.code);
@@ -56,6 +69,7 @@ const register = () => {
 <script>
 export default {
     name: "registerUser",
+
    
 };
 </script>
