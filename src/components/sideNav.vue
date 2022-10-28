@@ -1,8 +1,8 @@
 <template>
     
-    <div  class="sidenav-parent sidenav-position p-0" >
+    <div  class="sidenav-parent sidenav-position margin-not-mobile p-0" >
         <nav class="navbar navbar-expand-md navborder" id="sideNav" >
-            <div id="navigation" style="width:33vw; margin-top:80px;" class="offcanvas offcanvas-start backdrop">
+            <div id="navigation" style="width:33vw;" class="offcanvas offcanvas-start backdrop margin-mobile">
             <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:inherit; text-align: left; ">
                 <!-- <li class="nav-item">
            
@@ -98,15 +98,27 @@ export default {
 @media screen and (min-width:768px) {
 .sidenav-parent {
     width:240px;
+    height:100vh;
 }
 }
 
 .sidenav-position {
     position:fixed;
-    
-    z-index: 99; 
+    border-right: 1px solid #25192f;
+    z-index: 99;
 }
 /* END OF SIDENAV */
     
 
+@media screen and (min-width:768px){
+    .margin-not-mobile {
+        margin-top:80px; 
+    }
+}
+
+@media screen and (max-width:767px){
+    .margin-mobile {
+        margin-top:80px; 
+    }
+}
 </style>

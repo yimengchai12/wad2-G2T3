@@ -1,7 +1,7 @@
 <template>
 
     <div>
-        <div id="carouselExampleCaptions" class="carousel slide homepageCarou" data-bs-ride="false">
+        <div id="carouselExampleCaptions" class="carousel slide homepageCarou" data-bs-ride="carousel" data-bs-interval="7000">
             <!-- <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -11,7 +11,7 @@
                 <div class="carousel-item active">
                     <div class="carou-border height-inherit backdrop col-5 d-none d-md-inline-block ">
                         <div class="d-flex justify-content-center">
-                            <div class="vertical-center text-start">
+                            <div class="vertical-center text-start p-3">
                                 <h1>First slide label</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
                                 <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection
@@ -26,7 +26,7 @@
                 <div class="carousel-item">
                     <div class="carou-border height-inherit backdrop col-5 d-none d-md-inline-block ">
                         <div class="d-flex justify-content-center">
-                            <div class="vertical-center text-start">
+                            <div class="vertical-center text-start p-3">
                                 <h1>First slide label</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
                                 <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection
@@ -38,10 +38,10 @@
                         <img class="height-inherit" src="../assets/cyberpunk.jpg"/>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" >
                     <div class="carou-border height-inherit backdrop col-5 d-none d-md-inline-block ">
                         <div class="d-flex justify-content-center">
-                            <div class="vertical-center text-start">
+                            <div class="vertical-center text-start p-3">
                                 <h1>First slide label</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
                                 <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -64,7 +64,7 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-            
+             -->
             <div class="carousel-indicators" style="transform: translate(0px, 40px);">
                 <button type="button" style="height: 4px; width:100px; border:none; border-radius:10px;"
                     data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"
@@ -83,6 +83,7 @@
 <script>
 
 
+
 export default {
     name: 'homepageCarousel',
     components: {
@@ -91,6 +92,7 @@ export default {
 
 
 }
+
 
 </script>
 <style>

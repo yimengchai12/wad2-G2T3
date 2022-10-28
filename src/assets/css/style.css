@@ -23,7 +23,8 @@ html {
     .not-sidenav-parent{
         position:relative; 
         padding-left: 280px;
-        width:max-content;
+        /* width:max-content; */
+        margin:auto;
     }
 }
 
@@ -62,13 +63,17 @@ margin-left: 0;
 /* top and side navBar END */
 
 /* homepageCarousel */
+
+
+
+
 @media screen and (min-width:768px){
 .homepageCarou {
     background-color: #120c18;
     height: 600px;
     outline: 1px solid #25192f;
     border-radius: 20px;
-    width: 80vw;
+    width: 75vw;
     margin-top: 1px;
 }
 }
