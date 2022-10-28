@@ -20,7 +20,7 @@
                     <!-- <imagePage></imagePage> -->
                     </div>
                     <!-- <messageBox></messageBox> -->
-                    <div>
+                    <div class="row mt-5">
                         <imagePage></imagePage>
                     </div>
 

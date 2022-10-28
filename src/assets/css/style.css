@@ -19,14 +19,25 @@ html {
     margin-top: 80px;
 }
 
-@media screen and (min-width:768px) {
-    .not-sidenav-parent{
+@media screen and (min-width:1200px) {
+    .not-sidenav-parent {
         position:relative; 
         padding-left: 280px;
         /* width:max-content; */
         margin:auto;
     }
 }
+
+@media screen and (max-width:1199px) {
+    .not-sidenav-parent {
+        padding-left: 30px;
+        padding-right: 30px;
+        /* width:max-content; */
+        margin:auto;
+    }
+}
+
+
 
 .light-text {
     color: #fefffe;
@@ -67,7 +78,7 @@ margin-left: 0;
 
 
 
-@media screen and (min-width:768px){
+@media screen and (min-width:1200px){
 .homepageCarou {
     background-color: #120c18;
     height: 600px;
@@ -78,7 +89,7 @@ margin-left: 0;
 }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:1199px) {
     .homepageCarou {
         background-color: #120c18;
         height: 600px;

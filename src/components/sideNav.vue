@@ -1,7 +1,7 @@
 <template>
     
-    <div  class="sidenav-parent sidenav-position margin-not-mobile backdrop p-0" >
-        <nav class="navbar navbar-expand-md navborder" id="sideNav" >
+    <div  class="sidenav-parent sidenav-position margin-not-mobile p-0" >
+        <nav class="navbar navbar-expand-xl navborder" id="sideNav" >
             <div id="navigation" style="width:33vw;" class="offcanvas offcanvas-start backdrop margin-mobile">
             <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:inherit; text-align: left; ">
                 <!-- <li class="nav-item">
@@ -87,6 +87,7 @@ export default {
     border-radius: 5px;
 }
 
+
 .navborder {
     border-right: 1px solid #25192f;
 }
@@ -95,7 +96,7 @@ export default {
     margin-top:0;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:1200px) {
 .sidenav-parent {
     width:240px;
     height:100vh;
@@ -110,15 +111,16 @@ export default {
 /* END OF SIDENAV */
     
 
-@media screen and (min-width:768px){
+@media screen and (min-width:1200px){
     .margin-not-mobile {
         margin-top:80px; 
     }
 }
 
-@media screen and (max-width:767px){
+@media screen and (max-width:1199px){
     .margin-mobile {
         margin-top:80px; 
+        border-right: 1px solid #25192f;
     }
 }
 

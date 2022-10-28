@@ -40,7 +40,7 @@
                         </div>
                         <div class="row d-lg-none">
                             <div class="backdrop p-0" style="vertical-align:bottom">
-                                <img style="height:100%; vertical-align:bottom" src="../assets/carousel_1.gif" />
+                                <img style="height:100%; width:100%; vertical-align:bottom; border-radius: 20px;" src="../assets/carousel_1.gif" />
                             </div>
                         </div>
                     
@@ -77,7 +77,7 @@
                    </div>
                    <div class="row d-lg-none">
                        <div class="backdrop p-0" style="vertical-align:bottom">
-                           <img style="height:100%; width:100%; vertical-align:bottom" src="../assets/carousel_2.gif" />
+                           <img style="height:100%; width:100%; vertical-align:bottom;  border-radius: 20px;"  src="../assets/carousel_2.gif" />
                        </div>
                    </div>
                
@@ -115,7 +115,7 @@
                    </div>
                    <div class="row d-lg-none">
                        <div class="backdrop p-0" style="vertical-align:bottom">
-                           <img style="height:100%; vertical-align:bottom" src="../assets/carousel_3.gif" />
+                           <img style="height:100%; width:100%; vertical-align:bottom; border-radius: 20px;" src="../assets/carousel_3.gif" />
                        </div>
                    </div>
                
@@ -174,5 +174,14 @@ h1 {
     font-weight: bold;
 }
 
+@media screen and (max-width: 576px) {
+    h1 {
+    font-size:250%;
+    font-weight: bold;
+}
+    p {
+        font-size:90%;
+    }
+}
 </style>
 

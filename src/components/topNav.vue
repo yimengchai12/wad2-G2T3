@@ -20,7 +20,7 @@
 
     
     <header class="headerfixed">
-        <div class="navbar-dark d-block d-md-none ms-3">
+        <div class="navbar-dark d-block d-xl-none ms-3">
         <button class='navbar-toggler' type="button" data-bs-toggle="offcanvas" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon p-3 "></span>
         </button>
