@@ -20,6 +20,11 @@
 
     
     <header class="headerfixed">
+        <div class="navbar-dark d-block d-md-none ms-3">
+        <button class='navbar-toggler' type="button" data-bs-toggle="offcanvas" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon p-3 "></span>
+        </button>
+        </div>
         <h1 id="nav-title"><a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3"><img src="../assets/Avalon-1.png" style="width:129.44px;" class="img-fluid topnav-brand"></a></h1>
         <nav>
             <ul>

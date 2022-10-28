@@ -1,5 +1,5 @@
 <template>
-    
+
     <div>
         <div id="carouselExampleCaptions" class="carousel slide homepageCarou" data-bs-ride="false">
             <!-- <div class="carousel-indicators">
@@ -8,73 +8,92 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div> -->
             <div class="carousel-inner">
-                <div class="carousel-item active cc1">
-                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-block ">
-                    <div class="d-flex justify-content-center">
-                    <div class="vertical-center text-start">
-                    <h1>First slide label</h1>
-                    <p>Some representative placeholder content for the first slide.</p>
-                    <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
+                <div class="carousel-item active">
+                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-inline-block ">
+                        <div class="d-flex justify-content-center">
+                            <div class="vertical-center text-start">
+                                <h1>First slide label</h1>
+                                <p>Some representative placeholder content for the first slide.</p>
+                                <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection
+                                </router-link>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="carousel-item cc1">
-                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-block ">
-                    <div class="d-flex justify-content-center">
-                    <div class="vertical-center text-start">
-                    <h1>First slide label</h1>
-                    <p>Some representative placeholder content for the first slide.</p>
-                    <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
-                    </div>
-                    </div>
+                    <div class="height-inherit backdrop col-7 d-md-inline-block" style="vertical-align:top;">
+                        <img class="height-inherit" src="../assets/cyberpunk.jpg"/>
                     </div>
                 </div>
-                <div class="carousel-item cc1">
-                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-block ">
-                    <div class="d-flex justify-content-center">
-                    <div class="vertical-center text-start">
-                    <h1>First slide label</h1>
-                    <p>Some representative placeholder content for the first slide.</p>
-                    <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection</router-link>
+                <div class="carousel-item">
+                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-inline-block ">
+                        <div class="d-flex justify-content-center">
+                            <div class="vertical-center text-start">
+                                <h1>First slide label</h1>
+                                <p>Some representative placeholder content for the first slide.</p>
+                                <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection
+                                </router-link>
+                            </div>
+                        </div>
                     </div>
+                    <div class="height-inherit backdrop col-7 d-md-inline-block" style="vertical-align:top;">
+                        <img class="height-inherit" src="../assets/cyberpunk.jpg"/>
                     </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carou-border height-inherit backdrop col-5 d-none d-md-inline-block ">
+                        <div class="d-flex justify-content-center">
+                            <div class="vertical-center text-start">
+                                <h1>First slide label</h1>
+                                <p>Some representative placeholder content for the first slide.</p>
+                                <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">Collection
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="height-inherit backdrop col-7 d-md-inline-block" style="vertical-align:top;">
+                        <img class="height-inherit" src="../assets/cyberpunk.jpg"/>
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+            
             <div class="carousel-indicators" style="transform: translate(0px, 40px);">
-                <button type="button" style = "height: 4px; width:100px; border:none; border-radius:10px;" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" style = "height: 4px; width:100px; border:none; border-radius:10px;" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" style = "height: 4px; width:100px; border:none; border-radius:10px;" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" style="height: 4px; width:100px; border:none; border-radius:10px;"
+                    data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" style="height: 4px; width:100px; border:none; border-radius:10px;"
+                    data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" style="height: 4px; width:100px; border:none; border-radius:10px;"
+                    data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
         </div>
-        
+
     </div>
 </template>
 
 
 <script>
 
-  
+
 export default {
     name: 'homepageCarousel',
     components: {
-       
+
     },
-   
-    
+
+
 }
 
 </script>
 <style>
-    
+
 </style>
 

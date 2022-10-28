@@ -19,13 +19,14 @@ html {
     margin-top: 80px;
 }
 
-
-.not-sidenav-parent{
-    position:relative; 
-    padding-left: 280px;
-    width:max-content;
-
+@media screen and (min-width:768px) {
+    .not-sidenav-parent{
+        position:relative; 
+        padding-left: 280px;
+        width:max-content;
+    }
 }
+
 .light-text {
     color: #fefffe;
 }
@@ -61,13 +62,27 @@ margin-left: 0;
 /* top and side navBar END */
 
 /* homepageCarousel */
+@media screen and (min-width:768px){
 .homepageCarou {
     background-color: #120c18;
     height: 600px;
     outline: 1px solid #25192f;
     border-radius: 20px;
-    width: 75vw;
+    width: 80vw;
     margin-top: 1px;
+}
+}
+
+@media screen and (min-width:0px) and (max-width:767px) {
+    .homepageCarou {
+        background-color: #120c18;
+        height: 400px;
+        outline: 1px solid #25192f;
+        border-radius: 20px;
+        width: 90vw;
+        margin-top: 1px;
+    }
+
 }
 .carou-border{
     border-top-left-radius: 20px;
@@ -76,6 +91,7 @@ margin-left: 0;
 .carousel-inner {
     align-items: center;
     height:inherit; 
+    border-radius: 20px;
 }
 
 .carousel-item{

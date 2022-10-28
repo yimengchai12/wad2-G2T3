@@ -1,13 +1,12 @@
 <template>
-    <div id="navigation" class="sidenav-parent p-0">
-        <nav class="navbar navbar-expand d-flex flex-column navborder" id="sideNav">
-            
-            <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:100%; display: inline-block; text-align: left; ">
-                
+    
+    <div  class="sidenav-parent sidenav-position p-0" >
+        <nav class="navbar navbar-expand-md navborder" id="sideNav" >
+            <div id="navigation" style="width:33vw; margin-top:80px;" class="offcanvas offcanvas-start backdrop">
+            <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:inherit; text-align: left; ">
                 <!-- <li class="nav-item">
            
                     <router-link to="/feedpage" class="nav-link text-light pl-4" v-if="isLoggedIn">Feedpage</router-link>
-    
                 </li> -->
                 <li class="nav-item">
                     <a class="nav-link text-light pl-4">Marketplace</a>
@@ -30,6 +29,7 @@
                     <a class="nav-link text-light pl-4" @click="handleSignOut" >Sign out</a>
                 </li> -->
             </ul>
+        </div>
         </nav>
     </div>
     
@@ -51,12 +51,15 @@ export default {
 <style scoped>
 
 /* BELOW IS SIDENAV */
+
+
 .navbar {
     height: 100vh;
     /* margin-left: -300px; */
     background-color: #120c18;
     transition: 0.3s ease;
     padding-top:0;
+    display:contents
 }
 
 .nav-link {
@@ -91,11 +94,17 @@ export default {
 .nav-item{
     margin-top:0;
 }
+
+@media screen and (min-width:768px) {
 .sidenav-parent {
-    position:fixed;
     width:240px;
-    z-index: 99;
-    margin-top:80px;
+}
+}
+
+.sidenav-position {
+    position:fixed;
+    
+    z-index: 99; 
 }
 /* END OF SIDENAV */
     
