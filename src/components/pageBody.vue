@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid backdrop">
+    <div class="container-fluid backdrop" style="width:100vw;">
             <div class="notTopNav">
                 <div class="col not-sidenav-parent">
                 <slot></slot>

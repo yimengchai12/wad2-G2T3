@@ -19,13 +19,15 @@ html {
     margin-top: 80px;
 }
 
-
-.not-sidenav-parent{
-    position:relative; 
-    padding-left: 280px;
-    width:max-content;
-
+@media screen and (min-width:768px) {
+    .not-sidenav-parent{
+        position:relative; 
+        padding-left: 280px;
+        /* width:max-content; */
+        margin:auto;
+    }
 }
+
 .light-text {
     color: #fefffe;
 }
@@ -61,13 +63,31 @@ margin-left: 0;
 /* top and side navBar END */
 
 /* homepageCarousel */
+
+
+
+
+@media screen and (min-width:768px){
 .homepageCarou {
     background-color: #120c18;
     height: 600px;
     outline: 1px solid #25192f;
     border-radius: 20px;
-    width: 75vw;
+    width: 65vw;
     margin-top: 1px;
+}
+}
+
+@media screen and (max-width:767px) {
+    .homepageCarou {
+        background-color: #120c18;
+        height: 600px;
+        outline: 1px solid #25192f;
+        border-radius: 20px;
+        width: 90vw;
+        margin-top: 1px;
+    }
+
 }
 .carou-border{
     border-top-left-radius: 20px;
@@ -76,21 +96,20 @@ margin-left: 0;
 .carousel-inner {
     align-items: center;
     height:inherit; 
+    border-radius: 20px;
 }
 
 .carousel-item{
     height:inherit;
 }
 
-.height-inherit {
-    height:inherit;
+
+@media screen and (min-width:768px){
+    .height-inherit {
+        height:inherit;
+    }    
 }
 
-
-
-#carouselExampleCaptions {
-    position:relative;
-}
 
 
 
@@ -261,14 +280,21 @@ border-radius: 10px;
 }
 
 .cc1 {
-    background-image: url("../cyberpunk.jpg");
-    background-size:contain;
+    background-image:  url("../cyberpunk.jpg");
+    background-size:cover;
     background-repeat: no-repeat;
     background-position: right;
     border-radius: 20px;
+    background-blend-mode: saturation;
+    
+    
 }
 /* homepageCarousel END */
 
 .modal-open[style] {
     padding-right: 0px !important;
     }
+
+.offcanvas-backdrop {
+    background-color:unset;
+}
