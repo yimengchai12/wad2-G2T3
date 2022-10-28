@@ -19,8 +19,8 @@
 
 <script>
 
-import logIn from "./SignIn.vue"
-import registerUser from "./RegisterPage.vue"
+import logIn from "../src/components/SignIn.vue"
+import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 
 

@@ -147,8 +147,5 @@ header a {
     transition: all 0.3s ease 0s;
 }
 
-header a:hover {
-    
-}
     
 </style>
