@@ -29,7 +29,7 @@
                         </div>
                         <div class="row d-lg-none">
                             <div>
-                                <div class="text-start p-5">
+                                <div class="text-start p-4" style="height:max-content;">
                                     <h1>Cyberpunk era</h1>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, temporibus aliquam repudiandae id nisi, animi commodi corrupti libero distinctio veniam nemo quae sint repellat eos! Impedit voluptatem aut ipsa dolorum?</p>
                                     <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
@@ -40,7 +40,7 @@
                         </div>
                         <div class="row d-lg-none">
                             <div class="backdrop p-0" style="vertical-align:bottom">
-                                <img style="height:100%; width:100%; vertical-align:bottom; border-radius: 20px;" src="../assets/carousel_1.gif" />
+                                <img style="width:100%; height:100%; vertical-align:bottom; border-radius: 20px;" src="../assets/carousel_1.gif" />
                             </div>
                         </div>
                     
@@ -66,13 +66,15 @@
                    </div>
                    <div class="row d-lg-none">
                        <div>
-                           <div class="text-start p-5">
+                           <div class="text-start p-4" style="height:max-content;">
+                            
                                <h1>Second slide label</h1>
                                <p>Some representative placeholder content for the first slide.</p>
                                <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
                                    Collection
                                </router-link>
                            </div>
+                        
                        </div>
                    </div>
                    <div class="row d-lg-none">
@@ -104,7 +106,7 @@
                    </div>
                    <div class="row d-lg-none">
                        <div>
-                           <div class="text-start p-5">
+                           <div class="text-start p-4" style="height:max-content;">
                                <h1>Third slide label</h1>
                                <p>Some representative placeholder content for the first slide.</p>
                                <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">

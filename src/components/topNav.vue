@@ -31,7 +31,7 @@
                 <li> 
                     <div class="form-outline center">
                         
-                        <input type="text" id="form1" autocomplete="none" class="form-control rounded-pill" style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px;" placeholder="Search collections and creations" />
+                        <input type="text" id="form1" autocomplete="none" class="form-control rounded-pill d-none d-lg-block" style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;" placeholder="Search collections and creations" />
                     </div>
                 </li>
                 <li class="nav-item" id="login">
