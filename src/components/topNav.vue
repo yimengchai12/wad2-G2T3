@@ -42,7 +42,7 @@
                     
                 </li>
                 <li class="nav-item" id="signout">
-                    <a class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1 pl-4" v-if="isLoggedIn" @click="handleSignOut" >Sign out</a>
+                    <button class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1 pl-4" v-if="isLoggedIn" @click="handleSignOut" onclick="window.location.reload()" >Sign out</button>
                 </li>
                 <li class="nav-item">
            
