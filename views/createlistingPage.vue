@@ -35,8 +35,21 @@
                     </div>
 
                     <div class="form-group">
+                        Price:
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="images.price">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         Image Tags:
-                        <input type="text" @keyup.enter="addTag" placeholder="Tags (Press enter to add tags)" v-model="tag" class="form-control">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Add Tags" aria-describedby="button-addon2" v-model="tag" @keyup.enter="addTag">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="addTag" >Add Tag</button>
+                        </div>
+
+                        <!-- <input type="text" @keyup.enter="addTag" placeholder="Tags (Press enter to add tags)" v-model="tag" class="form-control"> -->
                         <div class="d-flex">
                             <p v-for="(tag,index) in images.tags" :key="tag" class="text-start p-2 bg-danger me-2">
                                 <button type="button" class="btn-close btn-close-white" aria-label="Close" @click="deleteTag(tag,index)"></button>
@@ -86,7 +99,7 @@ export default {
                 userid: "", 
                 email: "", 
                 listDate: "",
-                price: "$5.00",
+                price: "",
                 title: "",
                 details: "",
                 tags: [],
@@ -122,7 +135,6 @@ export default {
             console.log("No user")
         }
     },
-    
     methods: {
         deleteTag(tag,index){
             this.images.tags.splice(index,1);
@@ -139,7 +151,8 @@ export default {
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
             this.images.listDate= `${day}-${month}-${year}`;
-            console.log(this.images);
+            // console.log(this.images);
+            // console.log(this.images.price);
             await setDoc(doc(db, "images", this.images.title), this.images)
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);
