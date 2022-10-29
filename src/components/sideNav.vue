@@ -11,17 +11,17 @@
                 <li class="nav-item">
                     <a class="nav-link text-light pl-4">Marketplace</a>
                 </li>
-                <li class="nav-item">
-                    <router-link to="/listing" class="nav-link text-light pl-4">Create Listing</router-link>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light pl-4" id="creators_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Creators</a>
-                    <ul class="dropdown-menu" aria-labelledby="creators_dropdown">
-                        <li><a href="#" class="dropdown-item text-light pl-4 p-2">Create Listing</a></li>
-                        <li><a href="#" class="dropdown-item text-light pl-4 p-2">2nd Option</a></li>
+                    <ul class="dropdown-menu dropdown_menu dropdown_menu--animated dropdown_menu-6" aria-labelledby="creators_dropdown">
+                        <li><router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Create Listing</router-link></li>
+                        <li><a href="#" class="dropdown-item text-light pl-4 p-2">My Listings</a></li>
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">3rd Option</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light pl-4">Marketplace</a>
+                </li>   
                 <!-- <li class="nav-item" v-if="!isLoggedIn" id="login">
                     <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" >Sign in</a>
                 </li>
@@ -80,6 +80,7 @@ export default {
 }
 
 .dropdown-menu{
+    position:relative;
     background-color: #120c18;
 }
 
@@ -97,6 +98,7 @@ export default {
 
 .nav-item{
     margin-top:0;
+    margin-bottom:10px;
 }
 
 @media screen and (min-width:1200px) {
@@ -127,6 +129,20 @@ export default {
     }
 }
 
+.dropdown_menu-6{
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
 
-
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
 </style>
