@@ -39,8 +39,8 @@
                     </div>
                 </div>
             
-                    <p v-if="errMsg" class="light-text">{{ errMsg }}</p>
-                    <p v-if="success" class="light-text">{{ success }}</p>
+                    <div v-if="errMsg" class="light-text" style="padding-bottom:0;">{{ errMsg }}</div>
+                    <div v-if="success" class="light-text" style="padding-bottom:0;">{{ success }}</div>
                 <div class="mb-3 d-flex flex-column justify-content-center align-items-center">
                     <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75 mb-3" v-if="!isLoggedIn">
                         Sign In
@@ -107,6 +107,7 @@ const signin = () => {
             console.log("Successfully signed in!");
             success.value = "Successfully signed in!";
             signedin.value = true;
+            errMsg.value = "";
             router.push("/");
         })
         .catch((error) => {
