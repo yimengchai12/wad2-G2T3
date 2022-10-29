@@ -3,25 +3,16 @@
     <registerUser></registerUser>
     <body>
         <navBars></navBars>
-        
-        
         <div>
-
-
         </div>
-        
         <pageBody>
             <h3>Add Photos</h3>
-            
-
             <div>
                 <input type="file" @change="uploadImage"/>
                 <div>
                     <img v-bind:src="images.image" >
                 </div>
             </div>
-
-
             <div>
                 <div class="listing" >
                     <div class="form-group">
@@ -56,8 +47,9 @@
         </pageBody>
 
         
-        
+        <div></div>
     </body>
+
 </template>
 
 <script>

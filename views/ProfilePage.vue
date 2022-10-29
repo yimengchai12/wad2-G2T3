@@ -3,7 +3,6 @@
     <registerUser></registerUser>
     <body>
         <navBars></navBars>
-        
         <pageBody>
             <div class="text-light">
                 name<input type="text" id="name" class="text-dark" v-model="profile.name">
@@ -28,12 +27,8 @@
             </div>
 
         </pageBody>
-
-        
-        
     </body>
 </template>
-
 <script>
 import pageBody from "../src/components/pageBody.vue"
 import logIn from "../src/components/SignIn.vue"

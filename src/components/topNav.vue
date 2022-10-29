@@ -18,104 +18,191 @@
         </div>
     </div> -->
 
-    
+
     <header class="headerfixed">
-        <div class="navbar-dark d-block d-md-none ms-3">
-        <button class='navbar-toggler' type="button" data-bs-toggle="offcanvas" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon p-3 "></span>
-        </button>
+        <div class="navbar-dark d-block d-xl-none ms-3">
+            <button class='navbar-toggler' type="button" data-bs-toggle="offcanvas" data-bs-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon p-3 "></span>
+            </button>
         </div>
-        <h1 id="nav-title"><a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3"><img src="../assets/Avalon-1.png" style="width:129.44px;" class="img-fluid topnav-brand"></a></h1>
+        <h1 id="nav-title"><a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3"><img
+                    src="../assets/Avalon-1.png" style="width:129.44px;" class="img-fluid topnav-brand"></a></h1>
         <nav>
             <ul>
-                <li> 
+                <li>
                     <div class="form-outline center">
-                        
-                        <input type="text" id="form1" autocomplete="none" class="form-control rounded-pill" style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px;" placeholder="Search collections and creations" />
+                        <input type="text" id="form1" autocomplete="none"
+                            class="form-control rounded-pill d-none d-lg-block"
+                            style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;"
+                            placeholder="Search collections and creations" />
                     </div>
                 </li>
                 <li class="nav-item" id="login">
-                    <a class="nav-link rounded-pill signin-on-hover light-text py-1 px-3 mx-1" v-if="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#login" >Sign in</a>
+                    <a class="nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
+                        data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
                 </li>
-                <li class="nav-item"  id="register">
-                    <a class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1" v-if="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#register" >Register</a>
+                <li class="nav-item" id="register">
+                    <a class="nav-link rounded-pill register-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
+                        data-bs-toggle="modal" data-bs-target="#register">Register</a>
+
+                </li>
+
+                <li class="nav-item dropdown" v-if="isLoggedIn">
+                    <a class="dropdown-toggle text-light pl-4 px-2" id="profile_dropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px">Hello, alden</a>
                     
-                </li>
-                <li class="nav-item" id="signout">
-                    <button class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1 pl-4" v-if="isLoggedIn" @click="handleSignOut">Sign out</button>
-                </li>
-                <li class="nav-item">
-           
-                    <router-link to="/profile" class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1" v-if="isLoggedIn">Profile</router-link>
-    
+                    <ul class="dropdown-menu dropdown_menu--animated dropdown_menu-6 mt-5 p-1"
+                        style="border: 1px solid #25192f;" aria-labelledby="profile_dropdown">
+                        <li class="dropdown-item light-text pl-4 p-2">
+                            <router-link to="/profile" v-if="isLoggedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="bi bi-person" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                </svg><span class="ps-2">Profile</span>
+                            </router-link>
+                        </li>
+                        <li class="dropdown-item light-text pl-4 p-2">
+                            <router-link to="/listing">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path
+                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg>
+                                <span class="ps-2">Create Listing</span>
+                            </router-link>
+                        </li>
+                        <li class="dropdown-item text-danger pl-4 p-2" id="signout" @click="handleSignOut">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                <path fill-rule="evenodd"
+                                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                            </svg><span class="ps-2">Log Out</span>
+                        </li>
+                    </ul>
+                
                 </li>
             </ul>
-        </nav>          
+        </nav>
     </header>
-    
+
 </template>
 
 <script setup>
-import { onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "../router";
 
 const isLoggedIn = ref(true);
 
 let auth;
-onMounted(()=>{
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      isLoggedIn.value = true;
-    } else {
-      isLoggedIn.value = false;
-    }
-  });
+onMounted(() => {
+    auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            isLoggedIn.value = true;
+        } else {
+            isLoggedIn.value = false;
+        }
+    });
 });
 
 const handleSignOut = () => {
-  signOut(auth)
-    .then(() => {
-      console.log("Successfully signed out!");
-      router.push("/");
-    })
-    .catch((error) => {
-      console.log(error.code);
-      alert(error.message);
-    })
+    signOut(auth)
+        .then(() => {
+            console.log("Successfully signed out!");
+            router.push("/");
+        })
+        .catch((error) => {
+            console.log(error.code);
+            alert(error.message);
+        })
 }
 </script>
 
 <script>
 export default {
     name: 'topNav',
-    
+
 }
 </script>
 <style scoped>
-    /* Global */
+/* Global */
+.dropdown_menu-6 {
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+.nav-link {
+
+    font-size: 1em;
+    line-height: 40px;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #25192f;
+    border-radius: 5px;
+
+}
+
+.dropdown-menu {
+    position: relative;
+    background-color: #120c18;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #25192f;
+    border-radius: 5px;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+
+    80% {
+        transform: scaleY(1.1)
+    }
+
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+
 ::-webkit-input-placeholder {
     font-size: 14px;
 }
+
 .nav-link:hover {
-    color:#fefffe
+    color: #fefffe
 }
+
 .headerfixed {
-    position:fixed;
+    position: fixed;
     z-index: 99;
-    padding:0;
-    top:0px;
-    padding-right:50px;
+    padding: 0;
+    top: 0px;
+    padding-right: 50px;
 }
+
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-input[type=text]{
-    color:#fefffe;
+input[type=text] {
+    color: #fefffe;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgba(108,117,125,255)' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: left;
@@ -137,7 +224,7 @@ header {
 }
 
 #nav-title {
-    margin-right:auto;
+    margin-right: auto;
     font-size: 1.5em;
 }
 
@@ -151,6 +238,4 @@ header a {
     color: #fefffe;
     transition: all 0.3s ease 0s;
 }
-
-    
 </style>
