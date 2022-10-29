@@ -10,17 +10,23 @@
                 pone<input type="text" id="phone" class="text-dark"  v-model="profile.phone">
                 address<input type="text" id="address" class="text-dark"  v-model="profile.address">
                 profile picture <input type="file" id="profilePicture" class="text-dark" @change="uploadImage">
-                
-                
-            </div>
-            <button @click="updateProfile">update change</button>
-
-
-            <div>
                 <div>
                     <img v-bind:src="profile.profilePicture" >
                 </div>
             </div>
+
+            <button @click="updateProfile">update change</button>
+
+            <div class="text-light">
+                
+                <div>{{profileObj.name}}</div>
+                <div>{{profileObj.phone}}</div>
+                <div>{{profileObj.email}}</div>
+                <div>{{profileObj.address}}</div>
+                <img :src="profileObj.profilePicture">
+
+            </div>
+
         </pageBody>
 
         
@@ -51,7 +57,7 @@ export default {
     name: "profilePage",  
     data(){
         return {
-            profileObj: [],
+            profileObj: {},
             profile: {
                 name: null,
                 phone: null,
@@ -92,7 +98,7 @@ export default {
 
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
-                this.profileObj.push(docSnap.data());
+                this.profileObj = docSnap.data();
             } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
