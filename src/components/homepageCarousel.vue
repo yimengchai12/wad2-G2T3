@@ -178,7 +178,7 @@ h1 {
 
 @media screen and (max-width: 576px) {
     h1 {
-    font-size:4vw;
+    font-size:7vw;
     font-weight: bold;
 
 }

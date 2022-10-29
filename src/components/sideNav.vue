@@ -2,7 +2,7 @@
     
     <div  class="sidenav-parent sidenav-position margin-not-mobile p-0" >
         <nav class="navbar navbar-expand-xl navborder" id="sideNav" >
-            <div id="navigation" style="width:33vw;" class="offcanvas offcanvas-start backdrop margin-mobile">
+            <div id="navigation" style="width:max-content;" class="offcanvas offcanvas-start backdrop margin-mobile">
             <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:inherit; text-align: left; ">
                 <!-- <li class="nav-item">
            

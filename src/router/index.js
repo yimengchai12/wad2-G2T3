@@ -28,7 +28,7 @@ const router = createRouter({
             },
         { 
             path: "/imagePage", 
-            component: () => import("../../views/ImagePage.vue"),
+            component: () => import("../components/ImagePage.vue"),
             
         },
 

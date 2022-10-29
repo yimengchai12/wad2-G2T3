@@ -1,6 +1,6 @@
 <template>
     <h3>Image List</h3>
-    <div class="d-flex">
+    <div class="d-flex" style="overflow:hidden">
     <div v-for="imag in imagesObj" :key="imag" class="me-5">
         <div class="card" style="width: 18rem;">
             <img :src="imag.image" class="card-img-top" alt="">
@@ -22,7 +22,7 @@
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, getDocs,  deleteDoc, doc,  } from "firebase/firestore"; 
-import { db } from "../src/main.js";
+import { db } from "../main.js";
 
 
 export default {
