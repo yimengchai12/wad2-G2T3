@@ -48,8 +48,19 @@
 <script>
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { collection, setDoc, getDocs, deleteDoc, doc } from "firebase/firestore"; 
+import { collection, setDoc, getDocs,  deleteDoc, doc,  } from "firebase/firestore"; 
 import { db } from "../src/main.js";
+import { getAuth } from "firebase/auth";
+
+const auth = getAuth();
+const user = auth.currentUser;
+// const uid = auth.currentUser.uid;
+if (user){
+    console.log(user.uid)
+}
+else {
+    console.log("No user")
+}
 
 
 
@@ -69,7 +80,13 @@ export default {
                 tags: [],
                 image: null,
             },
-            tag:null
+
+            userImages: {
+                images: []
+            },
+
+            tag:null,
+            
         }
     },
 
@@ -102,11 +119,25 @@ export default {
         },
 
         async readData(){
+            // read all images
             const querySnapshot = await getDocs(collection(db, "images"));
             querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
             this.imagesObj.push(doc.data());
+            // end of read all images 
+
+            // read user images 
+            // const docRef = doc(db, "profiles", uid);
+            // const docSnap = getDoc(docRef);
+
+            // if (docSnap.exists()) {
+            // console.log("Document data:", docSnap.data().images);
+            // this.userImages.images=docSnap.data().images
+            // } else {
+            // console.log("No such document!");
+            // }
+            // end of read user images 
   
         });
 
@@ -120,6 +151,11 @@ export default {
             })
 
             this.readData();
+
+            // add image to user profile
+            
+            // updateDoc(doc(db, "profiles", uid), this.userImages);
+
             
 
             // .catch(error => {

@@ -15,8 +15,8 @@ const router = createRouter({
                 },
         },
         { 
-            path: "/profile", 
-            component: () => import("../../views/ProfilePage.vue"),
+            path: "/listing", 
+            component: () => import("../../views/createlistingPage.vue"),
             meta: { requiresAuth: true, 
                 },
             },
@@ -25,7 +25,12 @@ const router = createRouter({
             component: () => import("../../views/FeedPage.vue"),
             meta: { requiresAuth: true, 
                 },
-            }
+            },
+        { 
+            path: "/imagePage", 
+            component: () => import("../../views/ImagePage.vue"),
+            
+        },
 
     ]
 })
