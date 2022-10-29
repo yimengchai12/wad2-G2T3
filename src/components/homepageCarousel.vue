@@ -178,12 +178,12 @@ h1 {
 
 @media screen and (max-width: 576px) {
     h1 {
-    font-size:250%;
+    font-size:4vw;
     font-weight: bold;
 
 }
     p {
-        font-size:90%;
+        font-size:3vw;
     }
 }
 </style>
