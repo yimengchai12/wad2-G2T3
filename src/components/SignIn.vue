@@ -9,9 +9,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h2 class="modal-title w-100" id="exampleModalLabel">
-                        <img src="../assets/Avalon-1.png" style="width:129.44px;">
-                    </h2>
+                    <header class="modal-title w-100" id="exampleModalLabel">
+                        <img class="" src="../assets/Avalon-1-modal.png" style="width:30%; height:auto;">
+                    </header>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
