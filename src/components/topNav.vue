@@ -20,7 +20,7 @@
 
     
     <header class="headerfixed">
-        <div class="navbar-dark d-block d-md-none ms-3">
+        <div class="navbar-dark d-block d-xl-none ms-3">
         <button class='navbar-toggler' type="button" data-bs-toggle="offcanvas" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon p-3 "></span>
         </button>
@@ -31,7 +31,7 @@
                 <li> 
                     <div class="form-outline center">
                         
-                        <input type="text" id="form1" autocomplete="none" class="form-control rounded-pill" style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px;" placeholder="Search collections and creations" />
+                        <input type="text" id="form1" autocomplete="none" class="form-control rounded-pill d-none d-lg-block" style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;" placeholder="Search collections and creations" />
                     </div>
                 </li>
                 <li class="nav-item" id="login">
@@ -46,7 +46,9 @@
                 </li>
                 <li class="nav-item">
            
-                    <router-link to="/profile" class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1" v-if="isLoggedIn">Profile</router-link>
+                    <router-link to="/profile" class="nav-link light-text py-1 px-3 mx-1" v-if="isLoggedIn"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+</svg></router-link>
     
                 </li>
             </ul>
@@ -95,6 +97,10 @@ export default {
 </script>
 <style scoped>
     /* Global */
+.white, .white a {
+  color: #fff;
+}
+
 ::-webkit-input-placeholder {
     font-size: 14px;
 }

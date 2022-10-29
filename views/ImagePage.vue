@@ -1,7 +1,7 @@
 <template>
     <h3>Add Photos</h3>
     <div>
-        <div class="image" >
+        <div class="image" style="width:82vw;" >
             <div class="form-group">
                 <input type="text" placeholder="Title" v-model="images.title" class="form-control">
             </div>

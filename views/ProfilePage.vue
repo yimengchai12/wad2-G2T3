@@ -3,23 +3,16 @@
     <registerUser></registerUser>
     <body>
         <navBars></navBars>
-        
         <pageBody>
             <div class="text-light">
                 name<input type="text" id="name" class="text-dark" v-model="profile.name">
                 pone<input type="text" id="phone" class="text-dark"  v-model="profile.phone">
                 address<input type="text" id="address" class="text-dark"  v-model="profile.address">
-                
             </div>
             <button @click="updateProfile">update change</button>
-
         </pageBody>
-
-        
-        
     </body>
 </template>
-
 <script>
 import pageBody from "../src/components/pageBody.vue"
 import logIn from "../src/components/SignIn.vue"
