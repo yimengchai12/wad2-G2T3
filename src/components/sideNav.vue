@@ -12,6 +12,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-light pl-4">Marketplace</a>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/listing" class="nav-link text-light pl-4">Create Listing</router-link>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light pl-4" id="creators_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Creators</a>
                     <ul class="dropdown-menu" aria-labelledby="creators_dropdown">

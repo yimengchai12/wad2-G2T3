@@ -10,7 +10,7 @@
         </div>
         
         <pageBody>
-
+   
             
                     <div class="row light-text m-0">
                         <homepageCarousel></homepageCarousel>
@@ -53,7 +53,6 @@ onMounted(()=>{
   onAuthStateChanged(auth, (user) => {
     if (user) {
       isLoggedIn.value = true;
-
     } else {
       isLoggedIn.value = false;
     }
@@ -61,8 +60,17 @@ onMounted(()=>{
 });
 
 
+
 export default {
     name: "homePage",  
+    // props: ['uid'],
+    // data(){
+    //     return{
+  
+    //     }
+    // },
+    
+    
     components: {
         navBars,
         logIn, 

@@ -29,7 +29,7 @@ const firebaseConfig = {
   measurementId: "G-D6H98J5S3X"
 };
 
-window.$ = window.jQuery = require('jquery');
+
 
 // Initialize Firebase
 const fb = initializeApp(firebaseConfig);
