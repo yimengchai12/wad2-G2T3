@@ -57,6 +57,11 @@ const register = () => {
                 email: email.value,
                 images: []
             })
+            const auth = getAuth();
+            updateProfile(auth.currentUser, {
+            displayName: name.value}).then(() => {
+            console.log("Profile updated!");
+            }).catch((error) => { console.log('errorrrr')})
             router.push("/");
         })
         .catch((error) => {
@@ -64,11 +69,7 @@ const register = () => {
             alert(error.message);
         });
 
-        const auth = getAuth();
-            updateProfile(auth.currentUser, {
-            displayName: name.value,}).then(() => {
-            console.log("Profile updated!");
-            }).catch((error) => { console.log('errorrrr')})
+    
 };
 </script>
 

@@ -58,7 +58,7 @@
 
                 <li class="nav-item dropdown" v-if="isLoggedIn">
                     <a class="dropdown-toggle text-light pl-4 px-2" id="profile_dropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px">Hello, alden</a>
+                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px">Hello, {{username}}</a>
                     
                     <ul class="dropdown-menu dropdown_menu--animated dropdown_menu-6 mt-5 p-1"
                         style="border: 1px solid #25192f;" aria-labelledby="profile_dropdown">
@@ -115,7 +115,7 @@ onMounted(() => {
         if (user) {
             const uid = user.uid;
             console.log(uid)
-            console.log(user.name)
+            console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;
@@ -145,11 +145,24 @@ export default {
     },
     data(){
         return{
+            username: '',
             id: "12345",
             name:"Jan",
             email:"test@gmail.com",
             photoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS6EIQlkehqQvaTOa4XoNPzIdkvIrXIgGM74dUa8Ll0A&s"
         }
+    },
+
+    created(){ 
+        let auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+            this.username=auth.currentUser.displayName
+        } else {
+            console.log('no uid')
+        }
+    });
+
     }
     
 }
