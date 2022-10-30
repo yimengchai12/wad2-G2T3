@@ -42,10 +42,18 @@
                     <a class="nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
                         data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
                 </li>
-                <li class="nav-item" id="register">
-                    <a class="nav-link rounded-pill register-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
-                        data-bs-toggle="modal" data-bs-target="#register">Register</a>
-
+                <li class="nav-item"  id="register">
+                    <a class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1" v-if="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#register" >Register</a>
+                    
+                </li>
+                <li class="nav-item" id="signout">
+                <div class="dropdown">
+                    <button id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1 pl-4" v-if="isLoggedIn" >Chat</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
+                        <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl':photoUrl}"></ChatPage>
+                    </ul>
+                </div>
                 </li>
 
                 <li class="nav-item dropdown" v-if="isLoggedIn">
@@ -126,9 +134,21 @@ const handleSignOut = () => {
 </script>
 
 <script>
+import ChatPage from "../components/Chat.vue"
 export default {
     name: 'topNav',
-
+    components:{
+        ChatPage
+    },
+    data(){
+        return{
+            id: "12345",
+            name:"Jan",
+            email:"test@gmail.com",
+            photoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS6EIQlkehqQvaTOa4XoNPzIdkvIrXIgGM74dUa8Ll0A&s"
+        }
+    }
+    
 }
 </script>
 <style scoped>
@@ -253,4 +273,10 @@ header a {
     color: #fefffe;
     transition: all 0.3s ease 0s;
 }
+
+.dropdown-menu{
+    width: max-content;
+}
+
+    
 </style>
