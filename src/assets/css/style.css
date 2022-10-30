@@ -22,6 +22,16 @@ body {
     margin-top: 80px;
 }
 
+hr{
+    height:2px;
+    border-width:0;
+    width: 90%;
+    color:#25192f;
+    background-color:#25192f;
+    opacity:1;
+}
+
+
 @media screen and (min-width:1200px) {
     .not-sidenav-parent {
         position:relative; 

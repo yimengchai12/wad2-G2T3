@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid backdrop" style="width:100vw;">
             <div class="notTopNav">
-                <div class="col not-sidenav-parent">
+                <div class="not-sidenav-parent">
                 <slot></slot>
                 </div>
             </div>
