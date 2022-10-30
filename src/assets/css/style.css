@@ -1,5 +1,5 @@
 * {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
 }
 html {
     overflow: -moz-scrollbars-vertical; 
@@ -8,6 +8,13 @@ html {
     }
 body {
     background-color: #120c18;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    overflow: -moz-scrollbars-vertical;
+    overflow: scroll;
 }
     /* pageBody */
 .backdrop {
@@ -16,7 +23,6 @@ body {
 }
 
 /* pageBody END */
-
 /* top and side navBars */
 .notTopNav {
     margin-top: 80px;
@@ -38,6 +44,7 @@ hr{
         padding-left: 280px;
         /* width:max-content; */
         margin:auto;
+        
     }
 }
 
@@ -50,7 +57,9 @@ hr{
     }
 }
 
-
+hr {
+    background-color: #32263f;
+}
 
 .light-text {
     color: #fefffe;
