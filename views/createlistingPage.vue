@@ -150,6 +150,7 @@ export default {
             console.log(this.images);
             this.profile.listedImages.push(this.images.image);
             await setDoc(doc(db, "profiles", this.images.userid), this.profile);
+            await setDoc(doc(db, this.images.userid, this.images.title), this.images);
             await setDoc(doc(db, "images", this.images.title), this.images)
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);

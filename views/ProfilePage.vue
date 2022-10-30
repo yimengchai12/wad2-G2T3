@@ -26,6 +26,12 @@
 
             </div>
 
+            <div class="text-light">
+                <div v-for="imageobj in listed" :key="imageobj">
+                    <img :src="imageobj.image" >
+                </div>
+            </div>
+
         </pageBody>
     </body>
 </template>
@@ -36,7 +42,7 @@ import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 
 import { getAuth, updateProfile } from "firebase/auth";
-import { doc, updateDoc, getDoc} from "firebase/firestore";
+import { doc, updateDoc, getDoc, collection, query, where, getDocs} from "firebase/firestore";
 import { db } from "../src/main.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
@@ -53,6 +59,7 @@ export default {
     data(){
         return {
             profileObj: {},
+            listed: [],
             profile: {
                 name: null,
                 phone: null,
@@ -108,6 +115,18 @@ export default {
             // doc.data() will be undefined in this case
             console.log("No such document!");
             }
+
+            const q = query(collection(db, "images"), where("userid", "==", uid));
+
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                this.listed.push(doc.data());
+            });
+
+
+
         }, 
 
         uploadImage(e){
