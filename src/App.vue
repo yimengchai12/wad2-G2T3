@@ -50,10 +50,7 @@ const handleSignOut = () => {
 
 
 <script>
-// import { } from "firebase/auth";
 
-// const auth = getAuth();
-// const uid = auth.currentUser.uid;
 
 export default {
   name: 'App',

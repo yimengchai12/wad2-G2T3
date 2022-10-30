@@ -69,7 +69,6 @@ import { ref, onMounted } from "vue";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "vue-router";
 
-// import $ from 'jquery'
 const email = ref("");
 const password = ref("");
 const errMsg = ref();
@@ -135,9 +134,12 @@ export default {
     // },
     data() {
         return {
-            login: "login",
-        };
+            login: "login",       };
     },
+
+    methods: {
+
+    }
 };
 </script>
 

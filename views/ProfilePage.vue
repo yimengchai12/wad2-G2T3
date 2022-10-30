@@ -35,7 +35,7 @@ import logIn from "../src/components/SignIn.vue"
 import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 
-import { getAuth } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import { doc, updateDoc, getDoc} from "firebase/firestore";
 import { db } from "../src/main.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -59,6 +59,7 @@ export default {
                 address: null, 
                 profilePicture: null,
                 email: email, 
+                listedImages: [],
             },
         }
     },
@@ -80,6 +81,15 @@ export default {
 
             // Set the "capital" field of the city 'DC'
             updateDoc(profileRef, this.profile);
+            
+
+            if (this.profile.name != null){ 
+                updateProfile(auth.currentUser, {
+                displayName: this.profile.name,}).then(() => {
+                    console.log("Profile updated!");
+                })
+            }
+
             this.reset();
         },
 
