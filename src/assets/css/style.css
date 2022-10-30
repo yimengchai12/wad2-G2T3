@@ -38,6 +38,7 @@ hr{
         padding-left: 280px;
         /* width:max-content; */
         margin:auto;
+        
     }
 }
 
@@ -50,7 +51,9 @@ hr{
     }
 }
 
-
+hr {
+    background-color: #32263f;
+}
 
 .light-text {
     color: #fefffe;
