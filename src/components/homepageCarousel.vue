@@ -11,22 +11,22 @@
             <div class="carousel-inner">
                 <div class="carousel-item active" style="overflow:hidden;">
                    
-                        <div class="carou-border height-inherit backdrop col-4 d-none d-lg-inline-block">
-                            <div class="d-flex justify-content-center" >
-                                <div class="vertical-center text-start w-25">
-                                    <h1>Cyberpunk era</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, temporibus aliquam repudiandae id nisi, animi commodi corrupti libero distinctio veniam nemo quae sint repellat eos! Impedit voluptatem aut ipsa dolorum?</p>
-                                    <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
-                                        Collection
-                                    </router-link>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backdrop height-inherit col-8 d-none d-lg-inline-block">
-                            <div class="vertical-center" style="height:inherit;">
-                            <img style="height:100%;" src="../assets/carousel_1.gif" />
-                            </div>
-                        </div>
+                    <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
+                       <div class="d-flex justify-content-center">
+                           <div class="vertical-center text-start w-25">
+                               <h1>Cyberpunk Era</h1>
+                               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque illo sapiente cum facere quas quia tempore alias maxime, obcaecati autem! Recusandae explicabo eum, ad culpa delectus labore deserunt neque soluta.</p>
+                               <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
+                                   Collection
+                               </router-link>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="backdrop height-inherit col-8 d-none d-lg-inline-block"  style="vertical-align:top; ">
+                    <div class="vertical-center" style="height:inherit">
+                       <img style="height:100%; width:auto;" src="../assets/carousel_1.gif" />
+                    </div>
+                   </div>
                         <div class="row d-lg-none">
                             <div>
                                 <div class="text-start p-4" style="height:max-content;">
@@ -88,10 +88,10 @@
 
            <div class="carousel-item" style="overflow:hidden;">
                    
-                   <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
+            <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                        <div class="d-flex justify-content-center">
                            <div class="vertical-center text-start w-25">
-                               <h1>Third slide label</h1>
+                               <h1>Second slide label</h1>
                                <p>Some representative placeholder content for the first slide.</p>
                                <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
                                    Collection
@@ -99,9 +99,9 @@
                            </div>
                        </div>
                    </div>
-                   <div class="backdrop height-inherit col-8 d-none d-lg-inline-block" style="vertical-align:top;">
+                   <div class="backdrop height-inherit col-8 d-none d-lg-inline-block"  style="vertical-align:top; ">
                     <div class="vertical-center" style="height:inherit">
-                       <img style="height:100%;" src="../assets/carousel_3.gif" />
+                       <img style="height:100%; width:auto;" src="../assets/carousel_3.gif" />
                     </div>
                    </div>
                    <div class="row d-lg-none">
@@ -178,7 +178,7 @@ h1 {
 
 @media screen and (max-width: 576px) {
     h1 {
-    font-size:4vw;
+    font-size:7vw;
     font-weight: bold;
 
 }

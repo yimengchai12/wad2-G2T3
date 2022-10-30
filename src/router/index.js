@@ -8,7 +8,6 @@ const router = createRouter({
         { path: "/register", component: () => import("../components/RegisterPage.vue") },
         { path: "/sign-in", component: () => import("../components/SignIn.vue") },
         { path: "/collection", component: () => import("../../views/collectionPage.vue") },
-        { path: "/profile", component: () => import("../../views/ProfilePage.vue"),},
         {
             path: "/feed", 
             component: () => import("../../views/FeedPage.vue"),
@@ -22,14 +21,14 @@ const router = createRouter({
                 },
             },
         { 
-            path: "/feedpage", 
-            component: () => import("../../views/FeedPage.vue"),
+            path: "/profile", 
+            component: () => import("../../views/ProfilePage.vue"),
             meta: { requiresAuth: true, 
                 },
             },
         { 
             path: "/imagePage", 
-            component: () => import("../../views/ImagePage.vue"),
+            component: () => import("../components/ImagePage.vue"),
             
         },
 

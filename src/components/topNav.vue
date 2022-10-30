@@ -187,6 +187,18 @@ export default {
     color: #fefffe
 }
 
+@media screen and (max-width:1199px){
+.headerfixed {
+    position: fixed;
+    z-index: 99;
+    padding: 0;
+    top: 0px;
+    padding-right: 15px;
+}
+}
+
+
+@media screen and (min-width:1200px){
 .headerfixed {
     position: fixed;
     z-index: 99;
@@ -194,6 +206,9 @@ export default {
     top: 0px;
     padding-right: 50px;
 }
+}
+
+
 
 * {
     margin: 0;

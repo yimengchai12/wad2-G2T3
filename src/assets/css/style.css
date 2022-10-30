@@ -51,6 +51,10 @@ body {
 }
 
 
+.signin-brand {
+    filter:brightness(100%)
+}
+
 .topnav-brand {
     filter: brightness(100%);
 }
