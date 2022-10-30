@@ -15,7 +15,6 @@
                     <a class="nav-link dropdown-toggle text-light pl-4" id="creators_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Creators</a>
                     <ul class="dropdown-menu dropdown_menu dropdown_menu--animated dropdown_menu-6" aria-labelledby="creators_dropdown">
                         <li><router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Create Listing</router-link></li>
-                        <li><a href="#" class="dropdown-item text-light pl-4 p-2">My Listings</a></li>
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">3rd Option</a></li>
                     </ul>
                 </li>
