@@ -43,7 +43,7 @@
                 </li>
                 <li class="nav-item" id="signout">
                 <div class="dropdown">
-                    <button id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1 pl-4" v-if="isLoggedIn" >Chat</button>
+                    <button id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link rounded-pill register-on-hover light-text py-1 px-3 mx-1 pl-4" v-if="isLoggedIn" >Chats</button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
                         <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl':photoUrl}"></ChatPage>
