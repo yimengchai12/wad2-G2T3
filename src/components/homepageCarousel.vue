@@ -14,33 +14,33 @@
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                        <div class="d-flex justify-content-center">
                            <div class="vertical-center text-start w-25">
-                               <h1>Cyberpunk Era</h1>
-                               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque illo sapiente cum facere quas quia tempore alias maxime, obcaecati autem! Recusandae explicabo eum, ad culpa delectus labore deserunt neque soluta.</p>
-                               <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
-                                   Collection
+                               <h1>Théâtre D’opéra Spatial</h1>
+                               <p>Created by an artificial intelligence program to the Colorado State Fair competition. The stunning image depicts royalty in front of a massive window, invoking foreign grandeur. The name of the art piece translates to “Space Opera Theater.”</p>
+                               <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                   View
                                </router-link>
                            </div>
                        </div>
                    </div>
                    <div class="backdrop height-inherit col-8 d-none d-lg-inline-block"  style="vertical-align:top; ">
                     <div class="vertical-center" style="height:inherit">
-                       <img style="height:100%; width:auto;" src="../assets/carousel_1.gif" />
+                       <img style="height:100%; width:auto;" src="https://static01.nyt.com/images/2022/09/01/business/00roose-1/merlin_212276709_3104aef5-3dc4-4288-bb44-9e5624db0b37-superJumbo.jpg?quality=75&auto=webp" />
                     </div>
                    </div>
                         <div class="row d-lg-none">
                             <div>
                                 <div class="text-start p-4" style="height:max-content;">
-                                    <h1>Cyberpunk era</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, temporibus aliquam repudiandae id nisi, animi commodi corrupti libero distinctio veniam nemo quae sint repellat eos! Impedit voluptatem aut ipsa dolorum?</p>
-                                    <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
-                                        Collection
+                                    <h1>Théâtre D’opéra Spatial</h1>
+                                    <p>Created by an artificial intelligence program to the Colorado State Fair competition. The stunning image depicts royalty in front of a massive window, invoking foreign grandeur. The name of the art piece translates to “Space Opera Theater.”</p>
+                                    <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                        View
                                     </router-link>
                                 </div>
                             </div>
                         </div>
                         <div class="row d-lg-none">
                             <div class="backdrop p-0" style="vertical-align:bottom">
-                                <img style="width:100%; height:100%; vertical-align:bottom; border-radius: 20px;" src="../assets/carousel_1.gif" />
+                                <img style="width:100%; height:100%; vertical-align:bottom; border-radius: 20px;" src="https://static01.nyt.com/images/2022/09/01/business/00roose-1/merlin_212276709_3104aef5-3dc4-4288-bb44-9e5624db0b37-superJumbo.jpg?quality=75&auto=webp" />
                             </div>
                         </div>
                     
@@ -53,15 +53,15 @@
                            <div class="vertical-center text-start w-25">
                                <h1>Second slide label</h1>
                                <p>Some representative placeholder content for the first slide.</p>
-                               <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
-                                   Collection
+                               <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                   View
                                </router-link>
                            </div>
                        </div>
                    </div>
                    <div class="backdrop height-inherit col-8 d-none d-lg-inline-block"  style="vertical-align:top; ">
                     <div class="vertical-center" style="height:inherit">
-                       <img style="height:auto; width:768px" src="../assets/carousel_2.gif" />
+                       <img style="height:100%; width:auto;" src="../assets/carousel_1.gif" />
                     </div>
                    </div>
                    <div class="row d-lg-none">
@@ -70,8 +70,8 @@
                             
                                <h1>Second slide label</h1>
                                <p>Some representative placeholder content for the first slide.</p>
-                               <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
-                                   Collection
+                               <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                   View
                                </router-link>
                            </div>
                         
@@ -79,7 +79,7 @@
                    </div>
                    <div class="row d-lg-none">
                        <div class="backdrop p-0" style="vertical-align:bottom">
-                           <img style="height:100%; width:100%; vertical-align:bottom;  border-radius: 20px;"  src="../assets/carousel_2.gif" />
+                           <img style="height:100%; width:100%; vertical-align:bottom;  border-radius: 20px;"  src="../assets/carousel_1.gif" />
                        </div>
                    </div>
                
@@ -93,8 +93,8 @@
                            <div class="vertical-center text-start w-25">
                                <h1>Second slide label</h1>
                                <p>Some representative placeholder content for the first slide.</p>
-                               <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
-                                   Collection
+                               <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                   View
                                </router-link>
                            </div>
                        </div>
@@ -109,8 +109,8 @@
                            <div class="text-start p-4" style="height:max-content;">
                                <h1>Third slide label</h1>
                                <p>Some representative placeholder content for the first slide.</p>
-                               <router-link to="/collection" class="btn pl-4 glow-on-hover" role="button">
-                                   Collection
+                               <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                   View
                                </router-link>
                            </div>
                        </div>
@@ -178,7 +178,7 @@ h1 {
 
 @media screen and (max-width: 576px) {
     h1 {
-    font-size:4vw;
+    font-size:7vw;
     font-weight: bold;
 
 }

@@ -2,25 +2,28 @@
     
     <div  class="sidenav-parent sidenav-position margin-not-mobile p-0" >
         <nav class="navbar navbar-expand-xl navborder" id="sideNav" >
-            <div id="navigation" style="width:33vw;" class="offcanvas offcanvas-start backdrop margin-mobile">
+            <div id="navigation" style="width:max-content;" class="offcanvas offcanvas-start backdrop margin-mobile">
             <ul class="navbar-bar d-flex flex-column px-3" style="list-style-type:none; width:inherit; text-align: left; ">
                 <!-- <li class="nav-item">
            
                     <router-link to="/feedpage" class="nav-link text-light pl-4" v-if="isLoggedIn">Feedpage</router-link>
                 </li> -->
-                <li class="nav-item">
-                    <a class="nav-link text-light pl-4">Marketplace</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light pl-4" id="marketplace_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Marketplace</a>
+                    <ul class="dropdown-menu dropdown_menu dropdown_menu--animated dropdown_menu-6" aria-labelledby="marketplace_dropdown">
+                        <li><router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Popular Artwork</router-link></li>
+                        <li><a href="#" class="dropdown-item text-light pl-4 p-2">Upcoming Calendar</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light pl-4" id="creators_dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Creators</a>
                     <ul class="dropdown-menu dropdown_menu dropdown_menu--animated dropdown_menu-6" aria-labelledby="creators_dropdown">
                         <li><router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Create Listing</router-link></li>
-                        <li><a href="#" class="dropdown-item text-light pl-4 p-2">My Listings</a></li>
                         <li><a href="#" class="dropdown-item text-light pl-4 p-2">3rd Option</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light pl-4">Marketplace</a>
+                    <a class="nav-link text-light pl-4">Resources</a>
                 </li>   
                 <!-- <li class="nav-item" v-if="!isLoggedIn" id="login">
                     <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" >Sign in</a>
@@ -54,8 +57,6 @@ export default {
 <style scoped>
 
 /* BELOW IS SIDENAV */
-
-
 .navbar {
     height: 100vh;
     /* margin-left: -300px; */

@@ -21,7 +21,7 @@
                     </div>
                     <!-- <messageBox></messageBox> -->
                     <div class="row mt-5">
-                        <imagePage></imagePage>
+                        
                     </div>
 
         </pageBody>
@@ -37,7 +37,6 @@ import logIn from "../src/components/SignIn.vue"
 import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 import homepageListing from "../src/components/homepageListing.vue"
-import imagePage from "./ImagePage.vue"
 
 import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
@@ -76,7 +75,7 @@ export default {
         logIn, 
         registerUser,
         homepageCarousel,
-        imagePage,
+        
         // messageBox,
         pageBody,
         homepageListing
