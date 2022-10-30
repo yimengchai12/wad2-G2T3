@@ -64,7 +64,6 @@
                     <div class="d-flex flex-column justify-content-center pb-4 px-2">
                         <hr class="mx-auto">
                         <div class="container-fluid">
-                            
                             <div class="row mb-2 mt-1">
                                 <div class="col p-0">
                                    <a type="button" rel="noreferrer noopener" target="_blank" href="https://github.com/yimengchai12/wad" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-github me-2"></i><span style="font-size:smaller">Github</span></a>
@@ -217,7 +216,7 @@ export default {
 
 @media screen and (min-width:1200px) {
     .margin-not-mobile {
-        margin-top: 80px;
+        margin-top:80px;
     }
 }
 

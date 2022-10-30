@@ -144,7 +144,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 input[type=text],
 input[type=password]{
     color:#fefffe;
@@ -353,7 +353,6 @@ DEMO
 body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
     margin: 0;
-
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -365,7 +364,6 @@ body {
     max-width: 400px;
     margin: auto;
     padding: 1rem;
-
     display: grid;
     grid-gap: 30px;
 }
