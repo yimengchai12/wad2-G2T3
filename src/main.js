@@ -5,7 +5,7 @@ import router from "./router"
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/css/style.css'
-
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 // Import the functions you need from the SDKs you need

@@ -5,13 +5,13 @@
     <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade mt-5" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h2 class="modal-title w-100" id="exampleModalLabel">
-                        <img src="../assets/Avalon-1.png" style="width:129.44px;">
-                    </h2>
+                    <header class="modal-title w-100" id="exampleModalLabel">
+                        <img class="signin-brand img-fluid" src="../assets/Avalon-1-modal.png" style="width:129.44px;">
+                    </header>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
@@ -39,12 +39,13 @@
                     </div>
                 </div>
             
-                    <p v-if="errMsg" class="light-text">{{ errMsg }}</p>
-                    <p v-if="success" class="light-text">{{ success }}</p>
-                <div class="mb-3">
-                    <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75" v-if="!isLoggedIn">
+                    <div v-if="errMsg" class="light-text" style="padding-bottom:0;">{{ errMsg }}</div>
+                    <div v-if="success" class="light-text" style="padding-bottom:0;">{{ success }}</div>
+                <div class="mb-3 d-flex flex-column justify-content-center align-items-center">
+                    <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75 mb-3" v-if="!isLoggedIn">
                         Sign In
                     </button>
+
                     <button type="button" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75"
                         data-bs-dismiss="modal" v-if="isLoggedIn">
                         Close
@@ -70,6 +71,7 @@ import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebas
 import { useRouter } from "vue-router";
 
 // import $ from 'jquery'
+
 const email = ref("");
 const password = ref("");
 const errMsg = ref();
@@ -105,6 +107,7 @@ const signin = () => {
             console.log("Successfully signed in!");
             success.value = "Successfully signed in!";
             signedin.value = true;
+            errMsg.value = "";
             router.push("/");
         })
         .catch((error) => {
