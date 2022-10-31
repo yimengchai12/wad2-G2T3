@@ -2,12 +2,8 @@
 
     <div class="col sidenav-parent sidenav-position margin-not-mobile p-0 d-flex" style="height:calc(100% - 80px);">
         <nav class="navbar navbar-expand-xl navborder" id="sideNav">
-            <div id="navigation" style="width:240px; justify-content: space-between;" class="offcanvas offcanvas-start backdrop margin-mobile d-flex">
+            <div id="navigation" style="width:250px; justify-content: space-between;" class="offcanvas offcanvas-start backdrop margin-mobile d-flex">
                 <ul class="navbar-bar px-3 mb-0" style="list-style-type:none; width:inherit; text-align: left; ">
-                    <!-- <li class="nav-item">
-           
-                    <router-link to="/feedpage" class="nav-link text-light pl-4" v-if="isLoggedIn">Feedpage</router-link>
-                </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link text-light d-flex px-2" id="marketplace_dropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +57,7 @@
                 </ul>
                 <div class="sub_div light-text">
                     <!-- <hr style="width:240px;"> -->
-                    <div class="d-flex flex-column justify-content-center pb-4 px-2">
+                    <div class="d-flex flex-column justify-content-center pb-4 px-1">
                         <hr class="mx-auto">
                         <div class="container-fluid">
                             <div class="row mb-2 mt-1">
@@ -191,7 +187,7 @@ export default {
 
 @media screen and (min-width:1200px) {
     .sidenav-parent {
-        width: 240px;
+        width: 250px;
         height: 100vh;
         box-sizing: border-box;
         overflow-y: scroll;
@@ -206,9 +202,7 @@ export default {
 
 .sidenav-position {
     position: fixed;
-    border-right: 1px solid #25192f;
     z-index: 99;
-    
 }
 
 /* END OF SIDENAV */
@@ -217,6 +211,7 @@ export default {
 @media screen and (min-width:1200px) {
     .margin-not-mobile {
         margin-top:80px;
+        border-right: 1px solid #25192f;
     }
 }
 
