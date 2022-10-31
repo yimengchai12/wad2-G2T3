@@ -60,7 +60,7 @@
 
                 <li class="nav-item dropdown" v-if="isLoggedIn">
                     <a class="text-light pl-4 px-2" id="profile_dropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px; font-size:1.em; font-weight:bolder;">Hello, alden <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px; font-size:1.em; font-weight:bolder;">Hello, {{username}} <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" color="#F5F3F7" class="tw-transform">
                                         <path d="M5 7.5L10 12.5L15 7.5" stroke="#F5F3F7" stroke-linecap="round"
                                             stroke-linejoin="round"></path>
