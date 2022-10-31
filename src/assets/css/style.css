@@ -1,4 +1,6 @@
-
+* {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+}
 html {
     overflow: -moz-scrollbars-vertical; 
     overflow-y: scroll;
@@ -6,6 +8,11 @@ html {
     }
 body {
     background-color: #120c18;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
 }
     /* pageBody */
 .backdrop {
@@ -14,11 +21,20 @@ body {
 }
 
 /* pageBody END */
-
 /* top and side navBars */
 .notTopNav {
     margin-top: 80px;
 }
+
+hr{
+    height:2px;
+    border-width:0;
+    width: 90%;
+    color:#25192f;
+    background-color:#25192f;
+    opacity:1;
+}
+
 
 @media screen and (min-width:1200px) {
     .not-sidenav-parent {
@@ -26,6 +42,7 @@ body {
         padding-left: 280px;
         /* width:max-content; */
         margin:auto;
+        
     }
 }
 
@@ -38,12 +55,22 @@ body {
     }
 }
 
-
+hr {
+    background-color: #32263f;
+}
 
 .light-text {
     color: #fefffe;
 }
 
+.light-text:hover {
+    color:#fefffe;
+}
+
+
+.signin-brand {
+    filter:brightness(100%)
+}
 
 .topnav-brand {
     filter: brightness(100%);

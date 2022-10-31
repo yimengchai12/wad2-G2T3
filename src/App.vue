@@ -50,10 +50,7 @@ const handleSignOut = () => {
 
 
 <script>
-// import { } from "firebase/auth";
 
-// const auth = getAuth();
-// const uid = auth.currentUser.uid;
 
 export default {
   name: 'App',
@@ -70,7 +67,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

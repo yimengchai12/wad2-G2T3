@@ -4,34 +4,33 @@
 
     <body>
         <navBars></navBars>
-
-        <div></div>
-
-        <pageBody>
+        <pageBody class="mt-5 pt-3">
                 <div class="row">
-                    <div class="col col-sm-12 col-md-6 col-lg-6 m-3">
-                        <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="row flex-column px-1">
                             <img id="collectionImg" v-bind:src="collectionImg"
-                                alt="" class="img-fluid rounded" />
-                                <div class="row">
-                                    <div class="col text-center"><a href="">Save</a></div>
-                                    <div class="col text-center"><a href="">Share</a></div>
-                                </div>
+                                alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: cover; outline: 1px solid #25192f ;border-radius:20px;"/>  
                         </div>
-                    </div>
-                    <div class="col col-sm-12 col-md-5 col-lg-5 mr-1 mt-5">
-                            <h3>{{collectionName}}</h3>
-                            <h4>SGD ${{collectionPrice}}</h4>
+                        <div class="row justify-content-center mt-3 mb-3">
+                                    <div class="col-2 text-center"><a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a></div>
+                                    <div class="col-2 text-center"><a href="#" class="share"><i class="bi bi-share me-2"></i>Share</a></div>
+                        </div> 
                         
-                        <div class="row mt-5">
-                            <div class="col">
-                                <input type="button" class="btn btn-success form-control" value="Buy" />
-                            </div>
-                           
+                    </div>
+                    <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
+                            <h3>{{collectionName}}</h3>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{artistName}}</h5>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
+                        <div class="row mt-3">
+                            <hr class="my-3" style="width:100%">
+                            <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
+                                <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;">Purchase</a>
                         </div>
                     </div>
                 </div>
-                <h5 class="text-start mt-3">About the Collection</h5>
+                
+                <h2 class="text-start pt-5">About the Artwork</h2>
                 <hr>
                 <table>
                     <th class="d-flex">
@@ -57,7 +56,7 @@
                         </td>
                     </tr>
                 </table>
-               
+            
         </pageBody>
     </body>
 </template>
@@ -67,7 +66,6 @@ import logIn from "../src/components/SignIn.vue";
 import registerUser from "../src/components/RegisterPage.vue";
 import navBars from "../src/components/navBars.vue";
 import pageBody from "../src/components/pageBody.vue";
-
 
 export default {
     name: "buyPage",
@@ -79,8 +77,9 @@ export default {
     },
     data(){
         return{
-            collectionImg : "https://i.pinimg.com/736x/7c/a8/f4/7ca8f44a0becf8b639dd15895c94cdc3--pastel-artwork-pastel-paintings.jpg",
+            collectionImg : "https://static01.nyt.com/images/2022/09/01/business/00roose-1/merlin_212276709_3104aef5-3dc4-4288-bb44-9e5624db0b37-superJumbo.jpg?quality=75&auto=webp",
             collectionName: "Green ray, 2022",
+            collectionDate: "11 September 2001",
             collectionPrice: "2000",
             collectionTitle: "Mama Project",
             collectionTitleImg: "https://media.moddb.com/images/members/5/4550/4549205/duck.jpg",
@@ -88,38 +87,32 @@ export default {
             artistImg: "https://media.moddb.com/images/members/5/4550/4549205/duck.jpg",
             artistName: "Paul Thumb",
             artistDesc: "Welcome to my Art!"
-
         }
     },
-
+    computed: {
+        dimension() {
+        var img = new Image()
+        img.src = this.collectionImg
+        var img_width =img.width;
+        var img_height = img.height;
+        var str = `${img_width}x${img_height}px`
+        // var img_height = this.collectionImg.height;
+        return str
+        }
+    },
     methods: {
     },
 };
 </script>
 
-<style>
-.backdrop {
-    background-color: #08090d;
-}
-
-.notTopNav {
-    margin-top: 80px;
-}
-
-.sidenav-parent {
-    position: fixed;
-}
-
-body {
-    font-family: Tahoma, sans-serif;
-}
+<style scoped>
 
 .thumbnail {
     width: 30px;
     height: 30px;
 }
 
-h3,h4, h5{
+h1, h2, h3, h5{
     color: white;
 }
 
@@ -130,7 +123,7 @@ table{
 
 
 table, tr, td, th {
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid #25192f;
   text-align: left;
   color: white;
   padding: 8px;
@@ -138,14 +131,12 @@ table, tr, td, th {
 
 a{
     color: white;
+    text-decoration: none;
 }
 
-hr{
-    height:2px;
-    border-width:0;
-    width: 90%;
-    color:gray;
-    background-color:gray
+.like:hover, .share:hover{
+    color:#e42474;
+    
 }
 
 </style>

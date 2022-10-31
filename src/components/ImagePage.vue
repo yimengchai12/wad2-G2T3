@@ -1,44 +1,17 @@
 <template>
-    <h3>Add Photos</h3>
-    <div>
-        <div class="image" style="width:82vw;" >
-            <div class="form-group">
-                <input type="text" placeholder="Title" v-model="images.title" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <textarea placeholder="Details" v-model="images.details" class="form-control" rows="3" cols="50"></textarea>
-            </div>
-
-            <div class="form-group">
-                <input type="text" @keyup.enter="addTag" placeholder="Tag" v-model="tag" class="form-control">
-                <div class="d-flex">
-                    <p v-for="(tag,index) in images.tags" :key="tag" class="text-start p-2 bg-danger me-2">
-                        <button type="button" class="btn-close btn-close-white" aria-label="Close" @click="deleteTag(tag,index)"></button>
-                        <span class="p-1 me-2 text-light"> {{tag}}</span>  
-                    </p>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <input type="file" @change="uploadImage" placeholder="Upload files" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-primary" @click="saveData" >Save Data</button>
-            </div>
-        </div>
-    </div>
-
     <h3>Image List</h3>
-
-    <div v-for="imag in imagesObj" :key="imag">
-    <div class="card" style="width: 18rem;">
-        <img :src="imag.image" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">{{imag.title}}</h5>
-            <p class="card-text">{{imag.details}}</p>
-            <button @click="deleteData(imag.title)" class="btn btn-primary">Go somewhere</button>
+    <div class="d-flex" style="overflow:hidden">
+    <div v-for="imag in imagesObj" :key="imag" class="me-5">
+        <div class="card" style="width: 18rem;">
+            <img :src="imag.image" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{imag.title}}</h5>
+                <p>Tags: 
+                    <span v-for="tag in imag.tags" :key="tag" class="card-text d-inline me-2 bg-warning p-2 border border-dark">{{tag}}</span>
+                </p>
+                <p class="card-text">{{imag.details}}</p>
+                <button @click="deleteData(imag.title)" class="btn btn-primary">DELETE </button>
+            </div>
         </div>
     </div>
 </div>
@@ -48,25 +21,12 @@
 <script>
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { collection, setDoc, getDocs,  deleteDoc, doc,  } from "firebase/firestore"; 
-import { db } from "../src/main.js";
-import { getAuth } from "firebase/auth";
-
-const auth = getAuth();
-const user = auth.currentUser;
-// const uid = auth.currentUser.uid;
-if (user){
-    console.log(user.uid)
-}
-else {
-    console.log("No user")
-}
-
+import { collection, getDocs,  deleteDoc, doc,  } from "firebase/firestore"; 
+import { db } from "../main.js";
 
 
 export default {
     name: "imagePage",
-
     data() {
         return {
             imagesObj: [],
@@ -80,21 +40,10 @@ export default {
                 tags: [],
                 image: null,
             },
-
-            userImages: {
-                images: []
-            },
-
-            tag:null,
-            
         }
     },
 
     components: {
-    },
-
-    created(){
-        this.readData();
     },
 
     firestore(){
@@ -102,20 +51,15 @@ export default {
             images: db.collection('images'),
         }
     },
+
+    created(){
+        this.readData();
+    },
     
     methods: {
 
-        deleteTag(tag,index){
-            this.images.tags.splice(index,1);
-        },
-
         async deleteData(d){
             await deleteDoc(doc(db, "images",d ));
-        },
-
-        addTag(){
-            this.images.tags.push(this.tag);
-            this.tag='';
         },
 
         async readData(){
@@ -142,31 +86,6 @@ export default {
         });
 
         },
-
-        async saveData(){
-            await setDoc(doc(db, "images", this.images.title), this.images)
-            .then(() =>{
-                // console.log("Document written with ID: ", docRef.id);
-                this.reset();
-            })
-
-            this.readData();
-
-            // add image to user profile
-            
-            // updateDoc(doc(db, "profiles", uid), this.userImages);
-
-            
-
-            // .catch(error => {
-            //     console.error("Error adding document: ");
-            // });
-        },
-
-        reset(){
-                Object.assign(this.$data, this.$options.data.apply(this) )
-        },
-
 
         uploadImage(e){
             let file = e.target.files[0];
@@ -232,9 +151,13 @@ export default {
 
 </script>
 
-<style>
-img { 
-                -webkit-filter: blur(1px); 
-                filter: blur(1px); 
-            } 
+<style scoped>
+/* img { 
+    -webkit-filter: blur(1px); 
+    filter: blur(1px); 
+    width: 300px;
+    height: 300px;
+    object-fit: contain
+
+}  */
 </style>
