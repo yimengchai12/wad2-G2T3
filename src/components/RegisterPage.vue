@@ -55,7 +55,7 @@ const register = () => {
             setDoc(doc(db, "profiles", user.user.uid), {
                 name: name.value ,
                 email: email.value,
-                images: []
+                listedImages: []
             })
             const auth = getAuth();
             updateProfile(auth.currentUser, {

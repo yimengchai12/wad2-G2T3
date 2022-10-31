@@ -11,6 +11,21 @@
                 </p>
                 <p class="card-text">{{imag.details}}</p>
                 <button @click="deleteData(imag.title)" class="btn btn-primary">DELETE </button>
+
+                    <!-- <buyPage 
+                    :title="images.title"
+                    :userid= "images.userid" 
+                    :email = "images.email"
+                    :listDate= "images.listDate"
+                    :price = "images.price"
+                    :details = "images.details"
+                    :tags = "images.tags"
+                    :image = "images.image">
+                </buyPage> -->
+                <router-link :to="'/buy/' + imag.title">asdasdasdadas</router-link>
+
+                
+
             </div>
         </div>
     </div>
@@ -23,10 +38,12 @@
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, getDocs,  deleteDoc, doc,  } from "firebase/firestore"; 
 import { db } from "../main.js";
+// import buyPage from "../../views/buyPage.vue";
 
 
 export default {
     name: "imagePage",
+    
     data() {
         return {
             imagesObj: [],
@@ -40,10 +57,12 @@ export default {
                 tags: [],
                 image: null,
             },
+            // title: this.images.title
         }
     },
 
     components: {
+        // buyPage
     },
 
     firestore(){

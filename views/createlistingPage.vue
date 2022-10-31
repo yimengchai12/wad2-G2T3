@@ -89,6 +89,7 @@ export default {
             imagesObj: [],
             images: {
                 userid: "", 
+                artistName: '',
                 email: "", 
                 listDate: "",
                 price: "",
@@ -120,6 +121,7 @@ export default {
             console.log(user.uid);
             this.images.userid=user.uid;
             this.images.email=user.email;
+            this.images.artistName = user.displayName;
             this.getAndAddData();
         }
         else {
@@ -160,7 +162,7 @@ export default {
             let year = date.getFullYear();
             this.images.listDate= `${day}-${month}-${year}`;
             // console.log(this.images);
-            // console.log(this.images.price);
+            console.log(this.profile.listedImages);
             this.profile.listedImages.push(this.images.image);
             await setDoc(doc(db, "profiles", this.images.userid), this.profile);
             await setDoc(doc(db, this.images.userid, this.images.title), this.images);

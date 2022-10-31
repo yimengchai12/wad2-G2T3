@@ -2,9 +2,11 @@
     <logIn></logIn>
     <registerUser></registerUser>
 
+    
     <body>
         <navBars></navBars>
         <pageBody class="mt-5 pt-3">
+            
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="row flex-column px-1">
@@ -67,26 +69,43 @@ import registerUser from "../src/components/RegisterPage.vue";
 import navBars from "../src/components/navBars.vue";
 import pageBody from "../src/components/pageBody.vue";
 
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../src/main.js";
+
 export default {
     name: "buyPage",
+    props: {
+        // title: String,
+        // userid: String,
+        // email: String, 
+        // listDate: String,
+        // price: String,
+        // details: String,
+        // tags: Array,
+        // image: String
+    },
     components: {
         navBars,
         logIn,
         registerUser,
         pageBody,
+
     },
     data(){
         return{
-            collectionImg : "https://static01.nyt.com/images/2022/09/01/business/00roose-1/merlin_212276709_3104aef5-3dc4-4288-bb44-9e5624db0b37-superJumbo.jpg?quality=75&auto=webp",
-            collectionName: "Green ray, 2022",
-            collectionDate: "11 September 2001",
-            collectionPrice: "2000",
-            collectionTitle: "Mama Project",
-            collectionTitleImg: "https://media.moddb.com/images/members/5/4550/4549205/duck.jpg",
-            collectionDesc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo unde consecteturs ullam?",
-            artistImg: "https://media.moddb.com/images/members/5/4550/4549205/duck.jpg",
-            artistName: "Paul Thumb",
-            artistDesc: "Welcome to my Art!"
+            buyDescription: {},
+            title: this.$route.params.id,
+            collectionImg : "",
+            collectionName: "",
+            collectionDate: "",
+            collectionPrice: "",
+            collectionTitle: "",
+            collectionTitleImg: "",
+            collectionDesc: "",
+            artistImg: "",
+            artistName: "",
+            artistDesc: "",
+            
         }
     },
     computed: {
@@ -100,8 +119,33 @@ export default {
         return str
         }
     },
-    methods: {
+
+    created(){
+        this.readData();
     },
+
+    methods: {
+        async readData(){
+            const docRef = doc(db, "images", this.title);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                this.buyDescription = docSnap.data();
+                this.collectionImg = this.buyDescription.image
+                this.collectionName = this.buyDescription.title
+                this.collectionDate = this.buyDescription.listDate
+                this.artistName = this.buyDescription.artistName
+                this.collectionTitle = this.buyDescription.email
+                this.collectionPrice = this.buyDescription.price
+
+            } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            }
+        
+        },
+    }
 };
 </script>
 
