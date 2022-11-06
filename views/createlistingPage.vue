@@ -8,7 +8,9 @@
         <pageBody>
             <h3>Add Photos</h3>
             <div>
+                <label class="custom-file-upload signin-on-hover"> Upload
                 <input type="file" @change="uploadImage"/>
+                </label>
                 <div>
                     <img v-bind:src="images.image" >
                 </div>
@@ -50,11 +52,13 @@
                     </div>
 
                     <div class="form-group text-center" >
-                        <button class="btn btn-primary" @click="saveData" >Save Data</button>
+                        <button class="btn btn-primary" @click="saveData">Save Data</button>
                     </div>
 
                 </div>
             </div>
+            
+
 
             
         </pageBody>
@@ -169,9 +173,11 @@ export default {
             await setDoc(doc(db, "images", this.images.title), this.images)
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);
-                this.reset();
+                // this.reset();
+                window.location.href = '/buy/'+this.images.title;
             })
         },
+        
 
         async readData(){
             // read all images
@@ -250,5 +256,13 @@ img {
     text-align: left;
 }
 
-    
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    /* border: 1px solid #ccc; */
+    display: inline-block;
+    padding: 6px 12px;
+    /* cursor: pointer; */
+}
 </style>

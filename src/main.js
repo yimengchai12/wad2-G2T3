@@ -5,6 +5,7 @@ import router from "./router"
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/css/style.css'
+import './assets/css/typed.scss'
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 

@@ -4,6 +4,40 @@
     <body>
         <navBars></navBars>
         <pageBody>
+            <div class="container text-light">
+                <div class="row align-items-center" style="height:400px">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5"><img style="height:230px; width:230px" :src="profile.profilePicture" class="rounded-circle"></div>
+                            <div class="col-7 p-0 text-start">
+                                <h1 class="text-start">{{profileObj.name}}</h1>
+                                <button class="signin-on-hover" style="height:auto;">Edit Profile</button>
+                            
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column  ">
+                        <p class="border-start text-start ps-3">This is your bio</p>
+                    </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="text-light">
                 name<input type="text" id="name" class="text-dark" v-model="profile.name">
                 pone<input type="text" id="phone" class="text-dark"  v-model="profile.phone">
@@ -14,7 +48,7 @@
                 </div>
             </div>
 
-            <button @click="updateProfile">update change</button>
+            <button @click="updateProfile" href="#">update change</button>
 
             <div class="text-light">
                 
