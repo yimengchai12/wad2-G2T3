@@ -14,7 +14,7 @@
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                         <div class="d-flex justify-content-center">
                             
-                            <div class="vertical-center text-start px-3"> 
+                            <div class="vertical-center text-start w-25"> 
                                 <div class="input-wrapper">
                                     <input aria-label="Ask us anything">
                                     <span class="placeholder"></span>
@@ -37,10 +37,7 @@
                     <div class="row d-lg-none">
                         <div>
                             <div class="text-start p-4" style="height:max-content;">
-                                <div class="input-wrapper">
-                                    <input aria-label="Ask us anything">
-                                    <span class="placeholder text-light"></span>
-                                </div>
+                                <h1>Théâtre D’opéra Spatial</h1>
                                 <p>Created by an artificial intelligence program to the Colorado State Fair competition.
                                     The stunning image depicts royalty in front of a massive window, invoking foreign
                                     grandeur. The name of the art piece translates to “Space Opera Theater.”</p>
@@ -64,7 +61,11 @@
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                         <div class="d-flex justify-content-center">
                             <div class="vertical-center text-start w-25">
-                                <h1>Second slide label</h1>
+                               
+                                <div class="input-wrapper2">
+                                    <input aria-label="Ask us anything">
+                                    <span class="placeholder"></span>
+                                </div> 
                                 <p>Some representative placeholder content for the first slide.</p>
                                 <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
                                     View
@@ -81,7 +82,7 @@
                         <div>
                             <div class="text-start p-4" style="height:max-content;">
 
-                                <h1>Second slide label</h1>
+                                <h1>Second Slide!</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
                                 <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
                                     View
@@ -105,7 +106,11 @@
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                         <div class="d-flex justify-content-center">
                             <div class="vertical-center text-start w-25">
-                                <h1>Second slide label</h1>
+                                
+                                <h1><div class="input-wrapper3">
+                                    <input aria-label="Ask us anything">
+                                    <h1 class="placeholder"></h1>
+                                </div> </h1>
                                 <p>Some representative placeholder content for the first slide.</p>
                                 <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
                                     View
@@ -121,7 +126,8 @@
                     <div class="row d-lg-none">
                         <div>
                             <div class="text-start p-4" style="height:max-content;">
-                                <h1>Third slide label</h1>
+                                
+                                <h1>Third one!</h1>
                                 <p>Some representative placeholder content for the first slide.</p>
                                 <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
                                     View
@@ -207,8 +213,83 @@ export default {
         color: #fffeee;
         pointer-events: none;
         @include typed("Théâtre D’opéra Spatial",
-            
-            (type:0.07,pause-typed: 10),
+            (type:0.1,pause-typed: 10),
+            (caret-width: 2px,
+                caret-space: 2px)
+                );
+    }
+
+    >input {
+
+        &:focus,
+        &:active {
+            +.placeholder {
+                display: none;
+            }
+        }
+    }
+}
+
+.input-wrapper2 {
+    margin-top:-70px;
+    display: block;
+    // font-family: monospace;
+    font-size: 255%;
+    width: 50%;
+
+    >input,
+    >.placeholder {
+        display: block;
+        appearance: none;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+    }
+
+    >.placeholder {
+        color: #fffeee;
+        pointer-events: none;
+        @include typed("Second Slide!",
+            (type:0.1,pause-typed: 10),
+            (caret-width: 2px,
+                caret-space: 2px)
+                );
+    }
+
+    >input {
+
+        &:focus,
+        &:active {
+            +.placeholder {
+                display: none;
+            }
+        }
+    }
+}
+
+.input-wrapper3 {
+    margin-top:-70px;
+    // display: block;
+    // font-family: monospace;
+    font-size: 100%;
+    width: 100%;
+
+    >input,
+    >.placeholder {
+        // display: block;
+        appearance: none;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+    }
+
+    >.placeholder {
+        color: #fffeee;
+        pointer-events: none;
+        @include typed("Third one!",
+            (type:0.1,pause-typed: 10),
             (caret-width: 2px,
                 caret-space: 2px)
                 );
