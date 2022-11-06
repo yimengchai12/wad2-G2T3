@@ -3,7 +3,7 @@
 <div class="d-flex">
             <h2>Popular</h2>
         </div>
-    <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:5px; height:max-content">
+    <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:5px; height:max-content ;width:83vw;">
         <div v-for="imag in imagesObj" :key="imag" class="me-4">
             <div class="card homepageListing" style="width: 250px; height:400px;margin-top:10px">
                 <a :href="'/buy/'+imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></a>
@@ -22,7 +22,7 @@
 <div class="d-flex mt-5">
             <h2>Recently Posted</h2>
         </div>
-    <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:5px; height:max-content">
+    <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:5px; height:max-content;width:83vw;">
         <div v-for="imag in imagesObj" :key="imag" class="me-4">
             <div class="card homepageListing" style="width: 250px; height:400px;margin-top:10px">
                 <a :href="'/buy/'+imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></a>
@@ -211,7 +211,7 @@ img {
 
 ::-webkit-scrollbar
 {   
-    height:5px;
+    height:8px;
 	width: 10px;
 	background-color: #120c18;
 }
@@ -222,4 +222,5 @@ img {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #25192f;
 }
+
 </style>

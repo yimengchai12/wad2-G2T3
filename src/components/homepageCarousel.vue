@@ -15,10 +15,10 @@
                         <div class="d-flex justify-content-center">
                             
                             <div class="vertical-center text-start w-25"> 
-                                <div class="input-wrapper">
+                                <h1><div class="input-wrapper">
                                     <input aria-label="Ask us anything">
                                     <span class="placeholder"></span>
-                                </div> 
+                                </div></h1>
                                 <p>Created by an artificial intelligence program to the Colorado State Fair competition.
                                     The stunning image depicts royalty in front of a massive window, invoking foreign
                                     grandeur. The name of the art piece translates to “Space Opera Theater.”</p>
@@ -196,7 +196,7 @@ export default {
     margin-top:-70px;
     display: block;
     // font-family: monospace;
-    font-size: 255%;
+    font-size: 80%;
     width: 50%;
 
     >input,
@@ -270,14 +270,14 @@ export default {
 
 .input-wrapper3 {
     margin-top:-70px;
-    // display: block;
+    display: block;
     // font-family: monospace;
     font-size: 100%;
     width: 100%;
 
     >input,
     >.placeholder {
-        // display: block;
+        display: block;
         appearance: none;
         width: 100%;
         height: 100%;
