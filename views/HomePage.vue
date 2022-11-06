@@ -21,7 +21,7 @@
                     </div>
                     <!-- <messageBox></messageBox> -->
                     <div class="row mt-5">
-                        
+                        <popularCarouselVue></popularCarouselVue>
                     </div>
 
         </pageBody>
@@ -44,6 +44,7 @@ import imagePage from "../src/components/ImagePage.vue";
 // import messageBox from "../src/components/Chat.vue";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { onMounted } from "vue";
+import popularCarouselVue from "../src/components/popularCarousel.vue";
 
 const isLoggedIn = ref(false);
 let auth;
@@ -78,7 +79,8 @@ export default {
         imagePage,
         // messageBox,
         pageBody,
-        // homepageListing
+        // homepageListing,
+        popularCarouselVue
     },
     
     methods: {
