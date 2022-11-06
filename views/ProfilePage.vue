@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <button @click="updateProfile" href="#">update change</button>
+            <button @click="updateProfile()" href="#">update change</button>
 
             <div class="text-light">
                 
@@ -118,6 +118,7 @@ export default {
     
     methods: {
         updateProfile(){
+            // console.log('hi')
             const profileRef = doc(db, "profiles", uid);
 
             // Set the "capital" field of the city 'DC'
@@ -132,6 +133,8 @@ export default {
             }
 
             this.reset();
+            // window.location.href = '/profile'
+            
         },
 
         reset(){
