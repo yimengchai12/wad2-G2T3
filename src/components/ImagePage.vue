@@ -53,7 +53,6 @@ export default {
     },
 
     created(){
-        console.log()
         this.readData();
     },
     
@@ -152,13 +151,13 @@ export default {
 
 </script>
 
-<style>
-img { 
+<style scoped>
+/* img { 
     -webkit-filter: blur(1px); 
     filter: blur(1px); 
     width: 300px;
     height: 300px;
     object-fit: contain
 
-} 
+}  */
 </style>

@@ -37,7 +37,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useRouter } from "vue-router";
 import { setDoc, doc } from "firebase/firestore"; 
 import { db } from "../main.js";
@@ -57,12 +57,19 @@ const register = () => {
                 email: email.value,
                 images: []
             })
+            const auth = getAuth();
+            updateProfile(auth.currentUser, {
+            displayName: name.value}).then(() => {
+            console.log("Profile updated!");
+            }).catch((error) => { console.log('errorrrr')})
             router.push("/");
         })
         .catch((error) => {
             console.log(error.code);
             alert(error.message);
         });
+
+    
 };
 </script>
 

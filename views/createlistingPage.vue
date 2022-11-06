@@ -139,7 +139,7 @@ import navBars from "../src/components/navBars.vue"
 // import messageBox from "../src/components/Chat.vue";
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { collection, setDoc, getDocs, doc  } from "firebase/firestore"; 
+import { collection, setDoc, getDocs, doc, getDoc  } from "firebase/firestore"; 
 import { db } from "../src/main.js";
 import { getAuth } from "firebase/auth";
 
@@ -163,9 +163,7 @@ export default {
                 image: "https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2FFrame%20583.png?alt=media&token=7544b0d8-2966-47f3-833a-f4619f7b37c2",
             },
 
-            userImages: {
-                images: []
-            },
+            profile: {},
 
             tag:null,
             
@@ -187,10 +185,13 @@ export default {
             console.log(user.uid);
             this.images.userid=user.uid;
             this.images.email=user.email;
+            this.getAndAddData();
         }
         else {
             console.log("No user")
         }
+
+        
     },
     methods: {
         deleteTag(tag,index){
@@ -202,6 +203,21 @@ export default {
             this.tag='';
         },
 
+        async getAndAddData(){
+            const docRef = doc(db, "profiles", this.images.userid);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                this.profile = docSnap.data();
+                console.log("docsnap exists" +this.profile.listedImages);
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+
+        },
+
         async saveData(){
             const date = new Date(); 
             let day = date.getDate();
@@ -210,6 +226,9 @@ export default {
             this.images.listDate= `${day}-${month}-${year}`;
             // console.log(this.images);
             // console.log(this.images.price);
+            this.profile.listedImages.push(this.images.image);
+            await setDoc(doc(db, "profiles", this.images.userid), this.profile);
+            await setDoc(doc(db, this.images.userid, this.images.title), this.images);
             await setDoc(doc(db, "images", this.images.title), this.images)
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);
@@ -259,6 +278,7 @@ export default {
 
                     getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
                         this.images.image = url;
+                        // this.uploadingImages = url;
                         console.log(url);
                         console.log(this.images.image);
                     });

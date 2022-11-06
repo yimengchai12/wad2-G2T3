@@ -26,8 +26,10 @@
                 <span class="navbar-toggler-icon p-3 "></span>
             </button>
         </div>
-        <h1 id="nav-title"><a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3"><img
-                    src="../assets/Avalon-1.png" style="width:129.44px;" class="img-fluid topnav-brand"></a></h1>
+        <h1 id="nav-title"><a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3 d-none d-md-block"><img
+                    src="../assets/Avalon-1.png" style="width:129.44px;" class="img-fluid topnav-brand"></a>
+                    <a href="/" id="nav-title" class="text-light vertical-center text-decoration-none ps-3 d-md-none d-block"><img
+                    src="../assets/A-1.png" style="height:40px;" class="img-fluid topnav-brand"></a></h1>
         <nav>
             <ul>
                 <li>
@@ -42,15 +44,27 @@
                     <a class="nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
                         data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
                 </li>
-                <li class="nav-item" id="register">
-                    <a class="nav-link rounded-pill register-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
-                        data-bs-toggle="modal" data-bs-target="#register">Register</a>
-
+                <li class="nav-item"  id="register">
+                    <a class="nav-link rounded-pill register-on-hover light-text px-3 mx-1" v-if="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#register" >Register</a>
+                    
+                </li>
+                <li class="nav-item me-3">
+                <div class="dropdown">
+                    <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text py-1 px-3 mx-1 pl-4" style="height:100px" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
+                    <ul class="dropdown-menu" id="chatbox" aria-labelledby="dropdownMenuButton1">
+                        <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
+                        <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl':photoUrl}"></ChatPage>
+                    </ul>
+                </div>
                 </li>
 
                 <li class="nav-item dropdown" v-if="isLoggedIn">
-                    <a class="dropdown-toggle text-light pl-4 px-2" id="profile_dropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px">Hello, alden</a>
+                    <a class="text-light pl-4 px-2" id="profile_dropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px; font-size:1.em; font-weight:bolder;">Hello, alden <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" color="#F5F3F7" class="tw-transform">
+                                        <path d="M5 7.5L10 12.5L15 7.5" stroke="#F5F3F7" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg></a>
                     
                     <ul class="dropdown-menu dropdown_menu--animated dropdown_menu-6 mt-5 p-1"
                         style="border: 1px solid #25192f;" aria-labelledby="profile_dropdown">
@@ -75,14 +89,15 @@
                                 <span class="ps-2">Create Listing</span>
                             </router-link>
                         </li>
-                        <li class="dropdown-item text-danger pl-4 p-2" id="signout" @click="handleSignOut">
+                        <li class="dropdown-item pl-4 p-2" id="signout" @click="handleSignOut">
+                            <a class="text-danger" href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
                                     d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
                                 <path fill-rule="evenodd"
                                     d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg><span class="ps-2">Log Out</span>
+                            </svg><span class="ps-2">Log Out</span></a>
                         </li>
                     </ul>
                 
@@ -105,6 +120,9 @@ onMounted(() => {
     auth = getAuth();
     onAuthStateChanged(auth, (user) => {
         if (user) {
+            const uid = user.uid;
+            console.log(uid)
+            console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;
@@ -126,9 +144,34 @@ const handleSignOut = () => {
 </script>
 
 <script>
+import ChatPage from "../components/Chat.vue"
 export default {
     name: 'topNav',
+    components:{
+        ChatPage
+    },
+    data(){
+        return{
+            username: '',
+            id: "12345",
+            name:"Jan",
+            email:"test@gmail.com",
+            photoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS6EIQlkehqQvaTOa4XoNPzIdkvIrXIgGM74dUa8Ll0A&s"
+        }
+    },
 
+    created(){ 
+        let auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+            this.username=auth.currentUser.displayName
+        } else {
+            console.log('no uid')
+        }
+    });
+
+    }
+    
 }
 </script>
 <style scoped>
@@ -149,7 +192,6 @@ export default {
 .nav-link:hover {
     background-color: #25192f;
     border-radius: 5px;
-
 }
 
 .dropdown-menu {
@@ -253,4 +295,10 @@ header a {
     color: #fefffe;
     transition: all 0.3s ease 0s;
 }
+
+#chatbox.dropdown-menu{
+    width: max-content;
+}
+
+    
 </style>

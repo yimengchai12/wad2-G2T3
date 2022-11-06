@@ -12,16 +12,16 @@
                                 alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: cover; outline: 1px solid #25192f ;border-radius:20px;"/>  
                         </div>
                         <div class="row justify-content-center mt-3 mb-3">
-                                    <div class="col-2 text-center"><a href="#"><i class="bi bi-heart me-2"></i>Like</a></div>
-                                    <div class="col-2 text-center"><a href="#"><i class="bi bi-share me-2"></i>Share</a></div>
+                                    <div class="col-2 text-center"><a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a></div>
+                                    <div class="col-2 text-center"><a href="#" class="share"><i class="bi bi-share me-2"></i>Share</a></div>
                         </div> 
                         
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
                             <h3>{{collectionName}}</h3>
-                            <h5 style="color:grey; font-style:italic; font-weight:normal">{{collectionDate}}</h5>
-                            <h5 style="color:grey; font-style:italic; font-weight:normal">{{artistName}}</h5>
-                            <h5 style="color:grey; font-style:italic; font-weight:normal">{{dimension}}</h5>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{artistName}}</h5>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
@@ -105,7 +105,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 .thumbnail {
     width: 30px;
     height: 30px;
@@ -133,7 +134,7 @@ a{
     text-decoration: none;
 }
 
-a:hover{
+.like:hover, .share:hover{
     color:#e42474;
     
 }
