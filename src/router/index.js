@@ -32,6 +32,7 @@ const router = createRouter({
             component: () => import("../components/ImagePage.vue"),
             
         },
+        { path: "/searchResult", component: () => import("../../views/searchResult.vue") }
 
     ]
 })
