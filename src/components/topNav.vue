@@ -168,7 +168,10 @@ export default {
         } else {
             console.log('no uid')
         }
+
     });
+
+
 
     }
     

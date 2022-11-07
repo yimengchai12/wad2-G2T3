@@ -1,6 +1,5 @@
 <template>
     <logIn></logIn>
-    <registerUser></registerUser>
 
     
     <body>
@@ -65,7 +64,6 @@
 
 <script>
 import logIn from "../src/components/SignIn.vue";
-import registerUser from "../src/components/RegisterPage.vue";
 import navBars from "../src/components/navBars.vue";
 import pageBody from "../src/components/pageBody.vue";
 
@@ -87,7 +85,6 @@ export default {
     components: {
         navBars,
         logIn,
-        registerUser,
         pageBody,
 
     },

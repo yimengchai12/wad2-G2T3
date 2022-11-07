@@ -15,23 +15,6 @@
                 <!-- <p class="card-text">{{imag.details}}</p> -->
                 <!-- <button @click="deleteData(imag.title)" class="btn btn-primary">DELETE</button> -->
                 <p style="color:#e42474">{{imag.artistName}}</p>
-            
-                <!-- <p class="card-text">{{imag.details}}</p>
-                <button @click="deleteData(imag.title)" class="btn btn-primary">DELETE </button> -->
-
-                    <!-- <buyPage 
-                    :title="images.title"
-                    :userid= "images.userid" 
-                    :email = "images.email"
-                    :listDate= "images.listDate"
-                    :price = "images.price"
-                    :details = "images.details"
-                    :tags = "images.tags"
-                    :image = "images.image">
-                </buyPage> -->
-                <!-- <router-link :to="'/buy/' + imag.title" > <button class="btn btn-primary ms-2">Enter</button> </router-link> -->
-
-                
             </div>
             </div>
         </div>
