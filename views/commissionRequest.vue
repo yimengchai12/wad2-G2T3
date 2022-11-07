@@ -52,52 +52,61 @@
 
 
             <div>
-                <h3>Commission replies</h3>
+                <!-- reply to commission sent to you -->
+                <h3>Commission replies</h3> 
                 <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
                 <div class="commissionReply">
-                    <div v-for="request in requestObj" :key="request">
-                        <div v-if="request.artistResponded.includes(this.request.userid)">
-                            <p>{{request.userid}} userid</p>
-                            <p>{{request.details}} user details</p>
-                            <p>{{request.price}} userprice</p>
-                            <p>{{request.userEmail}} useremail</p>
-                            <p>{{request.userName}} username</p>
-                            {{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}
-                        </div>
-                        <div v-else>
-                            <p>{{request.userid}} userid</p>
-                            <p>{{request.details}} user details</p>
-                            <p>{{request.price}} userprice</p>
-                            <p>{{request.userEmail}} useremail</p>
-                            <p>{{request.userName}} username</p>
-                            <p>{{request.reqDate}} Date</p>
-                            <p>{{request.reqDeadline}} Deadline</p>
-                            <div class="d-flex">
-                                <button class="btn btn-primary" @click="updateResponse(request, true)">Accept</button>
-                                <button class="btn btn-primary" @click="updateResponse(request, false)">Reject</button>
+                    <table class="table table-striped table-dark table-bordered ">
+                        <tr v-for="request in requestObj" :key="request">
+                            <div v-if="request.artistResponded.includes(this.request.userid)">
+                                
+                                <td>userid: {{request.userid}} </td>
+                                <td>  user details:{{request.details}}</td>
+                                <td>userprice:{{request.price}} </td>
+                                <td>useremail:{{request.userEmail}} </td>
+                                <td>username:{{request.userName}} </td>
+                                <td>status: {{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
                             </div>
-                        </div>
-                    </div>
+                            <div v-else>
+                                <p>{{request.userid}} userid</p>
+                                <p>{{request.details}} user details</p>
+                                <p>{{request.price}} userprice</p>
+                                <p>{{request.userEmail}} useremail</p>
+                                <p>{{request.userName}} username</p>
+                                <p>{{request.reqDate}} Date</p>
+                                <p>{{request.reqDeadline}} Deadline</p>
+                                <div class="d-flex">
+                                    <button class="btn btn-primary" @click="updateResponse(request, true)">Accept</button>
+                                    <button class="btn btn-primary" @click="updateResponse(request, false)">Reject</button>
+                                </div>
+                            </div>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
             <div>
+                <!-- details of commissions sent to others -->
                 <h3>Commission sent</h3>
                 <div class="commissionSent">
                     <div v-for="sent in sentObj" :key="sent">
-                         <p>{{sent.userid}} userid</p>
-                         <p>{{sent.details}} user details</p>
-                         <p>{{sent.price}} userprice</p>
-                         <p>{{sent.userEmail}} useremail</p>
-                         <p>{{sent.userName}} username</p>
-                         <p>{{sent.reqDate}} Date</p>
-                         <p>{{sent.reqDeadline}} Deadline</p>
-                         <table class="table table-striped table-dark table-bordered">
-                            <tr v-for="(artist, index) in sent.artistList" :key="artist">
-                                <td>{{this.emailLinked[artist]}}</td>
-                                <td>{{sent.artistReply[index]}}</td>
-                            </tr>
-                         </table>
+                        <table class="table table-striped table-dark table-bordered">
+                            <tr> 
+                                <td>{{sent.userid}} userid</td>
+                                <td>{{sent.details}} user details</td>
+                                <td>{{sent.price}} userprice</td>
+                                <td>{{sent.userEmail}} useremail</td>
+                                <td>{{sent.userName}} username</td>
+                                <td>{{sent.reqDate}} Date</td>
+                                <td>{{sent.reqDeadline}} Deadline</td>
+                                <table class="table table-striped table-dark table-bordered">
+                                    <tr v-for="(artist, index) in sent.artistList" :key="artist">
+                                        <td>{{this.emailLinked[artist]}}</td>
+                                        <td>{{sent.artistReply[index]}}</td>
+                                    </tr>
+                                </table>
+                            </tr> 
+                        </table>
                     </div>
                 </div>
             </div>
