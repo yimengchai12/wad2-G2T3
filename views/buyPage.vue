@@ -110,13 +110,13 @@ export default {
     },
     computed: {
         dimension() {
-        var img = new Image()
-        img.src = this.collectionImg
-        var img_width =img.width;
-        var img_height = img.height;
-        var str = `${img_width}x${img_height}px`
-        // var img_height = this.collectionImg.height;
-        return str
+            var img = new Image()
+            img.src = this.collectionImg
+            var img_width =img.width;
+            var img_height = img.height;
+            var str = `${img_width}x${img_height}px`
+            // var img_height = this.collectionImg.height;
+            return str
         }
     },
 

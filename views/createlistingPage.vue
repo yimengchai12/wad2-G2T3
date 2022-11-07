@@ -161,6 +161,9 @@ export default {
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
             this.images.listDate= `${day}-${month}-${year}`;
+            if (this.tag.length > 0){
+                this.images.tags.push(this.tag);
+            }
             // console.log(this.images);
             console.log(this.profile.listedImages);
             this.profile.listedImages.push(this.images.image);

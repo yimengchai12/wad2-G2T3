@@ -32,6 +32,13 @@ const router = createRouter({
             component: () => import("../components/ImagePage.vue"),
             
         },
+        { 
+            path: "/commission", 
+            component: () => import("../../views/commissionRequest.vue"),
+            meta: { requiresAuth: true, 
+                },
+        },
+
 
     ]
 })
