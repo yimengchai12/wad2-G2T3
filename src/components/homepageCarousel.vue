@@ -14,7 +14,7 @@
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                         <div class="d-flex justify-content-center">
                             
-                            <div class="vertical-center text-start w-25"> 
+                            <div class="vertical-center text-start p-4"> 
                                 <h1><div class="input-wrapper">
                                     <input aria-label="Ask us anything">
                                     <span class="placeholder"></span>
@@ -60,8 +60,7 @@
 
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                         <div class="d-flex justify-content-center">
-                            <div class="vertical-center text-start w-25">
-                               
+                            <div class="vertical-center text-start p-4">
                                 <div class="input-wrapper2">
                                     <input aria-label="Ask us anything">
                                     <span class="placeholder"></span>
@@ -105,7 +104,7 @@
 
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                         <div class="d-flex justify-content-center">
-                            <div class="vertical-center text-start w-25">
+                            <div class="vertical-center text-start p-4">
                                 
                                 <h1><div class="input-wrapper3">
                                     <input aria-label="Ask us anything">
@@ -197,7 +196,7 @@ export default {
     display: block;
     // font-family: monospace;
     font-size: 80%;
-    width: 50%;
+    width: 100%;
 
     >input,
     >.placeholder {
