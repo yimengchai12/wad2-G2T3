@@ -101,10 +101,16 @@
                         v-if="!isLoggedIn">
                         Sign In
                     </button>
+                    <button type="button" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75 mb-3"
+                        data-bs-dismiss="modal" v-if="isLoggedIn">
+                        Close
+                    </button>
+
                 </div>
+                
+                
 
-
-                <div class="modal-body">
+                <div class="modal-body" v-if="!success">
                     Don't have an account?
                     <a href="#" class="link-secondary" v-if="!isLoggedIn"
                         data-bs-target="#register" data-bs-toggle="modal" data-bs-dismiss="modal">Register now</a>
@@ -145,7 +151,7 @@
                             <span class="field__label">Email</span>
                         </span>
                     </div>
-                    <div class="field field_v3" v-if="!isLoggedIn">
+                    <div class="field field_v2" v-if="!isLoggedIn">
                         <label for="signup-password" class="ha-screen-reader">Password</label>
                         <input type="password" id="signin-password" class="field__input"
                             placeholder="Please enter your password" v-model="password" @keyup.enter="signin">
@@ -159,13 +165,19 @@
                 <div v-if="success" class="light-text" style="padding-bottom:0;">{{ success }}</div>
                 <div class="mb-1 d-flex flex-column justify-content-center align-items-center">
                     <button @click="register" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75"
-                        v-if="!isLoggedIn" data-bs-dismiss="modal">
+                        v-if="!isLoggedIn">
                         Register now
                     </button>
+                
+                    <button type="button" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75 mb-3"
+                        data-bs-dismiss="modal" v-if="isLoggedIn">
+                        Close
+                    </button>
+              
                 </div>
 
 
-                <div class="modal-body">
+                <div class="modal-body" v-if="!success">
                     Already have an account?
                     <a href="#" class="link-secondary" v-if="!isLoggedIn"
                         data-bs-target="#login" data-bs-toggle="modal" data-bs-dismiss="modal">Login now</a>
@@ -226,6 +238,9 @@ const register = () => {
         .then((user) => {
             console.log("Successfully registered!");
             console.log(user.user.uid);
+            success.value = "Registration successful!";
+            signedin.value = true;
+            errMsg.value = "";
             setDoc(doc(db, "profiles", user.user.uid), {
                 name: name.value,
                 email: email.value,
