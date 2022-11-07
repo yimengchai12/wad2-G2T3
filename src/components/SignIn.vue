@@ -98,7 +98,7 @@
                 <div v-if="success" class="light-text" style="padding-bottom:0;">{{ success }}</div>
                 <div class="mb-1 d-flex flex-column justify-content-center align-items-center">
                     <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75"
-                        v-if="!isLoggedIn" data-bs-dismiss="modal">
+                        v-if="!isLoggedIn">
                         Sign In
                     </button>
                 </div>
