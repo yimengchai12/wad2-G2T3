@@ -1,3 +1,41 @@
+
+<style>
+    .heading{
+        text-align: left;
+        color: white;
+    }
+
+    /* Image upload styling START */
+    .uploadContainer{
+        margin-top: 20px;
+        color: white;
+        position: relative;
+        /* margin-left: 20px; */
+        margin-right: 20px;
+    }
+    .uploadedImage:hover{
+        border: 2px solid white;
+        
+    }
+    .image{
+        width: 100%;
+        height: auto;
+        margin-right: 50px;
+    }
+    /*  image upload styling END */
+
+
+    .formHeader{
+        color: white;
+        text-align: left;
+        padding-bottom: 20px;
+    }
+    .buttonStyle{
+        background-color: rgb(228,36,116);
+        color: white
+    }
+    
+</style>
 <template>
     <logIn></logIn>
     <registerUser></registerUser>
@@ -6,57 +44,80 @@
         <div>
         </div>
         <pageBody>
-            <h3>Add Photos</h3>
-            <div>
-                <label class="custom-file-upload signin-on-hover"> Upload
-                <input type="file" @change="uploadImage"/>
-                </label>
-                <div>
-                    <img v-bind:src="images.image" >
+            <div class="container-fluid">
+                <div class="row heading py-5">
+                    <h1>Create New Listing</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12">
+
+                        <h3 class="formHeader">Upload Creation</h3>
+                        
+                        <!-- Image upload -->
+                        <div class="uploadContainer">
+                            <div class="btnText">
+                                <input id="fileUpload" type="file" @change="uploadImage" accept="image/*" required="true" style="display: none;">
+                                <!-- <button type="button" class="btn btn-primary" onclick="document.getElementById('fileUpload').click();">Upload File</button> -->
+                            </div>
+                            <div>
+                                <label for="fileUpload">
+                                    <img class="image uploadedImage" v-bind:src="images.image" >
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-sm-12 mx-3">
+                    
+                        <h3 class="formHeader">About this Creation</h3>
+                        
+                        <div class="form-group">
+
+                            <!-- Image Title -->
+                            Listing Title:
+                            <input type="text" placeholder="Title" v-model="images.title" class="form-control" required="true">
+
+
+                            <!-- Image Description -->
+                            Image Description:
+                            <textarea placeholder="Description" v-model="images.details" class="form-control" rows="3" cols="50" required="true"></textarea>
+
+
+                            <!-- Price input -->
+                            Price:
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="images.price" required="true">
+                            </div>
+
+
+                                <!-- Add tag -->
+                            Image Tags:
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Add Tags" aria-describedby="button-addon2" v-model="tag" @keyup.enter="addTag">
+                                <button class="btn btn-outline-secondary buttonStyle" type="button" id="button-addon2" @click="addTag" >Add Tag</button>
+
+
+                                <!-- <input type="text" @keyup.enter="addTag" placeholder="Tags (Press enter to add tags)" v-model="tag" class="form-control"> -->
+                                <div class="d-flex">
+                                    <p v-for="(tag,index) in images.tags" :key="tag" class="text-start p-2 bg-danger me-2">
+                                        <button type="button " class="btn-close btn-close-white " aria-label="Close" @click="deleteTag(tag,index)"></button>
+                                        <span class="p-1 me-2 text-light"> {{tag}}</span>  
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+                        <!-- Upload Button -->
+                        <div class="form-group text-center" >
+                            <button class="btn buttonStyle" @click="saveData" type="submit">Save Data</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="listing" >
-                    <div class="form-group">
-                        Listing Title:
-                        <input type="text" placeholder="Title" v-model="images.title" class="form-control">
-                    </div>
 
-                    <div class="form-group">
-                        Image Details:
-                        <textarea placeholder="Details" v-model="images.details" class="form-control" rows="3" cols="50"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        Price:
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="images.price">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        Image Tags:
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Add Tags" aria-describedby="button-addon2" v-model="tag" @keyup.enter="addTag">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="addTag" >Add Tag</button>
-                        </div>
-
-                        <!-- <input type="text" @keyup.enter="addTag" placeholder="Tags (Press enter to add tags)" v-model="tag" class="form-control"> -->
-                        <div class="d-flex">
-                            <p v-for="(tag,index) in images.tags" :key="tag" class="text-start p-2 bg-danger me-2">
-                                <button type="button" class="btn-close btn-close-white" aria-label="Close" @click="deleteTag(tag,index)"></button>
-                                <span class="p-1 me-2 text-light"> {{tag}}</span>  
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="form-group text-center" >
-                        <button class="btn btn-primary" @click="saveData">Save Data</button>
-                    </div>
-
-                </div>
-            </div>
             
 
 
@@ -100,7 +161,7 @@ export default {
                 title: "",
                 details: "",
                 tags: [],
-                image: "https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Faddimg.png?alt=media&token=4eebda76-5290-43ca-abde-6c1be7968fd3",
+                image: "https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2FFrame%20583.png?alt=media&token=7544b0d8-2966-47f3-833a-f4619f7b37c2",
             },
 
             profile: {},
