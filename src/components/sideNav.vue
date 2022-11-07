@@ -20,7 +20,7 @@
                                 <router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Popular Artwork
                                 </router-link>
                             </li>
-                            <li><a href="#" class="dropdown-item text-light pl-4 p-2">Upcoming Calendar</a></li>
+                            <li><a href="/commission" class="dropdown-item text-light pl-4 p-2">Request Commission</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
