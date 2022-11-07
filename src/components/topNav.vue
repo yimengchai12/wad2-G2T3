@@ -51,7 +51,7 @@
                 <li class="nav-item me-3">
                 <div class="dropdown">
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text py-1 px-3 mx-1 pl-4" style="height:100px" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
-                    <ul class="dropdown-menu" id="chatbox" aria-labelledby="dropdownMenuButton1">
+                    <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
                         <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl':photoUrl}"></ChatPage>
                     </ul>
@@ -198,7 +198,10 @@ export default {
     position: relative;
     background-color: #120c18;
 }
-
+.dropdown-menu-chat {
+    position: relative;
+    /* background-color: #120c18; */
+}
 .dropdown-item:active,
 .dropdown-item:focus,
 .dropdown-item:hover {
