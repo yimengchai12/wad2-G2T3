@@ -22,7 +22,7 @@
                     :tags = "images.tags"
                     :image = "images.image">
                 </buyPage> -->
-                <router-link :to="'/buy/' + imag.title">asdasdasdadas</router-link>
+                <router-link :to="'/buy/' + imag.title" > <button class="btn btn-primary ms-2">Enter</button> </router-link>
 
                 
 
