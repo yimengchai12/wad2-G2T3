@@ -1,6 +1,5 @@
 <template>
     <logIn></logIn>
-    <registerUser></registerUser>
     <body>
         <navBars></navBars>
         <pageBody>
@@ -70,7 +69,6 @@
 <script>
 import pageBody from "../src/components/pageBody.vue"
 import logIn from "../src/components/SignIn.vue"
-import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 
 import { getAuth, updateProfile } from "firebase/auth";
@@ -105,8 +103,7 @@ export default {
 
     components: {
         navBars,
-        logIn, 
-        registerUser,
+        logIn,
         pageBody,
     },
 
