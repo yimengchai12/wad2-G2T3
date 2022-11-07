@@ -5,6 +5,7 @@ html {
     overflow: -moz-scrollbars-vertical; 
     overflow-y: scroll;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     }
 body {
     background-color: #120c18;
@@ -109,7 +110,7 @@ margin-left: 0;
 @media screen and (min-width:1200px){
 .homepageCarou {
     background-color: #120c18;
-    height: 600px;
+    height: 75vh;
     outline: 1px solid #25192f;
     border-radius: 20px;
     width: 65vw;
@@ -120,7 +121,7 @@ margin-left: 0;
 @media screen and (max-width:1199px) {
     .homepageCarou {
         background-color: #120c18;
-        height: 600px;
+        height: 75vh;
         outline: 1px solid #25192f;
         border-radius: 20px;
         width: 90vw;

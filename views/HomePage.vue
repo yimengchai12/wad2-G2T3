@@ -45,6 +45,7 @@ import imagePage from "../src/components/ImagePage.vue";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { onMounted } from "vue";
 
+
 const isLoggedIn = ref(false);
 let auth;
 onMounted(()=>{
@@ -78,7 +79,8 @@ export default {
         imagePage,
         // messageBox,
         pageBody,
-        // homepageListing
+        // homepageListing,
+    
     },
     
     methods: {
@@ -129,7 +131,5 @@ export default {
 </script>
 
 <style>
-    
-
     
 </style>

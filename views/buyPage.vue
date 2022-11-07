@@ -11,7 +11,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="row flex-column px-1">
                             <img id="collectionImg" v-bind:src="collectionImg"
-                                alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: cover; outline: 1px solid #25192f ;border-radius:20px;"/>  
+                                alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: scale-down; outline: 1px solid #25192f ;border-radius:20px;"/>  
                         </div>
                         <div class="row justify-content-center mt-3 mb-3">
                                     <div class="col-2 text-center"><a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a></div>
