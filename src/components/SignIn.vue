@@ -5,7 +5,7 @@
     <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div class="modal fade mt-5" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade mt-5" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -42,8 +42,13 @@
                     <div v-if="errMsg" class="light-text" style="padding-bottom:0;">{{ errMsg }}</div>
                     <div v-if="success" class="light-text" style="padding-bottom:0;">{{ success }}</div>
                 <div class="mb-3 d-flex flex-column justify-content-center align-items-center">
-                    <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75 mb-3" v-if="!isLoggedIn">
+                    <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75 mb-1" v-if="!isLoggedIn">
                         Sign In
+                    </button>
+                    <hr>
+
+                    <button @click="signin" class="light-text signin-on-hover rounded-pill py-2 px-3 w-75 mb-3" v-if="!isLoggedIn">
+                        Register
                     </button>
 
                     <button type="button" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75"
@@ -53,8 +58,122 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <div class="modal fade mt-5" id="login" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <header class="modal-title w-100" id="exampleModalLabel">
+                        <img class="signin-brand img-fluid" src="../assets/Avalon-1-modal.png" style="width:129.44px;">
+                    </header>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body page">
+                    <div class="mt-3 p-0">
+                        <h5>
+                            Log in to buy and sell art from artists all over the world!
+                        </h5>
+                    </div>
+                    <div class="field field_v1" v-if="!isLoggedIn">
+                        <label for="signin-email" class="ha-screen-reader">Email</label>
+                        <input id="signin-email" type="text" class="field__input" placeholder="Please enter your email"
+                            v-model="email" @keyup.enter="signin">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Email</span>
+                        </span>
+                    </div>
+                    <div class="field field_v2" v-if="!isLoggedIn">
+                        <label for="signin-password" class="ha-screen-reader">Password</label>
+                        <input type="password" id="signin-password" class="field__input"
+                            placeholder="Please enter your password" v-model="password" @keyup.enter="signin">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Password</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div v-if="errMsg" class="light-text" style="padding-bottom:0;">{{ errMsg }}</div>
+                <div v-if="success" class="light-text" style="padding-bottom:0;">{{ success }}</div>
+                <div class="mb-1 d-flex flex-column justify-content-center align-items-center">
+                    <button @click="signin" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75"
+                        v-if="!isLoggedIn" data-bs-dismiss="modal">
+                        Sign In
+                    </button>
+                </div>
+
+
+                <div class="modal-body">
+                    Don't have an account?
+                    <a href="#" class="link-secondary" v-if="!isLoggedIn"
+                        data-bs-target="#register" data-bs-toggle="modal" data-bs-dismiss="modal">Register now</a>
+                </div>
+            </div>
+        </div>
     </div>
-    
+    <div class="modal fade mt-5" id="register" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <header class="modal-title w-100" id="exampleModalLabel">
+                        <img class="signin-brand img-fluid" src="../assets/Avalon-1-modal.png" style="width:129.44px;">
+                    </header>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body page">
+                    <div class="mt-3 p-0">
+                        <h5>
+                            Register to buy and sell art from artists all over the world!
+                        </h5>
+                    </div>
+                    <div class="field field_v1" v-if="!isLoggedIn">
+                        <label for="signup-name" class="ha-screen-reader">Name</label>
+                        <input id="signup-name" type="text" class="field__input" placeholder="Please enter your name"
+                            v-model="name" @keyup.enter="register">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Name</span>
+                        </span>
+                    </div>
+                    <div class="field field_v2" v-if="!isLoggedIn">
+                        <label for="signup-email" class="ha-screen-reader">Email</label>
+                        <input id="signup-email" type="text" class="field__input" placeholder="Please enter your email"
+                            v-model="email" @keyup.enter="register">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Email</span>
+                        </span>
+                    </div>
+                    <div class="field field_v3" v-if="!isLoggedIn">
+                        <label for="signup-password" class="ha-screen-reader">Password</label>
+                        <input type="password" id="signin-password" class="field__input"
+                            placeholder="Please enter your password" v-model="password" @keyup.enter="signin">
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span class="field__label">Password</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div v-if="errMsg" class="light-text" style="padding-bottom:0;">{{ errMsg }}</div>
+                <div v-if="success" class="light-text" style="padding-bottom:0;">{{ success }}</div>
+                <div class="mb-1 d-flex flex-column justify-content-center align-items-center">
+                    <button @click="register" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75"
+                        v-if="!isLoggedIn" data-bs-dismiss="modal">
+                        Register now
+                    </button>
+                </div>
+
+
+                <div class="modal-body">
+                    Already have an account?
+                    <a href="#" class="link-secondary" v-if="!isLoggedIn"
+                        data-bs-target="#login" data-bs-toggle="modal" data-bs-dismiss="modal">Login now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- <h1>Sign In to an account</h1>
     <p><input type="text" placeholder="Email" v-model="email" /></p>
@@ -67,8 +186,11 @@
 // import sideNav from "../src/components/sideNav.vue"
 
 import { ref, onMounted } from "vue";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useRouter } from "vue-router";
+
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../main.js";
 
 
 const email = ref("");
@@ -79,27 +201,55 @@ const success = ref("");
 const signedin = ref(false);
 const isLoggedIn = ref(false);
 
+const name = ref("");
+
 const auth = getAuth();
 
-onMounted(()=>{
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log('signedin')
-      isLoggedIn.value = true;
+onMounted(() => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log('signedin')
+            isLoggedIn.value = true;
 
-    } else {
-      isLoggedIn.value = false;
-      success.value = "";
-      password.value="";
-      email.value="";
-      console.log('signedout')
-    }
-  });
+        } else {
+            isLoggedIn.value = false;
+            success.value = "";
+            password.value = "";
+            email.value = "";
+            console.log('signedout')
+        }
+    });
 });
+
+const register = () => {
+    createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+        .then((user) => {
+            console.log("Successfully registered!");
+            console.log(user.user.uid);
+            setDoc(doc(db, "profiles", user.user.uid), {
+                name: name.value,
+                email: email.value,
+                images: []
+            })
+            const auth = getAuth();
+            updateProfile(auth.currentUser, {
+                displayName: name.value
+            }).then(() => {
+                console.log("Profile updated!");
+            }).catch((error) => { console.log('errorrrr') })
+            router.push("/");
+        })
+        .catch((error) => {
+            console.log(error.code);
+            alert(error.message);
+        });
+
+
+};
 
 
 const signin = () => {
-    
+
     console.log(email.value);
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
@@ -137,7 +287,8 @@ export default {
     // },
     data() {
         return {
-            login: "login",       };
+            login: "login",
+        };
     },
 
     methods: {
@@ -148,9 +299,10 @@ export default {
 
 <style scoped>
 input[type=text],
-input[type=password]{
-    color:#fefffe;
+input[type=password] {
+    color: #fefffe;
 }
+
 .modal-dialog,
 .modal-content,
 .modal-header,

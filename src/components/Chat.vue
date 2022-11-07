@@ -1,5 +1,5 @@
 <template>
-    <div ref="talkjs" style="height: 500px">
+    <div ref="talkjs" style="height: 500px;">
                 <i>Loading chat...</i>
             </div>
 </template>
@@ -28,6 +28,7 @@
           const talkSession = new Talk.Session({
             appId: 'tEV2hKRM',
             me: me,
+            showChatHeader: false,
           });
 
           const other = new Talk.User({
@@ -47,6 +48,7 @@
           conversation.setParticipant(other);
 
           const inbox = talkSession.createInbox();
+
           inbox.select(conversation);
 
           inbox.mount(this.$refs.talkjs);
