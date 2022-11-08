@@ -17,7 +17,7 @@
                     </div>
                     <div class="row col-xl-6">
                         <div class="d-flex flex-column  ">
-                        <p class="border-start text-start ps-3">This is your bio</p>
+                        <p class="border-start text-start ps-3">This is your bio {{profileObj.bio}}</p>
                     </div>
                     </div>
                 </div>
@@ -37,8 +37,8 @@
 
             <div class="text-light">
                 name<input type="text" id="name" class="text-dark" v-model="profile.name">
-                pone<input type="text" id="phone" class="text-dark"  v-model="profile.phone">
-                address<input type="text" id="address" class="text-dark"  v-model="profile.address">
+                phone<input type="text" id="phone" class="text-dark"  v-model="profile.phone">
+                bio<input type="text" id="bio" class="text-dark"  v-model="profile.bio">
                 profile picture <input type="file" id="profilePicture" class="text-dark" @change="uploadImage">
                 <div>
                     <img v-bind:src="profile.profilePicture" >
@@ -50,16 +50,17 @@
             <div class="text-light">
                 
                 <div>{{profileObj.name}}</div>
-                <div>{{profileObj.phone}}</div>
-                <div>{{profileObj.email}}</div>
+                <div>{{profileObj.bio}}</div>
+                <!-- <div>{{profileObj.email}}</div> -->
                 <div>{{profileObj.address}}</div>
-                <img :src="profileObj.profilePicture">
+                <!-- <img :src="profileObj.profilePicture"> -->
 
             </div>
 
             <div class="text-light">
                 <div v-for="imageobj in listed" :key="imageobj">
                     <img :src="imageobj.image" >
+                    <button @click="deleteData(imageobj.title)" class="btn btn-primary">DELETE</button>
                 </div>
             </div>
 
@@ -72,7 +73,7 @@ import logIn from "../src/components/SignIn.vue"
 import navBars from "../src/components/navBars.vue"
 
 import { getAuth, updateProfile } from "firebase/auth";
-import { doc, updateDoc, getDoc, collection, query, where, getDocs} from "firebase/firestore";
+import { doc, updateDoc, getDoc, collection, query, where, getDocs, deleteDoc} from "firebase/firestore";
 import { db } from "../src/main.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
@@ -93,7 +94,7 @@ export default {
             profile: {
                 name: null,
                 phone: null,
-                address: null, 
+                bio: null, 
                 profilePicture: null,
                 email: email, 
                 listedImages: [],
@@ -112,8 +113,25 @@ export default {
     },
     
     methods: {
+
+        async deleteData(d){
+            await deleteDoc(doc(db, "images",d ));
+        },
+
         updateProfile(){
-            // console.log('hi')
+            if (this.profile.name == null){
+                this.profile.name = this.profileObj.name;
+            }
+            if (this.profile.profilePicture == null){
+                this.profile.profilePicture = this.profileObj.profilePicture;
+            }
+            if (this.profile.listedImages.length == 0){
+                this.profile.listedImages = this.profileObj.listedImages;
+            }
+            if (this.profile.bio == null){
+                this.profile.bio = this.profileObj.bio;
+            }
+            
             const profileRef = doc(db, "profiles", uid);
 
             // Set the "capital" field of the city 'DC'
