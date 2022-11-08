@@ -23,7 +23,12 @@
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
                             <h3>{{collectionName}}</h3>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
-                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{artistName}}</h5>
+                            <a v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2' " href='/profile'>
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistName}}</h5>
+                        </a>
+                            <a v-else :href="'/profile/'+ artistUid">
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%;text-decoration: underline;">{{artistName}}</h5>
+                            </a>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">

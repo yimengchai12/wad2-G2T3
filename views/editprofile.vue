@@ -4,7 +4,44 @@
     <body>
         <navBars></navBars>
         <pageBody>
-            <div class="container-fluid text-light pt-5">
+            <div class="container-fluid">
+                <div class="d-flex flex-column justify-content-center align-items-center text-light">
+                    <div style="height:250px; width:250px" class="text-center">
+                        <img        
+                                    style="height:250px; width:250px;object-fit:cover; border-radius: 50%; padding:0;"
+                                    :src="temp_profilePicture">
+                                    Change Profile Picture <input type="file" id="profilePicture" class="text-dark" @change="uploadImage">
+                    </div>
+                    <br>
+                    <br>
+                        name<input type="text" id="name" class="text-dark" v-model="profile.name">
+                        phone<input type="text" id="phone" class="text-dark" v-model="profile.phone">
+                        bio<input type="text" id="bio" class="text-dark" v-model="profile.bio">
+                    
+                    <button @click="updateProfile()" href="#">update change</button>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="container-fluid text-light pt-5">
                 <div class="row justify-content-center" style="height:max-content">
                     <div class="row col-xl-5 justify-content-center">
                         <div class="row justify-content-center">
@@ -15,8 +52,8 @@
                             <div class="row flex-column col-xl-6 p-1">
                                 <h1 class="text-center">{{ profileObj.name }}</h1>
                                 <span>
-                                    <router-link to='/editprofile'><button class="signin-on-hover" style="height:fit-content; width:fit-content">Edit
-                                        Profile</button></router-link></span>
+                                    <router-link to='/editprofile' role="button" class="signin-on-hover" style="height:fit-content; width:fit-content">Edit
+                                        Profile</router-link></span>
                             </div>
                         </div>
                     </div>
@@ -44,9 +81,9 @@
 
                         <div>{{ profileObj.name }}</div>
                         <div>{{ profileObj.bio }}</div>
-                        <!-- <div>{{profileObj.email}}</div> -->
+                       
                         <div>{{ profileObj.address }}</div>
-                        <!-- <img :src="profileObj.profilePicture"> -->
+                      
 
                     </div>
 
@@ -57,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -86,6 +123,7 @@ export default {
     name: "profilePage",
     data() {
         return {
+            
             profileObj: {},
             listed: [],
             profile: {
@@ -96,6 +134,8 @@ export default {
                 email: email,
                 listedImages: [],
             },
+            imgchange:false,
+            temp_profilePicture: '',
         }
     },
 
@@ -115,7 +155,7 @@ export default {
             await deleteDoc(doc(db, "images", d));
         },
 
-        updateProfile() {
+        async updateProfile() {
             if (this.profile.name == null) {
                 this.profile.name = this.profileObj.name;
             }
@@ -132,7 +172,7 @@ export default {
             const profileRef = doc(db, "profiles", uid);
 
             // Set the "capital" field of the city 'DC'
-            updateDoc(profileRef, this.profile);
+            await updateDoc(profileRef, this.profile);
 
 
             if (this.profile.name != null) {
@@ -144,7 +184,8 @@ export default {
             }
 
             this.reset();
-            // window.location.href = '/profile'
+            window.location.href = '/editprofile'
+            
 
         },
 
@@ -159,6 +200,13 @@ export default {
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
+                this.profile.name=docSnap.data().name
+                this.profile.phone=docSnap.data().phone
+                this.profile.bio=docSnap.data().bio
+                this.temp_profilePicture=docSnap.data().profilePicture
+                
+                
+                // this.name=this.profile.Obj.name
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
@@ -205,8 +253,11 @@ export default {
 
                     getDownloadURL(ref(storage, 'profiles/' + file.name)).then((url) => {
                         this.profile.profilePicture = url;
+                        this.temp_profilePicture=url
                         console.log(url);
                     });
+
+                    this.imgchange=true
                 },
                 (error) => {
                     // Handle unsuccessful uploads
