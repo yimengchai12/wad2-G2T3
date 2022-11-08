@@ -7,7 +7,7 @@
                 <div class="row align-items-center" style="height:400px">
                     <div class="row col-xl-6">
                         <div class="row">
-                            <div class="row col-xl-6"><img style="height:auto;width:auto;object-fit: scale-down;" :src="profileObj.profilePicture" class="rounded-circle"></div>
+                            <div class="row col-xl-6"><img style="object-fit:cover; border-radius: 50%;" :src="profileObj.profilePicture" ></div>
                             <div class="row col-xl-6 p-1 text-start">
                                 <h1 class="text-start">{{profileObj.name}}</h1>
                                 <span>
