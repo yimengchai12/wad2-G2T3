@@ -187,7 +187,7 @@ export default {
                         break;
                     }
 
-                    getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
+                    getDownloadURL(ref(storage, 'profiles/' + file.name)).then((url) => {
                         this.profile.profilePicture = url;
                         console.log(url);
                     });
