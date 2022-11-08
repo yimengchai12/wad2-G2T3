@@ -164,7 +164,7 @@ export default {
         uploadImage(e){
             let file = e.target.files[0];
             const storage = getStorage();
-            const storageRef = ref(storage, 'profiles/' + uid);
+            const storageRef = ref(storage, 'profiles/' + file.name);
             
             const metadata = {
                 contentType: 'image/jpeg/png/jpg',
