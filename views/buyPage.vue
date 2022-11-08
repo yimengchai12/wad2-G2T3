@@ -5,7 +5,9 @@
     <body>
         <navBars></navBars>
         <pageBody class="mt-5 pt-3">
-            
+            <a v-if="currentUid == artistUid" href='/profile'>
+                            <h1 style="margin-left: 10px">{{artistName}}</h1>
+                        </a>
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="row flex-column px-1">
@@ -49,7 +51,12 @@
                 <table class="mt-3 ">
                     <th class="d-flex">
                         <img class="thumbnail img-fluid rounded-circle" v-bind:src="artistImg" alt="">
-                        <h4 style="margin-left: 10px">{{artistName}}</h4>
+                            <a v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2' " href='/profile'>
+                                <h1 style="margin-left: 10px">{{artistName}}</h1>
+                            </a>
+                            <a v-else :href="'/profile/'+ artistUid">
+                                <h4 style="margin-left: 10px">{{artistName}}</h4>
+                            </a>
                     </th>
                     <tr>
                         <td>
@@ -68,6 +75,7 @@ import navBars from "../src/components/navBars.vue";
 import pageBody from "../src/components/pageBody.vue";
 
 import { doc, getDoc } from "firebase/firestore";
+import { getAuth, } from "firebase/auth";
 import { db } from "../src/main.js";
 
 export default {
@@ -102,7 +110,9 @@ export default {
             artistImg: "",
             artistName: "",
             artistDesc: "",
-            
+            artistUid: "",
+            currentUid: "",
+            loaded: false,
         }
     },
     computed: {
@@ -135,7 +145,18 @@ export default {
                 this.artistName = this.buyDescription.artistName
                 this.collectionTitle = this.buyDescription.email
                 this.collectionPrice = this.buyDescription.price
+                this.artistUid = this.buyDescription.userid
 
+                const auth = getAuth();
+                const user = auth.currentUser;
+                if (user){
+                    this.currentUid=user.uid;
+                    console.log(this.currentUid)
+                    this.loaded = true
+                }
+                else {
+                    console.log("No user")
+                }
             } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");

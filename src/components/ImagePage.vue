@@ -19,6 +19,7 @@
             </div>
         </div>
     </div>
+
 <div class="d-flex mt-5">
             <h2>Recently Posted</h2>
         </div>
