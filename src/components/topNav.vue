@@ -290,6 +290,7 @@ header {
 #nav-title {
     margin-right: auto;
     font-size: 1.5em;
+    padding-left: 9px;
 }
 
 header li {
