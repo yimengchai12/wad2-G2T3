@@ -34,7 +34,7 @@ const router = createRouter({
         },
         { 
             path: "/commission", 
-            component: () => import("../../views/ProfilePage.vue"),
+            component: () => import("../../views/commissionRequest.vue"),
             meta: { requiresAuth: true, 
                 },
         },

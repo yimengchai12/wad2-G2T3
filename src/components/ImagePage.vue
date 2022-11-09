@@ -26,7 +26,7 @@
     <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:10px; height:max-content;width:83vw;">
         <div v-for="imag in imagesObj" :key="imag" class="me-4">
             <div class="card homepageListing" style="width: 250px; height:400px;margin-top:10px">
-                <a :href="'/buy/'+imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></a>
+                <router-link to="/buy/ " + imag.title><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></router-link>
             <div class="card-body">
                 <a :href="'/buy/'+imag.title" style="text-decoration:none; color: #fffeee"><h5 class="card-title">{{imag.title}}</h5></a>
                 <!-- <p>Tags: 
