@@ -39,6 +39,13 @@ const router = createRouter({
                 },
         },
         { 
+            path: "/success", 
+            component: () => import("../../views/successPage.vue"),
+            meta: { requiresAuth: true, 
+                },
+        },
+
+        { 
             path: "/editprofile", 
             component: () => import("../../views/editprofile.vue"),
             meta: { requiresAuth: true, 

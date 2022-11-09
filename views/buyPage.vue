@@ -33,7 +33,8 @@
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
-                                <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;">Purchase</a>
+                            <stripe-checkout ref="checkoutRef" mode="payment" pk="pk_test_51M1neNLPH9sbKlnPHaFWkw5wVRIe7i6OoOqLP0aidAL6mysOBN2sLeGnuzV21muKVBqD0uemSKNDiXrmz3ARRyYL00iw2ytGrO" :line-items="lineItems" :success-url="successURL" :cancel-url="cancelURL" @loading="v =>loading = v"></stripe-checkout>
+                                <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" @click="submit">Purchase</a>
                         </div>
                     </div>
                 </div>
@@ -82,6 +83,7 @@ import pageBody from "../src/components/pageBody.vue";
 import { doc, getDoc } from "firebase/firestore";
 import { getAuth, } from "firebase/auth";
 import { db } from "../src/main.js";
+import { StripeCheckout } from "@vue-stripe/vue-stripe"
 
 export default {
     name: "buyPage",
@@ -99,6 +101,7 @@ export default {
         navBars,
         logIn,
         pageBody,
+        StripeCheckout
 
     },
     data(){
@@ -118,7 +121,16 @@ export default {
             artistUid: "",
             currentUid: "",
             loaded: false,
-            dimension:""
+            dimension:"",
+            loading: false, 
+            lineItems:[
+                {
+                    price: "price_1M24vNLPH9sbKlnP0gC7K0Cl",
+                    quantity: 1
+                }
+            ],
+            successURL: 'http://localhost:8080/success', 
+            cancelURL: 'http://localhost:8080/success'
         }
     },
 
@@ -130,6 +142,10 @@ export default {
     
 
     methods: {
+        submit(){
+            this.$refs.checkoutRef.redirectToCheckout()
+        },
+
         async readData(){
             const docRef = doc(db, "images", this.title);
             const docSnap = await getDoc(docRef);
