@@ -23,10 +23,10 @@
                             <h3>{{collectionName}}</h3>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
                             <a v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2' " href='/profile'>
-                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistName}}</h5>
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistProfile.name}}</h5>
                         </a>
                             <a v-else :href="'/profile/'+ artistUid">
-                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%;text-decoration: underline;">{{artistName}}</h5>
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%;text-decoration: underline;">{{artistProfile.name}}</h5>
                             </a>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
@@ -136,7 +136,7 @@ export default {
             collectionTitleImg: "",
             collectionDesc: "",
             artistImg: "",
-            artistName: "",
+            // artistName: "",
             artistDesc: "",
             artistUid: "",
             currentUid: "",
@@ -187,7 +187,7 @@ export default {
                 this.collectionImg = this.buyDescription.image
                 this.collectionName = this.buyDescription.title
                 this.collectionDate = this.buyDescription.listDate
-                this.artistName = this.buyDescription.artistName
+                // this.artistName = this.buyDescription.artistName
                 this.collectionTitle = this.buyDescription.title
                 this.collectionPrice = this.buyDescription.price
                 this.artistUid = this.buyDescription.userid
@@ -208,6 +208,7 @@ export default {
                     console.log("Document data:", artistSnap.data());
                     this.artistProfile = artistSnap.data();
                     this.bio = this.artistProfile.bio
+
                 } else {
                     console.log("No such document!");
                 }
