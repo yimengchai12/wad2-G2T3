@@ -166,6 +166,7 @@ export default {
         if (user) {
             this.username=auth.currentUser.displayName
             this.photoUrl=auth.currentUser.photoURL
+            console.log(auth.currentUser)
         } else {
             console.log('no uid')
         }

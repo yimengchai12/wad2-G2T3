@@ -16,7 +16,6 @@
                             
                             <div class="vertical-center text-start p-4"> 
                                 <h1><div class="input-wrapper">
-                                    <input aria-label="Ask us anything">
                                     <span class="placeholder"></span>
                                 </div></h1>
                                 <p>Created by an artificial intelligence program to the Colorado State Fair competition.
@@ -62,7 +61,7 @@
                         <div class="d-flex justify-content-center">
                             <div class="vertical-center text-start p-4">
                                 <div class="input-wrapper2">
-                                    <input aria-label="Ask us anything">
+                                   
                                     <span class="placeholder"></span>
                                 </div> 
                                 <p>Some representative placeholder content for the first slide.</p>
@@ -107,7 +106,7 @@
                             <div class="vertical-center text-start p-4">
                                 
                                 <h1><div class="input-wrapper3">
-                                    <input aria-label="Ask us anything">
+                                    
                                     <h1 class="placeholder"></h1>
                                 </div> </h1>
                                 <p>Some representative placeholder content for the first slide.</p>
