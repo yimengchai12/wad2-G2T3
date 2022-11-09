@@ -193,7 +193,13 @@ export default {
         },
         
         addArtist(){
-            this.request.artistList.push(this.sendArtist);
+            if (this.sendArtist in this.usersLinked){
+                this.request.artistList.push(this.sendArtist);
+                this.sendArtist = '';
+            }
+            else {
+                alert("Artist not found");
+            }
             this.sendArtist = '';
         },
 
@@ -229,7 +235,7 @@ export default {
             for (let i = 0; i < this.request.artistList.length; i++){
                 this.request.artistList.splice(i, 1, this.usersLinked[this.request.artistList[i]]);
             }
-            console.log(this.request.artistList);
+            console.log('hii' + this.request.artistList);
 
             for (let i = 0; i < this.request.artistList.length; i++){
                 this.request.artistReply.push("Pending");
