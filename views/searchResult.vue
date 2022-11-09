@@ -86,16 +86,19 @@ nav.fill ul li a:hover:after {
     flex-wrap: wrap;
     /* margin-right: 30px; */
     margin-top: 15px;
+    width: 300px;
 }
 .gallery{
     height: 200px;
     width: 100%;
     object-fit: cover;
+
 }
-.card{
+.artworkCard{
     background-color: rgb(32,23,43);
     color: white;
     text-align: left;
+    height: 360px;
 }
 .card:hover{
     color: rgb(228,36,116);
@@ -103,6 +106,27 @@ nav.fill ul li a:hover:after {
 }
 .description{
     font-size: 14px;
+    white-space: nowrap; 
+    width: 95%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.artistCard{
+    background-color: rgb(32,23,43);
+    color: white;
+    text-align: center;
+    height: 360px;
+    width: 100%;
+}
+.artistPic{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 265px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.navTab:hover{
+    border-bottom: 0px;
 }
 
 </style>
@@ -124,21 +148,22 @@ nav.fill ul li a:hover:after {
 
                 <!-- nav bar -->
                 <div class="row">
-
                     <section style="padding-top: 40px;">
                         <nav class="stroke">
                             <ul>
-                                <li style="padding-right: 40px;"><a href="#">Artworks</a></li>
-                                <li style="padding-left: 40px;"><a href="#">Artists</a></li>
+                                <li style="padding-right: 40px;"><a id="artworkNav" class="" href="#" @click="displayArtwork()">Artworks</a></li>
+                                <li style="padding-left: 40px;"><a id="artistNav" class="" href="#" @click="displayArtist()">Artists</a></li>
                             </ul>
                         </nav>
                     </section>
                 </div>
 
-                <div class="row" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                
+                <!-- Artwok Result -->
+                <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
 
                     <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card artworkCard" style="width: 18rem;">
                             <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top gallery">
                             <div class="card-body">
                                 <h4 class="card-title">Ocean Waves</h4>
@@ -150,19 +175,19 @@ nav.fill ul li a:hover:after {
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card artworkCard" style="width: 18rem;">
                             <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest2.jpg?alt=media&token=04a84243-44d4-4ae3-b331-af5764e3940b" class="card-img-top gallery">
                             <div class="card-body">
                                 <h4 class="card-title">Card title</h4>
                                 <h6>ChaiMeng</h6>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <h4>$1232</h4>
+                                <p class="card-text description">Sontent.</p>
+                                <h4>$1232</h4>  
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card artworkCard" style="width: 18rem;">
                             <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload1.jfif?alt=media&token=672349a6-a852-4725-9b5b-df172318296b" class="card-img-top gallery">
                             <div class="card-body">
                                 <h4 class="card-title">Card title</h4>
@@ -174,7 +199,7 @@ nav.fill ul li a:hover:after {
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card artworkCard" style="width: 18rem;">
                             <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest1.jfif?alt=media&token=b703bb9a-a012-4114-a202-e8aaa84b5d03" class="card-img-top gallery">
                             <div class="card-body">
                                 <h4 class="card-title">Card title</h4>
@@ -186,7 +211,7 @@ nav.fill ul li a:hover:after {
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card artworkCard" style="width: 18rem;">
                             <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload%203.jfif?alt=media&token=e59daeb0-0a42-4a67-bbc1-acda6b19ec4a" class="card-img-top gallery">
                             <div class="card-body">
                                 <h4 class="card-title">Card title</h4>
@@ -198,7 +223,7 @@ nav.fill ul li a:hover:after {
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card artworkCard" style="width: 18rem;">
                             <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestuplaod%205.jfif?alt=media&token=80cb6bd7-0925-4f12-97e7-eccc851e188e" class="card-img-top gallery">
                             <div class="card-body">
                                 <h4 class="card-title">Card title</h4>
@@ -210,7 +235,7 @@ nav.fill ul li a:hover:after {
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card artworkCard" style="width: 18rem;">
                             <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top gallery">
                             <div class="card-body">
                                 <h4 class="card-title">Card title</h4>
@@ -222,65 +247,81 @@ nav.fill ul li a:hover:after {
                     </div>
                 </div>
 
-                <!-- content -->
-                <!-- <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 m-0 px-1">
-                        <img
-                        src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8"
-                        class="w-100 shadow-1-strong rounded mb-2 imageGallery"
-                        alt=""
-                        />
 
-                        <img
-                        src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest2.jpg?alt=media&token=04a84243-44d4-4ae3-b331-af5764e3940b"
-                        class="w-100 shadow-1-strong rounded mb-2 imageGallery"
-                        alt=""
-                        />
+                <!-- Artist Result -->
+                <div class="row" id="artistResult">
+
+                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div class="card artistCard" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top artistPic">
+                                <h4 class="card-title">Yimeng</h4>
+                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 m-0 px-1">
-                        <img
-                        src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload1.jfif?alt=media&token=672349a6-a852-4725-9b5b-df172318296b"
-                        class="w-100 shadow-1-strong rounded mb-2 imageGallery"
-                        alt=""
-                        />
-
-                        <img
-                        src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest1.jfif?alt=media&token=b703bb9a-a012-4114-a202-e8aaa84b5d03"
-                        class="w-100 shadow-1-strong rounded mb-2 imageGallery"
-                        alt=""
-                        />
+                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div class="card artistCard" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest2.jpg?alt=media&token=04a84243-44d4-4ae3-b331-af5764e3940b" class="card-img-top artistPic">
+                                <h4 class="card-title">janzeer</h4>
+                                <p class="card-text description">StetstetstetstetsettsetstetsttStetstetstetstetsettsetstetsttStetstetstetstetsettsetstetsttStetstetstetstetsettsetstetstt</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 m-0 px-1">
-                        <img
-                        src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestuplaod%205.jfif?alt=media&token=80cb6bd7-0925-4f12-97e7-eccc851e188e"
-                        class="w-100 shadow-1-strong rounded mb-2 imageGallery"
-                        alt=""
-                        />
-
-                        <img
-                        src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload%203.jfif?alt=media&token=e59daeb0-0a42-4a67-bbc1-acda6b19ec4a"
-                        class="w-100 shadow-1-strong rounded mb-2 imageGallery"
-                        alt=""
-                        />
-                    </div>
-                </div> -->
-
-
-                <!-- <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 m-0 px-1">
-                        <img class="imageGallery" src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" alt="">
+                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div class="card artistCard" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload1.jfif?alt=media&token=672349a6-a852-4725-9b5b-df172318296b" class="card-img-top artistPic">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 m-0 px-1">
-                        <img class="imageGallery" src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest2.jpg?alt=media&token=04a84243-44d4-4ae3-b331-af5764e3940b" alt="">
+                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div class="card artistCard" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest1.jfif?alt=media&token=b703bb9a-a012-4114-a202-e8aaa84b5d03" class="card-img-top artistPic">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 m-0 px-1">
-                        <img class="imageGallery" src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload1.jfif?alt=media&token=672349a6-a852-4725-9b5b-df172318296b" alt="">
-                    </div> 
-                </div> -->
+                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div class="card  artistCard" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload%203.jfif?alt=media&token=e59daeb0-0a42-4a67-bbc1-acda6b19ec4a" class="card-img-top artistPic">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div class="card  artistCard" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestuplaod%205.jfif?alt=media&token=80cb6bd7-0925-4f12-97e7-eccc851e188e" class="card-img-top artistPic">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div class="card artistCard" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top artistPic">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
 
@@ -304,6 +345,44 @@ export default {
         registerUser,
         pageBody,
     },
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        displayArtist() {
+            var artwork = document.getElementById("artworkResult")
+            var artist = document.getElementById("artistResult")
+            artwork.style.display = "none"
+            artist.style.display = "flex"
+            var artworkSelected = document.getElementById("artworkNav")
+            var artistSelected = document.getElementById("artistNav")
+            artistSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+            artworkSelected.style = "color: white"
+            artistSelected.class = "navTab"
+        },
+        displayArtwork() {
+            var artwork = document.getElementById("artworkResult")
+            var artist = document.getElementById("artistResult")
+            artwork.style.display = "flex"
+            artist.style.display = "none"
+            var artworkSelected = document.getElementById("artworkNav")
+            var artistSelected = document.getElementById("artistNav")
+            artworkSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+            artistSelected.style = "color: white"
+        }
+    },
+    mounted(){
+            var artwork = document.getElementById("artworkResult")
+            var artist = document.getElementById("artistResult")
+            artwork.style.display = "flex"
+            artist.style.display = "none"
+            var artworkSelected = document.getElementById("artworkNav")
+            var artistSelected = document.getElementById("artistNav")
+            artworkSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+            artistSelected.style = "color: white"
+    }
 }
 
 </script>
