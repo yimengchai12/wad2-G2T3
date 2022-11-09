@@ -21,7 +21,7 @@
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
                             <h3>{{collectionName}}</h3>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
-                            <a v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2' " href='/profile'>
+                            <a v-if="artistUid == currentUid " href='/profile'>
                                 <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistProfile.name}}</h5>
                         </a>
                             <a v-else :href="'/profile/'+ artistUid">
@@ -76,10 +76,10 @@
                         
                         <img class="thumbnail img-fluid rounded-circle" style="margin-left:10px" v-bind:src="artistProfile.profilePicture" alt="">
                             <router-link to="/profile" v-if="artistUid == currentUid">
-                                <h4 style="margin-left: 10px">{{artistName}}</h4>
+                                <h4 style="margin-left: 10px">{{artistProfile.name}}</h4>
                             </router-link>
                             <router-link :to="'/profile/' + artistUid" v-else>
-                                <h4 style="margin-left: 10px">{{artistName}}</h4>
+                                <h4 style="margin-left: 10px">{{artistProfile.name}}</h4>
                             </router-link>
                     </th>
                     <tr>

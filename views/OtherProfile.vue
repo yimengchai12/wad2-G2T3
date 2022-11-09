@@ -15,8 +15,7 @@
                             <div class="row flex-column col-xl-6 p-1">
                                 <h1 class="text-center">{{ profileObj.name }}</h1>
                                 <span>
-                                    <router-link to='/editprofile'><button class="register-on-hover" style="height:fit-content; width:fit-content">Edit
-                                        Profile</button></router-link></span>
+                                    <router-link to='/editprofile'><button class="register-on-hover" style="height:fit-content; width:fit-content">Chat, this shows edit profile for now but change to chat</button></router-link></span>
                             </div>
                         </div>
                     </div>
