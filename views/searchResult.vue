@@ -334,7 +334,7 @@ nav.fill ul li a:hover:after {
 <script>
 import pageBody from "../src/components/pageBody.vue"
 import logIn from "../src/components/SignIn.vue"
-import registerUser from "../src/components/RegisterPage.vue"
+// import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 
 export default {
@@ -342,7 +342,7 @@ export default {
     components: {
         navBars,
         logIn, 
-        registerUser,
+        // registerUser,
         pageBody,
     },
     data(){
