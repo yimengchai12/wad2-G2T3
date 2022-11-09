@@ -63,23 +63,21 @@
                 <hr>
                 <table>
                     <th class="d-flex">
-                        <img class="thumbnail img-fluid rounded" v-bind:src="collectionTitleImg" alt="">
                         <h4 style="margin-left: 10px">{{collectionTitle}}</h4>
                     </th>
                     <tr>
                         <td>
-                            {{collectionDesc}}
-                            
+                            <span style="margin-left:10px">{{collectionDesc}}</span>
                         </td>
                     </tr>
                 </table>
 
                 <table class="mt-3 ">
                     <th class="d-flex">
-                        <img class="thumbnail img-fluid rounded-circle" v-bind:src="artistImg" alt="">
-                            <img v-bind:src="artistProfile.profilePicture" alt="">
-                            <router-link to="/profile" v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2'">
-                                <h1 style="margin-left: 10px">{{artistName}}</h1>
+                        
+                        <img class="thumbnail img-fluid rounded-circle" style="margin-left:10px" v-bind:src="artistProfile.profilePicture" alt="">
+                            <router-link to="/profile" v-if="artistUid == currentUid">
+                                <h4 style="margin-left: 10px">{{artistName}}</h4>
                             </router-link>
                             <router-link :to="'/profile/' + artistUid" v-else>
                                 <h4 style="margin-left: 10px">{{artistName}}</h4>
@@ -87,7 +85,7 @@
                     </th>
                     <tr>
                         <td>
-                            {{artistDesc}}
+                            <span style="margin-left:10px">{{bio}}</span>
                         </td>
                     </tr>
                 </table>
@@ -142,6 +140,7 @@ export default {
             artistDesc: "",
             artistUid: "",
             currentUid: "",
+            bio: "",
             loaded: false,
             dimension:"",
             publishableKey: 'pk_test_51M1neNLPH9sbKlnPHaFWkw5wVRIe7i6OoOqLP0aidAL6mysOBN2sLeGnuzV21muKVBqD0uemSKNDiXrmz3ARRyYL00iw2ytGrO',
@@ -184,14 +183,15 @@ export default {
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
                 this.buyDescription = docSnap.data();
+
                 this.collectionImg = this.buyDescription.image
                 this.collectionName = this.buyDescription.title
                 this.collectionDate = this.buyDescription.listDate
                 this.artistName = this.buyDescription.artistName
-                this.collectionTitle = this.buyDescription.email
+                this.collectionTitle = this.buyDescription.title
                 this.collectionPrice = this.buyDescription.price
                 this.artistUid = this.buyDescription.userid
-                console.log(docSnap.data())
+                this.collectionDesc = this.buyDescription.details
                 var img = new Image()
                 img.src = this.buyDescription.image
                 var img_width =img.width;
@@ -207,6 +207,7 @@ export default {
                 if (artistSnap.exists()) {
                     console.log("Document data:", artistSnap.data());
                     this.artistProfile = artistSnap.data();
+                    this.bio = this.artistProfile.bio
                 } else {
                     console.log("No such document!");
                 }
@@ -216,7 +217,8 @@ export default {
                 const user = auth.currentUser;
                 if (user){
                     this.currentUid=user.uid;
-                    console.log(this.currentUid)
+                    console.log(user)
+                    
                 }
                 else {
                     console.log("No user")

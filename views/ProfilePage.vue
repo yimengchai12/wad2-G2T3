@@ -8,8 +8,9 @@
                 <div class="row justify-content-center" style="height:max-content">
                     <div class="row col-xl-5 justify-content-center">
                         <div class="row justify-content-center">
-                            <div class="row col-xl-7 p-0" style="height:250px; width:250px"><img
-                                    style="object-fit:cover; border-radius: 50%; padding:0;"
+                            <div class="row col-xl-7 p-0" style="height:250px; width:250px;">
+                                <img
+                                    style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
                                     :src="profileObj.profilePicture">
                                 </div>
                             <div class="row flex-column col-xl-6 p-1">
