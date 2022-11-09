@@ -4,10 +4,10 @@
         <navBars></navBars>
         <pageBody>
             <div class="container-fluid text-light pt-5">
-                <div class="row justify-content-center" style="height:max-content">
+                <div class="row justify-content-between" style="height:max-content">
                     <div class="row col-xl-5 justify-content-center">
                         <div class="row justify-content-center">
-                            <div class="row col-xl-7 p-0" style="height:250px; width:250px;">
+                            <div class="row col-xl-7 p-0" style="height:170px; width:170px;">
                                 <img
                                     style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
                                     :src="profileObj.profilePicture">
