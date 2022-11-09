@@ -15,19 +15,19 @@
                             <div class="row flex-column col-xl-6 p-1">
                                 <h1 class="text-center">{{ profileObj.name }}</h1>
                                 <span>
-                                    <router-link to='/editprofile'><button class="signin-on-hover" style="height:fit-content; width:fit-content">Edit
+                                    <router-link to='/editprofile'><button class="register-on-hover" style="height:fit-content; width:fit-content">Edit
                                         Profile</button></router-link></span>
                             </div>
                         </div>
                     </div>
                     <div class="row col-xl-6 align-items-center">
                         <div class="d-flex flex-column w-75">
-                            <p class="border-start text-start ps-3">{{ profileObj.bio }}</p>
+                            <p class="border-start text-start ps-3 light-text">{{ profileObj.bio }}</p>
                         </div>
                     </div>
                 </div>
                 <hr class="my-5">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="text-light">
                         name<input type="text" id="name" class="text-dark" v-model="profile.name">
                         phone<input type="text" id="phone" class="text-dark" v-model="profile.phone">
@@ -44,9 +44,9 @@
 
                         <div>{{ profileObj.name }}</div>
                         <div>{{ profileObj.bio }}</div>
-                        <!-- <div>{{profileObj.email}}</div> -->
+                        
                         <div>{{ profileObj.address }}</div>
-                        <!-- <img :src="profileObj.profilePicture"> -->
+                        
 
                     </div>
 
@@ -56,7 +56,7 @@
                             <button @click="deleteData(imageobj.title)" class="btn btn-primary">DELETE</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
 
