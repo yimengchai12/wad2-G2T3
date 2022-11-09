@@ -41,7 +41,7 @@
                     </div>
                 </li>
                 <li class="nav-item" id="login">
-                    <a class="nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
+                    <a class="d-none d-md-block nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
                         data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
                 </li>
                 <!-- <li class="nav-item"  id="register">
@@ -165,6 +165,7 @@ export default {
         onAuthStateChanged(auth, (user) => {
         if (user) {
             this.username=auth.currentUser.displayName
+            this.photoUrl=auth.currentUser.photoURL
         } else {
             console.log('no uid')
         }

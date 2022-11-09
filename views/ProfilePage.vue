@@ -173,8 +173,6 @@ export default {
                 this.listed.push(doc.data());
             });
 
-
-
         },
 
         uploadImage(e) {

@@ -118,23 +118,16 @@ export default {
             artistUid: "",
             currentUid: "",
             loaded: false,
-        }
-    },
-    computed: {
-        dimension() {
-            var img = new Image()
-            img.src = this.collectionImg
-            var img_width =img.width;
-            var img_height = img.height;
-            var str = `${img_width}x${img_height}px`
-            // var img_height = this.collectionImg.height;
-            return str
+            dimension:""
         }
     },
 
+
     created(){
         this.readData();
+        
     },
+    
 
     methods: {
         async readData(){
@@ -151,6 +144,16 @@ export default {
                 this.collectionTitle = this.buyDescription.email
                 this.collectionPrice = this.buyDescription.price
                 this.artistUid = this.buyDescription.userid
+                console.log(docSnap.data())
+
+                var img = new Image()
+                img.src = this.buyDescription.image
+                var img_width =img.width;
+                var img_height = img.height;
+                var str = `${img_width}x${img_height}px`
+                this.dimension=str
+                console.log('HI')
+                console.log(this.dimension)
 
                 const auth = getAuth();
                 const user = auth.currentUser;
