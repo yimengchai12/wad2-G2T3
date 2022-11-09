@@ -180,7 +180,7 @@ export default {
                 listedImages: [],
             },
             imgchange: false,
-            temp_profilePicture: '',
+            temp_profilePicture: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif',
         }
     },
 
@@ -191,6 +191,7 @@ export default {
     },
 
     created() {
+        console.log(auth.currentUser)
         this.readData();
     },
 
@@ -222,7 +223,7 @@ export default {
 
             if (this.profile.name != null) {
                 updateProfile(auth.currentUser, {
-                    displayName: this.profile.name,
+                    displayName: this.profile.name, photoURL: this.profile.profilePicture
                 }).then(() => {
                     console.log("Profile updated!");
                 })

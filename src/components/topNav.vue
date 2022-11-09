@@ -53,14 +53,14 @@
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text py-1 px-3 mx-1 pl-4" style="height:100px" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
-                        <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl':photoUrl}"></ChatPage>
+                        <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl_chat':photoUrl_chat}"></ChatPage>
                     </ul>
                 </div>
                 </li>
 
                 <li class="nav-item dropdown" v-if="isLoggedIn">
                     <a class="text-light pl-4 px-2" id="profile_dropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px; font-size:1.em; font-weight:bolder;">Hello, {{username}} <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px; font-size:1.em; font-weight:bolder;"><img style="width:40px;height:40px;object-fit:cover; margin-right: 10px; border-radius: 50%;"  :src="photoUrl">Hello, {{username}} <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" color="#F5F3F7" class="tw-transform">
                                         <path d="M5 7.5L10 12.5L15 7.5" stroke="#F5F3F7" stroke-linecap="round"
                                             stroke-linejoin="round"></path>
@@ -121,8 +121,6 @@ onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            console.log(uid)
-            console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;
@@ -156,7 +154,8 @@ export default {
             id: "12345",
             name:"Jan",
             email:"test@gmail.com",
-            photoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS6EIQlkehqQvaTOa4XoNPzIdkvIrXIgGM74dUa8Ll0A&s"
+            photoUrl_chat: '',
+            photoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
         }
     },
 
@@ -166,6 +165,8 @@ export default {
         if (user) {
             this.username=auth.currentUser.displayName
             this.photoUrl=auth.currentUser.photoURL
+            this.photoUrl_chat=auth.currentUser.photoURL
+            console.log(auth.currentUser)
         } else {
             console.log('no uid')
         }

@@ -3,25 +3,29 @@
     <body>
         <navBars></navBars>
         <pageBody>
-            <div class="container text-light">
-                <div class="row align-items-center" style="height:400px">
-                    <div class="row col-xl-6">
-                        <div class="row">
-                            <div class="row col-xl-6"><img style="height:auto;width:auto;object-fit: scale-down;" :src="profileObj.profilePicture" class="rounded-circle"></div>
-                            <div class="row col-xl-6 p-1 text-start">
-                                <h1 class="text-start">{{profileObj.name}}</h1>
-                                <!-- <span>
-                                <button class="signin-on-hover" style="height:fit-content; width:fit-content">Edit Profile</button></span> -->
+            <div class="container-fluid text-light pt-5">
+                <div class="row justify-content-center" style="height:max-content">
+                    <div class="row col-xl-5 justify-content-center">
+                        <div class="row justify-content-center">
+                            <div class="row col-xl-7 p-0" style="height:250px; width:250px;">
+                                <img
+                                    style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
+                                    :src="profileObj.profilePicture">
+                                </div>
+                            <div class="row flex-column col-xl-6 p-1">
+                                <h1 class="text-center">{{ profileObj.name }}</h1>
+                                <span>
+                                    <router-link to='/editprofile'><button class="register-on-hover" style="height:fit-content; width:fit-content">Chat, this shows edit profile for now but change to chat</button></router-link></span>
                             </div>
                         </div>
                     </div>
-                    <div class="row col-xl-6">
-                        <div class="d-flex flex-column  ">
-                        <p class="border-start text-start ps-3">This is your bio</p>
-                    </div>
+                    <div class="row col-xl-6 align-items-center">
+                        <div class="d-flex flex-column w-75">
+                            <p class="border-start text-start ps-3 light-text">{{ profileObj.bio }}</p>
+                        </div>
                     </div>
                 </div>
-                <hr>
+                <hr class="my-5">
             </div>
 
             <div class="text-light">
