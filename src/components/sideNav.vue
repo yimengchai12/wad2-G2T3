@@ -4,6 +4,12 @@
         <nav class="navbar navbar-expand-xl navborder" id="sideNav">
             <div id="navigation" style="width:250px; justify-content: space-between;" class="offcanvas offcanvas-start backdrop margin-mobile d-flex">
                 <ul class="navbar-bar px-3 mb-0" style="list-style-type:none; width:inherit; text-align: left; ">
+                    <li class="d-lg-none nav-item" id="login">
+                    <a class="nav-link rounded-pill signin-on-hover light-text mt-2 text-center" style="margin:auto" v-if="!isLoggedIn"
+                        data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
+                        
+                    </li>
+                    <hr class="d-lg-none"  v-if="!isLoggedIn" style="width:100%">
                     <li class="nav-item dropdown">
                         <a class="nav-link text-light d-flex px-2" id="marketplace_dropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,7 +95,29 @@
 
 </template>
 
+<script setup>
+import { onMounted, ref } from "vue";
+import { getAuth, onAuthStateChanged} from "firebase/auth";
+// import router from "../router";
 
+const isLoggedIn = ref(true);
+
+let auth;
+onMounted(() => {
+    auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            const uid = user.uid;
+            console.log(uid)
+            console.log(user.displayName)
+            isLoggedIn.value = true;
+        } else {
+            isLoggedIn.value = false;
+        }
+    });
+});
+
+</script>
 
 
 <script>
@@ -99,7 +127,21 @@ export default {
     name: 'sideNav',
     components: {
 
-    }
+    },
+    // created(){ 
+    //     let auth = getAuth();
+    //     onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //         this.username=auth.currentUser.displayName
+    //     } else {
+    //         console.log('no uid')
+    //     }
+
+    // });
+
+
+
+    // }
 }
 </script>
 <style scoped>

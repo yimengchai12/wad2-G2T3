@@ -22,7 +22,12 @@
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
                             <h3>{{collectionName}}</h3>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
-                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{artistName}}</h5>
+                            <a v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2' " href='/profile'>
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistName}}</h5>
+                        </a>
+                            <a v-else :href="'/profile/'+ artistUid">
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%;text-decoration: underline;">{{artistName}}</h5>
+                            </a>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">
@@ -138,6 +143,7 @@ export default {
             artistUid: "",
             currentUid: "",
             loaded: false,
+            dimension:"",
             publishableKey: 'pk_test_51M1neNLPH9sbKlnPHaFWkw5wVRIe7i6OoOqLP0aidAL6mysOBN2sLeGnuzV21muKVBqD0uemSKNDiXrmz3ARRyYL00iw2ytGrO',
             loading: false, 
             lineItems:[
@@ -150,22 +156,14 @@ export default {
             cancelURL: 'http://localhost:8080/cancel'
         }
     },
-    computed: {
-        dimension() {
-            var img = new Image()
-            img.src = this.collectionImg
-            var img_width =img.width;
-            var img_height = img.height;
-            var str = `${img_width}x${img_height}px`
-            // var img_height = this.collectionImg.height;
-            return str
-        }
-    },
+
 
     created(){
         this.loaded=false
         this.readData();
+        
     },
+    
 
     methods: {
         reloadPage() {
@@ -192,6 +190,15 @@ export default {
                 this.collectionTitle = this.buyDescription.email
                 this.collectionPrice = this.buyDescription.price
                 this.artistUid = this.buyDescription.userid
+                console.log(docSnap.data())
+                var img = new Image()
+                img.src = this.buyDescription.image
+                var img_width =img.width;
+                var img_height = img.height;
+                var str = `${img_width}x${img_height}px`
+                this.dimension=str
+                console.log('HI')
+                console.log(this.dimension)
 
                 //get artist profile
                 const artistRef = doc(db, "profiles", this.artistUid);

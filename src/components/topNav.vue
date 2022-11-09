@@ -41,13 +41,13 @@
                     </div>
                 </li>
                 <li class="nav-item" id="login">
-                    <a class="nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
+                    <a class="d-none d-md-block nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
                         data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
                 </li>
-                <li class="nav-item"  id="register">
+                <!-- <li class="nav-item"  id="register">
                     <a class="nav-link rounded-pill register-on-hover light-text px-3 mx-1" v-if="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#register" >Register</a>
                     
-                </li>
+                </li> -->
                 <li class="nav-item me-3">
                 <div class="dropdown">
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text py-1 px-3 mx-1 pl-4" style="height:100px" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
@@ -165,6 +165,7 @@ export default {
         onAuthStateChanged(auth, (user) => {
         if (user) {
             this.username=auth.currentUser.displayName
+            this.photoUrl=auth.currentUser.photoURL
         } else {
             console.log('no uid')
         }
