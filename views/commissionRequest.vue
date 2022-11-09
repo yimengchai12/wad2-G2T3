@@ -6,111 +6,126 @@
         <div>
         </div>
         <pageBody>
-            <h3>Commission Request</h3>
-            <div>
-                <div class="commissionReq" >
-                    <div class="form-group">
-                        Commission Details:
-                        <textarea placeholder="Details" v-model="request.details" class="form-control"></textarea>
-                    </div>
+            <div class="container-fluid">
 
-                    <div class="form-group">
-                        Commission Deadline:
-                        <textarea placeholder="Deadline" v-model="request.deadline" class="form-control"></textarea>
-                    </div>
+                <h1 class="textFormat">Artwork Commissions</h1>
 
-                    <div class="form-group">
-                        Price:
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="request.price">
-                        </div>
-                    </div>
+                <!-- Request and Sent -->
+                <div class="row">
+                    
+                    <!-- Request -->
+                    <div class="col textFormat">
+                        <h3 class="textFormat">Commission Request</h3>
 
-                    <div class="form-group">
-                        Artists:
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Add Artists" aria-describedby="button-addon2" v-model="sendArtist" @keyup.enter="addArtist">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="addArtist" >Add Artist</button>
+                        <div class="form-group">
+                            Commission Details:
+                            <textarea placeholder="Details" v-model="request.details" class="form-control"></textarea>
                         </div>
 
-                        <!-- <input type="text" @keyup.enter="addTag" placeholder="Tags (Press enter to add tags)" v-model="tag" class="form-control"> -->
-                        <div class="d-flex">
-                            <p v-for="(sendArtist,index) in request.artistList" :key="sendArtist" class="text-start p-2 bg-danger me-2">
-                                <button type="button" class="btn-close btn-close-white" aria-label="Close" @click="deleteArtist(sendArtist,index)"></button>
-                                <span class="p-1 me-2 text-light"> {{sendArtist}}</span>  
-                            </p>
+                        <div class="form-group">
+                            Commission Deadline:
+                            <textarea placeholder="Deadline" v-model="request.deadline" class="form-control"></textarea>
                         </div>
-                    </div>
 
-                    <div class="form-group text-center" >
-                        <button class="btn btn-primary" @click="saveData" >Save Data</button>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <div>
-                <!-- reply to commission sent to you -->
-                <h3>Commission replies</h3> 
-                <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
-                <div class="commissionReply">
-                    <table class="table table-striped table-dark table-bordered ">
-                        <tr v-for="request in requestObj" :key="request">
-                            <div v-if="request.artistResponded.includes(this.request.userid)">
-                                
-                                <td>userid: {{request.userid}} </td>
-                                <td>  user details:{{request.details}}</td>
-                                <td>userprice:{{request.price}} </td>
-                                <td>useremail:{{request.userEmail}} </td>
-                                <td>username:{{request.userName}} </td>
-                                <td>status: {{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
+                        <div class="form-group">
+                            Price:
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="request.price">
                             </div>
-                            <div v-else>
-                                <p>{{request.userid}} userid</p>
-                                <p>{{request.details}} user details</p>
-                                <p>{{request.price}} userprice</p>
-                                <p>{{request.userEmail}} useremail</p>
-                                <p>{{request.userName}} username</p>
-                                <p>{{request.reqDate}} Date</p>
-                                <p>{{request.reqDeadline}} Deadline</p>
-                                <div class="d-flex">
-                                    <button class="btn btn-primary" @click="updateResponse(request, true)">Accept</button>
-                                    <button class="btn btn-primary" @click="updateResponse(request, false)">Reject</button>
-                                </div>
-                            </div>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+                        </div>
 
-            <div>
-                <!-- details of commissions sent to others -->
-                <h3>Commission sent</h3>
-                <div class="commissionSent">
-                    <div v-for="sent in sentObj" :key="sent">
-                        <table class="table table-striped table-dark table-bordered">
-                            <tr> 
-                                <td>{{sent.userid}} userid</td>
-                                <td>{{sent.details}} user details</td>
-                                <td>{{sent.price}} userprice</td>
-                                <td>{{sent.userEmail}} useremail</td>
-                                <td>{{sent.userName}} username</td>
-                                <td>{{sent.reqDate}} Date</td>
-                                <td>{{sent.reqDeadline}} Deadline</td>
-                                <table class="table table-striped table-dark table-bordered">
-                                    <tr v-for="(artist, index) in sent.artistList" :key="artist">
-                                        <td>{{this.emailLinked[artist]}}</td>
-                                        <td>{{sent.artistReply[index]}}</td>
-                                    </tr>
-                                </table>
-                            </tr> 
-                        </table>
+                        <div class="form-group">
+                            Artists:
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Add Artists" aria-describedby="button-addon2" v-model="sendArtist" @keyup.enter="addArtist">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="addArtist" >Add Artist</button>
+                            </div>
+
+                            <!-- <input type="text" @keyup.enter="addTag" placeholder="Tags (Press enter to add tags)" v-model="tag" class="form-control"> -->
+                            <div class="d-flex">
+                                <p v-for="(sendArtist,index) in request.artistList" :key="sendArtist" class="text-start p-2 bg-danger me-2">
+                                    <button type="button" class="btn-close btn-close-white" aria-label="Close" @click="deleteArtist(sendArtist,index)"></button>
+                                    <span class="p-1 me-2 text-light"> {{sendArtist}}</span>  
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center" >
+                            <button class="btn btn-primary" @click="saveData" >Save Data</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Sent -->
+                    <div class="col">
+                        <h3 class="textFormat">Commission sent</h3>
+                        <div v-for="sent in sentObj" :key="sent">
+                            <table class="table table-striped table-dark table-bordered">
+                                <tr> 
+                                    <td>{{sent.userid}} userid</td>
+                                    <td>{{sent.details}} user details</td>
+                                    <td>{{sent.price}} userprice</td>
+                                    <td>{{sent.userEmail}} useremail</td>
+                                    <td>{{sent.userName}} username</td>
+                                    <td>{{sent.reqDate}} Date</td>
+                                    <td>{{sent.reqDeadline}} Deadline</td>
+
+                                    <table class="table table-striped table-dark table-bordered">
+                                        <tr v-for="(artist, index) in sent.artistList" :key="artist">
+                                            <td>{{this.emailLinked[artist]}}</td>
+                                            <td>{{sent.artistReply[index]}}</td>
+                                        </tr>
+                                    </table>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Replies -->
+                <div class="row">
+
+                    <div class="col">
+                        <h3 class="textFormat">Commission replies</h3> 
+                        <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
+                        <div class="commissionReply">
+                            <table class="table table-striped table-dark table-bordered ">
+                                <tr v-for="request in requestObj" :key="request">
+                                    <div v-if="request.artistResponded.includes(this.request.userid)">
+                                        
+                                        <td>userid: {{request.userid}} </td>
+                                        <td>  user details:{{request.details}}</td>
+                                        <td>userprice:{{request.price}} </td>
+                                        <td>useremail:{{request.userEmail}} </td>
+                                        <td>username:{{request.userName}} </td>
+                                        <td>status: {{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
+                                    </div>
+                                    <div v-else>
+                                        <p>{{request.userid}} userid</p>
+                                        <p>{{request.details}} user details</p>
+                                        <p>{{request.price}} userprice</p>
+                                        <p>{{request.userEmail}} useremail</p>
+                                        <p>{{request.userName}} username</p>
+                                        <p>{{request.reqDate}} Date</p>
+                                        <p>{{request.reqDeadline}} Deadline</p>
+
+                                        <div class="d-flex">
+                                            <button class="btn btn-primary" @click="updateResponse(request, true)">Accept</button>
+                                            <button class="btn btn-primary" @click="updateResponse(request, false)">Reject</button>
+                                        </div>
+
+                                    </div>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+
+            </div>
             
         </pageBody>
 
@@ -311,7 +326,10 @@ export default {
 </script>
 
 <style>
-
+.textFormat{
+    color: white;
+    text-align: left;
+}
 
     
 </style>
