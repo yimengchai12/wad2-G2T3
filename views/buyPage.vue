@@ -6,7 +6,6 @@
         <stripe-checkout v-if="loaded" ref="checkoutRef" mode="payment" :pk="publishableKey" :line-items="lineItems" :successUrl="successURL" :cancelUrl="cancelURL" />
         <navBars></navBars>
         <pageBody class="mt-5 pt-3">
-            
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="row flex-column px-1">
@@ -216,6 +215,7 @@ export default {
                 const user = auth.currentUser;
                 if (user){
                     this.currentUid=user.uid;
+                    this.photoUrl = user.photoURL;
                     console.log(this.currentUid)
                 }
                 else {

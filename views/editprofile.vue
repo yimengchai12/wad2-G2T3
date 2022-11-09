@@ -191,6 +191,7 @@ export default {
     },
 
     created() {
+        console.log(auth.currentUser)
         this.readData();
     },
 
