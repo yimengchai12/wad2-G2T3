@@ -11,18 +11,6 @@
         <pageBody>
    SCUESSSSS
             
-                    <div class="row light-text m-0">
-                        <homepageCarousel></homepageCarousel>
-                    </div>  
-                    <div class="row mt-5 pt-5 light-text">
-                        <!-- <homepageListing></homepageListing> -->
-                    <imagePage></imagePage>
-                    </div>
-                    <!-- <messageBox></messageBox> -->
-                    <div class="row mt-5">
-                        
-                    </div>
-
         </pageBody>
 
         
@@ -36,9 +24,9 @@ import logIn from "../src/components/SignIn.vue"
 import navBars from "../src/components/navBars.vue"
 // import homepageListing from "../src/components/homepageListing.vue"
 
-import homepageCarousel from "../src/components/homepageCarousel.vue";
+
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
-import imagePage from "../src/components/ImagePage.vue";
+
 // import messageBox from "../src/components/Chat.vue";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { onMounted } from "vue";
@@ -72,8 +60,7 @@ export default {
     components: {
         navBars,
         logIn, 
-        homepageCarousel,
-        imagePage,
+
         // messageBox,
         pageBody,
         // homepageListing,
