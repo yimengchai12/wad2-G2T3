@@ -153,13 +153,14 @@ export default {
                 }
             ],
             successURL: 'http://localhost:8080/success', 
-            cancelURL: 'http://localhost:8080/cancel'
+            cancelURL: ''
         }
     },
 
 
     created(){
         this.loaded=false
+        this.cancelURL = 'http://localhost:8080/buy/' + this.$route.params.id;
         this.readData();
         
     },
