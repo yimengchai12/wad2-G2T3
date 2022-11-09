@@ -161,7 +161,6 @@ export default {
                 this.collectionPrice = this.buyDescription.price
                 this.artistUid = this.buyDescription.userid
                 console.log(docSnap.data())
-
                 var img = new Image()
                 img.src = this.buyDescription.image
                 var img_width =img.width;
