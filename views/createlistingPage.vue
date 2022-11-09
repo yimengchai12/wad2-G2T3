@@ -324,13 +324,17 @@ input[type="file"] {
     margin-right: 20px;
 }
 .uploadedImage:hover{
-    border: 2px solid white;
-    
+    outline: 2px solid rgb(228,36,116);   
 }
 .image{
     width: 100%;
     height: auto;
     margin-right: 50px;
+    user-select: none;
+  -drag: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
 }
 /*  image upload styling END */
 
