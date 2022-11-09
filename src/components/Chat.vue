@@ -8,19 +8,31 @@
     import Talk from 'talkjs';
     export default {
         name: 'ChatPage',
-        props: {
-            currentUser: {
-              type: Object,
-              required: true
+        props: ["currentUser", "currentUserName" ,"data"],
+        data(){
+          return{
+              id: "",
+              name: "",
+              email:"test@gmail.com",
+              
           }
         },
         async mounted() {
           await Talk.ready
+          if(this.currentUserName == undefined || this.currentUserName == null || this.currentUserName == ""){
+            this.id = "test";
+            this.name = "Lily";
+            this.email = "lily@gmail.com";
+            }
+          else{
+            this.id = this.currentUser;
+            this.name = this.currentUserName;
+            this.email = this.currentUser;
+          }
           const me = new Talk.User({
-            id: this.currentUser.id,
-            name: this.currentUser.name,
-            email: this.currentUser.email,
-            photoUrl: this.currentUser.photoUrl,
+            id: this.id,
+            name: this.name,
+            email: this.email,
             welcomeMessage: "Hey there! How are you? :-)",
             role: "booker"
           })
@@ -32,10 +44,10 @@
           });
 
           const other = new Talk.User({
-            id: '654321',
-            name: 'Sebastian',
-            email: 'Sebastian@example.com',
-            photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS6EIQlkehqQvaTOa4XoNPzIdkvIrXIgGM74dUa8Ll0A&sttps://demo.talkjs.com/img/sebastian.jpg',
+            id: this.data.chatUserEmail,
+            name: this.data.chatUserName,
+            email: this.data.chatUserEmail,
+            photoUrl: this.data.chatUserPhoto,
             welcomeMessage: 'Hey, how can I help?',
             role: 'default',
           });
@@ -45,14 +57,22 @@
           );
 
           conversation.setParticipant(me);
-          conversation.setParticipant(other);
+          // if(this.data.chatNow == true){
+          //   conversation.setParticipant(other);
+          // }
+          //  //this
 
           const inbox = talkSession.createInbox();
+          // if(this.data.chatNow == true){
+          //     inbox.select(conversation); //this
+          // }
 
-          inbox.select(conversation);
-
+          conversation.setParticipant(other);
+          inbox.select(conversation); //this
           inbox.mount(this.$refs.talkjs);
+
   
         }
     }
+
 </script>
