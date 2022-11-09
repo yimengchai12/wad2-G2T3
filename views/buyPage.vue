@@ -6,9 +6,7 @@
         <stripe-checkout v-if="loaded" ref="checkoutRef" mode="payment" :pk="publishableKey" :line-items="lineItems" :successUrl="successURL" :cancelUrl="cancelURL" />
         <navBars></navBars>
         <pageBody class="mt-5 pt-3">
-            <router-link to="/profile" v-if="currentUid == artistUid">
-                            <h1 style="margin-left: 10px">{{artistName}}</h1>
-            </router-link>
+            
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="row flex-column px-1">
@@ -74,6 +72,7 @@
                 <table class="mt-3 ">
                     <th class="d-flex">
                         <img class="thumbnail img-fluid rounded-circle" v-bind:src="artistImg" alt="">
+                            <img v-bind:src="artistProfile.profilePicture" alt="">
                             <router-link to="/profile" v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2'">
                                 <h1 style="margin-left: 10px">{{artistName}}</h1>
                             </router-link>
@@ -123,6 +122,7 @@ export default {
     },
     data(){
         return{
+            artistProfile: {},
             buyDescription: {},
             title: this.$route.params.id,
             collectionImg : "",
@@ -170,8 +170,9 @@ export default {
     methods: {
         reloadPage() {
             this.loaded= false
-      window.location.reload();
-    },
+            window.location.reload();
+        },
+
         submit(){
             this.loaded=true;
             this.$refs.checkoutRef.redirectToCheckout()
@@ -192,12 +193,22 @@ export default {
                 this.collectionPrice = this.buyDescription.price
                 this.artistUid = this.buyDescription.userid
 
+                //get artist profile
+                const artistRef = doc(db, "profiles", this.artistUid);
+                const artistSnap = await getDoc(artistRef);
+                if (artistSnap.exists()) {
+                    console.log("Document data:", artistSnap.data());
+                    this.artistProfile = artistSnap.data();
+                } else {
+                    console.log("No such document!");
+                }
+
+                //get currently logged in user
                 const auth = getAuth();
                 const user = auth.currentUser;
                 if (user){
                     this.currentUid=user.uid;
                     console.log(this.currentUid)
-                    // this.loaded = true
                 }
                 else {
                     console.log("No user")
