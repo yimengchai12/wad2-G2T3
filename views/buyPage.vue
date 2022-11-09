@@ -37,17 +37,17 @@
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    <div class="modal-header text-center">
-                                        <h5 class="modal-title" id="exampleModalLabel">CONFIRMATION</h5>
+                                    <div class="modal-content backdrop light-text">
+                                    <div class="modal-header text-center border-0">
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="reloadPage"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure you want to purchase this?
+                                        Proceed to purchase page?
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" @click="reloadPage" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" @click="submit">Confirm</button>
+                                    <div class="modal-footer border-0 d-flex justify-content-center">
+                                        <button type="button" @click="reloadPage" class="btn signin-on-hover" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn register-on-hover" @click="submit">Confirm</button>
                                     </div>
                                     </div>
                                 </div>

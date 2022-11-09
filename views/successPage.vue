@@ -9,8 +9,12 @@
         </div>
         
         <pageBody>
-   SCUESSSSS
-            
+            <div class="container pt-5 light-text"> 
+                <h4>Purchase Successful</h4>
+                <h6 class="light-text">Thank you for supporting the art community!</h6>
+                <router-link to="/"><button class="btn register-on-hover m-3    " style="width: fit-content">Browse more creations</button></router-link>
+            </div>
+           
         </pageBody>
 
         
