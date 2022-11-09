@@ -147,7 +147,7 @@ export default {
                 }
             ],
             successURL: 'http://localhost:8080/success', 
-            cancelURL: 'http://localhost:8080/success'
+            cancelURL: 'http://localhost:8080/cancel'
         }
     },
     computed: {

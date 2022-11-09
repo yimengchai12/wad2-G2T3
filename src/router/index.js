@@ -44,6 +44,12 @@ const router = createRouter({
             meta: { requiresAuth: true, 
                 },
         },
+        { 
+            path: "/cancel", 
+            component: () => import("../../views/errorPage.vue"),
+            meta: { requiresAuth: true, 
+                },
+        },
 
 
 
