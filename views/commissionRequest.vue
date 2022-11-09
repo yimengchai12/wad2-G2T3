@@ -132,7 +132,11 @@ import { db } from "../src/main.js";
 import { getAuth } from "firebase/auth";
 
 
-
+const auth = getAuth();
+const uid = auth.currentUser.uid;
+const email = auth.currentUser.email;
+console.log(uid);
+console.log(email);
 
 export default {
     name: "commissionRequest",  
