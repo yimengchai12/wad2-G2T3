@@ -38,6 +38,13 @@ const router = createRouter({
             meta: { requiresAuth: true, 
                 },
         },
+        { 
+            path: "/success", 
+            component: () => import("../../views/successPage.vue"),
+            meta: { requiresAuth: true, 
+                },
+        },
+
 
 
     ]

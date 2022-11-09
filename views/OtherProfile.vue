@@ -67,9 +67,6 @@ import { db } from "../src/main.js";
 // import imagePage from "./ImagePage.vue";
 // import messageBox from "../src/components/Chat.vue";
 
-// const auth = getAuth();
-// const uid = auth.currentUser.uid;
-// const email = auth.currentUser.email;
 
 
 export default {
@@ -114,6 +111,12 @@ export default {
                 console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
+
+            // const auth = getAuth();
+            // const uid = auth.currentUser.uid;
+            // const email = auth.currentUser.email;
+            // console.log(uid)
+            // console.log(email)
         },         
     }
 }
