@@ -3,11 +3,12 @@
 
     
     <body>
+        <stripe-checkout v-if="loaded" ref="checkoutRef" mode="payment" :pk="publishableKey" :line-items="lineItems" :successUrl="successURL" :cancelUrl="cancelURL" />
         <navBars></navBars>
         <pageBody class="mt-5 pt-3">
-            <a v-if="currentUid == artistUid" href='/profile'>
+            <router-link to="/profile" v-if="currentUid == artistUid">
                             <h1 style="margin-left: 10px">{{artistName}}</h1>
-                        </a>
+            </router-link>
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="row flex-column px-1">
@@ -28,8 +29,29 @@
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
-                            <stripe-checkout ref="checkoutRef" mode="payment" pk="pk_test_51M1neNLPH9sbKlnPHaFWkw5wVRIe7i6OoOqLP0aidAL6mysOBN2sLeGnuzV21muKVBqD0uemSKNDiXrmz3ARRyYL00iw2ytGrO" :line-items="lineItems" :success-url="successURL" :cancel-url="cancelURL" @loading="v =>loading = v"></stripe-checkout>
-                                <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" @click="submit">Purchase</a>
+                            
+                                <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
+
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h5 class="modal-title" id="exampleModalLabel">CONFIRMATION</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="reloadPage"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to purchase this?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" @click="reloadPage" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" @click="submit">Confirm</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -52,12 +74,12 @@
                 <table class="mt-3 ">
                     <th class="d-flex">
                         <img class="thumbnail img-fluid rounded-circle" v-bind:src="artistImg" alt="">
-                            <a v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2' " href='/profile'>
+                            <router-link to="/profile" v-if="artistUid == '8YUr2ZanIia1o5QTBlhC9135SqS2'">
                                 <h1 style="margin-left: 10px">{{artistName}}</h1>
-                            </a>
-                            <a v-else :href="'/profile/'+ artistUid">
+                            </router-link>
+                            <router-link :to="'/profile/' + artistUid" v-else>
                                 <h4 style="margin-left: 10px">{{artistName}}</h4>
-                            </a>
+                            </router-link>
                     </th>
                     <tr>
                         <td>
@@ -116,6 +138,7 @@ export default {
             artistUid: "",
             currentUid: "",
             loaded: false,
+            publishableKey: 'pk_test_51M1neNLPH9sbKlnPHaFWkw5wVRIe7i6OoOqLP0aidAL6mysOBN2sLeGnuzV21muKVBqD0uemSKNDiXrmz3ARRyYL00iw2ytGrO',
             loading: false, 
             lineItems:[
                 {
@@ -140,11 +163,17 @@ export default {
     },
 
     created(){
+        this.loaded=false
         this.readData();
     },
 
     methods: {
+        reloadPage() {
+            this.loaded= false
+      window.location.reload();
+    },
         submit(){
+            this.loaded=true;
             this.$refs.checkoutRef.redirectToCheckout()
         },
 
@@ -168,7 +197,7 @@ export default {
                 if (user){
                     this.currentUid=user.uid;
                     console.log(this.currentUid)
-                    this.loaded = true
+                    // this.loaded = true
                 }
                 else {
                     console.log("No user")
