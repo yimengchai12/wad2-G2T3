@@ -137,8 +137,7 @@ export default {
 
             if (this.profile.name != null) {
                 updateProfile(auth.currentUser, {
-                    displayName: this.profile.name,
-                }).then(() => {
+                displayName: this.profile.name, photoURL: this.profile.profilePicture}).then(() => {
                     console.log("Profile updated!");
                 })
             }
