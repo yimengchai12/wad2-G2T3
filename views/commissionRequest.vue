@@ -1,6 +1,6 @@
 <template>
     <logIn></logIn>
-    <registerUser></registerUser>
+    <!-- <registerUser></registerUser> -->
     <body>
         <navBars></navBars>
         <div>
@@ -10,11 +10,21 @@
 
                 <h1 class="textFormat">Artwork Commissions</h1>
 
-                <!-- Request and Sent -->
+                <!-- nav bar -->
                 <div class="row">
-                    
-                    <!-- Request -->
-                    <div class="col textFormat">
+                    <section style="padding-top: 40px; padding-left: 0px;">
+                        <nav class="stroke">
+                            <ul>
+                                <li style="padding-right: 40px;"><a id="requestNav" class="" href="#" @click="displayRequest()">Request</a></li>
+                                <li style="padding-left: 40px;"><a id="inboxNav" class="" href="#" @click="displayInbox()">Inbox</a></li>
+                            </ul>
+                        </nav>
+                    </section>
+                </div>
+
+                <!-- Request -->
+                <div class="row" id="requestTab">
+                    <div class="col-5 textFormat">
                         <h3 class="textFormat">Commission Request</h3>
 
                         <div class="form-group">
@@ -24,7 +34,7 @@
 
                         <div class="form-group">
                             Commission Deadline:
-                            <textarea placeholder="Deadline" v-model="request.deadline" class="form-control"></textarea>
+                            <textarea placeholder="Deadline" v-model="request.reqDeadline" class="form-control"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -56,55 +66,67 @@
                         </div>
 
                     </div>
-
-                    <!-- Sent -->
-                    <div class="col">
-                        <h3 class="textFormat">Commission sent</h3>
-                        <div v-for="sent in sentObj" :key="sent">
-                            <table class="table table-striped table-dark table-bordered">
-                                <tr> 
-                                    <td>{{sent.userid}} userid</td>
-                                    <td>{{sent.details}} user details</td>
-                                    <td>{{sent.price}} userprice</td>
-                                    <td>{{sent.userEmail}} useremail</td>
-                                    <td>{{sent.userName}} username</td>
-                                    <td>{{sent.reqDate}} Date</td>
-                                    <td>{{sent.reqDeadline}} Deadline</td>
-
-                                    <table class="table table-striped table-dark table-bordered">
-                                        <tr v-for="(artist, index) in sent.artistList" :key="artist">
-                                            <td>{{this.emailLinked[artist]}}</td>
-                                            <td>{{sent.artistReply[index]}}</td>
-                                        </tr>
-                                    </table>
-
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
                 </div>
 
-                <!-- Replies -->
-                <div class="row">
+                <!-- Sent -->
+                <div class="row" id="sentTab">
+                    <h3 class="textFormat">Commission sent</h3>
+                    <!-- <div v-if="sentObj = []">
+                        <h6>No Commissions Sent</h6>
+                    </div> -->
+                    <div >
+                        <table class="table table-striped table-dark table-bordered">
+                            <thead>
+                                <tr>
+                                <th scope="col">Details</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Deadline</th>
+                                <th scope="col">Artists</th>
+                                </tr>
+                            </thead>
+                        
 
+                            <tr v-for="sent in sentObj" :key="sent"> 
+                                <!-- <td>{{sent.userid}} userid</td> -->
+                                <td>{{sent.details}}</td>
+                                <td>${{sent.price}}</td>
+                                <!-- <td>{{sent.userEmail}} useremail</td> -->
+                                <!-- <td>{{sent.userName}} username</td> -->
+                                <td>{{sent.reqDate}}</td>
+                                <td>{{sent.reqDeadline}}</td>
+
+                                <table class="table table-striped table-dark table-bordered" style="height: 100%;">
+                                    <tr v-for="(artist, index) in sent.artistList" :key="artist">
+                                        <td>{{this.emailLinked[artist]}}</td>
+                                        <td>{{sent.artistReply[index]}}</td>
+                                    </tr>
+                                </table>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                </div>
+
+                
+                <!-- Replies -->
+                <div class="row" id="repliesTab">
                     <div class="col">
-                        <h3 class="textFormat">Commission replies</h3> 
+                        <h3 class="textFormat">My Commission Requests</h3> 
                         <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
                         <div class="commissionReply">
                             <table class="table table-striped table-dark table-bordered ">
                                 <tr v-for="request in requestObj" :key="request">
                                     <div v-if="request.artistResponded.includes(this.request.userid)">
-                                        
-                                        <td>userid: {{request.userid}} </td>
-                                        <td>  user details:{{request.details}}</td>
+                                        <!-- <td>userid: {{request.userid}} </td> -->
+                                        <td>user details:{{request.details}}</td>
                                         <td>userprice:{{request.price}} </td>
                                         <td>useremail:{{request.userEmail}} </td>
                                         <td>username:{{request.userName}} </td>
                                         <td>status: {{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
                                     </div>
                                     <div v-else>
-                                        <p>{{request.userid}} userid</p>
+                                        <!-- <p>{{request.userid}} userid</p> -->
                                         <p>{{request.details}} user details</p>
                                         <p>{{request.price}} userprice</p>
                                         <p>{{request.userEmail}} useremail</p>
@@ -142,6 +164,7 @@ import logIn from "../src/components/SignIn.vue"
 import navBars from "../src/components/navBars.vue"
 
 
+// import { collection, setDoc, getDocs, doc, query, where, updateDoc, documentId } from "firebase/firestore";
 import { collection, setDoc, getDocs, doc, query, where, updateDoc } from "firebase/firestore"; 
 import { db } from "../src/main.js";
 import { getAuth } from "firebase/auth";
@@ -202,7 +225,41 @@ export default {
         
     },
     methods: {
+        displayRequest() { 
+            console.log("change to request tab")
+            var sent = document.getElementById("sentTab")
+            var request = document.getElementById("requestTab")
+            var replies = document.getElementById("repliesTab")
 
+            // show only request contents
+            sent.style.display = "none"
+            replies.style.display = "none"
+            request.style.display = "flex"
+
+            // style seclected request nav
+            var inboxSelected = document.getElementById("inboxNav")
+            var requestSelected = document.getElementById("requestNAv")
+            inboxSelected.style = "color: white"
+            requestSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116); background-color: white"
+        },
+        displayInbox() { 
+            console.log("change to inbox tab")
+            var sent = document.getElementById("sentTab")
+            var request = document.getElementById("requestTab")
+            var replies = document.getElementById("repliesTab")
+
+            // show only inbox contents
+            sent.style.display = "flex"
+            replies.style.display = "flex"
+            request.style.display = "none"
+
+            // style seclected inbox nav
+            var inboxSelected = document.getElementById("inboxNav")
+            var requestSelected = document.getElementById("requestNAv")
+            inboxSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+            requestSelected.style = "color: white"
+            console.log(inboxSelected)
+        },
         deleteArtist(sendArtist, index){
             this.request.artistList.splice(index, 1);
         },
@@ -325,17 +382,101 @@ export default {
 
         
     },
+    mounted(){
+        var sent = document.getElementById("sentTab")
+        var request = document.getElementById("requestTab")
+        var replies = document.getElementById("repliesTab")
+
+        // show only request contents
+        sent.style.display = "none"
+        replies.style.display = "none"
+        request.style.display = "flex"
+
+        // style seclected request nav
+        var inboxSelected = document.getElementById("inboxNav")
+        var requestSelected = document.getElementById("requestNAv")
+        inboxSelected.style = "color: white"
+        requestSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116); background-color: white" 
+    }
 
 } 
 
 
 </script>
 
-<style>
+<style scoped>
 .textFormat{
     color: white;
     text-align: left;
 }
+nav ul {
+  list-style: none;
+  text-align: center;
+  margin-right: 90px;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  /* font-weight: 800; */
+  margin: 0 10px;
+  font-size: 20px;
+  display: inline-block
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+nav ul li a:hover {
+  color: rgb(228,36,116);
+}
+/* stroke */
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: rgb(228,36,116);
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
 
+nav.fill ul li a {
+  transition: all 2s;
+}
+
+nav.fill ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li a:hover {
+  color: #023f1c;
+  z-index: 1;
+}
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
     
 </style>
