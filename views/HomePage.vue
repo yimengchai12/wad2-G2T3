@@ -40,34 +40,33 @@ import homepageCarousel from "../src/components/homepageCarousel.vue";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 import imagePage from "../src/components/ImagePage.vue";
 // import messageBox from "../src/components/Chat.vue";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { onMounted } from "vue";
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { onMounted } from "vue";
 
 
-const isLoggedIn = ref(false);
-let auth;
-onMounted(()=>{
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      isLoggedIn.value = true;
-    } else {
-      isLoggedIn.value = false;
-    }
-  });
-});
+// const isLoggedIn = ref(false);
+// let auth;
+// onMounted(()=>{
+//   auth = getAuth();
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       isLoggedIn.value = true;
+//     } else {
+    //   isLoggedIn.value = false;
+//     }
+//   });
+// });
 
 
 
 export default {
     name: "homePage",  
     // props: ['uid'],
-    // data(){
-    //     return{
-  
-    //     }
-    // },
-    
+    data(){
+        return{
+            // isLoggedIn: false,
+        }
+    },
     
     components: {
         navBars,
@@ -80,6 +79,17 @@ export default {
     
     },
     
+    // created() {
+    //     const auth = getAuth();
+    //     onAuthStateChanged(auth, (user) => {
+    //         if (user) {
+    //             this.isLoggedIn.value = true;
+    //         } else {
+    //             this.sLoggedIn.value = false;
+    //         }
+    //     });
+    // },
+
     methods: {
 
         uploadImage(e){
