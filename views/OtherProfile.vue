@@ -126,14 +126,10 @@ export default {
                 console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
-            
             const email = auth.currentUser.email;
             this.currentUserEmail = email;
 
-            console.log(this.currentUserEmail);
-        },
-        
-        
+        },         
     }
 }
 

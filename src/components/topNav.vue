@@ -202,7 +202,10 @@ export default {
             this.currentUserName = auth.currentUser.displayName
             this.currentUserEmail = user.email;
             this.photoUrl=auth.currentUser.photoURL
+<<<<<<< HEAD
             this.photoUrl_chat=auth.currentUser.photoURL
+=======
+>>>>>>> d9e584a8aa7da6a7e2e4fe9d966638ea25898199
         } else {
             console.log('no uid')
         }
