@@ -143,8 +143,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "../router";
 
 const isLoggedIn = ref(true);
-var search = document.getElementById('form1')
-search.addEventListener("KeyEvent.KEYCODE_ENTER",this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() }))
+
 
 let auth;
 onMounted(() => {
@@ -212,6 +211,7 @@ export default {
 
     },
     methods: {
+        
 
         togglehide() {
             var x = document.getElementById("myDIV");
@@ -224,6 +224,7 @@ export default {
     }
     
 }
+
 </script>
 <style scoped>
 /* Global */
