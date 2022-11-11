@@ -48,7 +48,7 @@
                         </ul>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link text-light px-2 d-flex" href="#">
+                        <a class="nav-link text-light px-2 d-flex" target="_blank" href="https://github.com/yimengchai12/wad">
                             <i class="bi bi-book"></i><span class="ms-2">Resources</span></a>
                     </li>
                     <!-- <li class="nav-item" v-if="!isLoggedIn" id="login">
@@ -71,15 +71,15 @@
                                    <a type="button" rel="noreferrer noopener" target="_blank" href="https://github.com/yimengchai12/wad" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-github me-2"></i><span style="font-size:smaller">Github</span></a>
                                 </div>
                                 <div class="col p-0">
-                                   <a type="button" rel="noreferrer noopener" target="_blank" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-discord me-2"></i><span style="font-size:smaller">Discord</span></a>
+                                   <a type="button" rel="noreferrer noopener" target="_blank" href="https://discord.com/invite/artist" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-discord me-2"></i><span style="font-size:smaller">Discord</span></a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col p-0">
-                                    <a type="button" rel="noreferrer noopener" target="_blank" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-instagram me-2"></i><span style="font-size:smaller">Instagram</span></a>
+                                    <a type="button" rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/accounts/login/?next=%2Fzipcy%2F&source=omni_redirect" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-instagram me-2"></i><span style="font-size:smaller">Instagram</span></a>
                                 </div>
                                 <div class="col p-0">
-                                    <a type="button" rel="noreferrer noopener" target="_blank" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-twitter me-2"></i><span style="font-size:smaller">Twitter</span></a>
+                                    <a type="button" rel="noreferrer noopener" target="_blank" href="https://twitter.com/hashtag/art" class="sidenav-button light-text" style="width:90%; text-decoration: none;"><i class="bi bi-twitter me-2"></i><span style="font-size:smaller">Twitter</span></a>
                                 </div>
                             </div>
                         </div>

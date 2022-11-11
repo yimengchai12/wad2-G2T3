@@ -9,7 +9,7 @@ const router = createRouter({
         { path: "/collection", component: () => import("../../views/collectionPage.vue") },
         { path: "/buy/:id", component: () => import("../../views/buyPage.vue") },
         { path: "/profile/:id", component: () => import("../../views/OtherProfile.vue") },
-        { path: "/searchResult", component: () => import("../../views/searchResult.vue") },
+        { path: "/search", component: () => import("../../views/searchResult") },
         {
             path: "/feed", 
             component: () => import("../../views/FeedPage.vue"),

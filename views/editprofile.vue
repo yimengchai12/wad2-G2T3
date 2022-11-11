@@ -2,18 +2,18 @@
     <logIn></logIn>
 
     <body>
-        <navBars></navBars>
+        <navBars :data="{'chatUserEmail': 'Helper@gmail.com', 'chatUserName': 'Alexa Help', 'chatUserPhoto': 'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78='}"></navBars>
         <pageBody>
             <div class="container-fluid text-light p-3">
                 <h1 class="text-start mb-4">Edit Profile</h1>
                 <div class="d-flex text-light align-items-center mb-4">
-                    <div style="height:250px; width:250px; margin:auto" class="text-center d-md-none">
-                        <img style="height:250px; width:250px;object-fit:cover; border-radius: 50%; padding:0;"
+                    <div style="height:170px; width:170px; margin:auto" class="text-center d-md-none">
+                        <img style="height:170px; width:170px;object-fit:cover; border-radius: 50%; padding:0;"
                             :src="temp_profilePicture">
 
                     </div>
-                    <div style="height:250px; width:250px" class="text-center me-5 d-none d-md-block">
-                        <img style="height:250px; width:250px;object-fit:cover; border-radius: 50%; padding:0;"
+                    <div style="height:170px; width:170px" class="text-center me-5 d-none d-md-block">
+                        <img style="height:170px; width:170px;object-fit:cover; border-radius: 50%; padding:0;"
                             :src="temp_profilePicture">
 
                     </div>

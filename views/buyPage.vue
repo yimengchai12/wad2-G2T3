@@ -4,7 +4,7 @@
     
     <body>
         <stripe-checkout v-if="loaded" ref="checkoutRef" mode="payment" :pk="publishableKey" :line-items="lineItems" :successUrl="successURL" :cancelUrl="cancelURL" />
-        <navBars></navBars>
+        <navBars :data="{'chatUserEmail': 'Helper@gmail.com', 'chatUserName': 'Alexa Help', 'chatUserPhoto': 'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78='}"></navBars>
         <pageBody class="mt-5 pt-3">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
@@ -21,12 +21,12 @@
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
                             <h3>{{collectionName}}</h3>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
-                            <a v-if="artistUid == currentUid " href='/profile'>
+                            <router-link v-if="artistUid == currentUid " to='/profile'>
                                 <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistProfile.name}}</h5>
-                        </a>
-                            <a v-else :href="'/profile/'+ artistUid">
+                        </router-link>
+                            <router-link v-else :to="'/profile/'+ artistUid">
                                 <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%;text-decoration: underline;">{{artistProfile.name}}</h5>
-                            </a>
+                            </router-link>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">
@@ -37,17 +37,17 @@
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    <div class="modal-header text-center">
-                                        <h5 class="modal-title" id="exampleModalLabel">CONFIRMATION</h5>
+                                    <div class="modal-content backdrop light-text">
+                                    <div class="modal-header text-center border-0">
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="reloadPage"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure you want to purchase this?
+                                        Proceed to purchase page?
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" @click="reloadPage" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" @click="submit">Confirm</button>
+                                    <div class="modal-footer border-0 d-flex justify-content-center">
+                                        <button type="button" @click="reloadPage" class="btn signin-on-hover" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn register-on-hover" @click="submit">Confirm</button>
                                     </div>
                                     </div>
                                 </div>

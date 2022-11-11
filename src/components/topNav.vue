@@ -32,14 +32,34 @@
                     src="../assets/A-1.png" style="height:40px;" class="img-fluid topnav-brand"></a></h1>
         <nav>
             <ul>
-                <li>
+                <li class="nav-item d-none d-lg-inline">
                     <div class="form-outline center">
-                        <input type="text" id="form1" autocomplete="none"
-                            class="form-control rounded-pill d-none d-lg-block"
+                        <input type="text" v-model="searchText" id="form1" autocomplete="none"
+                            class="form-control rounded-pill"
                             style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;"
-                            placeholder="Search collections and creations" />
+                            placeholder="Search collections and creations" @keyup.enter="[this.router.push('/search') , search]"
+                           />
                     </div>
                 </li>
+
+
+                <li class="nav-item" id="myDIV" style="display:none;">
+                    <div class="form-outline center mt-5">
+                        
+                        <input type="text" id="form1" autocomplete="none"
+                            class="form-control rounded-pill"
+                            style="height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; width:300px; margin:auto"
+                            placeholder="Search collections and creations" aria-describedby="button-addon2">
+                        </div>
+                    
+                       
+                </li>
+
+
+                <li class="nav-item d-lg-none d-inline">
+                    <a role="button" @click="togglehide()"><i class="bi bi-search mx-1 px-3" style="color:#fffeee;font-size: 1.3rem; z-index:100"></i></a>
+                </li>
+                
                 <li class="nav-item" id="login">
                     <a class="d-none d-md-block nav-link rounded-pill signin-on-hover light-text p-0 px-3 mx-1" v-if="!isLoggedIn"
                         data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
@@ -48,19 +68,28 @@
                     <a class="nav-link rounded-pill register-on-hover light-text px-3 mx-1" v-if="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#register" >Register</a>
                     
                 </li> -->
-                <li class="nav-item me-3">
-                <div class="dropdown">
-                    <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text py-1 px-3 mx-1 pl-4" style="height:100px" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
+                <li class="nav-item me-1">
+                <div class="dropdown d-none d-lg-block">
+                    <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text px-3 mx-1 pl-4" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
-                        <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl_chat':photoUrl_chat}"></ChatPage>
+                        <!-- <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl_chat':photoUrl_chat}"></ChatPage> -->
+                        <ChatPage :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
+
+                    </ul>
+                </div>
+                <div class="dropdown d-lg-none">
+                    <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text px-1 mx-1 pl-4" style="height:100px;" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
+                    <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
+                        <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
+                        <ChatPage :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
                     </ul>
                 </div>
                 </li>
 
                 <li class="nav-item dropdown" v-if="isLoggedIn">
                     <a class="text-light pl-4 px-2" id="profile_dropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px; font-size:1.em; font-weight:bolder;"><img style="width:40px;height:40px;object-fit:cover; margin-right: 10px; border-radius: 50%;"  :src="photoUrl">Hello, {{username}} <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                        data-bs-toggle="dropdown" aria-expanded="false" style="height:40px; font-size:1.em; font-weight:bolder;"><img style="width:40px;height:40px;object-fit:cover; margin-right: 10px; border-radius: 50%;"  :src="photoUrl"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg" color="#F5F3F7" class="tw-transform">
                                         <path d="M5 7.5L10 12.5L15 7.5" stroke="#F5F3F7" stroke-linecap="round"
                                             stroke-linejoin="round"></path>
@@ -121,6 +150,8 @@ onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
+            console.log(uid)
+            console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;
@@ -148,14 +179,20 @@ export default {
     components:{
         ChatPage
     },
+    emits: ['search'],
+    props:["data"],
     data(){
         return{
             username: '',
+            currentUserEmail: '',
+            currentUserName: '',
+            searchText:'',
             id: "12345",
             name:"Jan",
             email:"test@gmail.com",
             photoUrl_chat: '',
             photoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
+
         }
     },
 
@@ -164,9 +201,10 @@ export default {
         onAuthStateChanged(auth, (user) => {
         if (user) {
             this.username=auth.currentUser.displayName
+            this.currentUserName = auth.currentUser.displayName
+            this.currentUserEmail = user.email;
             this.photoUrl=auth.currentUser.photoURL
             this.photoUrl_chat=auth.currentUser.photoURL
-            console.log(auth.currentUser)
         } else {
             console.log('no uid')
         }
@@ -175,6 +213,21 @@ export default {
 
 
 
+    },
+    methods: {
+
+        search(){
+            this.$emit('search', this.searchText)
+        },
+ 
+        togglehide() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "inline";
+            } else {
+                x.style.display = "none";
+            }
+            }
     }
     
 }
@@ -200,11 +253,11 @@ export default {
 }
 
 .dropdown-menu {
-    position: relative;
+    position: absolute;
     background-color: #120c18;
 }
 .dropdown-menu-chat {
-    position: relative;
+    position: absolute;
     /* background-color: #120c18; */
 }
 .dropdown-item:active,

@@ -2,13 +2,13 @@
     <logIn></logIn>
 
     <body>
-        <navBars></navBars>
+        <navBars :data="{'chatUserEmail': 'Helper@gmail.com', 'chatUserName': 'Alexa Help', 'chatUserPhoto': 'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78='}"></navBars>
         <pageBody>
             <div class="container-fluid text-light pt-5">
-                <div class="row justify-content-center" style="height:max-content">
+                <div class="row justify-content-between" style="height:max-content">
                     <div class="row col-xl-5 justify-content-center">
                         <div class="row justify-content-center">
-                            <div class="row col-xl-7 p-0" style="height:250px; width:250px;">
+                            <div class="row col-xl-7 p-0" style="height:170px; width:170px;">
                                 <img
                                     style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
                                     :src="profileObj.profilePicture">

@@ -248,6 +248,7 @@ const register = () => {
                 bio: 'Tell us more about yourself!', 
                 profilePicture: '', 
                 userid: user.user.uid,
+                bought: [],
             })
             const auth = getAuth();
             updateProfile(auth.currentUser, {
