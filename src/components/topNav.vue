@@ -82,7 +82,7 @@
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text px-1 mx-1 pl-4" style="height:100px;" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
-                        <ChatPage :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
+                        <ChatPage v-if="currentUser" :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
                     </ul>
                 </div>
                 </li>
@@ -186,10 +186,6 @@ export default {
             currentUserEmail: '',
             currentUserName: '',
             searchText:'',
-            id: "12345",
-            name:"Jan",
-            email:"test@gmail.com",
-            photoUrl_chat: '',
             photoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
 
         }
@@ -201,7 +197,7 @@ export default {
         if (user) {
             this.username=auth.currentUser.displayName
             this.currentUserName = auth.currentUser.displayName
-            this.currentUserEmail = auth.currentUser.email;
+            this.currentUserEmail = user.email;
             this.photoUrl=auth.currentUser.photoURL
             this.photoUrl_chat=auth.currentUser.photoURL
         } else {

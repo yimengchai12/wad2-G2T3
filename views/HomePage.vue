@@ -62,11 +62,12 @@ import imagePage from "../src/components/ImagePage.vue";
 export default {
     name: "homePage",  
     // props: ['uid'],
-    data(){
-        return{
-            // isLoggedIn: false,
-        }
-    },
+    // data(){
+    //     return{
+  
+    //     }
+    // },
+    
     
     components: {
         navBars,
