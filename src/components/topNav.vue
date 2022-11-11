@@ -73,7 +73,7 @@
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text px-3 mx-1 pl-4" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
-                        <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl_chat':photoUrl_chat}"></ChatPage>
+                        <ChatPage :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
                     </ul>
                 </div>
                 <div class="dropdown d-lg-none">
@@ -202,10 +202,7 @@ export default {
             this.currentUserName = auth.currentUser.displayName
             this.currentUserEmail = user.email;
             this.photoUrl=auth.currentUser.photoURL
-<<<<<<< HEAD
             this.photoUrl_chat=auth.currentUser.photoURL
-=======
->>>>>>> d9e584a8aa7da6a7e2e4fe9d966638ea25898199
         } else {
             console.log('no uid')
         }
