@@ -208,7 +208,16 @@ export default {
     });
 
 
+    },
 
+    mounted(){
+        var input = document.getElementById("form1");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        this.router.push({ path: `/search/${this.searchText}`}).then(() => { this.$router.go() })
+  }
+});
     },
     methods: {
         
