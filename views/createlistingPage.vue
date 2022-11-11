@@ -39,11 +39,12 @@
 
                             <!-- Image Title -->
                             <div class="field field_v1 w-75">
-                        <label for="listing-title" class="ha-screen-reader">Title</label>
-                        <input id="listing-title" type="text" class="field__input" placeholder="Title" v-model="images.title" required="true">
-                        <span class="field__label-wrap" aria-hidden="true" >
-                            <span class="field__label">Title</span>
-                        </span>
+                            <label for="listing-title" class="ha-screen-reader">Title</label>
+                            <input id="listing-title" type="text" class="field__input" placeholder="Title" v-model="images.title" required="true">
+                            
+                            <span class="field__label-wrap" aria-hidden="true" >
+                                <span class="field__label">Title</span>
+                            </span>
                         </div>
                         
                         <br>
@@ -54,37 +55,38 @@
                             <!-- Price input -->
                         
                             <div class="input-group mb-3 mt-3">
-                                <span class="input-group-text">$</span>
+                                <!-- <span class="input-group-text">$</span> -->
                                 <div class="field field_v1 w-75">
-                        <label for="listing-price" class="ha-screen-reader">Title</label>
-                        <input id="listing-price" type="text" class="field__input" placeholder="0.00" v-model="images.price" aria-label="amount" required="true">
-                        <span class="field__label-wrap" aria-hidden="true" >
-                            <span class="field__label">Price</span>
-                        </span>
-                        </div>
+                                    <label for="listing-price" class="ha-screen-reader">Title</label>
+                                    <input id="listing-price" type="text" class="field__input" placeholder="$ 0.00" v-model="images.price" aria-label="amount" required="true" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                                    <span class="field__label-wrap" aria-hidden="true" >
+                                        <span class="field__label">Price ($)</span>
+                                        
+                                    </span>
+                                </div>
                             </div>
 
 
-                                <!-- Add tag -->
-                                <div class="input-group mb-3 mt-3">
-                                
+                            <!-- Add tag -->
+                            <div class="input-group mb-3 mt-3">
+                            
                                 <div class="field field_v1 w-75">
-                        <label for="tags" class="ha-screen-reader">Add Tags</label>
-                        <input id="tags" type="text" class="field__input" placeholder="Add Tags" aria-describedby="button-addon2" v-model="tag" @keyup.enter="addTag">
-                        
-                        <span class="field__label-wrap" aria-hidden="true" >
-                            <span class="field__label">Add Tags</span>
-                        </span>
-                        </div>
-                        <button class="btn btn-outline-secondary buttonStyle add-on-hover" type="button" id="button-addon2" @click="addTag" >Add Tag</button>
+                                    <label for="tags" class="ha-screen-reader">Add Tags</label>
+                                    <input id="tags" type="text" class="field__input" placeholder="Add Tags" aria-describedby="button-addon2" v-model="tag" @keyup.enter="addTag">
+                    
+                                    <span class="field__label-wrap" aria-hidden="true" >
+                                        <span class="field__label">Add Tags</span>
+                                    </span>
+                                </div>
+                                <button class="btn btn-outline-secondary buttonStyle add-on-hover" type="button" id="button-addon2" @click="addTag" >Add Tag</button>
                             </div>
                            
                             <div class="d-inline-flex flex-wrap" >
-                                    <p v-for="(tag,index) in images.tags" :key="tag" style="width:max-content" class="text-start p-2 signin-on-hover me-2">
-                                        <button type="button " class="btn-close btn-close-white" aria-label="Close" @click="deleteTag(tag,index)"></button>
-                                        <span class="p-1 me-2 text-light"> {{tag}}</span>  
-                                    </p>
-                                </div>
+                                <p v-for="(tag,index) in images.tags" :key="tag" style="width:max-content" class="text-start p-2 signin-on-hover me-2">
+                                    <button type="button " class="btn-close btn-close-white" aria-label="Close" @click="deleteTag(tag,index)"></button>
+                                    <span class="p-1 me-2 text-light"> {{tag}}</span>  
+                                </p>
+                            </div>
                                 <br>
                             Image Description:
                             <textarea placeholder="Description" v-model="images.details" class="form-control" rows="3" cols="50" required="true"></textarea>
