@@ -217,8 +217,8 @@ export default {
 //         // event.preventDefault();
 //         this.router.push({ path: `/search/${this.searchText}`}).then(() => { this.$router.go() })
 //   }
-});
-    },
+// });
+//     },
     methods: {
         
 
