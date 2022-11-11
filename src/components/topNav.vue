@@ -46,10 +46,10 @@
                 <li class="nav-item" id="myDIV" style="display:none;">
                     <div class="form-outline center mt-5">
                         
-                        <input type="text" id="form1" autocomplete="none"
+                        <input type="text" v-model="searchText"  id="form1" autocomplete="none"
                             class="form-control rounded-pill"
                             style="height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; width:300px; margin:auto"
-                            placeholder="Search collections and creations" aria-describedby="button-addon2">
+                            placeholder="Search collections and creations" aria-describedby="button-addon2" @keyup.enter="this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() })">
                         </div>
                     
                        
