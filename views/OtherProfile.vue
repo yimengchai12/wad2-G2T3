@@ -1,7 +1,7 @@
 <template>
     <logIn></logIn>
     <body>
-        <navBars></navBars>
+        <navBars  :data="{'chatUserEmail': profileObj.email, 'chatUserName': profileObj.name, 'chatUserPhoto': listed[0].image}"></navBars>
         <pageBody>
             <div class="container text-light">
                 <div class="row align-items-center" style="height:400px">
@@ -18,6 +18,7 @@
                     <div class="row col-xl-6">
                         <div class="d-flex flex-column  ">
                         <p class="border-start text-start ps-3">This is your bio</p>
+                        <button class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" @click="showChat" style="text-decoration:none; width:100%; height:auto;">Chat now</button>
                     </div>
                     </div>
                 </div>
@@ -37,7 +38,6 @@
             <button @click="updateProfile()" href="#">update change</button> -->
 
             <div class="text-light">
-                
                 <div>{{profileObj.name}}</div>
                 <div>{{profileObj.phone}}</div>
                 <div>{{profileObj.email}}</div>
@@ -60,15 +60,16 @@ import pageBody from "../src/components/pageBody.vue"
 import logIn from "../src/components/SignIn.vue"
 import navBars from "../src/components/navBars.vue"
 
-// import { getAuth, } from "firebase/auth";
+import { getAuth, } from "firebase/auth";
 import { doc, getDoc, collection, query, where, getDocs} from "firebase/firestore";
 import { db } from "../src/main.js";
 
 // import imagePage from "./ImagePage.vue";
 // import messageBox from "../src/components/Chat.vue";
 
-
-
+// const auth = getAuth();
+// const uid = auth.currentUser.uid;
+// const email = auth.currentUser.email;
 export default {
     name: "profilePage",  
     data(){
@@ -76,6 +77,7 @@ export default {
             profileUid: this.$route.params.id,
             profileObj: {},
             listed: [],
+            currentUserEmail: "",
         }
     },
 
@@ -91,9 +93,18 @@ export default {
     
     methods: {
 
+        async showChat(){
+            var element = document.getElementById("chatbox");
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0;
+            // document.getElementById('dropdownMenuButton1').click();
+            element.classList.toggle("show");
+        },
+
         async readData(){
             const docRef = doc(db, "profiles", this.profileUid);
             const docSnap = await getDoc(docRef);
+            const auth = getAuth();
 
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
@@ -111,12 +122,6 @@ export default {
                 console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
-
-            // const auth = getAuth();
-            // const uid = auth.currentUser.uid;
-            // const email = auth.currentUser.email;
-            // console.log(uid)
-            // console.log(email)
         },         
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <topNav></topNav>
+    <topNav :data="data"></topNav>
     <sideNav></sideNav>
 </template>
 <script>
@@ -11,7 +11,9 @@ export default {
         topNav,
         sideNav
     
-    }
+    },
+    props:["data"],
+    
 }
 </script>
 <style>
