@@ -34,10 +34,11 @@
             <ul>
                 <li class="nav-item d-none d-lg-inline">
                     <div class="form-outline center">
-                        <input type="text" id="form1" autocomplete="none"
+                        <input type="text" v-model="searchText" id="form1" autocomplete="none"
                             class="form-control rounded-pill"
                             style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;"
-                            placeholder="Search collections and creations" @keyup.enter="this.router.push('/search')"/>
+                            placeholder="Search collections and creations" @keyup.enter="[this.router.push('/search') , search]"
+                           />
                     </div>
                 </li>
 
@@ -176,12 +177,20 @@ export default {
     components:{
         ChatPage
     },
+    emits: ['search'],
     props:["data"],
     data(){
         return{
             username: '',
             currentUserEmail: '',
-            currentUserName: ''
+            currentUserName: '',
+            searchText:'',
+            id: "12345",
+            name:"Jan",
+            email:"test@gmail.com",
+            photoUrl_chat: '',
+            photoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
+
         }
     },
 
@@ -192,6 +201,8 @@ export default {
             this.username=auth.currentUser.displayName
             this.currentUserName = auth.currentUser.displayName
             this.currentUserEmail = user.email;
+            this.photoUrl=auth.currentUser.photoURL
+            this.photoUrl_chat=auth.currentUser.photoURL
         } else {
             console.log('no uid')
         }
@@ -202,6 +213,11 @@ export default {
 
     },
     methods: {
+
+        search(){
+            this.$emit('search', this.searchText)
+        },
+ 
         togglehide() {
             var x = document.getElementById("myDIV");
             if (x.style.display === "none") {

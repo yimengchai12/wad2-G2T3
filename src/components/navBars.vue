@@ -1,5 +1,5 @@
 <template>
-    <topNav :data="data"></topNav>
+    <topNav :data="data" v-bind="$attrs"></topNav>
     <sideNav></sideNav>
 </template>
 <script>

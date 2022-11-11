@@ -2,7 +2,7 @@
     <logIn></logIn>
     <registerUser></registerUser>
     <body>
-        <navBars></navBars>
+        <navBars @search="show()"></navBars>
         <div></div>
 
         <pageBody>
@@ -217,6 +217,10 @@ export default {
         }
     },
     methods:{
+        show(){
+            console.log("show")
+        },
+        
         displayArtist() {
             var artwork = document.getElementById("artworkResult")
             var artist = document.getElementById("artistResult")
