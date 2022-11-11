@@ -21,12 +21,12 @@
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
                             <h3>{{collectionName}}</h3>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
-                            <a v-if="artistUid == currentUid " href='/profile'>
+                            <router-link v-if="artistUid == currentUid " to='/profile'>
                                 <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistProfile.name}}</h5>
-                        </a>
-                            <a v-else :href="'/profile/'+ artistUid">
+                        </router-link>
+                            <router-link v-else :to="'/profile/'+ artistUid">
                                 <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%;text-decoration: underline;">{{artistProfile.name}}</h5>
-                            </a>
+                            </router-link>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">
