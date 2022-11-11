@@ -49,7 +49,7 @@
                         <input type="text" v-model="searchText"  id="form1" autocomplete="none"
                             class="form-control rounded-pill"
                             style="height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; width:300px; margin:auto"
-                            placeholder="Search collections and creations" aria-describedby="button-addon2" @keyup.enter="this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() })">
+                            placeholder="Search collections and creations" aria-describedby="button-addon2" v-on:search="this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() })" @keyup.enter="this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() })">
                         </div>
                     
                        
