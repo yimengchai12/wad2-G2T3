@@ -79,7 +79,7 @@
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text px-1 mx-1 pl-4" style="height:100px;" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
-                        <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl_chat':photoUrl_chat}"></ChatPage>
+                        <ChatPage :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
                     </ul>
                 </div>
                 </li>
@@ -147,6 +147,8 @@ onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
+            console.log(uid)
+            console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;
@@ -174,14 +176,12 @@ export default {
     components:{
         ChatPage
     },
+    props:["data"],
     data(){
         return{
             username: '',
-            id: "12345",
-            name:"Jan",
-            email:"test@gmail.com",
-            photoUrl_chat: '',
-            photoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
+            currentUserEmail: '',
+            currentUserName: ''
         }
     },
 
@@ -190,9 +190,8 @@ export default {
         onAuthStateChanged(auth, (user) => {
         if (user) {
             this.username=auth.currentUser.displayName
-            this.photoUrl=auth.currentUser.photoURL
-            this.photoUrl_chat=auth.currentUser.photoURL
-            console.log(auth.currentUser)
+            this.currentUserName = auth.currentUser.displayName
+            this.currentUserEmail = user.email;
         } else {
             console.log('no uid')
         }
@@ -236,11 +235,11 @@ export default {
 }
 
 .dropdown-menu {
-    position: relative;
+    position: absolute;
     background-color: #120c18;
 }
 .dropdown-menu-chat {
-    position: relative;
+    position: absolute;
     /* background-color: #120c18; */
 }
 .dropdown-item:active,
