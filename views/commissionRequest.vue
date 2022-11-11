@@ -6,7 +6,7 @@
         <div>
         </div>
         <pageBody>
-
+            
 
             <div class="container-fluid" style="color: white; text-align: left;">
                 <h1 style="padding-top: 50px;">Commissions</h1>
@@ -39,13 +39,14 @@
                             <div class="input-group mb-3">
                                 <!-- <span class="input-group-text">$</span>
                                 <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="request.price"> -->                      
-                                <div class="field field_v1 w-75">
-                                    <label for="listing-price" class="ha-screen-reader">Title</label>
-                                    <input id="listing-price" type="text" class="field__input" placeholder="Deadline" v-model="request.deadline" aria-label="amount" required="true">
-                                    <span class="field__label-wrap" aria-hidden="true" >
-                                        <span class="field__label">Commission Deadline</span>
-                                    </span>
+                                <div>
+                                  
+                                    
+                                        Commission Deadline
+                                        <Datepicker class="dp__theme_dark" v-model="request.deadline" required="true" dark></Datepicker>
+                                   
                                 </div>
+                               
                             </div>    
                         </div>
 
@@ -186,6 +187,8 @@ import pageBody from "../src/components/pageBody.vue"
 import logIn from "../src/components/SignIn.vue"
 // import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
+import Datepicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
 
 
 import { collection, setDoc, getDocs, doc, query, where, updateDoc } from "firebase/firestore"; 
@@ -218,6 +221,7 @@ export default {
                 artistResponse: [],
             },
             sendArtist: '', 
+            date: null
 
         }
     },
@@ -227,6 +231,7 @@ export default {
         logIn, 
         // registerUser,
         pageBody,
+        Datepicker
     },
 
     created() {
@@ -762,23 +767,26 @@ body {
     grid-gap: 30px;
 }
 
-
-@media (min-width: 1024px) {
-
-    .linktr {
-        position: absolute;
-        right: 1rem;
-        bottom: 1rem;
-    }
+.dp__theme_dark {
+   --dp-background-color: rgb(32,23,43);
+   --dp-text-color: #fffeee;
+   --dp-hover-color: #484848;
+   --dp-hover-text-color: #ffffff;
+   --dp-hover-icon-color: #959595;
+   --dp-primary-color: #005cb2;
+   --dp-primary-text-color: #ffffff;
+   --dp-secondary-color: #a9a9a9;
+   --dp-border-color: #32263f;
+   --dp-menu-border-color: #2d2d2d;
+   --dp-border-color-hover: #e42474;
+   --dp-disabled-color: #737373;
+   --dp-scroll-bar-background: #212121;
+   --dp-scroll-bar-color: #484848;
+   --dp-success-color: #e42474;
+   --dp-success-color-disabled: #e42474;
+   --dp-icon-color: #959595;
+   --dp-danger-color: #e53935;
+   --dp-highlight-color: rgba(0, 92, 178, 0.2);
 }
 
-.r-link {
-    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
-    --uirLinkTextColor: var(--rLinkTextColor);
-    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
-
-    display: var(--uirLinkDisplay) !important;
-    color: var(--uirLinkTextColor) !important;
-    text-decoration: var(--uirLinkTextDecoration) !important;
-}
 </style>
