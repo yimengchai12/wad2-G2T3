@@ -26,18 +26,20 @@
 
                 
                 <!-- Artwok Result -->
-                <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;" >
 
-                    <div v-for="image in imagesObj" :key="image" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img :src="image.image" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">{{image.title}}</h4>
-                                <h6>{{image.artistName}}</h6>
-                                <p class="card-text description">{{image.details}}</p>
-                                <h4>${{image.price}}</h4>
+                    <div v-for="image in imagesObj" :key="image" class="col-lg-3 col-md-4 col-sm-12 colStyle" >
+                        <router-link :to ="`/buy/` + image.title">
+                            <div  class="card artworkCard" style="width: 18rem;">
+                                <img :src="image.image" class="card-img-top gallery" >
+                                <div class="card-body">
+                                    <h4 class="card-title text-start">{{image.title}}</h4>
+                                    <h6>{{image.artistName}}</h6>
+                                    <p class="card-text description">{{image.details}}</p>
+                                    <h4>${{image.price}}</h4>
+                                </div>
                             </div>
-                        </div>
+                        </router-link>
                     </div>
    
 
@@ -49,13 +51,15 @@
                 <div class="row" id="artistResult">
 
                     <div v-for="artist in artistObj" :key="artist" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artistCard" style="width: 18rem;">
-                            <img :src="artist.profilePicture" class="artistPic">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">{{artist.name}}</h4>
-                                <p class="card-text description text-start">{{artist.bio}}</p>
+                        <router-link :to ="`/profile/` + artist.uid">
+                            <div class="card artistCard" style="width: 18rem;">
+                                <img :src="artist.profilePicture" class="artistPic">
+                                <div class="card-body">
+                                    <h4 class="card-title text-start">{{artist.name}}</h4>
+                                    <p class="card-text description text-start">{{artist.bio}}</p>
+                                </div>
                             </div>
-                        </div>
+                        </router-link>
                     </div>
 
                    
@@ -78,6 +82,7 @@ import navBars from "../src/components/navBars.vue"
 
 import { collection, query, where, getDocs} from "firebase/firestore";
 import { db } from "../src/main.js";
+
 
 export default {
     name: "searchResult", 
