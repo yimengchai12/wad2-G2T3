@@ -37,7 +37,7 @@
                         <input type="text" v-model="searchText" id="form1" autocomplete="none"
                             class="form-control rounded-pill"
                             style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;"
-                            placeholder="Search collections and creations" @keyup.enter="[this.router.push('/search') , search]"
+                            placeholder="Search collections and creations" @keyup.enter="this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() })"
                            />
                     </div>
                 </li>
@@ -179,7 +179,6 @@ export default {
     components:{
         ChatPage
     },
-    emits: ['search'],
     props:["data"],
     data(){
         return{
@@ -216,10 +215,6 @@ export default {
     },
     methods: {
 
-        search(){
-            this.$emit('search', this.searchText)
-        },
- 
         togglehide() {
             var x = document.getElementById("myDIV");
             if (x.style.display === "none") {
