@@ -22,10 +22,10 @@
 
                         <ul class="dropdown-menu dropdown_menu dropdown_menu--animated dropdown_menu-6"
                             aria-labelledby="marketplace_dropdown">
-                            <li>
+                            <!-- <li>
                                 <router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Popular Artwork
                                 </router-link>
-                            </li>
+                            </li> -->
                             <li><router-link to="/commission" class="dropdown-item text-light pl-4 p-2">Request Commission</router-link></li>
                         </ul>
                     </li>
@@ -44,7 +44,7 @@
                                 <router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Create Listing
                                 </router-link>
                             </li>
-                            <li><a href="#" class="dropdown-item text-light pl-4 p-2">3rd Option</a></li>
+                            <li><router-link  to="/commission" class="dropdown-item text-light pl-4 p-2">Commission Requests</router-link></li>
                         </ul>
                     </li>
                     <li class="nav-item ">
