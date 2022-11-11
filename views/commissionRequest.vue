@@ -1,125 +1,121 @@
 <template>
     <logIn></logIn>
-    <!-- <registerUser></registerUser> -->
+    <registerUser></registerUser>
     <body>
         <navBars :data="{'chatUserEmail': 'Helper@gmail.com', 'chatUserName': 'Alexa Help', 'chatUserPhoto': 'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78='}"></navBars>
         <div>
         </div>
         <pageBody>
-            <div class="container-fluid">
 
-                <h1 class="textFormat">Artwork Commissions</h1>
+
+            <div class="container-fluid" style="color: white; text-align: left;">
+                <h1 style="padding-top: 50px;">Commissions</h1>
 
                 <!-- nav bar -->
                 <div class="row">
-                    <section style="padding-top: 40px; padding-left: 0px;">
+                    <section style="padding-top: 30px; padding-left: 0px;">
                         <nav class="stroke">
                             <ul>
-                                <li style="padding-right: 40px;"><a id="requestNav" class="" href="#" @click="displayRequest()">Request</a></li>
-                                <li style="padding-left: 40px;"><a id="inboxNav" class="" href="#" @click="displayInbox()">Inbox</a></li>
+                                <li style="padding-right: 40px;"><a id="requestNav" @click="displayRequest()">Request</a></li>
+                                <li style="padding-left: 40px;"><a id="inboxNav" @click="displayInbox()">Inbox</a></li>
                             </ul>
                         </nav>
                     </section>
                 </div>
 
-                <!-- Request -->
-                <div class="row" id="requestTab">
-                    <div class="col-5 textFormat">
-                        <h3 class="textFormat">Commission Request</h3>
+                <!-- request -->
+                <div class="row" id="requestForm">
+                    <div class="col-7 py-3 request">
+                        <h3 style="padding-bottom: 20px;">Commission Request</h3>
 
+                        <!-- Detials input TO LOOK INTO TEXT AREA STYLING -->
                         <div class="form-group">
                             Commission Details:
                             <textarea placeholder="Details" v-model="request.details" class="form-control"></textarea>
                         </div>
 
+                        <!-- deadline input TO LOOK INTO DATE STYLING-->
                         <div class="form-group">
-                            Commission Deadline:
-                            <textarea placeholder="Deadline" v-model="request.reqDeadline" class="form-control"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            Price:
                             <div class="input-group mb-3">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="request.price">
-                            </div>
+                                <!-- <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="request.price"> -->                      
+                                <div class="field field_v1 w-75">
+                                    <label for="listing-price" class="ha-screen-reader">Title</label>
+                                    <input id="listing-price" type="text" class="field__input" placeholder="Deadline" v-model="request.deadline" aria-label="amount" required="true">
+                                    <span class="field__label-wrap" aria-hidden="true" >
+                                        <span class="field__label">Commission Deadline</span>
+                                    </span>
+                                </div>
+                            </div>    
                         </div>
 
+                        <!-- price input -->
                         <div class="form-group">
-                            Artists:
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Add Artists" aria-describedby="button-addon2" v-model="sendArtist" @keyup.enter="addArtist">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="addArtist" >Add Artist</button>
-                            </div>
-
-                            <!-- <input type="text" @keyup.enter="addTag" placeholder="Tags (Press enter to add tags)" v-model="tag" class="form-control"> -->
-                            <div class="d-flex">
-                                <p v-for="(sendArtist,index) in request.artistList" :key="sendArtist" class="text-start p-2 bg-danger me-2">
-                                    <button type="button" class="btn-close btn-close-white" aria-label="Close" @click="deleteArtist(sendArtist,index)"></button>
-                                    <span class="p-1 me-2 text-light"> {{sendArtist}}</span>  
-                                </p>
-                            </div>
+                                <!-- <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" v-model.number="request.price"> -->                      
+                                <div class="field field_v1 w-75">
+                                    <label for="listing-price" class="ha-screen-reader">Title</label>
+                                    <input id="listing-price" type="text" class="field__input" placeholder="$ 0.00" v-model.number="request.price" aria-label="amount" required="true" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                                    <span class="field__label-wrap" aria-hidden="true" >
+                                        <span class="field__label">Price ($)</span>
+                                    </span>
+                                </div>
+                            </div>    
                         </div>
 
-                        <div class="form-group text-center" >
-                            <button class="btn btn-primary" @click="saveData" >Save Data</button>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Sent -->
-                <div class="row" id="sentTab">
-                    <h3 class="textFormat">Commission sent</h3>
-                    <!-- <div v-if="sentObj = []">
-                        <h6>No Commissions Sent</h6>
-                    </div> -->
-                    <div >
-                        <table class="table table-striped table-dark table-bordered">
-                            <thead>
-                                <tr>
-                                <th scope="col">Details</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Deadline</th>
-                                <th scope="col">Artists</th>
-                                </tr>
-                            </thead>
-                        
-
-                            <tr v-for="sent in sentObj" :key="sent"> 
-                                <!-- <td>{{sent.userid}} userid</td> -->
-                                <td>{{sent.details}}</td>
-                                <td>${{sent.price}}</td>
-                                <!-- <td>{{sent.userEmail}} useremail</td> -->
-                                <!-- <td>{{sent.userName}} username</td> -->
-                                <td>{{sent.reqDate}}</td>
-                                <td>{{sent.reqDeadline}}</td>
-
-                                <table class="table table-striped table-dark table-bordered" style="height: 100%;">
-                                    <tr v-for="(artist, index) in sent.artistList" :key="artist">
-                                        <td>{{this.emailLinked[artist]}}</td>
-                                        <td>{{sent.artistReply[index]}}</td>
-                                    </tr>
-                                </table>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                </div>
-
+                        <!-- artist input -->
+                        <div class="input-group mb-3 mt-3">
+                            
+                            <div class="field field_v1 w-75">
+                                <label for="tags" class="ha-screen-reader">Add Artist</label>
+                                <input id="tags" type="text" class="field__input" placeholder="Add Artist" aria-describedby="button-addon2" v-model="sendArtist" @keyup.enter="addArtist">
                 
-                <!-- Replies -->
-                <div class="row" id="repliesTab">
-                    <div class="col">
-                        <h3 class="textFormat">My Commission Requests</h3> 
+                                <span class="field__label-wrap" aria-hidden="true" >
+                                    <span class="field__label">Add Artist</span>
+                                </span>
+                            </div>
+                            <button class="btn btn-outline-secondary buttonStyle add-on-hover" type="button" id="button-addon2" @click="addArtist" >Add Artist</button>
+                        </div>
+
+                        <!-- artist tags -->
+                        <div class="d-inline-flex flex-wrap" >
+                            <p v-for="(sendArtist,index) in request.artistList" :key="sendArtist" style="width:max-content" class="text-start p-2 signin-on-hover me-2">
+                                <button type="button " class="btn-close btn-close-white" aria-label="Close" @click="deleteArtist(sendArtist,index)"></button>
+                                <span class="p-1 me-2 text-light"> {{sendArtist}}</span>  
+                            </p>
+                        </div>
+
+                        <!-- submit form button -->
+                        <div class="form-group text-center" >
+                            <button class="btn register-on-hover rounded-pill" style="width:fit-content; height: 45px;" @click="saveData">Submit Request</button>
+                        </div>
+                    </div>
+                </div>
+                <!--  end of request row -->
+
+                <!-- inbox -->
+                <div id="inbox">
+
+                    <!-- replies -->
+                    <div class="row">
+                        <h3>Commissions Received</h3> 
                         <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
                         <div class="commissionReply">
                             <table class="table table-striped table-dark table-bordered ">
+                                <tr>
+                                    <th>Commission Details</th>
+                                    <th>Price</th>
+                                    <th>Client Details</th>
+                                    <th>Date of Commission</th>
+                                    <th>Deadline</th>
+                                    <th>Status</th>
+                                </tr>
                                 <tr v-for="request in requestObj" :key="request">
                                     <div v-if="request.artistResponded.includes(this.request.userid)">
+                                        
                                         <!-- <td>userid: {{request.userid}} </td> -->
-                                        <td>user details:{{request.details}}</td>
+                                        <td>  user details:{{request.details}}</td>
                                         <td>userprice:{{request.price}} </td>
                                         <td>useremail:{{request.userEmail}} </td>
                                         <td>username:{{request.userName}} </td>
@@ -133,21 +129,49 @@
                                         <p>{{request.userName}} username</p>
                                         <p>{{request.reqDate}} Date</p>
                                         <p>{{request.reqDeadline}} Deadline</p>
-
                                         <div class="d-flex">
                                             <button class="btn btn-primary" @click="updateResponse(request, true)">Accept</button>
                                             <button class="btn btn-primary" @click="updateResponse(request, false)">Reject</button>
                                         </div>
-
                                     </div>
                                 </tr>
                             </table>
                         </div>
                     </div>
+
+                    <!-- sent -->
+                    <div class="row">
+                        <h3>Commission sent</h3>
+                        <div class="commissionSent">
+                            <div v-for="sent in sentObj" :key="sent">
+                                <table class="table table-striped table-dark table-bordered">
+                                    <tr> 
+                                        <td>{{sent.userid}} userid</td>
+                                        <td>{{sent.details}} user details</td>
+                                        <td>{{sent.price}} userprice</td>
+                                        <td>{{sent.userEmail}} useremail</td>
+                                        <td>{{sent.userName}} username</td>
+                                        <td>{{sent.reqDate}} Date</td>
+                                        <td>{{sent.reqDeadline}} Deadline</td>
+                                        <table class="table table-striped table-dark table-bordered">
+                                            <tr v-for="(artist, index) in sent.artistList" :key="artist">
+                                                <td>{{this.emailLinked[artist]}}</td>
+                                                <td>{{sent.artistReply[index]}}</td>
+                                            </tr>
+                                        </table>
+                                    </tr> 
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of sent div -->
+
                 </div>
+                <!-- end of inbox div -->
 
+            </div> 
+            <!-- end of container div -->
 
-            </div>
             
         </pageBody>
 
@@ -164,7 +188,6 @@ import logIn from "../src/components/SignIn.vue"
 import navBars from "../src/components/navBars.vue"
 
 
-// import { collection, setDoc, getDocs, doc, query, where, updateDoc, documentId } from "firebase/firestore";
 import { collection, setDoc, getDocs, doc, query, where, updateDoc } from "firebase/firestore"; 
 import { db } from "../src/main.js";
 import { getAuth } from "firebase/auth";
@@ -225,40 +248,29 @@ export default {
         
     },
     methods: {
-        displayRequest() { 
-            console.log("change to request tab")
-            var sent = document.getElementById("sentTab")
-            var request = document.getElementById("requestTab")
-            var replies = document.getElementById("repliesTab")
+        displayRequest(){
+            var requestContent = document.getElementById("requestForm")
+            var inboxContent = document.getElementById("inbox")
 
-            // show only request contents
-            sent.style.display = "none"
-            replies.style.display = "none"
-            request.style.display = "flex"
+            requestContent.style.display = "flex"
+            inboxContent.style.display = "none"
 
-            // style seclected request nav
-            var inboxSelected = document.getElementById("inboxNav")
-            var requestSelected = document.getElementById("requestNAv")
-            inboxSelected.style = "color: white"
-            requestSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116); background-color: white"
+            var requestNav = document.getElementById("requestNav")
+            requestNav.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+            var inboxNav = document.getElementById("inboxNav")
+            inboxNav.style = "color: white"
         },
-        displayInbox() { 
-            console.log("change to inbox tab")
-            var sent = document.getElementById("sentTab")
-            var request = document.getElementById("requestTab")
-            var replies = document.getElementById("repliesTab")
+        displayInbox(){
+            var requestContent = document.getElementById("requestForm")
+            var inboxContent = document.getElementById("inbox")
 
-            // show only inbox contents
-            sent.style.display = "flex"
-            replies.style.display = "flex"
-            request.style.display = "none"
+            requestContent.style.display = "none"
+            inboxContent.style = "flex-direction: column"
 
-            // style seclected inbox nav
-            var inboxSelected = document.getElementById("inboxNav")
-            var requestSelected = document.getElementById("requestNAv")
-            inboxSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
-            requestSelected.style = "color: white"
-            console.log(inboxSelected)
+            var requestNav = document.getElementById("requestNav")
+            requestNav.style = "color: white"
+            var inboxNav = document.getElementById("inboxNav")
+            inboxNav.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
         },
         deleteArtist(sendArtist, index){
             this.request.artistList.splice(index, 1);
@@ -378,26 +390,15 @@ export default {
                 artistResponded: request.artistResponded,
                 artistResponse: request.artistResponse
             });
-        }
-
-        
+        },
+       
     },
     mounted(){
-        var sent = document.getElementById("sentTab")
-        var request = document.getElementById("requestTab")
-        var replies = document.getElementById("repliesTab")
-
-        // show only request contents
-        sent.style.display = "none"
-        replies.style.display = "none"
-        request.style.display = "flex"
-
-        // style seclected request nav
-        var inboxSelected = document.getElementById("inboxNav")
-        var requestSelected = document.getElementById("requestNAv")
-        inboxSelected.style = "color: white"
-        requestSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116); background-color: white" 
-    }
+            var inbox = document.getElementById("inbox")
+            inbox.style.display = "none"
+            var navStart = document.getElementById("requestNav")
+            navStart.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+    },
 
 } 
 
@@ -405,14 +406,11 @@ export default {
 </script>
 
 <style scoped>
-.textFormat{
-    color: white;
-    text-align: left;
-}
+/* NAR BAR sTART */
 nav ul {
   list-style: none;
   text-align: center;
-  margin-right: 90px;
+  margin-right: 80px;
 }
 nav ul li {
   display: inline-block;
@@ -478,5 +476,309 @@ nav.fill ul li a:hover:after {
   -moz-animation: fill 1s forwards;
   opacity: 1;
 }
-    
+/* NAR BAR END */
+
+.request{
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+
+/* copy */
+.buttonStyle{
+    background-color: rgb(228,36,116);
+    color: white
+}
+
+.add-on-hover {
+border: none;
+outline: none;
+color:  #fefffe;
+background: #e42474;
+cursor: pointer;
+position: relative;
+z-index: 0;
+border-radius: 10px;
+}
+.add-on-hover:before {
+content: '';
+background: linear-gradient(45deg, #e42474, #7a00ff, #ff00c8);
+position: absolute;
+top: -2px;
+left:-2px;
+background-size: 400%;
+z-index: -1;
+filter: blur(5px);
+width: calc(100% + 4px);
+height: calc(100% + 4px);
+animation: glowing 20s linear infinite;
+opacity: 0;
+transition: opacity .3s ease-in-out;
+border-radius: 10px;
+}
+
+.add-on-hover:active {
+    color: #e42474;
+}
+
+.add-on-hover:active:after {
+    background: transparent;
+}
+
+.add-on-hover:hover:before {
+    opacity: 1;
+}
+
+.add-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    background: #e42474;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+input[type=text],
+input[type=password]{
+    color:#fefffe;
+}
+.modal-dialog,
+.modal-content,
+.modal-header,
+.modal-body {
+    color: #fefffe;
+    background-color: #120c18;
+}
+
+
+.ha-screen-reader {
+    width: var(--ha-screen-reader-width, 1px);
+    height: var(--ha-screen-reader-height, 1px);
+    padding: var(--ha-screen-reader-padding, 0);
+    border: var(--ha-screen-reader-border, none);
+
+    position: var(--ha-screen-reader-position, absolute);
+    clip: var(--ha-screen-reader-clip, rect(1px, 1px, 1px, 1px));
+    overflow: var(--ha-screen-reader-overflow, hidden);
+}
+
+/*
+=====
+RESET STYLES
+=====
+*/
+
+.field__input {
+    --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
+
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+
+    /* -webkit-appearance: none;
+  -moz-appearance: none; */
+
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+    color: var(--uiFieldPlaceholderColor);
+}
+
+.field__input:focus::-moz-placeholder {
+    color: var(--uiFieldPlaceholderColor);
+}
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.field {
+    --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+    --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+    --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);
+    --uiFieldBorderColorActive: var(--fieldBorderColorActive, rgba(22, 22, 22, 1));
+
+    display: var(--fieldDisplay, inline-flex);
+    position: relative;
+    font-size: var(--fieldFontSize, 1rem);
+}
+
+.field__input {
+    box-sizing: border-box;
+    width: var(--fieldWidth, 100%);
+    height: var(--fieldHeight, 3rem);
+    padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, .5rem) var(--uiFieldPaddingLeft);
+    border-bottom: var(--uiFieldBorderWidth) solid var(--fieldBorderColor, rgba(0, 0, 0, .25));
+}
+
+.field__input:focus {
+    outline: none;
+}
+
+.field__input::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity .2s ease-out;
+}
+
+.field__input::-moz-placeholder {
+    opacity: 0;
+    transition: opacity .2s ease-out;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.field__input:focus::-moz-placeholder {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.field__label-wrap {
+    box-sizing: border-box;
+    pointer-events: none;
+    cursor: text;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.field__label-wrap::after {
+    content: "";
+    box-sizing: border-box;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.field__input:focus~.field__label-wrap::after {
+    opacity: 1;
+}
+
+.field__label {
+    position: absolute;
+    left: var(--uiFieldPaddingLeft);
+    top: calc(50% - .5em);
+
+    line-height: 1;
+    font-size: var(--fieldHintFontSize, inherit);
+
+    transition: top .2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity .2s ease-out, font-size .2s ease-out;
+}
+
+.field__input:focus~.field__label-wrap .field__label,
+.field__input:not(:placeholder-shown)~.field__label-wrap .field__label {
+    --fieldHintFontSize: var(--fieldHintFontSizeFocused, .75rem);
+
+    top: var(--fieldHintTopHover, .25rem);
+}
+
+/* 
+effect 1
+*/
+
+.field_v1 .field__label-wrap::after {
+    border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transition: opacity .2s ease-out;
+}
+
+/* 
+effect 2
+*/
+
+.field_v2 .field__label-wrap {
+    overflow: hidden;
+}
+
+.field_v2 .field__label-wrap::after {
+    border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transform: translate3d(-105%, 0, 0);
+    transition: transform .285s ease-out .2s, opacity .2s ease-out .2s;
+}
+
+.field_v2 .field__input:focus~.field__label-wrap::after {
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0;
+}
+
+/*
+effect 3
+*/
+
+.field_v3 .field__label-wrap::after {
+    border: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transition: height .2s ease-out, opacity .2s ease-out;
+}
+
+.field_v3 .field__input:focus~.field__label-wrap::after {
+    height: 100%;
+}
+
+/*
+=====
+LEVEL 4. SETTINGS
+=====
+*/
+
+.field {
+    --fieldBorderColor: #D1C4E9;
+    --fieldBorderColorActive: #673AB7;
+}
+
+/*
+=====
+DEMO
+=====
+*/
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    grid-gap: 30px;
+}
+
+
+@media (min-width: 1024px) {
+
+    .linktr {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
+.r-link {
+    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+    --uirLinkTextColor: var(--rLinkTextColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkTextColor) !important;
+    text-decoration: var(--uirLinkTextDecoration) !important;
+}
 </style>
