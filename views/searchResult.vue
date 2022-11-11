@@ -230,7 +230,6 @@ export default {
             var artistSelected = document.getElementById("artistNav")
             artistSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
             artworkSelected.style = "color: white"
-            artistSelected.class = "navTab"
         },
         displayArtwork() {
             var artwork = document.getElementById("artworkResult")
