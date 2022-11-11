@@ -202,7 +202,7 @@ export default {
         if (user) {
             this.username=auth.currentUser.displayName
             this.currentUserName = auth.currentUser.displayName
-            this.currentUserEmail = user.email;
+            this.currentUserEmail = auth.currentUser.email;
             this.photoUrl=auth.currentUser.photoURL
             this.photoUrl_chat=auth.currentUser.photoURL
         } else {
