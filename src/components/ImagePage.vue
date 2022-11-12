@@ -25,7 +25,7 @@
     <div class="d-inline" style="padding-top:1px;padding-bottom:10px; height:max-content ;width:83vw; padding-left: 0px;">
         <h2 class="my-3" style="text-align: start;">All</h2>
         <div v-for="imag in imagesObj" :key="imag" class="me-4 d-inline-flex">
-            <div class="card homepageListing d-inline-block" style="width: 250px; height:400px;margin-top:10px">
+            <div class="card homepageListing d-inline-block" style="width: 250px; height:400px;margin-top:20px">
                 <router-link :to="'/buy/' + imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></router-link>
                 <div class="card-body">
                     <router-link :to="'/buy/' + imag.title" style="text-decoration:none; color: #fffeee" ><h5 class="card-title">{{imag.title}}</h5></router-link>
@@ -276,6 +276,8 @@ img {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
+.card:hover{
+    background-color: rgb(32,23,43);
+}
 
 </style>
