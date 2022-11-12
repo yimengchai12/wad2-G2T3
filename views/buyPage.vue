@@ -18,10 +18,6 @@
                             <img id="collectionImg" v-bind:src="collectionImg"
                                 alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: scale-down; outline: 1px solid #25192f ;border-radius:20px;"/>  
                         </div>
-                        <div class="row justify-content-center mt-3 mb-3">
-                                    <div class="col-2 text-center"><a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a></div>
-                                    <div class="col-2 text-center"><a href="#" class="share"><i class="bi bi-share me-2"></i>Share</a></div>
-                        </div> 
                         
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
