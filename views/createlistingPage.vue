@@ -136,6 +136,7 @@ export default {
             imagesObj: [],
             images: {
                 filename: '',
+                millisec: '',
                 userid: "", 
                 artistName: '',
                 email: "", 
@@ -144,11 +145,12 @@ export default {
                 title: "",
                 details: "",
                 tags: [],
+                tagslower: [],
                 image: "https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2FFrame%20583.png?alt=media&token=7544b0d8-2966-47f3-833a-f4619f7b37c2",
             },
 
             profile: {},
-
+            
             tag:null,
             
         }
@@ -180,11 +182,13 @@ export default {
     methods: {
         deleteTag(tag,index){
             this.images.tags.splice(index,1);
+            this.images.tagslower.splice(index,1);
         },
        
         addTag(){
             if(event.target.value!="")
             this.images.tags.push(this.tag);
+            this.images.tagslower.push(this.tag.toLowerCase());
             this.tag='';
         },
 
@@ -205,12 +209,14 @@ export default {
 
         async saveData(){
             const date = new Date(); 
+            this.images.millisec = date.getTime();
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
             this.images.listDate= `${day}-${month}-${year}`;
             if (this.tag.length > 0){
                 this.images.tags.push(this.tag);
+                this.images.tagslower.push(this.tag.toLowerCase());
             }
             // console.log(this.images);
             console.log(this.profile.listedImages);

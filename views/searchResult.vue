@@ -113,7 +113,7 @@ export default {
 
         async readData(){
 
-            const images = query(collection(db, "images"), where("tags", "array-contains", this.search));
+            const images = query(collection(db, "images"), where("tagslower", "array-contains", this.search.toLowerCase()));
 
             const imagesSnapshot = await getDocs(images);
             imagesSnapshot.forEach((doc) => {
@@ -125,7 +125,7 @@ export default {
             console.log(this.imagesObj)
 
 
-            const artist = query(collection(db, "profiles"), where("name", "==", this.search));
+            const artist = query(collection(db, "profiles"), where("name", "==", this.search.toLowerCase()));
 
             const artistSnapshot = await getDocs(artist);
             artistSnapshot.forEach((doc) => {

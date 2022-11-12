@@ -30,6 +30,7 @@ npm install bootstrap-icons
 npm install @vue/cli-service
 npm install @vue-stripe
 npm install @vuepic/vue-datepicker
+npm install @vue-stripe/vue-stripe
 
 ```
 

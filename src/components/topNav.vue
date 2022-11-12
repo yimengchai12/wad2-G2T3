@@ -101,17 +101,17 @@
                     
                     <ul class="dropdown-menu dropdown_menu--animated dropdown_menu-6 mt-5 p-1"
                         style="border: 1px solid #25192f;" aria-labelledby="profile_dropdown">
+                        <router-link to="/profile" v-if="isLoggedIn">
                         <li class="dropdown-item light-text pl-4 p-2">
-                            <router-link to="/profile" v-if="isLoggedIn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-person" viewBox="0 0 16 16">
                                     <path
                                         d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                                 </svg><span class="ps-2">Profile</span>
-                            </router-link>
-                        </li>
+                            </li>
+                        </router-link>
+                        <router-link to="/listing">
                         <li class="dropdown-item light-text pl-4 p-2">
-                            <router-link to="/listing">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-plus-square" viewBox="0 0 16 16">
                                     <path
@@ -120,9 +120,10 @@
                                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                 </svg>
                                 <span class="ps-2">Create Listing</span>
-                            </router-link>
-                        </li>
-                        <li class="dropdown-item pl-4 p-2" id="signout" @click="handleSignOut">
+                            </li>
+                        </router-link>
+                        <div @click="handleSignOut">
+                        <li class="dropdown-item pl-4 p-2" id="signout" >
                             <a class="text-danger" href="/">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -132,6 +133,7 @@
                                     d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
                             </svg><span class="ps-2">Log Out</span></a>
                         </li>
+                    </div>
                     </ul>
                 
                 </li>

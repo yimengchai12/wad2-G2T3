@@ -170,7 +170,7 @@
                     </button>
                 
                     <button type="button" class="light-text signin-on-hover rounded-pill mt-3 py-2 px-3 w-75 mb-3"
-                        data-bs-dismiss="modal" v-if="isLoggedIn">
+                        data-bs-dismiss="modal" v-if="isLoggedIn" @click="refresh">
                         Close
                     </button>
               
@@ -243,21 +243,25 @@ const register = () => {
             errMsg.value = "";
             setDoc(doc(db, "profiles", user.user.uid), {
                 name: name.value,
+                namelower: name.value.toLowerCase(),
                 email: email.value,
                 uid: user.user.uid,
                 listedImages: [], 
                 bio: 'Tell us more about yourself!', 
-                profilePicture: 'https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/profiles%2F202-2024580_png-file-profile-icon-vector-png.png?alt=media&token=d1fb22ef-8fa6-4631-9165-afba0d0362c0', 
+                profilePicture: 'https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/profiles%2Fphoto_2022-11-13_00-02-12.jpg?alt=media&token=e25e4cd2-b236-4e27-aadf-687896db19bb', 
                 userid: user.user.uid,
                 bought: [],
             })
             const auth = getAuth();
             updateProfile(auth.currentUser, {
-                displayName: name.value
+                displayName: name.value, photoURL: "https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/profiles%2Fphoto_2022-11-13_00-02-12.jpg?alt=media&token=e25e4cd2-b236-4e27-aadf-687896db19bb"
             }).then(() => {
                 console.log("Profile updated!");
             }).catch((error) => { console.log('errorrrr') })
             router.push("/");
+            
+
+
         })
         .catch((error) => {
             console.log(error.code);
@@ -312,6 +316,9 @@ export default {
     },
 
     methods: {
+        refresh() {
+            window.location.reload();
+        },
 
     }
 };

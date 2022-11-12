@@ -37,7 +37,7 @@
 
                                 <a v-if="purchased" :href="collectionImg"  class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" >Download </a>
 
-                                <a v-if="!own && !purchased" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
+                                <a v-else-if="!own && !purchase" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
 
 
 
@@ -148,6 +148,7 @@ export default {
         return{
             bought: [],
             purchased: false,
+            purchase: true,
             own:true, 
             artistProfile: {},
             buyDescription: {},
@@ -166,11 +167,10 @@ export default {
             currentUid: "",
             bio: "",
             loaded: false,
-            dimension: "",
-            publishableKey:
-                "pk_test_51M1neNLPH9sbKlnPHaFWkw5wVRIe7i6OoOqLP0aidAL6mysOBN2sLeGnuzV21muKVBqD0uemSKNDiXrmz3ARRyYL00iw2ytGrO",
-            loading: false,
-            lineItems: [
+            dimension:"",
+            publishableKey: process.env.VUE_APP_STRIPE_API_KEY,
+            loading: false, 
+            lineItems:[
                 {
                     price: "price_1M2ElaLPH9sbKlnPbEJ6ugug",
                     quantity: 1
@@ -185,8 +185,8 @@ export default {
 
     created(){
         this.loaded=false
-        this.cancelURL = 'http://localhost:8080/buy/' + this.$route.params.id.split(' ').join('%20');
-        this.successURL = 'http://localhost:8080/success/' + this.$route.params.id.split(' ').join('%20');
+        this.cancelURL = 'https://curious-frangollo-807bf4.netlify.app/buy/' + this.$route.params.id.split(' ').join('%20');
+        this.successURL = 'https://curious-frangollo-807bf4.netlify.app/success/' + this.$route.params.id.split(' ').join('%20');
         this.readData();
     },
 
@@ -261,9 +261,11 @@ export default {
                     this.bought = userSnap.data().bought;
                     if (this.bought.includes(this.title)){
                         this.purchased = true
+                        this.purchase = true
                     }
                     else {
                         this.purchased = false
+                        this.purchase = false
                     }
                     
                 } else {
