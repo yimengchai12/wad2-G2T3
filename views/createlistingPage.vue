@@ -179,6 +179,7 @@ export default {
             this.images.email=user.email;
             this.images.artistName = user.displayName;
             this.getAndAddData();
+            this.readData();
         }
         else {
             console.log("No user")
@@ -254,6 +255,7 @@ export default {
             this.allImages.push(doc.data().title);
 
         });
+        console.log('asdf' + this.allImages)
         },
 
         reset(){
