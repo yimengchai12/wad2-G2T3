@@ -13,11 +13,11 @@
 
                 <!-- nav bar -->
                 <div class="row">
-                    <section style="padding-top: 30px; padding-left: 0px;">
+                    <section style="padding-top: 30px; padding-left: 0px; padding-right:0px">
                         <nav class="stroke">
-                            <ul>
-                                <li style="padding-right: 40px;"><a id="requestNav" @click="displayRequest()">Request</a></li>
-                                <li style="padding-left: 40px;"><a id="inboxNav" @click="displayInbox()">Inbox</a></li>
+                            <ul style="padding:0px; margin:0px">
+                                <li class="nav-item d-inline-block" style="padding-right: 20px; cursor: pointer;"><a id="requestNav" @click="displayRequest()">Request</a></li>
+                                <li class="nav-item d-inline-block" style="padding-left: 20px; cursor: pointer;"><a id="inboxNav" @click="displayInbox()">Inbox</a></li>
                             </ul>
                         </nav>
                     </section>
@@ -25,7 +25,7 @@
 
                 <!-- request -->
                 <div class="row" id="requestForm">
-                    <div class="col-7 py-3 request">
+                    <div class="col-10 py-3 request" >
                         <h3 style="padding-bottom: 20px;">Commission Request</h3>
 
                         <!-- Detials input TO LOOK INTO TEXT AREA STYLING -->
@@ -33,7 +33,7 @@
                         
                         <div class="field field_v3 mb-3">
                         <label for="email" class="ha-screen-reader">Commission Detail</label>
-                        <textarea id="email" class="field__input__bio light-text" style="width:50vw" placeholder="What do you want the creation to look like?"
+                        <textarea id="email" class="field__input__bio light-text" cols="100" placeholder="What do you want the creation to look like?"
                             v-model="request.details"></textarea>
                         <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Commission Detail</span>
@@ -106,11 +106,11 @@
 
                     <!-- replies -->
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col p-0">
                             <h3 class="py-5">Commissions Received</h3> 
                             <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
-                            <div class="commissionReply">
-                                <table class="table table-striped table-dark table-bordered ">
+                            <div class="commissionReply" style="width:82vw">
+                                <table class="table table-striped table-dark table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Commission Details</th>
@@ -132,8 +132,8 @@
                                             <td v-if="request.artistResponded.includes(this.request.userid)" data-label="Status">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
                                             <td v-else >
                                                 <div data-label="Status" class="d-flex buttonsFormat" style="background-color:rgb(26, 17, 37); justify-content: center;">
-                                                    <button class="btn btn-primary signin-on-hover register-on-hover" style="margin-right: 5px;" @click="updateResponse(request, true)">&#10003;</button>
-                                                    <button class="btn btn-primary signin-on-hover register-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button> 
+                                                    <button class="btn register-on-hover" style="margin-right: 5px;" @click="updateResponse(request, true)">&#10003;</button>
+                                                    <button class="btn signin-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button> 
                                                 </div>
                                                 
                                             </td>
@@ -143,12 +143,13 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- sent -->
                     <div class="row" style="margin-top: 40px;">
-                        <div class="col-10" style="border-top: 2px solid rgb(228,36,116)">
-                            <h3 class="py-5">Commission Sent</h3>
-                            <div class="commissionSent"> 
+                        <hr style="width:100%;">
+                        <div class="col p-0">
+                            <h3 class="py-5">Commission sent</h3>
+                            <div class="commissionSent" style="width:82vw"> 
                                     <table class="table table-striped table-dark table-bordered">
                                         <thead>
                                             <tr>
@@ -222,6 +223,7 @@
     </body>
 
 </template>
+
 
 <script>
 import pageBody from "../src/components/pageBody.vue"
@@ -356,12 +358,26 @@ export default {
         async saveData(){
             console.log(this.usersLinked);
             const date = new Date(); 
+            var deadline = new Date(this.request.reqDeadline)
+            console.log(deadline.getTime())
+            // this.request.reqDeadline = new Date(deadline).toLocaleDateString()
+
+            let deadline_day = deadline.getDate()      
+            let deadline_month = deadline.getMonth()    
+            let deadline_year = deadline.getFullYear()    
+            
+            
+            this.request.reqDeadline = `${deadline_day}-${deadline_month}-${deadline_year}`;
+
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
             let time = date.getTime();
             this.request.reqDate= `${day}-${month}-${year}`;
             this.request.reqTime= `${time}`;
+            var dateFormat = this.request.reqDeadline;
+            this.request.reqDeadline = `${dateFormat.getDate()}-${dateFormat.getMonth() + 1}-${dateFormat.getFullYear()} ${dateFormat.getHours()}:${dateFormat.getMinutes()}`;
+
             if (this.sendArtist.length > 0){
                 this.request.artistList.push(this.sendArtist);
             }
@@ -381,7 +397,10 @@ export default {
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);
                 this.reset();
+                window.location.reload(true)
             })
+
+
         },
 
         async readData(){
