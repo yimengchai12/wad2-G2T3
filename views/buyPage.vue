@@ -158,7 +158,7 @@ export default {
             bio: "",
             loaded: false,
             dimension:"",
-            publishableKey: 'pk_test_51M1neNLPH9sbKlnPHaFWkw5wVRIe7i6OoOqLP0aidAL6mysOBN2sLeGnuzV21muKVBqD0uemSKNDiXrmz3ARRyYL00iw2ytGrO',
+            publishableKey: process.env.VUE_APP_STRIPE_API_KEY,
             loading: false, 
             lineItems:[
                 {
