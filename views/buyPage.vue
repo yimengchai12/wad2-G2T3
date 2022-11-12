@@ -31,6 +31,11 @@
                             </router-link>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
+                            <div class="d-inline-flex flex-wrap mt-3" >
+                                <p v-for="(tag,index) in tags" :key="index" style="width:max-content" class="text-start border rounded-pill me-2">
+                                    <span class="p-2 text-light">{{tag}}</span>  
+                                </p>
+                            </div>
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
 
