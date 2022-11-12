@@ -42,7 +42,7 @@
                     </div>
                 </li>
 
-                <router-link id="searchbutton" :to="'/search/'+searchvalue">qwdqwd[qwpodj]</router-link>
+                <!-- <router-link id="searchbutton" :to="'/search/'+searchvalue">qwdqwd[qwpodj]</router-link> -->
 
                 <li class="nav-item" id="myDIV" style="display:none;">
                     <div class="form-outline center mt-5">
