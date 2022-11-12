@@ -1,7 +1,7 @@
 <template>
     <logIn></logIn>
     <body>
-        <navBars  :data="{'chatUserEmail': profileObj.email, 'chatUserName': profileObj.name, 'chatUserPhoto': listed[0].image}"></navBars>
+        <navBars  :data="{'chatUserEmail': profileObj.email, 'chatUserName': profileObj.name, 'chatUserPhoto': profileObj.profilePicture}"></navBars>
         <pageBody>
             <div class="container-fluid text-light pt-5">
 
