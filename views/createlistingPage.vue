@@ -39,7 +39,7 @@
 
                             <!-- Image Title -->
                             <div class="field field_v1 w-75">
-                            <label for="listing-title" class="ha-screen-reader">Title</label>
+                            <label for="listing-title" class="ha-screen-reader" >Title</label>
                             <input id="listing-title" type="text" class="field__input" placeholder="Title" v-model="images.title" required="true">
                             
                             <span class="field__label-wrap" aria-hidden="true" >
@@ -134,6 +134,7 @@ export default {
     data() {
         return {
             imagesObj: [],
+            allImages: [],
             images: {
                 filename: '',
                 millisec: '',
@@ -208,6 +209,11 @@ export default {
         },
 
         async saveData(){
+            if (this.allImages.includes(this.images.title)){
+                alert("Title already exists! Please choose another title.");
+                this.images.title = "";
+                return
+            }
             const date = new Date(); 
             this.images.millisec = date.getTime();
             let day = date.getDate();
@@ -239,6 +245,8 @@ export default {
   // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
             this.imagesObj.push(doc.data());
+            this.allImages.push(doc.data().title);
+
         });
         },
 

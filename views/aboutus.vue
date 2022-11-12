@@ -2,7 +2,13 @@
     <logIn></logIn>
 
     <body>
-        <navBars></navBars>
+        <navBars :data="{
+            chatUserEmail: 'Helper@gmail.com',
+            chatUserName: 'Alexa Help',
+            chatUserPhoto:
+                'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78=',
+        }">
+        </navBars>
         <pageBody>
             <div class="container-fluid p-0 m-0" style="width:70vw;">
                 <div class="row">

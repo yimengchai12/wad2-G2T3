@@ -125,7 +125,7 @@ export default {
             console.log(this.imagesObj)
 
 
-            const artist = query(collection(db, "profiles"), where("name", "==", this.search.toLowerCase()));
+            const artist = query(collection(db, "profiles"), where("namelower", "==", this.search.toLowerCase()));
 
             const artistSnapshot = await getDocs(artist);
             artistSnapshot.forEach((doc) => {
