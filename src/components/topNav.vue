@@ -222,16 +222,18 @@ export default {
             console.log(this.searchvalue)
             // var searchbutton = document.getElementById('searchbutton')
             // searchbutton.click()
+            this.router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
 
         },
 
         click2(){
-            var searchbutton = document.getElementById('searchbutton')
+            // var searchbutton = document.getElementById('searchbutton')
             var searchvalue = document.getElementById('form2').value
             this.searchvalue = searchvalue
             console.log(this.searchText)
             console.log(searchvalue)
-            searchbutton.click()
+            // searchbutton.click()
+            this.router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
         },
 
         togglehide() {
