@@ -42,7 +42,7 @@
                     </div>
                 </li>
 
-                <router-link id="searchbutton" :to="'/search/'+searchText"></router-link>
+                <router-link id="searchbutton" :to="'/search/'+searchText">qwdqwd[qwpodj]</router-link>
 
                 <li class="nav-item" id="myDIV" style="display:none;">
                     <div class="form-outline center mt-5">
@@ -213,9 +213,9 @@ export default {
     methods: {
 
         click(){
-            var searchbutton = document.getElementById('searchbutton')
+            // var searchbutton = document.getElementById('searchbutton')
             console.log(this.searchText)
-            searchbutton.click()
+            // searchbutton.click()
         },
 
         togglehide() {
