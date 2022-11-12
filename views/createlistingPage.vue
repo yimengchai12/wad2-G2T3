@@ -135,6 +135,7 @@ export default {
         return {
             imagesObj: [],
             images: {
+                filename: '',
                 userid: "", 
                 artistName: '',
                 email: "", 
@@ -267,6 +268,7 @@ export default {
 
                     getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
                         this.images.image = url;
+                        this.images.filename = file.name;
                         // this.uploadingImages = url;
                         console.log(url);
                         console.log(this.images.image);

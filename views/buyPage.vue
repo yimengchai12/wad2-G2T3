@@ -12,80 +12,38 @@
         }">
         </navBars>
         <pageBody class="mt-5 pt-3">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <div class="row flex-column px-1">
-                        <img id="collectionImg" v-bind:src="collectionImg" alt="" class="row img-fluid p-0" style="
-                max-height: 70vh;
-                width: 100%;
-                object-fit: scale-down;
-                outline: 1px solid #25192f;
-                border-radius: 20px;
-              " />
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="row flex-column px-1">
+                            <img id="collectionImg" v-bind:src="collectionImg"
+                                alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: scale-down; outline: 1px solid #25192f ;border-radius:20px;"/>  
+                        </div>
+                        <div class="row justify-content-center mt-3 mb-3">
+                                    <div class="col-2 text-center"><a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a></div>
+                                    <div class="col-2 text-center"><a href="#" class="share"><i class="bi bi-share me-2"></i>Share</a></div>
+                        </div> 
+                        
                     </div>
-                    <!-- <div class="row justify-content-center mt-3 mb-3">
-                        <div class="col-2 text-center">
-                            <a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a>
-                        </div>
-                        <div class="col-2 text-center">
-                            <a href="#" class="share"><i class="bi bi-share me-2"></i>Share</a>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
-                    <h3>{{ collectionName }}</h3>
-                    <h5 style="
-              color: grey;
-              font-style: italic;
-              font-weight: normal;
-              font-size: 100%;
-            ">
-                        {{ collectionDate }}
-                    </h5>
-                    <router-link v-if="artistUid == currentUid" to="/profile">
-                        <h5 style="
-                color: grey;
-                font-style: italic;
-                font-weight: normal;
-                font-size: 100%;
-                text-decoration: underline;
-              ">
-                            {{ artistProfile.name }}
-                        </h5>
-                    </router-link>
-                    <router-link v-else :to="'/profile/' + artistUid">
-                        <h5 style="
-                color: grey;
-                font-style: italic;
-                font-weight: normal;
-                font-size: 100%;
-                text-decoration: underline;
-              ">
-                            {{ artistProfile.name }}
-                        </h5>
-                    </router-link>
-                    <h5 style="
-              color: grey;
-              font-style: italic;
-              font-weight: normal;
-              font-size: 100%;
-            " class="mt-4">
-                        {{ dimension }}
-                    </h5>
-                    <div class="row mt-3">
-                        <hr class="my-3" style="width: 100%" />
-                        <h1 class="mb-3" style="font-weight: normal">
-                            SGD {{ collectionPrice }}
-                        </h1>
+                    <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
+                            <h3>{{collectionName}}</h3>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
+                            <router-link v-if="artistUid == currentUid " to='/profile'>
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistProfile.name}}</h5>
+                        </router-link>
+                            <router-link v-else :to="'/profile/'+ artistUid">
+                                <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%;text-decoration: underline;">{{artistProfile.name}}</h5>
+                            </router-link>
+                            <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
+                        <div class="row mt-3">
+                            <hr class="my-3" style="width:100%">
+                            <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
+                            
+                                <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
 
-                        <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center"
-                            style="text-decoration: none; width: 100%; height: auto" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" @click="loaded = true">Purchase</a>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content backdrop light-text">
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content backdrop light-text">
                                     <div class="modal-header text-center border-0">
                                         <h5 class="modal-title" id="exampleModalLabel">
                                             Confirmation
@@ -211,18 +169,21 @@ export default {
             loading: false,
             lineItems: [
                 {
-                    price: "",
-                    quantity: 1,
-                },
+                    price: "price_1M2ElaLPH9sbKlnPbEJ6ugug",
+                    quantity: 1
+                }
             ],
-            successURL: "http://localhost:8080/success",
-            cancelURL: "",
-        };
+            tags:[],
+            successURL: 'http://localhost:8080/success', 
+            cancelURL: ''
+        }
     },
 
-    created() {
-        this.loaded = false;
-        this.cancelURL = "http://localhost:8080/buy/" + this.$route.params.id;
+
+    created(){
+        this.loaded=false
+        this.cancelURL = 'http://localhost:8080/buy/' + this.$route.params.id.split(' ').join('%20');
+        this.successURL = 'http://localhost:8080/success/' + this.$route.params.id.split(' ').join('%20');
         this.readData();
     },
 
@@ -244,10 +205,10 @@ export default {
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
                 this.buyDescription = docSnap.data();
-
-                this.collectionImg = this.buyDescription.image;
-                this.collectionName = this.buyDescription.title;
-                this.collectionDate = this.buyDescription.listDate;
+                this.tags = this.buyDescription.tags
+                this.collectionImg = this.buyDescription.image
+                this.collectionName = this.buyDescription.title
+                this.collectionDate = this.buyDescription.listDate
                 // this.artistName = this.buyDescription.artistName
                 this.collectionTitle = this.buyDescription.title;
                 this.collectionPrice = this.buyDescription.price;
@@ -279,20 +240,26 @@ export default {
                 if (user) {
                     this.currentUid = user.uid;
                     this.photoUrl = user.photoURL;
-                    console.log(user);
-                } else {
-                    console.log("No user");
+                    console.log(user)
+                    
+                }
+                else {
+                    console.log("No user")
                 }
 
-                if (this.collectionPrice == "50") {
-                    this.lineItems.price = "price_1M2ElaLPH9sbKlnPbEJ6ugug";
-                } else if (this.collectionPrice == "100") {
-                    this.lineItems.price = "price_1M2EkuLPH9sbKlnPu730PHac";
-                } else if (this.collectionPrice == "150") {
-                    this.lineItems.price = "price_1M3Bl5LPH9sbKlnPGjvETXDK";
-                } else if (this.collectionPrice == "200") {
-                    this.lineItems.price = "price_1M3BlULPH9sbKlnPlQJY7Vi2";
+                if (this.collectionPrice == '50'){
+                    this.lineItems[0].price = "price_1M2ElaLPH9sbKlnPbEJ6ugug"
                 }
+                else if (this.collectionPrice == '100'){
+                    this.lineItems[0].price = "price_1M2EkuLPH9sbKlnPu730PHac"
+                }
+                else if (this.collectionPrice == '150'){
+                    this.lineItems[0].price = "price_1M3Bl5LPH9sbKlnPGjvETXDK"
+                }
+                else if (this.collectionPrice == '200'){
+                    this.lineItems[0].price = "price_1M3BlULPH9sbKlnPlQJY7Vi2"
+                }
+
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");

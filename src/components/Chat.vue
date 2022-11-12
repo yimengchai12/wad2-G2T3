@@ -34,7 +34,7 @@
             })
                   
             const talkSession = new Talk.Session({
-              appId: 'tEV2hKRM',
+              appId: process.env.VUE_APP_TALK_JS_API_KEY,
               me: me,
               showChatHeader: false,
             });

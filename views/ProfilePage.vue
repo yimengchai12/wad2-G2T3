@@ -63,7 +63,7 @@
                                     <div class="dropdown">
                                     <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
                                     <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
-                                    <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imag.title)"><span>Remove</span></li>
+                                    <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
                                 </ul>
                                 
                                 
@@ -143,6 +143,7 @@ export default {
 
         async deleteData(d) {
             await deleteDoc(doc(db, "images", d));
+            window.location.reload(true)
         },
 
         updateProfile() {

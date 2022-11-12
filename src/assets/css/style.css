@@ -99,6 +99,14 @@ transform: translateY(-50%);
 margin-left: 0;
 
 }
+.horizontal-center{
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin-top: 0;
+}
 
 /* top and side navBar END */
 
