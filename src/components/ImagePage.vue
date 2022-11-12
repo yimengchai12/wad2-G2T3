@@ -24,7 +24,7 @@
             <h2>Recently Posted</h2>
         </div>
     <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:10px; height:max-content;width:83vw;">
-        <div v-for="imag in imagesObj" :key="imag" class="me-4">
+        <div v-for="imag in recentObj" :key="imag" class="me-4">
             <div class="card homepageListing" style="width: 250px; height:400px;margin-top:10px">
                 <router-link :to="'/buy/' + imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></router-link>
             <div class="card-body">
@@ -45,7 +45,7 @@
 <script>
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { collection, getDocs,  deleteDoc, doc,  } from "firebase/firestore"; 
+import { collection, getDocs,  deleteDoc, doc, query, orderBy, limit } from "firebase/firestore"; 
 import { db } from "../main.js";
 // import buyPage from "../../views/buyPage.vue";
 
@@ -56,6 +56,7 @@ export default {
     data() {
         return {
             imagesObj: [],
+            recentObj: [],
             images: {
                 artistName:"",
                 userid: "", 
@@ -111,9 +112,20 @@ export default {
             // } else {
             // console.log("No such document!");
             // }
-            // end of read user images 
-  
-        });
+            // end of read user images
+                
+            });
+
+            const imagesRef = collection(db, "images");
+            const q = query(imagesRef, orderBy("millisec", "desc"), limit(10));
+            const imagesSnapshot = await getDocs(q);
+            imagesSnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " asf=> ", doc.data());
+                this.recentObj.push(doc.data());
+            });
+
+            
 
         },
 

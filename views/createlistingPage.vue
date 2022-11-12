@@ -136,6 +136,7 @@ export default {
             imagesObj: [],
             images: {
                 filename: '',
+                millisec: '',
                 userid: "", 
                 artistName: '',
                 email: "", 
@@ -149,7 +150,7 @@ export default {
             },
 
             profile: {},
-
+            
             tag:null,
             
         }
@@ -208,6 +209,7 @@ export default {
 
         async saveData(){
             const date = new Date(); 
+            this.images.millisec = date.getTime();
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
