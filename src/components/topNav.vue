@@ -214,6 +214,7 @@ export default {
 
         click(){
             var searchbutton = document.getElementById('searchbutton')
+            console.log(this.searchText)
             searchbutton.click()
         },
 
