@@ -4,10 +4,36 @@
         <navBars  :data="{'chatUserEmail': profileObj.email, 'chatUserName': profileObj.name, 'chatUserPhoto': listed[0].image}"></navBars>
         <pageBody>
             <div class="container-fluid text-light pt-5">
-                <div class="row justify-content-between" style="height:max-content">
-                    <div class="row col-xl-5 justify-content-center">
-                        <div class="row justify-content-center">
-                            <div class="row col-xl-7 p-0" style="height:170px; width:170px;">
+
+                <!-- new profile content -->
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-12" style="justify-content: left; margin: auto;">
+                        <img style="height:200px; width:200px; object-fit:cover; border-radius: 50%; padding:0;" :src="profileObj.profilePicture">
+                    </div>
+
+                    <div class="col-lg-9 col-md-12" style="padding-top: 30px;">
+                        <h1 class="text-lg-start text-md-center">{{ profileObj.name }}
+                            <span class="d-lg-inline-block d-block px-2" >
+                                <button class="register-on-hover btn" style="height:fit-content; width:fit-content;" @click="showChat()">Message</button>
+                            </span>
+                        </h1>
+                        
+                        <h5 class="text-lg-start text-md-center" style="color:rgb(228,36,116)">{{ profileObj.email }}</h5>
+                        <h6 class="text-lg-start text-md-center" style="padding-bottom: 20px;">Creations: {{listed.length}}</h6>
+                        <p class="text-lg-start light-text text-md-center">{{ profileObj.bio }}</p>
+                        
+                    </div>
+                </div>
+
+
+
+
+                <!-- old profile content -->
+                <!-- <div class="row justify-content-between" style="height:max-content">
+                    <div class="col-xl-5 justify-content-center">
+                        <div class="justify-content-center">
+                            <div class="col-xl-7 p-0" style="height:170px; width:170px;">
                                 <img
                                     style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
                                     :src="profileObj.profilePicture">
@@ -25,23 +51,13 @@
                        
                         </div>
                     </div>
-                </div>
+                </div> -->
+
+
                 <hr class="my-5">
             </div>
 
-            <div class="text-light">
-                <!-- name<input type="text" id="name" class="text-dark" v-model="profile.name">
-                pone<input type="text" id="phone" class="text-dark"  v-model="profile.phone">
-                address<input type="text" id="address" class="text-dark"  v-model="profile.address">
-                profile picture <input type="file" id="profilePicture" class="text-dark" @change="uploadImage"> -->
-                <!-- <div>
-                    <img v-bind:src="profile.profilePicture" >
-                </div> -->
-            </div>
-<!-- 
-            <button @click="updateProfile()" href="#">update change</button> -->
-
-
+            <!-- image gallery -->
             <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
                     <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
                         <div class="card artworkCard" style="width: 18rem;">
@@ -54,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+            </div>
 
         </pageBody>
     </body>

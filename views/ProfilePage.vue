@@ -5,7 +5,33 @@
         <navBars :data="{'chatUserEmail': 'Helper@gmail.com', 'chatUserName': 'Alexa Help', 'chatUserPhoto': 'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78='}"></navBars>
         <pageBody>
             <div class="container-fluid text-light pt-5">
-                <div class="row justify-content-between" style="height:max-content">
+
+                <!-- new profile page design -->
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-12" style="justify-content: left; margin: auto;">
+                        <img style="height:200px; width:200px; object-fit:cover; border-radius: 50%; padding:0;" :src="profileObj.profilePicture">
+                    </div>
+
+                    <div class="col-lg-9 col-md-12" style="padding-top: 30px;">
+                        <h1 class="text-lg-start text-md-center">{{ profileObj.name }}
+                            <span class="d-lg-inline-block d-block px-2" style="padding-top: 10px;">
+                                <router-link to='/editprofile' style="justify-content: end;">
+                                    <button class="register-on-hover btn" style="height:fit-content; width:fit-content">Edit Profile</button>
+                                </router-link>
+                            </span>
+                        </h1>
+                        
+                        <h5 class="text-lg-start text-md-center" style="color:rgb(228,36,116)">{{ profileObj.email }}</h5>
+                        <h6 class="text-lg-start text-md-center" style="padding-bottom: 20px;">Creations: {{listed.length}}</h6>
+                        <p class="text-lg-start light-text text-md-center">{{ profileObj.bio }}</p>
+                        
+                    </div>
+                </div>
+
+
+                <!-- old profile page design -->
+                <!-- <div class="row justify-content-between" style="height:max-content">
                     <div class="row col-xl-5 justify-content-center">
                         <div class="row justify-content-center">
                             <div class="row col-xl-7 p-0" style="height:170px; width:170px;">
@@ -26,8 +52,10 @@
                             <p class="border-start text-start ps-3 light-text">{{ profileObj.bio }}</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                
                 <hr class="my-5">
+
                 <!-- <div class="row">
                     <div class="text-light">
                         name<input type="text" id="name" class="text-dark" v-model="profile.name">
@@ -50,36 +78,38 @@
                         
 
                     </div> -->
-                    <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                    <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                        <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                            <div  class="card artworkCard" style="width: 18rem;">
+                                <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                    <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
 
-                    <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div  class="card artworkCard" style="width: 18rem;">
-                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
-
-                                <span>
-                                    <div class="dropdown">
-                                    <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
-                                    <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
-                                    <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
-                                </ul>
-                                
-                                
+                                    <span>
+                                        <div class="dropdown">
+                                        <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                        <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
+                                        <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
+                                    </ul>
+                                    
+                                    
+                                    </div>
+                                    </span>
                                 </div>
-                                </span>
-                               </div>
 
-                                
-                                
-                                <h6>{{imageobj.artistName}}</h6>
-                                <p class="card-text description">{{imageobj.details}}</p>
-                                <h4>${{imageobj.price}}</h4>
-                                
+                                    
+                                    
+                                    <h6>{{imageobj.artistName}}</h6>
+                                    <p class="card-text description">{{imageobj.details}}</p>
+                                    <h4>${{imageobj.price}}</h4>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div v-else class="row">
+                        <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations</h5>
                     </div>
                 </div>
             
@@ -140,7 +170,6 @@ export default {
         console.log(this.listed)},
 
     methods: {
-
         async deleteData(d) {
             await deleteDoc(doc(db, "images", d));
             window.location.reload(true)
@@ -393,5 +422,8 @@ nav.fill ul li a:hover:after {
 .dropdown-item:hover {
     background-color: #25192f;
     border-radius: 5px;
+}
+.btn:hover{
+    color: white;
 }
 </style>
