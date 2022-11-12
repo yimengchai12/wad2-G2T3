@@ -42,7 +42,7 @@
                     </div>
                 </li>
 
-                <router-link class="d-none" id="searchbutton" :to="'/search/'+searchvalue">qwdqwd[qwpodj]</router-link>
+                <router-link id="searchbutton" :to="'/search/'+searchvalue">qwdqwd[qwpodj]</router-link>
 
                 <li class="nav-item" id="myDIV" style="display:none;">
                     <div class="form-outline center mt-5">
@@ -214,13 +214,15 @@ export default {
     methods: {
 
         click1(){
-            var searchbutton = document.getElementById('searchbutton')
+            
             var searchvalue = document.getElementById('form1').value
             this.searchvalue = searchvalue
             console.log(this.searchText)
             console.log(searchvalue)
-            searchbutton.click()
-            
+            console.log(this.searchvalue)
+            // var searchbutton = document.getElementById('searchbutton')
+            // searchbutton.click()
+
         },
 
         click2(){
