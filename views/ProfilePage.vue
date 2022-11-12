@@ -56,10 +56,27 @@
                         <div  class="card artworkCard" style="width: 18rem;">
                             <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
                             <div class="card-body">
+                                <div class="d-flex justify-content-between">
                                 <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
+
+                                <span>
+                                    <div class="dropdown">
+                                    <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                    <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
+                                    <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imag.title)"><span>Remove</span></li>
+                                </ul>
+                                
+                                
+                                </div>
+                                </span>
+                               </div>
+
+                                
+                                
                                 <h6>{{imageobj.artistName}}</h6>
                                 <p class="card-text description">{{imageobj.details}}</p>
                                 <h4>${{imageobj.price}}</h4>
+                                
                             </div>
                         </div>
                     </div>
@@ -370,5 +387,10 @@ nav.fill ul li a:hover:after {
 .cardtitle:hover{
     color:rgb(228,36,116);
 }
-
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #25192f;
+    border-radius: 5px;
+}
 </style>
