@@ -25,7 +25,7 @@
 
                 <!-- request -->
                 <div class="row" id="requestForm">
-                    <div class="col-10 py-3 request" >
+                    <div class="col-7 py-3 request" >
                         <h3 style="padding-bottom: 20px;">Commission Request</h3>
 
                         <!-- Detials input TO LOOK INTO TEXT AREA STYLING -->
@@ -33,7 +33,7 @@
                         
                         <div class="field field_v3 mb-3">
                         <label for="email" class="ha-screen-reader">Commission Detail</label>
-                        <textarea id="email" class="field__input__bio light-text" cols="100" placeholder="What do you want the creation to look like?"
+                        <textarea id="email" class="field__input__bio light-text" cols="80" placeholder="What do you want the creation to look like?"
                             v-model="request.details"></textarea>
                         <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Commission Detail</span>
@@ -145,7 +145,7 @@
                     </div>
                     
                     <!-- sent -->
-                    <div class="row" style="margin-top: 40px;">
+                    <div class="row" style="margin-top: 40px; margin-bottom: 60px;">
                         <hr style="width:100%;">
                         <div class="col p-0">
                             <h3 class="py-5">Commission sent</h3>
@@ -155,7 +155,7 @@
                                             <tr>
                                                 <th>Commission Details</th>
                                                 <th>Price</th>
-                                                <th>Client Details</th>
+                                                <!-- <th>Client Details</th> -->
                                                 <th>Date of Commission</th>
                                                 <th>Deadline</th>
                                                 <th>Status</th>
@@ -167,7 +167,7 @@
                                             <!-- <td>{{sent.userid}} userid</td> -->
                                             <td data-label="Commission Details">{{sent.details}}</td>
                                             <td data-label="Price">${{sent.price}}</td>
-                                            <td data-label="Client Details"> {{sent.userName}}<br> {{sent.userEmail}}</td>
+                                            <!-- <td data-label="Client Details"> {{sent.userName}}<br> {{sent.userEmail}}</td> -->
                                             <td data-label="Commission Date">{{sent.reqDate}}</td>
                                             <td data-label="Deadline">{{sent.reqDeadline}}</td>
                                             <td data-label="Status">
