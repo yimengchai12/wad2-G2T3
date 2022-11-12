@@ -174,20 +174,20 @@
 
                                                 <div v-for="(artist, index) in sent.artistList" :key="artist" style="background-color: rgb(26,17,37); padding: 0;">
                                                     <p v-if="sent.artistReply[index] == 'Accepted'" >
-                                                        <router-link :to="'/profile/'+ sent.userid" style="color: green">
+                                                        <router-link :to="'/profile/'+ this.usersLinked[this.emailLinked[artist]]" style="color: green">
                                                             {{this.emailLinked[artist]}}
                                                         </router-link>
                                                         
                                                     </p>
 
                                                     <p v-else-if="sent.artistReply[index] == 'Rejected'">
-                                                        <router-link :to="'/profile/'+ sent.userid" style="color: red">
+                                                        <router-link :to="'/profile/'+ this.usersLinked[this.emailLinked[artist]]" style="color: red">
                                                             {{this.emailLinked[artist]}}
                                                         </router-link>
                                                     </p>
 
                                                     <p v-else >
-                                                        <router-link :to="'/profile/'+ sent.userid" style="color: yellow">
+                                                        <router-link :to="'/profile/'+ this.usersLinked[this.emailLinked[artist]]" style="color: yellow">
                                                             {{this.emailLinked[artist]}}
                                                         </router-link>
                                                     </p>
