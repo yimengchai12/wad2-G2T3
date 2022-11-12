@@ -29,6 +29,13 @@
                             </router-link>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
+                            <div class="row">
+                            <div class="d-inline-flex flex-wrap text-center" >
+                                <span v-for="(tag) in tags" :key="tag" style="width:max-content; height:min-content" class="rounded-pill border-secondary border me-2">
+                                    <span class="p-2 light-text p-0">{{tag}}</span>  
+                                </span>
+                            </div>
+                        </div>
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
 
@@ -59,6 +66,7 @@
 
 
                         </div>
+                        
                     </div>
                 </div>
                 
@@ -157,7 +165,8 @@ export default {
                     quantity: 1
                 }
             ],
-            successURL: '', 
+            tags:[],
+            successURL: 'http://localhost:8080/success', 
             cancelURL: ''
         }
     },
@@ -190,7 +199,7 @@ export default {
             if (docSnap.exists()) {
                 console.log("Document data:", docSnap.data());
                 this.buyDescription = docSnap.data();
-
+                this.tags = this.buyDescription.tags
                 this.collectionImg = this.buyDescription.image
                 this.collectionName = this.buyDescription.title
                 this.collectionDate = this.buyDescription.listDate
