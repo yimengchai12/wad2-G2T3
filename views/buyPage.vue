@@ -172,12 +172,12 @@ export default {
             loading: false, 
             lineItems:[
                 {
-                    price: "price_1M2ElaLPH9sbKlnPbEJ6ugug",
+                    price: "",
                     quantity: 1
                 }
             ],
             tags:[],
-            successURL: 'http://localhost:8080/success', 
+            successURL: '', 
             cancelURL: ''
         }
     },
