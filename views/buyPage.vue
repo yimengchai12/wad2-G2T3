@@ -1,10 +1,16 @@
 <template>
     <logIn></logIn>
 
-    
     <body>
-        <stripe-checkout v-if="loaded" ref="checkoutRef" mode="payment" :pk="publishableKey" :line-items="lineItems" :successUrl="successURL" :cancelUrl="cancelURL" />
-        <navBars :data="{'chatUserEmail': 'Helper@gmail.com', 'chatUserName': 'Alexa Help', 'chatUserPhoto': 'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78='}"></navBars>
+        <stripe-checkout v-if="loaded" ref="checkoutRef" mode="payment" :pk="publishableKey" :line-items="lineItems"
+            :successUrl="successURL" :cancelUrl="cancelURL" />
+        <navBars :data="{
+            chatUserEmail: 'Helper@gmail.com',
+            chatUserName: 'Alexa Help',
+            chatUserPhoto:
+                'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78=',
+        }">
+        </navBars>
         <pageBody class="mt-5 pt-3">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
@@ -12,10 +18,6 @@
                             <img id="collectionImg" v-bind:src="collectionImg"
                                 alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: scale-down; outline: 1px solid #25192f ;border-radius:20px;"/>  
                         </div>
-                        <div class="row justify-content-center mt-3 mb-3">
-                                    <div class="col-2 text-center"><a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a></div>
-                                    <div class="col-2 text-center"><a href="#" class="share"><i class="bi bi-share me-2"></i>Share</a></div>
-                        </div> 
                         
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
@@ -29,13 +31,6 @@
                             </router-link>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
-                            <div class="row">
-                            <div class="d-inline-flex flex-wrap text-center" >
-                                <span v-for="(tag) in tags" :key="tag" style="width:max-content; height:min-content" class="rounded-pill border-secondary border me-2">
-                                    <span class="p-2 light-text p-0">{{tag}}</span>  
-                                </span>
-                            </div>
-                        </div>
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
 
@@ -50,57 +45,73 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content backdrop light-text">
                                     <div class="modal-header text-center border-0">
-                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="reloadPage"></button>
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Confirmation
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close" @click="reloadPage"></button>
                                     </div>
-                                    <div class="modal-body">
-                                        Proceed to purchase page?
-                                    </div>
+                                    <div class="modal-body">Proceed to purchase page?</div>
                                     <div class="modal-footer border-0 d-flex justify-content-center">
-                                        <button type="button" @click="reloadPage" class="btn signin-on-hover" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn register-on-hover" @click="submit">Confirm</button>
-                                    </div>
+                                        <button type="button" @click="reloadPage" class="btn signin-on-hover"
+                                            data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <button type="button" class="btn register-on-hover" @click="submit">
+                                            Confirm
+                                        </button>
                                     </div>
                                 </div>
-                                </div>
-
-
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
-                
-                <h2 class="text-start pt-5">About the Artwork</h2>
-                <hr>
-                <table>
-                    <th class="d-flex">
-                        <h4 style="margin-left: 10px">{{collectionTitle}}</h4>
-                    </th>
-                    <tr>
-                        <td>
-                            <span style="margin-left:10px">{{collectionDesc}}</span>
-                        </td>
-                    </tr>
-                </table>
+            </div>
 
-                <table class="mt-3 ">
-                    <th class="d-flex">
-                        
-                        <img class="thumbnail img-fluid rounded-circle" style="margin-left:10px" v-bind:src="artistProfile.profilePicture" alt="">
+
+            <div class="row" style="margin-top: 30px;margin-bottom: 100px; color: white; text-align: start;">
+                
+                <!-- about the artwork -->
+                <div class="col-lg-6 col-sm-12" style="margin-bottom: 30px;">
+                    <h2 class="text-start pt-5">About the Artwork</h2>
+                    <hr/>
+                    <h4 style="margin-left: 10px">{{ collectionTitle }}</h4>
+                    <span style="margin-left: 10px">{{ collectionDesc }}</span>
+                </div>
+
+                <!-- about the artist -->
+                <div class="col-lg-6 col-sm-12">
+                    <h2 class="text-start pt-5">About the Artist</h2>
+                    <hr/>
+
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-5" style="width: 220px;">
+                             <img class="thumbnail img-fluid rounded-circle" style="margin-left: 10px" v-bind:src="artistProfile.profilePicture" alt="" />
+                        </div>
+
+                        <div class="col-7" style="margin-top: 20px; margin-left: 10px;">
                             <router-link to="/profile" v-if="artistUid == currentUid">
-                                <h4 style="margin-left: 10px">{{artistProfile.name}}</h4>
+                                <h4 >{{ artistProfile.name }}</h4>
                             </router-link>
+
                             <router-link :to="'/profile/' + artistUid" v-else>
-                                <h4 style="margin-left: 10px">{{artistProfile.name}}</h4>
+                                <h4 style="">{{ artistProfile.name }}</h4>
                             </router-link>
-                    </th>
-                    <tr>
-                        <td>
-                            <span style="margin-left:10px">{{bio}}</span>
-                        </td>
-                    </tr>
-                </table>
+
+                            <span style="">{{ bio }}</span>
+                        </div>
+                    </div>
+                       
+
+                        
+
+                        
+
+                    
+                </div>
+            </div>
             
+
         </pageBody>
     </body>
 </template>
@@ -111,16 +122,16 @@ import navBars from "../src/components/navBars.vue";
 import pageBody from "../src/components/pageBody.vue";
 
 import { doc, getDoc } from "firebase/firestore";
-import { getAuth, } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { db } from "../src/main.js";
-import { StripeCheckout } from "@vue-stripe/vue-stripe"
+import { StripeCheckout } from "@vue-stripe/vue-stripe";
 
 export default {
     name: "buyPage",
     props: {
         // title: String,
         // userid: String,
-        // email: String, 
+        // email: String,
         // listDate: String,
         // price: String,
         // details: String,
@@ -131,8 +142,7 @@ export default {
         navBars,
         logIn,
         pageBody,
-        StripeCheckout
-
+        StripeCheckout,
     },
     data(){
         return{
@@ -143,7 +153,7 @@ export default {
             artistProfile: {},
             buyDescription: {},
             title: this.$route.params.id,
-            collectionImg : "",
+            collectionImg: "",
             collectionName: "",
             collectionDate: "",
             collectionPrice: "",
@@ -178,22 +188,20 @@ export default {
         this.cancelURL = 'https://curious-frangollo-807bf4.netlify.app/buy/' + this.$route.params.id.split(' ').join('%20');
         this.successURL = 'https://curious-frangollo-807bf4.netlify.app/success/' + this.$route.params.id.split(' ').join('%20');
         this.readData();
-        
     },
-    
 
     methods: {
         reloadPage() {
-            this.loaded= false
+            this.loaded = false;
             window.location.reload();
         },
 
-        submit(){
-            this.loaded=true;
-            this.$refs.checkoutRef.redirectToCheckout()
+        submit() {
+            this.loaded = true;
+            this.$refs.checkoutRef.redirectToCheckout();
         },
 
-        async readData(){
+        async readData() {
             const docRef = doc(db, "images", this.title);
             const docSnap = await getDoc(docRef);
 
@@ -205,18 +213,18 @@ export default {
                 this.collectionName = this.buyDescription.title
                 this.collectionDate = this.buyDescription.listDate
                 // this.artistName = this.buyDescription.artistName
-                this.collectionTitle = this.buyDescription.title
-                this.collectionPrice = this.buyDescription.price
-                this.artistUid = this.buyDescription.userid
-                this.collectionDesc = this.buyDescription.details
-                var img = new Image()
-                img.src = this.buyDescription.image
-                var img_width =img.width;
+                this.collectionTitle = this.buyDescription.title;
+                this.collectionPrice = this.buyDescription.price;
+                this.artistUid = this.buyDescription.userid;
+                this.collectionDesc = this.buyDescription.details;
+                var img = new Image();
+                img.src = this.buyDescription.image;
+                var img_width = img.width;
                 var img_height = img.height;
-                var str = `${img_width}x${img_height}px`
-                this.dimension=str
-                console.log('HI')
-                console.log(this.dimension)
+                var str = `${img_width}x${img_height}px`;
+                this.dimension = str;
+                console.log("HI");
+                console.log(this.dimension);
 
                 //get artist profile
                 const artistRef = doc(db, "profiles", this.artistUid);
@@ -224,8 +232,7 @@ export default {
                 if (artistSnap.exists()) {
                     console.log("Document data:", artistSnap.data());
                     this.artistProfile = artistSnap.data();
-                    this.bio = this.artistProfile.bio
-
+                    this.bio = this.artistProfile.bio;
                 } else {
                     console.log("No such document!");
                 }
@@ -233,8 +240,8 @@ export default {
                 //get currently logged in user
                 const auth = getAuth();
                 const user = auth.currentUser;
-                if (user){
-                    this.currentUid=user.uid;
+                if (user) {
+                    this.currentUid = user.uid;
                     this.photoUrl = user.photoURL;
                     console.log(user)
                     
@@ -279,47 +286,49 @@ export default {
                 }
 
             } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
             }
-        
         },
-    }
+    },
 };
 </script>
 
 <style scoped>
-
 .thumbnail {
-    width: 30px;
-    height: 30px;
+    width: 200px;
+    height: 200px;
 }
 
-h1, h2, h3, h5{
+h1,
+h2,
+h3,
+h5 {
     color: white;
 }
 
-table{
+table {
     width: 95%;
     margin-bottom: 10px;
 }
 
-
-table, tr, td, th {
-  border: 1px solid #25192f;
-  text-align: left;
-  color: white;
-  padding: 8px;
+table,
+tr,
+td,
+th {
+    border: 1px solid #25192f;
+    text-align: left;
+    color: white;
+    padding: 8px;
 }
 
-a{
+a {
     color: white;
     text-decoration: none;
 }
 
-.like:hover, .share:hover{
-    color:#e42474;
-    
+.like:hover,
+.share:hover {
+    color: #e42474;
 }
-
 </style>
