@@ -2,7 +2,7 @@
     <logIn></logIn>
     <registerUser></registerUser>
     <body>
-        <navBars @search="show()"></navBars>
+        <navBars :data="{'chatUserEmail': 'Helper@gmail.com', 'chatUserName': 'Alexa Help', 'chatUserPhoto': 'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78='}"></navBars>
         <div></div>
 
         <pageBody>
@@ -26,166 +26,43 @@
 
                 
                 <!-- Artwok Result -->
-                <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;" >
 
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">Ocean Waves</h4>
-                                <h6>ChaiMeng</h6>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <h4>$1232</h4>
+                    <div v-for="image in imagesObj" :key="image" class="col-lg-3 col-md-4 col-sm-12 colStyle" >
+                        <router-link :to ="`/buy/` + image.title">
+                            <div  class="card artworkCard" style="width: 18rem;">
+                                <img :src="image.image" class="card-img-top gallery" >
+                                <div class="card-body">
+                                    <h4 class="card-title text-start">{{image.title}}</h4>
+                                    <h6>{{image.artistName}}</h6>
+                                    <p class="card-text description">{{image.details}}</p>
+                                    <h4>${{image.price}}</h4>
+                                </div>
                             </div>
-                        </div>
+                        </router-link>
                     </div>
+   
 
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest2.jpg?alt=media&token=04a84243-44d4-4ae3-b331-af5764e3940b" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <h6>ChaiMeng</h6>
-                                <p class="card-text description">Sontent.</p>
-                                <h4>$1232</h4>  
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload1.jfif?alt=media&token=672349a6-a852-4725-9b5b-df172318296b" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <h6>ChaiMeng</h6>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <h4>$1232</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest1.jfif?alt=media&token=b703bb9a-a012-4114-a202-e8aaa84b5d03" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <h6>ChaiMeng</h6>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <h4>$1232</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload%203.jfif?alt=media&token=e59daeb0-0a42-4a67-bbc1-acda6b19ec4a" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <h6>ChaiMeng</h6>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <h4>$1232</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestuplaod%205.jfif?alt=media&token=80cb6bd7-0925-4f12-97e7-eccc851e188e" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <h6>ChaiMeng</h6>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <h4>$1232</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top gallery">
-                            <div class="card-body">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <h6>ChaiMeng</h6>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <h4>$1232</h4>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
 
 
                 <!-- Artist Result -->
                 <div class="row" id="artistResult">
 
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artistCard" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top artistPic">
-                                <h4 class="card-title text-start">Yimeng</h4>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div v-for="artist in artistObj" :key="artist" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <router-link :to ="`/profile/` + artist.uid">
+                            <div class="card artistCard" style="width: 18rem;">
+                                <img :src="artist.profilePicture" class="artistPic">
+                                <div class="card-body">
+                                    <h4 class="card-title text-start">{{artist.name}}</h4>
+                                    <p class="card-text description text-start">{{artist.bio}}</p>
+                                </div>
                             </div>
-                        </div>
+                        </router-link>
                     </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artistCard" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest2.jpg?alt=media&token=04a84243-44d4-4ae3-b331-af5764e3940b" class="card-img-top artistPic">
-                                <h4 class="card-title text-start">janzeer</h4>
-                                <p class="card-text description">StetstetstetstetsettsetstetsttStetstetstetstetsettsetstetsttStetstetstetstetsettsetstetsttStetstetstetstetsettsetstetstt</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artistCard" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload1.jfif?alt=media&token=672349a6-a852-4725-9b5b-df172318296b" class="card-img-top artistPic">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artistCard" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest1.jfif?alt=media&token=b703bb9a-a012-4114-a202-e8aaa84b5d03" class="card-img-top artistPic">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card  artistCard" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestupload%203.jfif?alt=media&token=e59daeb0-0a42-4a67-bbc1-acda6b19ec4a" class="card-img-top artistPic">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card  artistCard" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftestuplaod%205.jfif?alt=media&token=80cb6bd7-0925-4f12-97e7-eccc851e188e" class="card-img-top artistPic">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artistCard" style="width: 18rem;">
-                            <div class="card-body">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2Ftest%203.jfif?alt=media&token=934c5859-1dbe-42cd-a4b7-62f2bf3a9bb8" class="card-img-top artistPic">
-                                <h4 class="card-title text-start">Card title</h4>
-                                <p class="card-text description">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
 
             </div>
@@ -203,6 +80,10 @@ import logIn from "../src/components/SignIn.vue"
 // import registerUser from "../src/components/RegisterPage.vue"
 import navBars from "../src/components/navBars.vue"
 
+import { collection, query, where, getDocs} from "firebase/firestore";
+import { db } from "../src/main.js";
+
+
 export default {
     name: "searchResult", 
     components: {
@@ -213,12 +94,44 @@ export default {
     },
     data(){
         return{
-
+            search: this.$route.params.search,
+            artistObj: [], 
+            imagesObj: [],
         }
     },
+
+    created(){
+        console.log(this.search)
+        this.readData();
+    },
+
     methods:{
-        show(){
-            console.log("show")
+
+        async readData(){
+
+            const images = query(collection(db, "images"), where("tags", "array-contains", this.search));
+
+            const imagesSnapshot = await getDocs(images);
+            imagesSnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                this.imagesObj.push(doc.data());
+            });
+
+            console.log(this.imagesObj)
+
+
+            const artist = query(collection(db, "profiles"), where("name", "==", this.search));
+
+            const artistSnapshot = await getDocs(artist);
+            artistSnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                this.artistObj.push(doc.data());
+            });
+
+            console.log(this.artistObj)
+
         },
         
         displayArtist() {

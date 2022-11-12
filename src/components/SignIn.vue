@@ -244,6 +244,7 @@ const register = () => {
             setDoc(doc(db, "profiles", user.user.uid), {
                 name: name.value,
                 email: email.value,
+                uid: user.user.uid,
                 listedImages: [], 
                 bio: 'Tell us more about yourself!', 
                 profilePicture: '', 

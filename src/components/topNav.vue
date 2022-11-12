@@ -37,7 +37,7 @@
                         <input type="text" v-model="searchText" id="form1" autocomplete="none"
                             class="form-control rounded-pill"
                             style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;"
-                            placeholder="Search collections and creations" @keyup.enter="[this.router.push('/search') , search]"
+                            placeholder="Search collections and creations" @keyup.enter="this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() })"
                            />
                     </div>
                 </li>
@@ -46,10 +46,10 @@
                 <li class="nav-item" id="myDIV" style="display:none;">
                     <div class="form-outline center mt-5">
                         
-                        <input type="text" id="form1" v-model="searchText" autocomplete="none"
+                        <input type="text" v-model="searchText"  id="form1" autocomplete="none"
                             class="form-control rounded-pill"
                             style="height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; width:300px; margin:auto"
-                            placeholder="Search collections and creations"  @keyup.enter="[this.router.push('/search') , search]">
+                            placeholder="Search collections and creations" aria-describedby="button-addon2" @keyup.enter="this.router.push({ path: `/search/${searchText}`}).then(() => { this.$router.go() })">
                         </div>
                     
                        
@@ -82,7 +82,7 @@
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text px-1 mx-1 pl-4" style="height:100px;" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
-                        <ChatPage :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
+                        <ChatPage v-if="currentUser" :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
                     </ul>
                 </div>
                 </li>
@@ -179,7 +179,6 @@ export default {
     components:{
         ChatPage
     },
-    emits: ['search'],
     props:["data"],
     data(){
         return{
@@ -187,10 +186,6 @@ export default {
             currentUserEmail: '',
             currentUserName: '',
             searchText:'',
-            id: "12345",
-            name:"Jan",
-            email:"test@gmail.com",
-            photoUrl_chat: '',
             photoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
 
         }
@@ -216,10 +211,10 @@ export default {
     },
     methods: {
 
-        search(){
-            this.$emit('search', this.searchText)
+        click(){
+          return  
         },
- 
+
         togglehide() {
             var x = document.getElementById("myDIV");
             if (x.style.display === "none") {
