@@ -48,7 +48,7 @@
                                   
                                     
                                         <span class="ms-3"><label class="mb-1" for="datepicker">Commission Deadline</label></span>
-                                        <Datepicker id="datepicker" class="dp__theme_dark" v-model="request.deadline" required="true" dark></Datepicker>
+                                        <Datepicker id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
                                    
                                 </div>
                                
@@ -322,6 +322,9 @@ export default {
             let time = date.getTime();
             this.request.reqDate= `${day}-${month}-${year}`;
             this.request.reqTime= `${time}`;
+            var dateFormat = this.request.reqDeadline;
+            this.request.reqDeadline = `${dateFormat.getDate()}-${dateFormat.getMonth() + 1}-${dateFormat.getFullYear()} ${dateFormat.getHours()}:${dateFormat.getMinutes()}`;
+
             if (this.sendArtist.length > 0){
                 this.request.artistList.push(this.sendArtist);
             }
@@ -341,7 +344,10 @@ export default {
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);
                 this.reset();
+                window.location.reload(true)
             })
+
+
         },
 
         async readData(){
