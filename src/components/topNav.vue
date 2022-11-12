@@ -42,7 +42,7 @@
                     </div>
                 </li>
 
-                <router-link id="searchbutton" class="d-none" :to="'/search/'+searchText"></router-link>
+                <router-link id="searchbutton" :to="'/search/'+searchText"></router-link>
 
                 <li class="nav-item" id="myDIV" style="display:none;">
                     <div class="form-outline center mt-5">
