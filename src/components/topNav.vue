@@ -222,7 +222,7 @@ export default {
             console.log(this.searchvalue)
             // var searchbutton = document.getElementById('searchbutton')
             // searchbutton.click()
-            this.router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
+            router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
 
         },
 
@@ -233,7 +233,7 @@ export default {
             console.log(this.searchText)
             console.log(searchvalue)
             // searchbutton.click()
-            this.router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
+            router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
         },
 
         togglehide() {
