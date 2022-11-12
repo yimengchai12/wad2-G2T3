@@ -102,7 +102,7 @@
 
                 <!-- inbox -->
                 <div id="inbox">
-                    <button class="btn button" @click="checkList()"> CHECKEHC</button>
+                    <!-- <button class="btn button" @click="checkList()"> CHECKEHC</button> -->
 
                     <!-- replies -->
                     <div class="row">
