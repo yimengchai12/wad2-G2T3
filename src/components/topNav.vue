@@ -75,15 +75,18 @@
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
                         <!-- <ChatPage :currentUser="{'id': id, 'name': name, 'email': email, 'photoUrl_chat':photoUrl_chat}"></ChatPage> -->
+                        <li class="pull-left">
                         <ChatPage :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
-
+                            </li>
                     </ul>
                 </div>
                 <div class="dropdown d-lg-none">
                     <a role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="light-text px-1 mx-1 pl-4" style="height:100px;" v-if="isLoggedIn" ><i class="bi bi-chat-left-dots-fill" style="font-size: 1.3rem;"></i></a>
                     <ul class="dropdown-menu" style="background-color:white" id="chatbox" aria-labelledby="dropdownMenuButton1">
                         <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
+                        <li class="pull-left">
                         <ChatPage v-if="currentUser" :currentUser="currentUserEmail" :currentUserName="currentUserName" :data="data"></ChatPage>
+                    </li>
                     </ul>
                 </div>
                 </li>

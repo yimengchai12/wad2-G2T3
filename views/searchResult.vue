@@ -6,33 +6,32 @@
         <div></div>
 
         <pageBody>
-            <div class="container" style="width: 90%;">
+            <div class="container-fluid" style="width: 100%;">
 
                 <div class="row">
                     <h1 class="pageHeader">Search Results</h1>
                 </div>
 
                 <!-- nav bar -->
-                <div class="row">
-                    <section style="padding-top: 40px; padding-left: 0px;">
+                <div class="row p-0">
+                    <section style="padding-top: 40px; padding-left: 0px; padding-right:0px">
                         <nav class="stroke">
-                            <ul>
-                                <li style="padding-right: 40px;"><a id="artworkNav" class="" href="#" @click="displayArtwork()">Artworks</a></li>
-                                <li style="padding-left: 40px;"><a id="artistNav" class="" href="#" @click="displayArtist()">&nbsp;&nbsp;&nbsp;Artists&nbsp;&nbsp;&nbsp;</a></li>
+                            <ul style="padding:0px; margin:0px">
+                                <li class="nav-item d-inline-block" style="padding-right: 20px;cursor: pointer;"><a id="artworkNav" @click="displayArtwork()">Artworks</a></li> 
+                                <li class="nav-item d-inline-block" style="padding-left: 20px;cursor: pointer;"><a id="artistNav" @click="displayArtist()">Artists</a></li>
                             </ul>
                         </nav>
                     </section>
                 </div>
 
-                
                 <!-- Artwok Result -->
                 <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;" >
 
                     <div v-for="image in imagesObj" :key="image" class="col-lg-3 col-md-4 col-sm-12 colStyle" >
-                        <router-link :to ="`/buy/` + image.title">
+                        <router-link :to ="`/buy/` + image.title" style='text-decoration:none'>
                             <div  class="card artworkCard" style="width: 18rem;">
                                 <img :src="image.image" class="card-img-top gallery" >
-                                <div class="card-body">
+                                <div class="card-body text-start">
                                     <h4 class="card-title text-start">{{image.title}}</h4>
                                     <h6>{{image.artistName}}</h6>
                                     <p class="card-text description">{{image.details}}</p>
@@ -50,17 +49,22 @@
                 <!-- Artist Result -->
                 <div class="row" id="artistResult">
 
-                    <div v-for="artist in artistObj" :key="artist" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <router-link :to ="`/profile/` + artist.uid">
-                            <div class="card artistCard" style="width: 18rem;">
-                                <img :src="artist.profilePicture" class="artistPic">
-                                <div class="card-body">
+                    <div v-for="artist in artistObj" :key="artist" class="col-lg-2 col-md-3 col-sm-12 colStyle">
+                        <router-link :to ="`/profile/` + artist.uid" style='text-decoration:none'>
+                            <div class="card artistCard row" style="width: 14rem;">
+                                <div style="width:170px; height:170px;">
+                                    <img class="horizontal-center mt-3" :src="artist.profilePicture" style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%;">
+                                </div>
+                                <div class="card-body text-start mt-3">
                                     <h4 class="card-title text-start">{{artist.name}}</h4>
-                                    <p class="card-text description text-start">{{artist.bio}}</p>
+                                    <p class="card-text description text-start text-muted">{{artist.bio}}</p>
                                 </div>
                             </div>
                         </router-link>
                     </div>
+                    
+                    
+                    
 
                    
                 </div>
@@ -257,7 +261,7 @@ nav.fill ul li a:hover:after {
     flex-wrap: wrap;
     /* margin-right: 30px; */
     margin-top: 15px;
-    width: 263px;
+    /* width: 263px; */
 }
 .gallery{
     height: 200px;
@@ -268,7 +272,6 @@ nav.fill ul li a:hover:after {
 .artworkCard{
     background-color: rgb(32,23,43);
     color: white;
-    text-align: left;
     height: 360px;
 }
 .card:hover{
@@ -285,16 +288,17 @@ nav.fill ul li a:hover:after {
 .artistCard{
     background-color: rgb(32,23,43);
     color: white;
-    text-align: center;
-    height: 340px;
+    /* text-align: center; */
+    height: 300px;
     width: 100%;
 }
 .artistPic{
-    border-radius: 100%;
     object-fit: cover;
-    height: 227px;
-    width: 100%;
+    height: 170px;
+    width: 170px;
     padding-bottom: 20px;
+    text-align: center;
+
 }
 .navTab:hover{
     border-bottom: 0px;

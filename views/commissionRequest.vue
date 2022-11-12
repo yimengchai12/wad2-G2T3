@@ -13,11 +13,11 @@
 
                 <!-- nav bar -->
                 <div class="row">
-                    <section style="padding-top: 30px; padding-left: 0px;">
+                    <section style="padding-top: 30px; padding-left: 0px; padding-right:0px">
                         <nav class="stroke">
-                            <ul>
-                                <li style="padding-right: 40px;"><a id="requestNav" @click="displayRequest()">Request</a></li>
-                                <li style="padding-left: 40px;"><a id="inboxNav" @click="displayInbox()">Inbox</a></li>
+                            <ul style="padding:0px; margin:0px">
+                                <li class="nav-item d-inline-block" style="padding-right: 20px; cursor: pointer;"><a id="requestNav" @click="displayRequest()">Request</a></li>
+                                <li class="nav-item d-inline-block" style="padding-left: 20px; cursor: pointer;"><a id="inboxNav" @click="displayInbox()">Inbox</a></li>
                             </ul>
                         </nav>
                     </section>
@@ -25,7 +25,7 @@
 
                 <!-- request -->
                 <div class="row" id="requestForm">
-                    <div class="col-7 py-3 request">
+                    <div class="col-10 py-3 request" >
                         <h3 style="padding-bottom: 20px;">Commission Request</h3>
 
                         <!-- Detials input TO LOOK INTO TEXT AREA STYLING -->
@@ -33,7 +33,7 @@
                         
                         <div class="field field_v3 mb-3">
                         <label for="email" class="ha-screen-reader">Commission Detail</label>
-                        <textarea id="email" class="field__input__bio light-text" style="width:50vw" placeholder="What do you want the creation to look like?"
+                        <textarea id="email" class="field__input__bio light-text" cols="100" placeholder="What do you want the creation to look like?"
                             v-model="request.details"></textarea>
                         <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Commission Detail</span>
@@ -48,7 +48,7 @@
                                   
                                     
                                         <span class="ms-3"><label class="mb-1" for="datepicker">Commission Deadline</label></span>
-                                        <Datepicker id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
+                                        <Datepicker style="margin-top: 10px;" id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
                                    
                                 </div>
                                
@@ -102,47 +102,16 @@
 
                 <!-- inbox -->
                 <div id="inbox">
+                    <!-- <button class="btn button" @click="checkList()"> CHECKEHC</button> -->
 
                     <!-- replies -->
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col p-0">
                             <h3 class="py-5">Commissions Received</h3> 
                             <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
-                            <div class="commissionReply">
-                                <table class="table table-striped table-dark table-bordered ">
-                                    <tr>
-                                        <th>Commission Details</th>
-                                        <th>Price</th>
-                                        <th>Client Details</th>
-                                        <th>Date of Commission</th>
-                                        <th>Deadline</th>
-                                        <th>Status</th>
-                                    </tr>
-                                    <tr v-for="request in requestObj" :key="request">   
-                                            <!-- <td>userid: {{request.userid}} </td> -->
-                                            <td >  user details:{{request.details}}</td>
-                                            <td >${{request.price}} </td>
-                                            <td >Username: {{request.userName}}<br>Email: {{request.userEmail}}</td>
-                                            <td >{{request.reqDate}} </td>
-                                            <td>{{request.reqDeadline}} </td>
-                                            <td v-if="request.artistResponded.includes(this.request.userid)">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
-                                            <td v-else class="d-flex">
-                                                <button class="btn btn-primary" @click="updateResponse(request, true)"> Accept </button>
-                                                <button class="btn btn-primary" @click="updateResponse(request, false)"> Reject </button>
-                                            </td>
-                                    
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- sent -->
-                    <div class="row" style="margin-top: 40px;">
-                        <div class="col-9" style="border-top: 2px solid rgb(228,36,116)">
-                            <h3 class="py-5">Commission sent</h3>
-                            <div class="commissionSent"> 
-                                    <table class="table table-striped table-dark table-bordered">
+                            <div class="commissionReply" style="width:82vw">
+                                <table class="table table-striped table-dark table-bordered">
+                                    <thead>
                                         <tr>
                                             <th>Commission Details</th>
                                             <th>Price</th>
@@ -151,20 +120,87 @@
                                             <th>Deadline</th>
                                             <th>Status</th>
                                         </tr>
+                                    </thead>
+                                    
+                                    <tr v-for="request in requestObj" :key="request">   
+                                            <!-- <td>userid: {{request.userid}} </td> -->
+                                            <td data-label="Commission Details" >{{request.details}}</td>
+                                            <td data-label="Price">${{request.price}} </td>
+                                            <td data-label="Client Details"> {{request.userName}}<br> {{request.userEmail}}</td>
+                                            <td data-label="Commission Date">{{request.reqDate}} </td>
+                                            <td data-label="Deadline">{{request.reqDeadline}} </td>
+                                            <td v-if="request.artistResponded.includes(this.request.userid)" data-label="Status">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
+                                            <td v-else >
+                                                <div data-label="Status" class="d-flex buttonsFormat" style="background-color:rgb(26, 17, 37); justify-content: center;">
+                                                    <button class="btn register-on-hover" style="margin-right: 5px;" @click="updateResponse(request, true)">&#10003;</button>
+                                                    <button class="btn signin-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button> 
+                                                </div>
+                                                
+                                            </td>
+                                    
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- sent -->
+                    <div class="row" style="margin-top: 40px;">
+                        <hr style="width:100%;">
+                        <div class="col p-0">
+                            <h3 class="py-5">Commission sent</h3>
+                            <div class="commissionSent" style="width:82vw"> 
+                                    <table class="table table-striped table-dark table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Commission Details</th>
+                                                <th>Price</th>
+                                                <th>Client Details</th>
+                                                <th>Date of Commission</th>
+                                                <th>Deadline</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        
 
                                         <tr v-for="sent in sentObj" :key="sent"> 
                                             <!-- <td>{{sent.userid}} userid</td> -->
-                                            <td>{{sent.details}} user details</td>
-                                            <td>{{sent.price}} userprice</td>
-                                            <td>Username: {{sent.userName}}<br>Email: {{sent.userEmail}}</td>
-                                            <td>{{sent.reqDate}}</td>
-                                            <td>{{sent.reqDeadline}}</td>
-                                            <table class="table table-striped table-dark table-bordered">
-                                                <tr v-for="(artist, index) in sent.artistList" :key="artist">
-                                                    <td>{{this.emailLinked[artist]}}</td>
-                                                    <td>{{sent.artistReply[index]}}</td>
-                                                </tr>
-                                            </table>
+                                            <td data-label="Commission Details">{{sent.details}}</td>
+                                            <td data-label="Price">${{sent.price}}</td>
+                                            <td data-label="Client Details"> {{sent.userName}}<br> {{sent.userEmail}}</td>
+                                            <td data-label="Commission Date">{{sent.reqDate}}</td>
+                                            <td data-label="Deadline">{{sent.reqDeadline}}</td>
+                                            <td data-label="Status">
+
+                                                <div v-for="(artist, index) in sent.artistList" :key="artist" style="background-color: rgb(26,17,37); padding: 0;">
+                                                    <p v-if="sent.artistReply[index] == 'Accepted'" >
+                                                        <router-link :to="'/profile/'+ this.usersLinked[this.emailLinked[artist]]" style="color: green; text-decoration: none;">
+                                                            {{this.emailLinked[artist]}}
+                                                        </router-link>
+                                                        
+                                                    </p>
+
+                                                    <p v-else-if="sent.artistReply[index] == 'Rejected'">
+                                                        <router-link :to="'/profile/'+ this.usersLinked[this.emailLinked[artist]]" style="color: red; text-decoration: none;">
+                                                            {{this.emailLinked[artist]}}
+                                                        </router-link>
+                                                    </p>
+
+                                                    <p v-else >
+                                                        <router-link :to="'/profile/'+ this.usersLinked[this.emailLinked[artist]]" style="color: yellow; text-decoration: none;">
+                                                            {{this.emailLinked[artist]}}
+                                                        </router-link>
+                                                    </p>
+                                                </div>
+                                                <!-- <table class="table table-striped table-dark table-bordered" style="background-color: rgb(26,17,37); margin: auto;">
+                                                    <tr v-for="(artist, index) in sent.artistList" :key="artist">
+                                                        <td v-if="sent.artistReply[index] == 'Accepted'" style="color: green">{{this.emailLinked[artist]}}</td>
+                                                        <td v-else-if="sent.artistReply[index] == 'Rejected'" style="color: red">{{this.emailLinked[artist]}}</td>
+                                                        <td v-else style="color: yellow" >{{this.emailLinked[artist]}}</td>
+                                                    </tr>
+                                                </table> -->
+                                            </td>
+
                                         </tr> 
                                     </table>
                             </div>
@@ -187,6 +223,7 @@
     </body>
 
 </template>
+
 
 <script>
 import pageBody from "../src/components/pageBody.vue"
@@ -259,6 +296,9 @@ export default {
         
     },
     methods: {
+        checkList(){
+            console.log(this.request.artistList + "  <---ARTIST LIST")
+        },
         displayRequest(){
             var requestContent = document.getElementById("requestForm")
             var inboxContent = document.getElementById("inbox")
@@ -296,6 +336,8 @@ export default {
                 alert("Artist not found");
             }
             this.sendArtist = '';
+            console.log(this.request.artistList + "<<<THIS IS THE ARTIST LIST")
+            console.log(this.usersLinked)
         },
 
         // async getAndAddData(){
@@ -316,6 +358,17 @@ export default {
         async saveData(){
             console.log(this.usersLinked);
             const date = new Date(); 
+            var deadline = new Date(this.request.reqDeadline)
+            console.log(deadline.getTime())
+            // this.request.reqDeadline = new Date(deadline).toLocaleDateString()
+
+            let deadline_day = deadline.getDate()      
+            let deadline_month = deadline.getMonth()    
+            let deadline_year = deadline.getFullYear()    
+            
+            
+            this.request.reqDeadline = `${deadline_day}-${deadline_month}-${deadline_year}`;
+
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
@@ -1155,10 +1208,102 @@ effect 3
 .field_v3 .field__input__bio:focus~.field__label-wrap::after {
     height: 100%;
 }
-td th{
-    padding: 100px;
-}
+
 tr:hover{
     color:  #e42474;
 }
+th {
+    color:  #e42474;
+}
+td{
+    width: 100%
+}
+.buttonsFormat{
+    width: 100%;
+}
+table {
+  /* border: 1px solid #ccc; */
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  background-color: rgb(26, 17, 37);
+  
+}
+
+/* table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+} */
+
+table tr {
+  /* background-color: #f8f8f8; */
+  border: 1px solid rgb(50,38,63);
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  overflow: hidden;
+}
+
+table th {
+  font-size: .9em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background-color: rgb(26, 17, 37);
+}
+
+@media screen and (max-width: 1100px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid rgb(50,38,63);
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid rgb(50,38,63);
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
 </style>
