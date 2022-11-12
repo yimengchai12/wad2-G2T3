@@ -48,7 +48,7 @@
                                   
                                     
                                         <span class="ms-3"><label class="mb-1" for="datepicker">Commission Deadline</label></span>
-                                        <Datepicker id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
+                                        <Datepicker style="margin-top: 10px;" id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
                                    
                                 </div>
                                
