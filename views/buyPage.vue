@@ -88,7 +88,7 @@
                     <h2 class="text-start pt-5">About the Artist</h2>
                     <hr/>
 
-                    <div class="row">
+                    <div class="row" style="margin-top: 40px;">
                         <div class="col-5" style="width: 220px;">
                              <img class="thumbnail img-fluid rounded-circle" style="margin-left: 10px" v-bind:src="artistProfile.profilePicture" alt="" />
                         </div>
