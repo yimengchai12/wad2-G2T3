@@ -29,10 +29,10 @@
                 <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;" >
 
                     <div v-for="image in imagesObj" :key="image" class="col-lg-3 col-md-4 col-sm-12 colStyle" >
-                        <router-link :to ="`/buy/` + image.title">
+                        <router-link :to ="`/buy/` + image.title" style='text-decoration:none'>
                             <div  class="card artworkCard" style="width: 18rem;">
                                 <img :src="image.image" class="card-img-top gallery" >
-                                <div class="card-body">
+                                <div class="card-body text-start">
                                     <h4 class="card-title text-start">{{image.title}}</h4>
                                     <h6>{{image.artistName}}</h6>
                                     <p class="card-text description">{{image.details}}</p>
@@ -51,12 +51,14 @@
                 <div class="row" id="artistResult">
 
                     <div v-for="artist in artistObj" :key="artist" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <router-link :to ="`/profile/` + artist.uid">
-                            <div class="card artistCard" style="width: 18rem;">
-                                <img :src="artist.profilePicture" class="artistPic">
-                                <div class="card-body">
+                        <router-link :to ="`/profile/` + artist.uid" style='text-decoration:none'>
+                            <div class="card artistCard row" style="width: 14rem;">
+                                <div style="width:170px; height:170px;">
+                                    <img class="horizontal-center mt-3" :src="artist.profilePicture" style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%;">
+                                </div>
+                                <div class="card-body text-start mt-3">
                                     <h4 class="card-title text-start">{{artist.name}}</h4>
-                                    <p class="card-text description text-start">{{artist.bio}}</p>
+                                    <p class="card-text description text-start text-muted">{{artist.bio}}</p>
                                 </div>
                             </div>
                         </router-link>
@@ -257,7 +259,7 @@ nav.fill ul li a:hover:after {
     flex-wrap: wrap;
     /* margin-right: 30px; */
     margin-top: 15px;
-    width: 263px;
+    /* width: 263px; */
 }
 .gallery{
     height: 200px;
@@ -268,7 +270,6 @@ nav.fill ul li a:hover:after {
 .artworkCard{
     background-color: rgb(32,23,43);
     color: white;
-    text-align: left;
     height: 360px;
 }
 .card:hover{
@@ -285,16 +286,17 @@ nav.fill ul li a:hover:after {
 .artistCard{
     background-color: rgb(32,23,43);
     color: white;
-    text-align: center;
-    height: 340px;
+    /* text-align: center; */
+    height: 300px;
     width: 100%;
 }
 .artistPic{
-    border-radius: 100%;
     object-fit: cover;
-    height: 227px;
-    width: 100%;
+    height: 170px;
+    width: 170px;
     padding-bottom: 20px;
+    text-align: center;
+
 }
 .navTab:hover{
     border-bottom: 0px;
