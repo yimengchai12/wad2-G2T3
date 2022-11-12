@@ -196,6 +196,7 @@
 
 </template>
 
+
 <script>
 import pageBody from "../src/components/pageBody.vue"
 import logIn from "../src/components/SignIn.vue"
@@ -324,6 +325,10 @@ export default {
         async saveData(){
             console.log(this.usersLinked);
             const date = new Date(); 
+            var deadline = new Date(this.request.reqDeadline)
+            console.log(deadline.getTime())
+            this.request.reqDeadline = new Date(deadline).toLocaleDateString()
+
             let day = date.getDate();
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
