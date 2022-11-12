@@ -37,7 +37,7 @@
                         <input type="text" v-model="searchText" id="form1" autocomplete="none"
                             class="form-control rounded-pill"
                             style="width:500px; height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; margin-left:-100px;"
-                            placeholder="Search collections and creations" @keyup.enter="click()"
+                            placeholder="Search collections and creations" @keyup.enter="click1()"
                            />
                     </div>
                 </li>
@@ -47,10 +47,10 @@
                 <li class="nav-item" id="myDIV" style="display:none;">
                     <div class="form-outline center mt-5">
                         
-                        <input type="text" v-model="searchText"  id="form1" autocomplete="none"
+                        <input type="text" v-model="searchText"  id="form2" autocomplete="none"
                             class="form-control rounded-pill"
                             style="height:40px; background-color:#20172b; border-color: #20172b; padding:20px; padding-left: 40px; width:300px; margin:auto"
-                            placeholder="Search collections and creations" aria-describedby="button-addon2" @keyup.enter="click()">
+                            placeholder="Search collections and creations" aria-describedby="button-addon2" @keyup.enter="click2()">
                         </div>
                     
                        
@@ -212,9 +212,19 @@ export default {
     },
     methods: {
 
-        click(){
+        click1(){
             // var searchbutton = document.getElementById('searchbutton')
+            var searchvalue = document.getElementById('form1').value
             console.log(this.searchText)
+            console.log(searchvalue)
+            // searchbutton.click()
+        },
+
+        click2(){
+            // var searchbutton = document.getElementById('searchbutton')
+            var searchvalue = document.getElementById('form2').value
+            console.log(this.searchText)
+            console.log(searchvalue)
             // searchbutton.click()
         },
 
