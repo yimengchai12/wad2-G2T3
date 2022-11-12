@@ -102,10 +102,11 @@
 
                 <!-- inbox -->
                 <div id="inbox">
+                    <!-- <button class="btn button" @click="checkList()"> CHECKEHC</button> -->
 
                     <!-- replies -->
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-10">
                             <h3 class="py-5">Commissions Received</h3> 
                             <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
                             <div class="commissionReply">
@@ -145,34 +146,60 @@
 
                     <!-- sent -->
                     <div class="row" style="margin-top: 40px;">
-                        <div class="col-9" style="border-top: 2px solid rgb(228,36,116)">
+                        <div class="col-10" style="border-top: 2px solid rgb(228,36,116)">
                             <h3 class="py-5">Commission sent</h3>
                             <div class="commissionSent"> 
                                     <table class="table table-striped table-dark table-bordered">
-                                        <tr>
-                                            <th>Commission Details</th>
-                                            <th>Price</th>
-                                            <th>Client Details</th>
-                                            <th>Date of Commission</th>
-                                            <th>Deadline</th>
-                                            <th>Status</th>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <th>Commission Details</th>
+                                                <th>Price</th>
+                                                <th>Client Details</th>
+                                                <th>Date of Commission</th>
+                                                <th>Deadline</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        
 
                                         <tr v-for="sent in sentObj" :key="sent"> 
                                             <!-- <td>{{sent.userid}} userid</td> -->
-                                            <td>{{sent.details}}</td>
-                                            <td>${{sent.price}}</td>
-                                            <td>Username: {{sent.userName}}<br>Email: {{sent.userEmail}}</td>
-                                            <td>{{sent.reqDate}}</td>
-                                            <td>{{sent.reqDeadline}}</td>
-                                            <table class="table table-striped table-dark table-bordered">
-                                                <tr v-for="(artist, index) in sent.artistList" :key="artist">
-                                                    <td v-if="sent.artistReply[index] == 'Accepted'" style="color: green">{{this.emailLinked[artist]}}</td>
-                                                    <td v-else-if="sent.artistReply[index] == 'Rejected'" style="color: red">{{this.emailLinked[artist]}}</td>
-                                                    <td v-else style="color: yellow" >{{this.emailLinked[artist]}}</td>
-                                                    <!-- <td>{{sent.artistReply[index]}}</td> -->
-                                                </tr>
-                                            </table>
+                                            <td data-label="Commission Details">{{sent.details}}</td>
+                                            <td data-label="Price">${{sent.price}}</td>
+                                            <td data-label="Client Details">Username: {{sent.userName}}<br>Email: {{sent.userEmail}}</td>
+                                            <td data-label="Commission Date">{{sent.reqDate}}</td>
+                                            <td data-label="Deadline">{{sent.reqDeadline}}</td>
+                                            <td data-label="Status">
+
+                                                <div v-for="(artist, index) in sent.artistList" :key="artist" style="background-color: rgb(26,17,37); padding: 0;">
+                                                    <p v-if="sent.artistReply[index] == 'Accepted'" >
+                                                        <router-link :to="'/profile/'+ sent.userid" style="color: green">
+                                                            {{this.emailLinked[artist]}}
+                                                        </router-link>
+                                                        
+                                                    </p>
+
+                                                    <p v-else-if="sent.artistReply[index] == 'Rejected'">
+                                                        <router-link :to="'/profile/'+ sent.userid" style="color: red">
+                                                            {{this.emailLinked[artist]}}
+                                                        </router-link>
+                                                    </p>
+
+                                                    <p v-else >
+                                                        <router-link :to="'/profile/'+ sent.userid" style="color: yellow">
+                                                            {{this.emailLinked[artist]}}
+                                                        </router-link>
+                                                    </p>
+                                                </div>
+                                                <!-- <table class="table table-striped table-dark table-bordered" style="background-color: rgb(26,17,37); margin: auto;">
+                                                    <tr v-for="(artist, index) in sent.artistList" :key="artist">
+                                                        <td v-if="sent.artistReply[index] == 'Accepted'" style="color: green">{{this.emailLinked[artist]}}</td>
+                                                        <td v-else-if="sent.artistReply[index] == 'Rejected'" style="color: red">{{this.emailLinked[artist]}}</td>
+                                                        <td v-else style="color: yellow" >{{this.emailLinked[artist]}}</td>
+                                                    </tr>
+                                                </table> -->
+                                            </td>
+
                                         </tr> 
                                     </table>
                             </div>
@@ -268,6 +295,9 @@ export default {
         
     },
     methods: {
+        checkList(){
+            console.log(this.request.artistList + "  <---ARTIST LIST")
+        },
         displayRequest(){
             var requestContent = document.getElementById("requestForm")
             var inboxContent = document.getElementById("inbox")
