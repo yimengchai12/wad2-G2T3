@@ -15,7 +15,7 @@
                             <div class="row flex-column col-xl-6 p-1">
                                 <h1 class="text-center">{{ profileObj.name }}</h1>
                                 <span>
-                                    <button class="register-on-hover py-1 px-2" style="height:fit-content; width:fit-content" @click="showChat">Message</button></span>
+                                    <button class="rounded-pill signin-on-hover light-text py-1 px-2 text-center" @click="showChat()" style="text-decoration:none; height:fit-content; width:fit-content">Message</button></span>
                             </div>
                         </div>
                     </div>
@@ -98,11 +98,12 @@ export default {
     methods: {
 
         async showChat(){
-            var element = document.getElementById("chatbox");
+            // var element = document.getElementById("chatbox");
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0;
-            // document.getElementById('dropdownMenuButton1').click();
-            element.classList.toggle("show");
+            await new Promise(resolve => setTimeout(resolve, 500));
+            document.getElementById('dropdownMenuButton1').click();
+            // element.classList.toggle("show");
         },
 
         async readData(){
