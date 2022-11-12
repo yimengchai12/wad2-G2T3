@@ -121,7 +121,7 @@ export default {
             const imagesSnapshot = await getDocs(q);
             imagesSnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " asf=> ", doc.data());
+                console.log(doc.id, " => ", doc.data());
                 this.recentObj.push(doc.data());
             });
 
