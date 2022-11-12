@@ -52,8 +52,8 @@
                     </div> -->
                     <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
 
-                    <div class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div v-for="imageobj in listed" :key="imageobj" class="card artworkCard" style="width: 18rem;">
+                    <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div  class="card artworkCard" style="width: 18rem;">
                             <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
                             <div class="card-body">
                                 <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
