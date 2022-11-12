@@ -40,19 +40,19 @@
                     <div class="field field_v1 light-text">
                         <label for="first-name" class="ha-screen-reader">First name</label>
                         <input id="first-name" class="field__input light-text" placeholder="Enter your name"
-                            v-model="profile.name">
+                            v-model="profile.name" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">First name</span>
                         </span>
                     </div>
-                    <div class="field field_v2">
+                    <!-- <div class="field field_v2">
                         <label for="last-name" class="ha-screen-reader">Phone</label>
                         <input id="last-name" class="field__input light-text" placeholder="Enter your phone number"
                             v-model="profile.phone">
                         <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Phone</span>
                         </span>
-                    </div>
+                    </div> -->
                     <div class="field field_v3">
                         <label for="email" class="ha-screen-reader">Bio</label>
                         <textarea id="email" class="field__input__bio light-text" placeholder="Enter your bio"
