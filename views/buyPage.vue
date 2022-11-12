@@ -146,7 +146,7 @@ export default {
             loading: false, 
             lineItems:[
                 {
-                    price: "price_1M24vNLPH9sbKlnP0gC7K0Cl",
+                    price: "",
                     quantity: 1
                 }
             ],
@@ -224,6 +224,20 @@ export default {
                 else {
                     console.log("No user")
                 }
+
+                if (this.collectionPrice == '50'){
+                    this.lineItems.price = "price_1M2ElaLPH9sbKlnPbEJ6ugug"
+                }
+                else if (this.collectionPrice == '100'){
+                    this.lineItems.price = "price_1M2EkuLPH9sbKlnPu730PHac"
+                }
+                else if (this.collectionPrice == '150'){
+                    this.lineItems.price = "price_1M3Bl5LPH9sbKlnPGjvETXDK"
+                }
+                else if (this.collectionPrice == '200'){
+                    this.lineItems.price = "price_1M3BlULPH9sbKlnPlQJY7Vi2"
+                }
+
             } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
