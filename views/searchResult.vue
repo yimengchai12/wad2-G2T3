@@ -40,9 +40,6 @@
                             </div>
                         </router-link>
                     </div>
-   
-
-                    
                 </div>
 
 

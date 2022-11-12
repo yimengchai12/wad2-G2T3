@@ -7,8 +7,8 @@
         <div v-for="imag in recentObj" :key="imag" class="me-4">
             <div class="card homepageListing" style="width: 250px; height:400px;margin-top:10px">
                 <router-link :to="'/buy/' + imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></router-link>
-            <div class="card-body">
-                <router-link :to="'/buy/' + imag.title" style="text-decoration:none; color: #fffeee"><h5 class="card-title">{{imag.title}}</h5></router-link>
+                <div class="card-body">
+                    <router-link :to="'/buy/' + imag.title" style="text-decoration:none; color: #fffeee" ><h5 class="card-title">{{imag.title}}</h5></router-link>
                 <!-- <p>Tags: 
                     <span v-for="tag in imag.tags" :key="tag" class="card-text d-inline me-2 bg-warning p-2 border border-dark">{{tag}}</span>
                 </p> -->
@@ -16,29 +16,59 @@
                 <!-- <button @click="deleteData(imag.title)" class="btn btn-primary">DELETE</button> -->
                 <p style="color:#e42474">{{imag.artistName}}</p>
             </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-3">
+
+    <div class="d-inline" style="padding-top:1px;padding-bottom:10px; height:max-content ;width:83vw; padding-left: 0px;">
+        <h2 class="my-3" style="text-align: start;">All</h2>
+        <div v-for="imag in imagesObj" :key="imag" class="me-4 d-inline-flex">
+            <div class="card homepageListing d-inline-block" style="width: 250px; height:400px;margin-top:20px">
+                <router-link :to="'/buy/' + imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></router-link>
+                <div class="card-body">
+                    <router-link :to="'/buy/' + imag.title" style="text-decoration:none; color: #fffeee" ><h5 class="card-title">{{imag.title}}</h5></router-link>
+                <!-- <p>Tags: 
+                    <span v-for="tag in imag.tags" :key="tag" class="card-text d-inline me-2 bg-warning p-2 border border-dark">{{tag}}</span>
+                </p> -->
+                <!-- <p class="card-text">{{imag.details}}</p> -->
+                <!-- <button @click="deleteData(imag.title)" class="btn btn-primary">DELETE</button> -->
+                    <p style="color:#e42474">{{imag.artistName}}</p>
+                </div>
             </div>
         </div>
     </div>
     
-<div class="d-flex mt-5">
-            <h2>Popular</h2>
-        </div>
-    <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:10px; height:max-content ;width:83vw;">
-        <div v-for="imag in imagesObj" :key="imag" class="me-4">
+        
+
+
+
+
+
+
+    <!-- Recently posted section -->
+
+    <!-- <div class="d-flex mt-5">
+            <h2>Recently Posted</h2>
+    </div>
+    <div class="d-flex" style="overflow-x:scroll; overflow-y:hidden; padding-top:1px;padding-bottom:10px; height:max-content;width:83vw;">
+        <div v-for="imag in recentObj" :key="imag" class="me-4">
             <div class="card homepageListing" style="width: 250px; height:400px;margin-top:10px">
                 <router-link :to="'/buy/' + imag.title"><img :src="imag.image" class="card-img-top img-fluid rounded-4" style="object-fit: cover;"  alt=""></router-link>
             <div class="card-body">
-                <router-link :to="'/buy/' + imag.title" style="text-decoration:none; color: #fffeee" ><h5 class="card-title">{{imag.title}}</h5></router-link>
-                <!-- <p>Tags: 
+                <router-link :to="'/buy/' + imag.title" style="text-decoration:none; color: #fffeee"><h5 class="card-title">{{imag.title}}</h5></router-link>
+                <p>Tags: 
                     <span v-for="tag in imag.tags" :key="tag" class="card-text d-inline me-2 bg-warning p-2 border border-dark">{{tag}}</span>
-                </p> -->
-                <!-- <p class="card-text">{{imag.details}}</p> -->
-                <!-- <button @click="deleteData(imag.title)" class="btn btn-primary">DELETE</button> -->
+                </p>
+                <p class="card-text">{{imag.details}}</p> -->
+                <!-- <<button @click="deleteData(imag.title)" class="btn btn-primary">DELETE</button>
                 <p style="color:#e42474">{{imag.artistName}}</p>
-            </div>
-            </div>
+            </div> -->
+            <!-- </div>
         </div>
-    </div>
+    </div>  -->
+
 </template>
 
 <script>
@@ -246,6 +276,8 @@ img {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
+.card:hover{
+    background-color: rgb(32,23,43);
+}
 
 </style>
