@@ -126,7 +126,7 @@
                                             <!-- <td>userid: {{request.userid}} </td> -->
                                             <td data-label="Commission Details" >{{request.details}}</td>
                                             <td data-label="Price">${{request.price}} </td>
-                                            <td data-label="Client Details">Username: {{request.userName}}<br>Email: {{request.userEmail}}</td>
+                                            <td data-label="Client Details"> {{request.userName}}<br> {{request.userEmail}}</td>
                                             <td data-label="Commission Date">{{request.reqDate}} </td>
                                             <td data-label="Deadline">{{request.reqDeadline}} </td>
                                             <td v-if="request.artistResponded.includes(this.request.userid)" data-label="Status">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
@@ -147,7 +147,7 @@
                     <!-- sent -->
                     <div class="row" style="margin-top: 40px;">
                         <div class="col-10" style="border-top: 2px solid rgb(228,36,116)">
-                            <h3 class="py-5">Commission sent</h3>
+                            <h3 class="py-5">Commission Sent</h3>
                             <div class="commissionSent"> 
                                     <table class="table table-striped table-dark table-bordered">
                                         <thead>
@@ -166,7 +166,7 @@
                                             <!-- <td>{{sent.userid}} userid</td> -->
                                             <td data-label="Commission Details">{{sent.details}}</td>
                                             <td data-label="Price">${{sent.price}}</td>
-                                            <td data-label="Client Details">Username: {{sent.userName}}<br>Email: {{sent.userEmail}}</td>
+                                            <td data-label="Client Details"> {{sent.userName}}<br> {{sent.userEmail}}</td>
                                             <td data-label="Commission Date">{{sent.reqDate}}</td>
                                             <td data-label="Deadline">{{sent.reqDeadline}}</td>
                                             <td data-label="Status">
