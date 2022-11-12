@@ -52,8 +52,8 @@
                             <i class="bi bi-book"></i><span class="ms-2">Resources</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link text-light px-2 d-flex" target="_blank" href="https://github.com/yimengchai12/wad">
-                            <i class="bi bi-code-slash"></i><span class="ms-2">About Us</span></a>
+                        <router-link class="nav-link text-light px-2 d-flex" target="_blank" to="/aboutus">
+                            <i class="bi bi-code-slash"></i><span class="ms-2">About Us</span></router-link>
                     </li>
                     <!-- <li class="nav-item" v-if="!isLoggedIn" id="login">
                     <a class="nav-link text-light pl-4" data-bs-toggle="modal" data-bs-target="#login" >Sign in</a>
