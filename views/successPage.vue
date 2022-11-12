@@ -97,7 +97,7 @@ import logIn from "../src/components/SignIn.vue";
 import navBars from "../src/components/navBars.vue";
 import pageBody from "../src/components/pageBody.vue";
 
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { getAuth, } from "firebase/auth";
 import { db } from "../src/main.js";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
@@ -124,6 +124,7 @@ export default {
     },
     data(){
         return{
+            bought: [],
             filename: '',
             downloadLink: '',
             artistProfile: {},
@@ -159,7 +160,7 @@ export default {
 
 
     created(){
-
+        alert('Successfully purchased! You may now download your artwork.')
         this.loaded=false
 
         this.readData();
@@ -226,6 +227,21 @@ export default {
                 }
                 else {
                     console.log("No user")
+                }
+
+                const userRef = doc(db, "profiles", this.currentUid);
+                const userSnap = await getDoc(userRef);
+                if (userSnap.exists()) {
+                    console.log("Document data:", userSnap.data());
+                    this.bought = userSnap.data().bought;
+                    this.bought.push(this.collectionName);
+
+                    updateDoc(userRef, {
+                        bought: this.bought
+                    });
+                    
+                } else {
+                    console.log("No such document!");
                 }
 
                 if (this.collectionPrice == '50'){

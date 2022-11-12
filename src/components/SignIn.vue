@@ -247,7 +247,7 @@ const register = () => {
                 uid: user.user.uid,
                 listedImages: [], 
                 bio: 'Tell us more about yourself!', 
-                profilePicture: '', 
+                profilePicture: 'https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/profiles%2F202-2024580_png-file-profile-icon-vector-png.png?alt=media&token=d1fb22ef-8fa6-4631-9165-afba0d0362c0', 
                 userid: user.user.uid,
                 bought: [],
             })
