@@ -48,7 +48,7 @@
                                   
                                     
                                         <span class="ms-3"><label class="mb-1" for="datepicker">Commission Deadline</label></span>
-                                        <Datepicker id="datepicker" class="dp__theme_dark" v-model="request.deadline" required="true" dark></Datepicker>
+                                        <Datepicker id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
                                    
                                 </div>
                                
@@ -110,25 +110,31 @@
                             <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
                             <div class="commissionReply">
                                 <table class="table table-striped table-dark table-bordered ">
-                                    <tr>
-                                        <th>Commission Details</th>
-                                        <th>Price</th>
-                                        <th>Client Details</th>
-                                        <th>Date of Commission</th>
-                                        <th>Deadline</th>
-                                        <th>Status</th>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>Commission Details</th>
+                                            <th>Price</th>
+                                            <th>Client Details</th>
+                                            <th>Date of Commission</th>
+                                            <th>Deadline</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    
                                     <tr v-for="request in requestObj" :key="request">   
                                             <!-- <td>userid: {{request.userid}} </td> -->
-                                            <td >  user details:{{request.details}}</td>
-                                            <td >${{request.price}} </td>
-                                            <td >Username: {{request.userName}}<br>Email: {{request.userEmail}}</td>
-                                            <td >{{request.reqDate}} </td>
-                                            <td>{{request.reqDeadline}} </td>
-                                            <td v-if="request.artistResponded.includes(this.request.userid)">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
-                                            <td v-else class="d-flex">
-                                                <button class="btn btn-primary" @click="updateResponse(request, true)"> Accept </button>
-                                                <button class="btn btn-primary" @click="updateResponse(request, false)"> Reject </button>
+                                            <td data-label="Commission Details" >{{request.details}}</td>
+                                            <td data-label="Price">${{request.price}} </td>
+                                            <td data-label="Client Details">Username: {{request.userName}}<br>Email: {{request.userEmail}}</td>
+                                            <td data-label="Commission Date">{{request.reqDate}} </td>
+                                            <td data-label="Deadline">{{request.reqDeadline}} </td>
+                                            <td v-if="request.artistResponded.includes(this.request.userid)" data-label="Status">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
+                                            <td v-else >
+                                                <div data-label="Status" class="d-flex buttonsFormat" style="background-color:rgb(26, 17, 37); justify-content: center;">
+                                                    <button class="btn btn-primary signin-on-hover register-on-hover" style="margin-right: 5px;" @click="updateResponse(request, true)">&#10003;</button>
+                                                    <button class="btn btn-primary signin-on-hover register-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button> 
+                                                </div>
+                                                
                                             </td>
                                     
                                     </tr>
@@ -154,15 +160,17 @@
 
                                         <tr v-for="sent in sentObj" :key="sent"> 
                                             <!-- <td>{{sent.userid}} userid</td> -->
-                                            <td>{{sent.details}} user details</td>
-                                            <td>{{sent.price}} userprice</td>
+                                            <td>{{sent.details}}</td>
+                                            <td>${{sent.price}}</td>
                                             <td>Username: {{sent.userName}}<br>Email: {{sent.userEmail}}</td>
                                             <td>{{sent.reqDate}}</td>
                                             <td>{{sent.reqDeadline}}</td>
                                             <table class="table table-striped table-dark table-bordered">
                                                 <tr v-for="(artist, index) in sent.artistList" :key="artist">
-                                                    <td>{{this.emailLinked[artist]}}</td>
-                                                    <td>{{sent.artistReply[index]}}</td>
+                                                    <td v-if="sent.artistReply[index] == 'Accepted'" style="color: green">{{this.emailLinked[artist]}}</td>
+                                                    <td v-else-if="sent.artistReply[index] == 'Rejected'" style="color: red">{{this.emailLinked[artist]}}</td>
+                                                    <td v-else style="color: yellow" >{{this.emailLinked[artist]}}</td>
+                                                    <!-- <td>{{sent.artistReply[index]}}</td> -->
                                                 </tr>
                                             </table>
                                         </tr> 
@@ -1149,10 +1157,102 @@ effect 3
 .field_v3 .field__input__bio:focus~.field__label-wrap::after {
     height: 100%;
 }
-td th{
-    padding: 100px;
-}
+
 tr:hover{
     color:  #e42474;
 }
+th {
+    color:  #e42474;
+}
+td{
+    width: 100%
+}
+.buttonsFormat{
+    width: 100%;
+}
+table {
+  /* border: 1px solid #ccc; */
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  background-color: rgb(26, 17, 37);
+  
+}
+
+/* table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+} */
+
+table tr {
+  /* background-color: #f8f8f8; */
+  border: 1px solid rgb(50,38,63);
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  overflow: hidden;
+}
+
+table th {
+  font-size: .9em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background-color: rgb(26, 17, 37);
+}
+
+@media screen and (max-width: 1100px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid rgb(50,38,63);
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid rgb(50,38,63);
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
 </style>
