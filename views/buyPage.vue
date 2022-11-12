@@ -146,11 +146,11 @@ export default {
             loading: false, 
             lineItems:[
                 {
-                    price: "",
+                    price: "price_1M2ElaLPH9sbKlnPbEJ6ugug",
                     quantity: 1
                 }
             ],
-            successURL: 'http://localhost:8080/success', 
+            successURL: '', 
             cancelURL: ''
         }
     },
@@ -158,7 +158,8 @@ export default {
 
     created(){
         this.loaded=false
-        this.cancelURL = 'http://localhost:8080/buy/' + this.$route.params.id;
+        this.cancelURL = 'http://localhost:8080/buy/' + this.$route.params.id.split(' ').join('%20');
+        this.successURL = 'http://localhost:8080/success/' + this.$route.params.id.split(' ').join('%20');
         this.readData();
         
     },
@@ -226,16 +227,16 @@ export default {
                 }
 
                 if (this.collectionPrice == '50'){
-                    this.lineItems.price = "price_1M2ElaLPH9sbKlnPbEJ6ugug"
+                    this.lineItems[0].price = "price_1M2ElaLPH9sbKlnPbEJ6ugug"
                 }
                 else if (this.collectionPrice == '100'){
-                    this.lineItems.price = "price_1M2EkuLPH9sbKlnPu730PHac"
+                    this.lineItems[0].price = "price_1M2EkuLPH9sbKlnPu730PHac"
                 }
                 else if (this.collectionPrice == '150'){
-                    this.lineItems.price = "price_1M3Bl5LPH9sbKlnPGjvETXDK"
+                    this.lineItems[0].price = "price_1M3Bl5LPH9sbKlnPGjvETXDK"
                 }
                 else if (this.collectionPrice == '200'){
-                    this.lineItems.price = "price_1M3BlULPH9sbKlnPlQJY7Vi2"
+                    this.lineItems[0].price = "price_1M3BlULPH9sbKlnPlQJY7Vi2"
                 }
 
             } else {
