@@ -173,7 +173,6 @@ export default {
             listed: [],
             profile: {
                 name: null,
-                phone: null,
                 bio: null,
                 profilePicture: null,
                 email: email,
@@ -214,7 +213,7 @@ export default {
             if (this.profile.bio == null) {
                 this.profile.bio = this.profileObj.bio;
             }
-
+            console.log(this.profile)
             const profileRef = doc(db, "profiles", uid);
 
             // Set the "capital" field of the city 'DC'
@@ -247,7 +246,6 @@ export default {
                 console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
                 this.profile.name = docSnap.data().name
-                this.profile.phone = docSnap.data().phone
                 this.profile.bio = docSnap.data().bio
                 this.profile.profilePicture = docSnap.data().profilePicture
                 this.temp_profilePicture = docSnap.data().profilePicture

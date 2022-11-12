@@ -80,16 +80,17 @@ export default {
     
     },
     
-    // created() {
-    //     const auth = getAuth();
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             this.isLoggedIn.value = true;
-    //         } else {
-    //             this.sLoggedIn.value = false;
-    //         }
-    //     });
-    // },
+    created() {
+        
+        // const auth = getAuth();
+        // onAuthStateChanged(auth, (user) => {
+        //     if (user) {
+        //         this.isLoggedIn.value = true;
+        //     } else {
+        //         this.sLoggedIn.value = false;
+        //     }
+        // });
+    },
 
     methods: {
 

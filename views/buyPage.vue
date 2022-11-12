@@ -42,7 +42,7 @@
 
                                 <a v-if="purchased" :href="collectionImg"  class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" >Download </a>
 
-                                <a v-if="!own && !purchased" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
+                                <a v-else-if="!own && !purchase" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
 
 
 
@@ -138,6 +138,7 @@ export default {
         return{
             bought: [],
             purchased: false,
+            purchase: true,
             own:true, 
             artistProfile: {},
             buyDescription: {},
@@ -253,9 +254,11 @@ export default {
                     this.bought = userSnap.data().bought;
                     if (this.bought.includes(this.title)){
                         this.purchased = true
+                        this.purchase = true
                     }
                     else {
                         this.purchased = false
+                        this.purchase = false
                     }
                     
                 } else {
