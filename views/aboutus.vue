@@ -18,7 +18,7 @@
                             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
                             <img class="card__thumb" src="../src/assets/phuket.jpg" style="object-fit:cover" alt="" />
                             <div class="card__header-text">
-                                <h2 class="card__title">Yimeng Chai</h2>            
+                                <h2 class="card__title">Yi Meng Chai</h2>            
                                 <h4 class="card__status">Backend God/Basically Fullstack Dev</h4>
                             </div>
                             </div>
