@@ -48,7 +48,7 @@
                                   
                                     
                                         <span class="ms-3"><label class="mb-1" for="datepicker">Commission Deadline</label></span>
-                                        <Datepicker id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
+                                        <Datepicker style="margin-top: 10px;" id="datepicker" class="dp__theme_dark" v-model="request.reqDeadline" required="true" dark></Datepicker>
                                    
                                 </div>
                                
@@ -126,7 +126,7 @@
                                             <!-- <td>userid: {{request.userid}} </td> -->
                                             <td data-label="Commission Details" >{{request.details}}</td>
                                             <td data-label="Price">${{request.price}} </td>
-                                            <td data-label="Client Details">Username: {{request.userName}}<br>Email: {{request.userEmail}}</td>
+                                            <td data-label="Client Details"> {{request.userName}}<br> {{request.userEmail}}</td>
                                             <td data-label="Commission Date">{{request.reqDate}} </td>
                                             <td data-label="Deadline">{{request.reqDeadline}} </td>
                                             <td v-if="request.artistResponded.includes(this.request.userid)" data-label="Status">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
@@ -167,27 +167,27 @@
                                             <!-- <td>{{sent.userid}} userid</td> -->
                                             <td data-label="Commission Details">{{sent.details}}</td>
                                             <td data-label="Price">${{sent.price}}</td>
-                                            <td data-label="Client Details">Username: {{sent.userName}}<br>Email: {{sent.userEmail}}</td>
+                                            <td data-label="Client Details"> {{sent.userName}}<br> {{sent.userEmail}}</td>
                                             <td data-label="Commission Date">{{sent.reqDate}}</td>
                                             <td data-label="Deadline">{{sent.reqDeadline}}</td>
                                             <td data-label="Status">
 
                                                 <div v-for="(artist, index) in sent.artistList" :key="artist" style="background-color: rgb(26,17,37); padding: 0;">
                                                     <p v-if="sent.artistReply[index] == 'Accepted'" >
-                                                        <router-link :to="'/profile/'+ sent.userid" style="color: green;text-decoration: none;">
+                                                        <router-link :to="'/profile/'+ sent.userid" style="color: green">
                                                             {{this.emailLinked[artist]}}
                                                         </router-link>
                                                         
                                                     </p>
 
                                                     <p v-else-if="sent.artistReply[index] == 'Rejected'">
-                                                        <router-link :to="'/profile/'+ sent.userid" style="color: red;text-decoration: none;">
+                                                        <router-link :to="'/profile/'+ sent.userid" style="color: red">
                                                             {{this.emailLinked[artist]}}
                                                         </router-link>
                                                     </p>
 
                                                     <p v-else >
-                                                        <router-link :to="'/profile/'+ sent.userid" style="color: yellow;text-decoration: none;">
+                                                        <router-link :to="'/profile/'+ sent.userid" style="color: yellow">
                                                             {{this.emailLinked[artist]}}
                                                         </router-link>
                                                     </p>
@@ -336,6 +336,8 @@ export default {
                 alert("Artist not found");
             }
             this.sendArtist = '';
+            console.log(this.request.artistList + "<<<THIS IS THE ARTIST LIST")
+            console.log(this.usersLinked)
         },
 
         // async getAndAddData(){
