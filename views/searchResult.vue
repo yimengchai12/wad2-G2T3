@@ -14,11 +14,11 @@
 
                 <!-- nav bar -->
                 <div class="row">
-                    <section style="padding-top: 40px;">
+                    <section style="padding-top: 40px; padding-left: 0px;">
                         <nav class="stroke">
                             <ul>
                                 <li style="padding-right: 40px;"><a id="artworkNav" class="" href="#" @click="displayArtwork()">Artworks</a></li>
-                                <li style="padding-left: 40px;"><a id="artistNav" class="" href="#" @click="displayArtist()">Artists</a></li>
+                                <li style="padding-left: 40px;"><a id="artistNav" class="" href="#" @click="displayArtist()">&nbsp;&nbsp;&nbsp;Artists&nbsp;&nbsp;&nbsp;</a></li>
                             </ul>
                         </nav>
                     </section>
@@ -230,7 +230,6 @@ export default {
             var artistSelected = document.getElementById("artistNav")
             artistSelected.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
             artworkSelected.style = "color: white"
-            artistSelected.class = "navTab"
         },
         displayArtwork() {
             var artwork = document.getElementById("artworkResult")
@@ -268,6 +267,7 @@ export default {
 nav ul {
   list-style: none;
   text-align: center;
+  margin-right: 80px;
 }
 nav ul li {
   display: inline-block;
@@ -285,7 +285,7 @@ nav ul li a {
 nav ul li a,
 nav ul li a:after,
 nav ul li a:before {
-  transition: all .1s;
+  transition: all .5s;
 }
 nav ul li a:hover {
   color: rgb(228,36,116);
@@ -344,7 +344,7 @@ nav.fill ul li a:hover:after {
     flex-wrap: wrap;
     /* margin-right: 30px; */
     margin-top: 15px;
-    width: 300px;
+    width: 263px;
 }
 .gallery{
     height: 200px;
@@ -373,13 +373,13 @@ nav.fill ul li a:hover:after {
     background-color: rgb(32,23,43);
     color: white;
     text-align: center;
-    height: 360px;
+    height: 340px;
     width: 100%;
 }
 .artistPic{
-    border-radius: 50%;
+    border-radius: 100%;
     object-fit: cover;
-    height: 265px;
+    height: 227px;
     width: 100%;
     padding-bottom: 20px;
 }
