@@ -175,8 +175,8 @@ export default {
 
     created(){
         this.loaded=false
-        this.cancelURL = 'http://localhost:8080/buy/' + this.$route.params.id.split(' ').join('%20');
-        this.successURL = 'http://localhost:8080/success/' + this.$route.params.id.split(' ').join('%20');
+        this.cancelURL = 'https://curious-frangollo-807bf4.netlify.app/buy/' + this.$route.params.id.split(' ').join('%20');
+        this.successURL = 'https://curious-frangollo-807bf4.netlify.app/success/' + this.$route.params.id.split(' ').join('%20');
         this.readData();
         
     },
