@@ -6,25 +6,24 @@
         <div></div>
 
         <pageBody>
-            <div class="container" style="width: 90%;">
+            <div class="container-fluid" style="width: 100%;">
 
                 <div class="row">
                     <h1 class="pageHeader">Search Results</h1>
                 </div>
 
                 <!-- nav bar -->
-                <div class="row">
-                    <section style="padding-top: 40px; padding-left: 0px;">
+                <div class="row p-0">
+                    <section style="padding-top: 40px; padding-left: 0px; padding-right:0px">
                         <nav class="stroke">
-                            <ul>
-                                <li style="padding-right: 40px;"><a id="artworkNav" class="" href="#" @click="displayArtwork()">Artworks</a></li>
-                                <li style="padding-left: 40px;"><a id="artistNav" class="" href="#" @click="displayArtist()">&nbsp;&nbsp;&nbsp;Artists&nbsp;&nbsp;&nbsp;</a></li>
+                            <ul style="padding:0px; margin:0px">
+                                <li class="nav-item d-inline-block" style="padding-right: 20px;cursor: pointer;"><a id="artworkNav" @click="displayArtwork()">Artworks</a></li> 
+                                <li class="nav-item d-inline-block" style="padding-left: 20px;cursor: pointer;"><a id="artistNav" @click="displayArtist()">Artists</a></li>
                             </ul>
                         </nav>
                     </section>
                 </div>
 
-                
                 <!-- Artwok Result -->
                 <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;" >
 
@@ -50,7 +49,7 @@
                 <!-- Artist Result -->
                 <div class="row" id="artistResult">
 
-                    <div v-for="artist in artistObj" :key="artist" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                    <div v-for="artist in artistObj" :key="artist" class="col-lg-2 col-md-3 col-sm-12 colStyle">
                         <router-link :to ="`/profile/` + artist.uid" style='text-decoration:none'>
                             <div class="card artistCard row" style="width: 14rem;">
                                 <div style="width:170px; height:170px;">
@@ -63,6 +62,9 @@
                             </div>
                         </router-link>
                     </div>
+                    
+                    
+                    
 
                    
                 </div>
