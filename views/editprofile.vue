@@ -38,11 +38,11 @@
                 <!-- <div class="d-flex flex-column"> -->
                 <div class="page">
                     <div class="field field_v1 light-text">
-                        <label for="first-name" class="ha-screen-reader">First name</label>
+                        <label for="first-name" class="ha-screen-reader">Userame</label>
                         <input id="first-name" class="field__input light-text" placeholder="Enter your name"
                             v-model="profile.name" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">First name</span>
+                            <span class="field__label">Userame</span>
                         </span>
                     </div>
                     <!-- <div class="field field_v2">
