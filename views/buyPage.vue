@@ -31,8 +31,12 @@
                         <div class="row mt-3">
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
-                            
-                                <a class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
+
+
+                                <a v-if="purchased" :href="collectionImg"  class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" >Download </a>
+
+                                <a v-if="!own && !purchased" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
+
 
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,6 +128,9 @@ export default {
     },
     data(){
         return{
+            bought: [],
+            purchased: false,
+            own:true, 
             artistProfile: {},
             buyDescription: {},
             title: this.$route.params.id,
@@ -224,6 +231,26 @@ export default {
                 }
                 else {
                     console.log("No user")
+                }
+
+                if (this.currentUid != this.artistUid){
+                    this.own = false
+                }
+
+                const userRef = doc(db, "profiles", this.currentUid);
+                const userSnap = await getDoc(userRef);
+                if (userSnap.exists()) {
+                    console.log("Document data:", userSnap.data());
+                    this.bought = userSnap.data().bought;
+                    if (this.bought.includes(this.title)){
+                        this.purchased = true
+                    }
+                    else {
+                        this.purchased = false
+                    }
+                    
+                } else {
+                    console.log("No such document!");
                 }
 
                 if (this.collectionPrice == '50'){

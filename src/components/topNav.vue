@@ -197,6 +197,7 @@ export default {
         let auth = getAuth();
         onAuthStateChanged(auth, (user) => {
         if (user) {
+            console.log('asdfa' + auth.currentUser.photoURL)
             this.username=auth.currentUser.displayName
             this.currentUserName = auth.currentUser.displayName
             this.currentUserEmail = user.email;

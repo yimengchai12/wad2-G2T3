@@ -249,6 +249,7 @@ export default {
                 this.profile.name = docSnap.data().name
                 this.profile.phone = docSnap.data().phone
                 this.profile.bio = docSnap.data().bio
+                this.profile.profilePicture = docSnap.data().profilePicture
                 this.temp_profilePicture = docSnap.data().profilePicture
 
 
