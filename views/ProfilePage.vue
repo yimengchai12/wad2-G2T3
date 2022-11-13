@@ -35,8 +35,8 @@
                     <section style="padding-top: 30px; padding-left: 0px; padding-right:0px">
                         <nav class="stroke">
                             <ul style="padding:0px; margin:0px">
-                                <li class="nav-item d-inline-block" style="padding-right: 20px; cursor: pointer;"><a id="creationNav" @click="showCreations()">Creations</a></li>
-                                <li class="nav-item d-inline-block" style="padding-left: 20px; cursor: pointer;"><a id="purchaseNav" @click="showPurchased()">Purchases</a></li>
+                                <li class="nav-item d-inline-block" style="padding-right: 10px; cursor: pointer;"><a id="creationNav" @click="showCreations()">Creations</a></li>
+                                <li class="nav-item d-inline-block" style="padding-left: 10px; cursor: pointer;"><a id="purchaseNav" @click="showPurchased()">Purchases</a></li>
                             </ul>
                         </nav>
                     </section>
@@ -498,7 +498,7 @@ nav.fill ul li a:hover:after {
   max-width: 200px;
   -webkit-box-orient: vertical; */
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 </style>
