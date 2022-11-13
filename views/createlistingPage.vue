@@ -93,7 +93,7 @@
                                 <textarea id="email" class="field__input__bio light-text" cols="100" rows="3" placeholder="Description"
                                     v-model="images.details" required="true"></textarea>
                                 <span class="field__label-wrap" aria-hidden="true">
-                                    <span class="field__label">Commission Detail</span>
+                                    <span class="field__label">Listing Detail</span>
                                 </span>
                             </div>
                         </div>
@@ -158,7 +158,7 @@ export default {
 
             profile: {},
             
-            tag:null,
+            tag:'',
             
         }
     },
@@ -194,10 +194,11 @@ export default {
         },
        
         addTag(){
-            if(event.target.value!="")
-            this.images.tags.push(this.tag);
-            this.images.tagslower.push(this.tag.toLowerCase());
-            this.tag='';
+            if(this.tag!=''){
+                this.images.tags.push(this.tag);
+                this.images.tagslower.push(this.tag.toLowerCase());
+                this.tag='';
+            }
         },
 
         async getAndAddData(){
