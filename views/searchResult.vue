@@ -33,7 +33,7 @@
                                 <img :src="image.image" class="card-img-top gallery" >
                                 <div class="card-body text-start">
                                     <h4 class="card-title text-start">{{image.title}}</h4>
-                                    <h6>{{image.artistName}}</h6>
+                                    <h6  style="color: rgb(228,36,116)">{{image.artistName}}</h6>
                                     <p class="card-text description">{{image.details}}</p>
                                     <h4>${{image.price}}</h4>
                                 </div>
@@ -264,16 +264,18 @@ nav.fill ul li a:hover:after {
     height: 200px;
     width: 100%;
     object-fit: cover;
+    border-radius: 15px;
 
 }
 .artworkCard{
-    background-color: rgb(32,23,43);
+    background-color: rgb(18,12,24);
+    outline: 1px solid #25192f;
+    border-radius: 15px;
     color: white;
     height: 360px;
 }
 .card:hover{
-    color: rgb(228,36,116);
-    outline:1px solid rgb(228,36,116)
+    background-color: rgb(32,23,43)
 }
 .description{
     font-size: 14px;
@@ -283,7 +285,9 @@ nav.fill ul li a:hover:after {
     text-overflow: ellipsis; 
 }
 .artistCard{
-    background-color: rgb(32,23,43);
+    background-color: rgb(18,12,24);
+    outline: 1px solid #25192f;
+    border-radius: 15px;
     color: white;
     /* text-align: center; */
     height: 300px;
