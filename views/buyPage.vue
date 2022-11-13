@@ -42,6 +42,8 @@
 
                                 <a v-if="purchased" :href="collectionImg"  class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" >Download </a>
 
+                                <a v-else-if="currentUid == ''" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto" @click="alert" >Purchase</a>
+
                                 <a v-else-if="!own && !purchase" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
 
 
@@ -196,6 +198,10 @@ export default {
     },
 
     methods: {
+        alert(){
+            alert('Please sign in to purchase!')
+        },
+
         reloadPage() {
             this.loaded = false;
             window.location.reload();
