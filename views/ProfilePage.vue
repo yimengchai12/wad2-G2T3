@@ -56,29 +56,19 @@
                 
                 <hr class="my-5">
 
-                <!-- <div class="row">
-                    <div class="text-light">
-                        name<input type="text" id="name" class="text-dark" v-model="profile.name">
-                        phone<input type="text" id="phone" class="text-dark" v-model="profile.phone">
-                        bio<input type="text" id="bio" class="text-dark" v-model="profile.bio">
-                        profile picture <input type="file" id="profilePicture" class="text-dark" @change="uploadImage">
-                        <div>
-                            <img v-bind:src="profile.profilePicture">
-                        </div>
-                    </div>
+                <div class="row">
+                    <section style="padding-top: 30px; padding-left: 0px; padding-right:0px">
+                        <nav class="stroke">
+                            <ul style="padding:0px; margin:0px">
+                                <li class="nav-item d-inline-block" style="padding-right: 20px; cursor: pointer;"><a id="creationNav" @click="showCreations()">Creations</a></li>
+                                <li class="nav-item d-inline-block" style="padding-left: 20px; cursor: pointer;"><a id="purchaseNav" @click="showPurchased()">Purchases</a></li>
+                            </ul>
+                        </nav>
+                    </section>
+                </div>
 
-                    <button @click="updateProfile()" href="#">update change</button>
-
-                    <div class="text-light">
-
-                        <div>{{ profileObj.name }}</div>
-                        <div>{{ profileObj.bio }}</div>
-                        
-                        <div>{{ profileObj.address }}</div>
-                        
-
-                    </div> -->
-                    <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                <!-- creations -->
+                <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
                         <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
                             <div  class="card artworkCard" style="width: 18rem;">
                                 <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
@@ -107,11 +97,19 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div v-else class="row">
-                        <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations</h5>
-                    </div>
                 </div>
+                <div v-else class="row" id="artworkResult">
+                    <h5 class="text-muted" style="margin-top: 30px; margin-bottom: 60px;">No Creations</h5>
+                </div>
+
+
+                <!-- purchases -->
+                <div class="row" id="purchaseResult">
+                    
+                </div>
+
+
+            </div>
             
 
 
@@ -170,6 +168,30 @@ export default {
         console.log(this.listed)},
 
     methods: {
+        showPurchased(){
+            console.log("check")
+            var purchaseNav = document.getElementById("purchaseNav")
+            var creationNav = document.getElementById("creationNav")
+            purchaseNav.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+            creationNav.style = "color: white"
+
+            var creationShow = document.getElementById("artworkResult")
+            creationShow.style.display = "none"
+            var purchaseShow = document.getElementById("purchaseResult")
+            purchaseShow.style.display = "flex"
+        },
+        showCreations(){
+            console.log("check")
+            var purchaseNav = document.getElementById("purchaseNav")
+            var creationNav = document.getElementById("creationNav")
+            purchaseNav.style = "color: white"
+            creationNav.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+
+            var creationShow = document.getElementById("artworkResult")
+            creationShow.style.display = "flex"
+            var purchaseShow = document.getElementById("purchaseResult")
+            purchaseShow.style.display = "none"
+        },
         async deleteData(d) {
             await deleteDoc(doc(db, "images", d));
             window.location.reload(true)
