@@ -203,7 +203,7 @@ export default {
     }
 
     >.placeholder {
-        color: #fffeee;
+        color: #09e3e8;
         pointer-events: none;
         @include typed("Underwater World",
             (type:0.1,pause-typed: 10),
@@ -279,7 +279,7 @@ export default {
     }
 
     >.placeholder {
-        color: #fffeee;
+        color: #FFA500;
         pointer-events: none;
         @include typed("Redefine your self",
             (type:0.1,pause-typed: 10),
