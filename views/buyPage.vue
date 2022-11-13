@@ -16,7 +16,7 @@
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="row flex-column px-1">
                             <img id="collectionImg" v-bind:src="collectionImg"
-                                alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: scale-down; outline: 1px solid #25192f ;border-radius:20px;"/>  
+                                alt="" class="row img-fluid p-0 mb-3" style="max-height:70vh; width:100%;object-fit: scale-down; outline: 1px solid #25192f ;border-radius:20px;"/>  
                         </div>
                         
                     </div>
@@ -91,12 +91,12 @@
                     <h2 class="text-start pt-5">About the Artist</h2>
                     <hr/>
 
-                    <div class="row" style="margin-top: 40px;">
-                        <div class="col-5" style="width: 220px;">
-                             <img class="thumbnail img-fluid rounded-circle" style="margin-left: 10px" v-bind:src="artistProfile.profilePicture" alt="" />
+                    <div class="row justify-content-center" style="margin-top: 40px;">
+                        <div class="col-lg-5" style="width: 220px;">
+                             <img class="thumbnail img-fluid rounded-circle m-auto" style="margin-left: 10px" v-bind:src="artistProfile.profilePicture" alt="" />
                         </div>
 
-                        <div class="col-7" style="margin-top: 20px; margin-left: 10px;">
+                        <div class="col-lg-7" style="margin-top: 20px; margin-left: 10px;">
                             <router-link to="/profile" v-if="artistUid == currentUid">
                                 <h4 >{{ artistProfile.name }}</h4>
                             </router-link>
