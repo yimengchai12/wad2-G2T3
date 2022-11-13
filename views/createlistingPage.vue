@@ -40,7 +40,7 @@
                             <!-- Image Title -->
                             <div class="field field_v1 w-75">
                             <label for="listing-title" class="ha-screen-reader">Title</label>
-                            <input id="listing-title" type="text" class="field__input" placeholder="Title" v-model="images.title" required="true">
+                            <input id="listing-title" type="text" class="field__input" placeholder="Title" v-model="images.title" required="true" maxlength="90">
                             
                             <span class="field__label-wrap" aria-hidden="true" >
                                 <span class="field__label">Title</span>
