@@ -169,7 +169,7 @@ export default {
     data() {
         return {
 
-            profileObj: {},
+            profileObj: null,
             listed: [],
             profile: {
                 name: null,
