@@ -104,8 +104,12 @@
                 <div id="inbox">
                     <!-- <button class="btn button" @click="checkList()"> CHECKEHC</button> -->
 
-                    <!-- replies -->
-                    <div class="row">
+                    <!-- REceived -->
+                    <div v-if="requestObj.length == 0" class="row">
+                        <h3 class="py-5">Received</h3> 
+                        <h5 class="text-muted text-start">No Commissions Received</h5>
+                    </div>
+                    <div v-else class="row">
                         <div class="col p-0">
                             <h3 class="py-5">Commissions Received</h3> 
                             <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
@@ -145,7 +149,11 @@
                     </div>
                     
                     <!-- sent -->
-                    <div class="row" style="margin-top: 40px; margin-bottom: 60px;">
+                    <div v-if="sentObj.length == 0" class="row">
+                        <h3 class="py-5">Sent</h3> 
+                        <h5 class="text-muted text-starr">No Commissions Sent</h5>
+                    </div>
+                    <div v-else class="row" style="margin-top: 40px; margin-bottom: 60px;">
                         <hr style="width:100%;">
                         <div class="col p-0">
                             <h3 class="py-5">Commission Sent</h3>

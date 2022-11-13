@@ -104,10 +104,14 @@
                 <div id="inbox">
                     <!-- <button class="btn button" @click="checkList()"> CHECKEHC</button> -->
 
-                    <!-- replies -->
-                    <div class="row">
+                    <!-- Received -->
+                    <div v-if="requestObj.length == 0" class="row">
+                        <h3 class="py-5">Received</h3> 
+                        <h5 class="text-muted text-start">No Commissions Received</h5>
+                    </div>
+                    <div v-else class="row">
                         <div class="col p-0">
-                            <h3 class="py-5">Commissions Received</h3> 
+                            <h3 class="py-5">Received</h3> 
                             <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
                             <div class="commissionReply" style="width:82vw">
                                 <table class="table table-striped table-dark table-bordered">
@@ -133,7 +137,7 @@
                                             <td v-else >
                                                 <div data-label="Status" class="d-flex buttonsFormat" style="background-color:rgb(26, 17, 37); justify-content: center;">
                                                     <button class="btn register-on-hover" style="margin-right: 5px;" @click="updateResponse(request, true)">&#10003;</button>
-                                                    <button class="btn signin-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button> 
+                                                    <button class="btn signin-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button>
                                                 </div>
                                                 
                                             </td>
@@ -145,10 +149,14 @@
                     </div>
                     
                     <!-- sent -->
-                    <div class="row" style="margin-top: 40px; margin-bottom: 60px;">
+                    <div v-if="sentObj.length == 0" class="row">
+                        <h3 class="py-5">Sent</h3> 
+                        <h5 class="text-muted text-starr">No Commissions Sent</h5>
+                    </div>
+                    <div v-else class="row" style="margin-top: 40px; margin-bottom: 60px;">
                         <hr style="width:100%;">
                         <div class="col p-0">
-                            <h3 class="py-5">Commission Sent</h3>
+                            <h3 class="py-5">Sent</h3>
                             <div class="commissionSent" style="width:82vw"> 
                                     <table class="table table-striped table-dark table-bordered">
                                         <thead>
