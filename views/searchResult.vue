@@ -25,9 +25,8 @@
                 </div>
 
                 <!-- Artwok Result -->
-                <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;" >
-
-                    <div v-for="image in imagesObj" :key="image" class="col-lg-3 col-md-4 col-sm-12 colStyle" >
+                <div class="row" id="artworkResult" style="display: flex; flex-direction: row;" >
+                    <div v-for="image in imagesObj" :key="image" class="me-auto mt-4 w-auto pb-4" >
                         <router-link :to ="`/buy/` + image.title" style='text-decoration:none'>
                             <div  class="card artworkCard" style="width: 18rem;">
                                 <img :src="image.image" class="card-img-top gallery" >
@@ -44,11 +43,10 @@
 
 
                 <!-- Artist Result -->
-                <div class="row" id="artistResult">
-
-                    <div v-for="artist in artistObj" :key="artist" class="col-lg-2 col-md-3 col-sm-12 colStyle">
+                <div class="row" id="artistResult" style="display: flex; flex-direction: row;">
+                    <div v-for="artist in artistObj" :key="artist" class="me-auto mt-4 w-auto pb-4">
                         <router-link :to ="`/profile/` + artist.uid" style='text-decoration:none'>
-                            <div class="card artistCard row" style="width: 14rem;">
+                            <div class="card artistCard" style="width: 14rem;">
                                 <div style="width:170px; height:170px;">
                                     <img class="horizontal-center mt-3" :src="artist.profilePicture" style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%;">
                                 </div>
@@ -59,6 +57,8 @@
                             </div>
                         </router-link>
                     </div>
+                    
+                    
                     
                     
                     
