@@ -220,7 +220,7 @@ const auth = getAuth();
 onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            console.log('signedin')
+            // console.log('signedin')
             isLoggedIn.value = true;
 
         } else {
@@ -228,7 +228,7 @@ onMounted(() => {
             success.value = "";
             password.value = "";
             email.value = "";
-            console.log('signedout')
+            // console.log('signedout')
         }
     });
 });
@@ -236,8 +236,8 @@ onMounted(() => {
 const register = () => {
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
         .then((user) => {
-            console.log("Successfully registered!");
-            console.log(user.user.uid);
+            // console.log("Successfully registered!");
+            // console.log(user.user.uid);
             success.value = "Registration successful!";
             signedin.value = true;
             errMsg.value = "";
@@ -256,7 +256,7 @@ const register = () => {
             updateProfile(auth.currentUser, {
                 displayName: name.value, photoURL: "https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/profiles%2Fphoto_2022-11-13_00-02-12.jpg?alt=media&token=e25e4cd2-b236-4e27-aadf-687896db19bb"
             }).then(() => {
-                console.log("Profile updated!");
+                // console.log("Profile updated!");
             }).catch((error) => { console.log('errorrrr') })
             router.push("/");
             
@@ -264,7 +264,7 @@ const register = () => {
 
         })
         .catch((error) => {
-            console.log(error.code);
+            // console.log(error.code);
             alert(error.message);
         });
 
@@ -274,7 +274,7 @@ const register = () => {
 
 const signin = () => {
 
-    console.log(email.value);
+    // console.log(email.value);
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(() => {
             console.log("Successfully signed in!");
@@ -284,7 +284,7 @@ const signin = () => {
             router.push("/");
         })
         .catch((error) => {
-            console.log(error.code);
+            // console.log(error.code);
             switch (error.code) {
                 case "auth/invalid-email":
                     errMsg.value = "Invalid email address";

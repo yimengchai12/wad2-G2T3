@@ -102,7 +102,7 @@ export default {
     },
 
     created(){
-        console.log(this.search)
+        // console.log(this.search)
         this.readData();
     },
 
@@ -115,11 +115,11 @@ export default {
             const imagesSnapshot = await getDocs(images);
             imagesSnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.imagesObj.push(doc.data());
             });
 
-            console.log(this.imagesObj)
+            // console.log(this.imagesObj)
 
 
             const artist = query(collection(db, "profiles"), where("namelower", "==", this.search.toLowerCase()));
@@ -127,11 +127,11 @@ export default {
             const artistSnapshot = await getDocs(artist);
             artistSnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.artistObj.push(doc.data());
             });
 
-            console.log(this.artistObj)
+            // console.log(this.artistObj)
 
         },
         

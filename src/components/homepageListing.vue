@@ -55,7 +55,7 @@ export default {
     },
 
     created(){
-        console.log()
+        // console.log()
         this.readData();
     },
     
@@ -70,7 +70,7 @@ export default {
             const querySnapshot = await getDocs(collection(db, "images"));
             querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+            // console.log(doc.id, " => ", doc.data());
             this.imagesObj.push(doc.data());
             // end of read all images 
 
@@ -105,20 +105,20 @@ export default {
                 (snapshot) => {
                     // Observe state change events such as progress, pause, and resume
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
+                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    // console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                     case 'paused':
-                        console.log('Upload is paused');
+                        // console.log('Upload is paused');
                         break;
                     case 'running':
-                        console.log('Upload is running');
+                        // console.log('Upload is running');
                         break;
                     }
 
                     getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
                         this.images.image = url;
-                        console.log(url);
+                        // console.log(url);
                     });
                 }, 
                 (error) => {
@@ -142,7 +142,7 @@ export default {
                 //     });
                 // }
             );
-            console.log(e.target.files[0]);
+            // console.log(e.target.files[0]);
             
         }
 

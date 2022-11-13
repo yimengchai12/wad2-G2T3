@@ -28,56 +28,10 @@
                         
                     </div>
                 </div>
-
-
-                <!-- old profile page design -->
-                <!-- <div class="row justify-content-between" style="height:max-content">
-                    <div class="row col-xl-5 justify-content-center">
-                        <div class="row justify-content-center">
-                            <div class="row col-xl-7 p-0" style="height:170px; width:170px;">
-                                <img
-                                    style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
-                                    :src="profileObj.profilePicture">
-                                </div>
-                            <div class="row flex-column col-xl-6 p-1">
-                                <h1 class="text-center">{{ profileObj.name }}</h1>
-                                <span>
-                                    <router-link to='/editprofile'><button class="register-on-hover" style="height:fit-content; width:fit-content">Edit
-                                        Profile</button></router-link></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row col-xl-6 align-items-center">
-                        <div class="d-flex flex-column w-75">
-                            <p class="border-start text-start ps-3 light-text">{{ profileObj.bio }}</p>
-                        </div>
-                    </div>
-                </div> -->
                 
                 <hr class="my-5">
 
-                <!-- <div class="row">
-                    <div class="text-light">
-                        name<input type="text" id="name" class="text-dark" v-model="profile.name">
-                        phone<input type="text" id="phone" class="text-dark" v-model="profile.phone">
-                        bio<input type="text" id="bio" class="text-dark" v-model="profile.bio">
-                        profile picture <input type="file" id="profilePicture" class="text-dark" @change="uploadImage">
-                        <div>
-                            <img v-bind:src="profile.profilePicture">
-                        </div>
-                    </div>
-
-                    <button @click="updateProfile()" href="#">update change</button>
-
-                    <div class="text-light">
-
-                        <div>{{ profileObj.name }}</div>
-                        <div>{{ profileObj.bio }}</div>
-                        
-                        <div>{{ profileObj.address }}</div>
-                        
-
-                    </div> -->
+                
                     <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
                         <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
                             <div  class="card artworkCard" style="width: 18rem;">
@@ -165,10 +119,10 @@ export default {
     created() {
         this.readData();
     },
-    mounted() {
-        console.log("HI")
-        console.log(this.listed)},
-
+    // mounted() {
+    //     // console.log("HI")
+    //     // console.log(this.listed)},
+    // }
     methods: {
         async deleteData(d) {
             await deleteDoc(doc(db, "images", d));
@@ -198,7 +152,7 @@ export default {
             if (this.profile.name != null) {
                 updateProfile(auth.currentUser, {
                 displayName: this.profile.name, photoURL: this.profile.profilePicture}).then(() => {
-                    console.log("Profile updated!");
+                    // console.log("Profile updated!");
                 })
             }
 
@@ -216,11 +170,11 @@ export default {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
             } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
+                // console.log("No such document!");
             }
 
             const q = query(collection(db, "images"), where("userid", "==", uid));
@@ -228,7 +182,7 @@ export default {
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
 
@@ -249,20 +203,20 @@ export default {
                 (snapshot) => {
                     // Observe state change events such as progress, pause, and resume
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
+                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    // console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                         case 'paused':
-                            console.log('Upload is paused');
+                            // console.log('Upload is paused');
                             break;
                         case 'running':
-                            console.log('Upload is running');
+                            // console.log('Upload is running');
                             break;
                     }
 
                     getDownloadURL(ref(storage, 'profiles/' + file.name)).then((url) => {
                         this.profile.profilePicture = url;
-                        console.log(url);
+                        // console.log(url);
                     });
                 },
                 (error) => {

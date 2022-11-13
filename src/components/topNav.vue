@@ -156,8 +156,8 @@ onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            console.log(uid)
-            console.log(user.displayName)
+            // console.log(uid)
+            // console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;
@@ -168,7 +168,7 @@ onMounted(() => {
 const handleSignOut = () => {
     signOut(auth)
         .then(() => {
-            console.log("Successfully signed out!");
+            // console.log("Successfully signed out!");
             router.push("/");
         })
         .catch((error) => {
@@ -202,14 +202,14 @@ export default {
         let auth = getAuth();
         onAuthStateChanged(auth, (user) => {
         if (user) {
-            console.log('asdfa' + auth.currentUser.photoURL)
+            // console.log('asdfa' + auth.currentUser.photoURL)
             this.username=auth.currentUser.displayName
             this.currentUserName = auth.currentUser.displayName
             this.currentUserEmail = user.email;
             this.photoUrl=auth.currentUser.photoURL
             this.photoUrl_chat=auth.currentUser.photoURL
         } else {
-            console.log('no uid')
+            // console.log('no uid')
         }
 
     });
@@ -223,9 +223,9 @@ export default {
             
             var searchvalue = document.getElementById('form1').value
             this.searchvalue = searchvalue
-            console.log(this.searchText)
-            console.log(searchvalue)
-            console.log(this.searchvalue)
+            // console.log(this.searchText)
+            // console.log(searchvalue)
+            // console.log(this.searchvalue)
             // var searchbutton = document.getElementById('searchbutton')
             // searchbutton.click()
             router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
@@ -236,8 +236,8 @@ export default {
             // var searchbutton = document.getElementById('searchbutton')
             var searchvalue = document.getElementById('form2').value
             this.searchvalue = searchvalue
-            console.log(this.searchText)
-            console.log(searchvalue)
+            // console.log(this.searchText)
+            // console.log(searchvalue)
             // searchbutton.click()
             router.push({ path: `/search/${searchvalue}`}).then(() => { this.$router.go() })
         },
