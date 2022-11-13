@@ -1,9 +1,5 @@
 # wad
 
-## Project
-
-
-
 
 ## Project setup
 ```
