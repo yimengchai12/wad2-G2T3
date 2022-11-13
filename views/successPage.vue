@@ -12,10 +12,6 @@
                             <img id="collectionImg" v-bind:src="collectionImg"
                                 alt="" class="row img-fluid p-0" style="max-height:70vh; width:100%;object-fit: scale-down; outline: 1px solid #25192f ;border-radius:20px;"/>  
                         </div>
-                        <div class="row justify-content-center mt-3 mb-3">
-                                    <div class="col-2 text-center"><a href="#" class="like"><i class="bi bi-heart me-2"></i>Like</a></div>
-                                    <div class="col-2 text-center"><a href="#" class="share"><i class="bi bi-share me-2"></i>Share</a></div>
-                        </div> 
                         
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
@@ -56,37 +52,41 @@
                         </div>
                     </div>
                 </div>
+                <div class="row" style="margin-top: 30px;margin-bottom: 100px; color: white; text-align: start;">
                 
-                <h2 class="text-start pt-5">About the Artwork</h2>
-                <hr>
-                <table>
-                    <th class="d-flex">
-                        <h4 style="margin-left: 10px">{{collectionTitle}}</h4>
-                    </th>
-                    <tr>
-                        <td>
-                            <span style="margin-left:10px">{{collectionDesc}}</span>
-                        </td>
-                    </tr>
-                </table>
+                <!-- about the artwork -->
+                <div class="col-lg-6 col-sm-12" style="margin-bottom: 30px;">
+                    <h2 class="text-start pt-5">About the Artwork</h2>
+                    <hr/>
+                    <h4 style="margin-left: 10px">{{ collectionTitle }}</h4>
+                    <span style="margin-left: 10px">{{ collectionDesc }}</span>
+                </div>
 
-                <table class="mt-3 ">
-                    <th class="d-flex">
-                        
-                        <img class="thumbnail img-fluid rounded-circle" style="margin-left:10px" v-bind:src="artistProfile.profilePicture" alt="">
+                <!-- about the artist -->
+                <div class="col-lg-6 col-sm-12">
+                    <h2 class="text-start pt-5">About the Artist</h2>
+                    <hr/>
+
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-5" style="width: 220px;">
+                             <img class="thumbnail img-fluid rounded-circle" style="margin-left: 10px" v-bind:src="artistProfile.profilePicture" alt="" />
+                        </div>
+
+                        <div class="col-7" style="margin-top: 20px; margin-left: 10px;">
                             <router-link to="/profile" v-if="artistUid == currentUid">
-                                <h4 style="margin-left: 10px">{{artistProfile.name}}</h4>
+                                <h4 >{{ artistProfile.name }}</h4>
                             </router-link>
+
                             <router-link :to="'/profile/' + artistUid" v-else>
-                                <h4 style="margin-left: 10px">{{artistProfile.name}}</h4>
+                                <h4 style="">{{ artistProfile.name }}</h4>
                             </router-link>
-                    </th>
-                    <tr>
-                        <td>
-                            <span style="margin-left:10px">{{bio}}</span>
-                        </td>
-                    </tr>
-                </table>
+
+                            <span style="">{{ bio }}</span>
+                        </div>
+                    </div>               
+                </div>
+            </div>
+                
             
         </pageBody>
     </body>
