@@ -226,14 +226,15 @@ nav.fill ul li a:hover:after {
 
 }
 .artworkCard{
-    background-color: rgb(32,23,43);
+    background-color: rgb(18,12,24);
+    outline: 1px solid #25192f;
+    border-radius: 15px;
     color: white;
     text-align: left;
     height: 360px;
 }
 .card:hover{
-    color: rgb(228,36,116);
-    outline:1px solid rgb(228,36,116)
+    background-color: rgb(32,23,43)
 }
 .description{
     font-size: 14px;
