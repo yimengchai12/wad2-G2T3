@@ -112,8 +112,8 @@ onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            console.log(uid)
-            console.log(user.displayName)
+            // console.log(uid)
+            // console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;

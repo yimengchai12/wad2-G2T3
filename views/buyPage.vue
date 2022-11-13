@@ -211,7 +211,7 @@ export default {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.buyDescription = docSnap.data();
                 this.tags = this.buyDescription.tags
                 this.collectionImg = this.buyDescription.image
@@ -228,18 +228,18 @@ export default {
                 var img_height = img.height;
                 var str = `${img_width}x${img_height}px`;
                 this.dimension = str;
-                console.log("HI");
-                console.log(this.dimension);
+      
+                // console.log(this.dimension);
 
                 //get artist profile
                 const artistRef = doc(db, "profiles", this.artistUid);
                 const artistSnap = await getDoc(artistRef);
                 if (artistSnap.exists()) {
-                    console.log("Document data:", artistSnap.data());
+                    // console.log("Document data:", artistSnap.data());
                     this.artistProfile = artistSnap.data();
                     this.bio = this.artistProfile.bio;
                 } else {
-                    console.log("No such document!");
+                    // console.log("No such document!");
                 }
 
                 //get currently logged in user
@@ -248,11 +248,11 @@ export default {
                 if (user) {
                     this.currentUid = user.uid;
                     this.photoUrl = user.photoURL;
-                    console.log(user)
+                    // console.log(user)
                     
                 }
                 else {
-                    console.log("No user")
+                    // console.log("No user")
                 }
 
                 if (this.currentUid != this.artistUid){
@@ -262,7 +262,7 @@ export default {
                 const userRef = doc(db, "profiles", this.currentUid);
                 const userSnap = await getDoc(userRef);
                 if (userSnap.exists()) {
-                    console.log("Document data:", userSnap.data());
+                    // console.log("Document data:", userSnap.data());
                     this.bought = userSnap.data().bought;
                     if (this.bought.includes(this.title)){
                         this.purchased = true
@@ -274,7 +274,7 @@ export default {
                     }
                     
                 } else {
-                    console.log("No such document!");
+                    // console.log("No such document!");
                 }
 
                 if (this.collectionPrice == '50'){
@@ -292,7 +292,7 @@ export default {
 
             } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
+                // console.log("No such document!");
             }
         },
     },

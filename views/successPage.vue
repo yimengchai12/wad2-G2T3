@@ -184,7 +184,7 @@ export default {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.buyDescription = docSnap.data();
                 this.filename = this.buyDescription.filename;
                 this.collectionImg = this.buyDescription.image
@@ -208,12 +208,12 @@ export default {
                 const artistRef = doc(db, "profiles", this.artistUid);
                 const artistSnap = await getDoc(artistRef);
                 if (artistSnap.exists()) {
-                    console.log("Document data:", artistSnap.data());
+                    // console.log("Document data:", artistSnap.data());
                     this.artistProfile = artistSnap.data();
                     this.bio = this.artistProfile.bio
 
                 } else {
-                    console.log("No such document!");
+                    // console.log("No such document!");
                 }
 
                 //get currently logged in user
@@ -222,17 +222,17 @@ export default {
                 if (user){
                     this.currentUid=user.uid;
                     this.photoUrl = user.photoURL;
-                    console.log(user)
+                    // console.log(user)
                     
                 }
                 else {
-                    console.log("No user")
+                    // console.log("No user")
                 }
 
                 const userRef = doc(db, "profiles", this.currentUid);
                 const userSnap = await getDoc(userRef);
                 if (userSnap.exists()) {
-                    console.log("Document data:", userSnap.data());
+                    // console.log("Document data:", userSnap.data());
                     this.bought = userSnap.data().bought;
                     this.bought.push(this.collectionName);
 
@@ -241,7 +241,7 @@ export default {
                     });
                     
                 } else {
-                    console.log("No such document!");
+                    // console.log("No such document!");
                 }
 
                 if (this.collectionPrice == '50'){
@@ -259,13 +259,13 @@ export default {
 
 
                 const storage = getStorage();
-                console.log(this.filename)
+                // console.log(this.filename)
                 const imageRef = ref(storage, 'images/' + this.filename);
 
                 // Get the download URL
                 getDownloadURL(imageRef)
                 .then((url) => {
-                    console.log( url);
+                    // console.log( url);
                     this.downloadLink = url;
                     const xhr = new XMLHttpRequest();
                     xhr.responseType = 'blob';
@@ -281,7 +281,7 @@ export default {
 
             } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            // console.log("No such document!");
             }
         
         },

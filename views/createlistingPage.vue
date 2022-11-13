@@ -173,8 +173,8 @@ export default {
         const auth = getAuth();
         const user = auth.currentUser;
         if (user){
-            console.log(user.email);
-            console.log(user.uid);
+            // console.log(user.email);
+            // console.log(user.uid);
             this.images.userid=user.uid;
             this.images.email=user.email;
             this.images.artistName = user.displayName;
@@ -182,7 +182,7 @@ export default {
             this.readData();
         }
         else {
-            console.log("No user")
+            // console.log("No user")
         }
 
         
@@ -205,12 +205,12 @@ export default {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.profile = docSnap.data();
-                console.log("docsnap exists" +this.profile.listedImages);
+                // console.log("docsnap exists" +this.profile.listedImages);
             } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
+                // console.log("No such document!");
             }
 
         },
@@ -232,7 +232,7 @@ export default {
                 this.images.tagslower.push(this.tag.toLowerCase());
             }
             // console.log(this.images);
-            console.log(this.profile.listedImages);
+            // console.log(this.profile.listedImages);
             this.profile.listedImages.push(this.images.image);
             await setDoc(doc(db, "profiles", this.images.userid), this.profile);
             await setDoc(doc(db, this.images.userid, this.images.title), this.images);
@@ -250,12 +250,12 @@ export default {
             const querySnapshot = await getDocs(collection(db, "images"));
             querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+            // console.log(doc.id, " => ", doc.data());
             this.imagesObj.push(doc.data());
             this.allImages.push(doc.data().title);
 
         });
-        console.log('asdf' + this.allImages)
+        // console.log('asdf' + this.allImages)
         },
 
         reset(){
@@ -277,14 +277,14 @@ export default {
                 (snapshot) => {
                     // Observe state change events such as progress, pause, and resume
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
+                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    // console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                     case 'paused':
-                        console.log('Upload is paused');
+                        // console.log('Upload is paused');
                         break;
                     case 'running':
-                        console.log('Upload is running');
+                        // console.log('Upload is running');
                         break;
                     }
 
@@ -292,8 +292,8 @@ export default {
                         this.images.image = url;
                         this.images.filename = file.name;
                         // this.uploadingImages = url;
-                        console.log(url);
-                        console.log(this.images.image);
+                        // console.log(url);
+                        // console.log(this.images.image);
                     });
                 }, 
                 (error) => {

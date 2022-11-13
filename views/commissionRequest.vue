@@ -281,8 +281,8 @@ export default {
         const auth = getAuth();
         const user = auth.currentUser;
         if (user){
-            console.log(user.email);
-            console.log(user.uid);
+            // console.log(user.email);
+            // console.log(user.uid);
             this.request.userid=user.uid;
             this.request.userEmail=user.email;
             this.request.userName = user.displayName;
@@ -290,14 +290,14 @@ export default {
             this.readData();
         }
         else {
-            console.log("No user")
+            // console.log("No user")
         }
 
         
     },
     methods: {
         checkList(){
-            console.log(this.request.artistList + "  <---ARTIST LIST")
+            // console.log(this.request.artistList + "  <---ARTIST LIST")
         },
         displayRequest(){
             var requestContent = document.getElementById("requestForm")
@@ -336,8 +336,8 @@ export default {
                 alert("Artist not found");
             }
             this.sendArtist = '';
-            console.log(this.request.artistList + "<<<THIS IS THE ARTIST LIST")
-            console.log(this.usersLinked)
+            // console.log(this.request.artistList + "<<<THIS IS THE ARTIST LIST")
+            // console.log(this.usersLinked)
         },
 
         // async getAndAddData(){
@@ -356,10 +356,10 @@ export default {
         // },
 
         async saveData(){
-            console.log(this.usersLinked);
+            // console.log(this.usersLinked);
             const date = new Date(); 
             var deadline = new Date(this.request.reqDeadline)
-            console.log(deadline.getTime())
+            // console.log(deadline.getTime())
             // this.request.reqDeadline = new Date(deadline).toLocaleDateString()
 
             let deadline_day = deadline.getDate()      
@@ -381,18 +381,18 @@ export default {
             if (this.sendArtist.length > 0){
                 this.request.artistList.push(this.sendArtist);
             }
-            console.log(this.request.artistList);
+            // console.log(this.request.artistList);
 
             for (let i = 0; i < this.request.artistList.length; i++){
                 this.request.artistList.splice(i, 1, this.usersLinked[this.request.artistList[i]]);
             }
-            console.log('hii' + this.request.artistList);
+            // console.log('hii' + this.request.artistList);
 
             for (let i = 0; i < this.request.artistList.length; i++){
                 this.request.artistReply.push("Pending");
             }
 
-            console.log(this.request);
+            // console.log(this.request);
             await setDoc(doc(db, "requests", this.request.userid +  '|' + this.request.reqTime), this.request)
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);
@@ -410,7 +410,7 @@ export default {
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.requestObj.push(doc.data());
             });
 
@@ -421,10 +421,10 @@ export default {
             const sentSnapshot = await getDocs(sent);
             sentSnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.sentObj.push(doc.data());
             });
-            console.log(this.sentObj)
+            // console.log(this.sentObj)
 
             //get userid linked to email 
             const usersSnapshot = await getDocs(collection(db, "profiles"));
@@ -434,7 +434,7 @@ export default {
                 this.usersLinked[doc.data().email] = doc.id;
                 this.emailLinked[doc.id] = doc.data().email;
             });
-            console.log(this.requestObj[0])
+            // console.log(this.requestObj[0])
         },
 
         reset(){

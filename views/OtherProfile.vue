@@ -128,11 +128,11 @@ export default {
             const auth = getAuth();
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
             } else {
             // doc.data() will be undefined in this case
-                console.log("No such document!");
+                // console.log("No such document!");
             }
 
             const q = query(collection(db, "images"), where("userid", "==", this.profileUid));
@@ -140,14 +140,14 @@ export default {
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
             
             const email = auth.currentUser.email;
             this.currentUserEmail = email;
 
-            console.log(this.currentUserEmail);
+            // console.log(this.currentUserEmail);
         },
         
         
