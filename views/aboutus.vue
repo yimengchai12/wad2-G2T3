@@ -25,7 +25,7 @@
                             <img class="card__thumb" src="../src/assets/phuket.jpg" style="object-fit:cover" alt="" />
                             <div class="card__header-text">
                                 <h2 class="card__title">Yi Meng Chai</h2>            
-                                <h4 class="card__status">Backend God/Basically Fullstack Dev</h4>
+                                <h4 class="card__status">Backend Dev/Basically Fullstack Dev</h4>
                             </div>
                             </div>
                             <p class="card__description">The brains behind everything you don't see</p>
