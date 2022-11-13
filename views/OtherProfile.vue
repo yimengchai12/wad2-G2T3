@@ -25,46 +25,16 @@
                         
                     </div>
                 </div>
-
-
-
-
-                <!-- old profile content -->
-                <!-- <div class="row justify-content-between" style="height:max-content">
-                    <div class="col-xl-5 justify-content-center">
-                        <div class="justify-content-center">
-                            <div class="col-xl-7 p-0" style="height:170px; width:170px;">
-                                <img
-                                    style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
-                                    :src="profileObj.profilePicture">
-                                </div>
-                            <div class="row flex-column col-xl-6 p-1">
-                                <h1 class="text-center">{{ profileObj.name }}</h1>
-                                <span>
-                                    <button class="rounded-pill signin-on-hover light-text py-1 px-2 text-center" @click="showChat()" style="text-decoration:none; height:fit-content; width:fit-content">Message</button></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row col-xl-6 align-items-center">
-                        <div class="d-flex flex-column w-75">
-                            <p class="border-start text-start ps-3 light-text">{{ profileObj.bio }}</p>
-                       
-                        </div>
-                    </div>
-                </div> -->
-
-
                 <hr class="my-5">
             </div>
 
             <!-- image gallery -->
             <div class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
                     <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div class="card artworkCard" style="width: 18rem;">
-                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                        <div class="card artworkCard" style="width: 18rem;border-radius: 15px;">
+                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery" style="border-radius: 15px;"></router-link>
                             <div class="card-body">
                                 <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
-                                <h6>{{imageobj.artistName}}</h6>
                                 <p class="card-text description">{{imageobj.details}}</p>
                                 <h4>${{imageobj.price}}</h4>
                             </div>
@@ -294,5 +264,15 @@ nav.fill ul li a:hover:after {
 }
     
 
-    
+.card-title {
+  /* white-space: nowrap; */
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  max-width: 200px;
+  -webkit-box-orient: vertical; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 </style>

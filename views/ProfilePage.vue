@@ -45,8 +45,8 @@
                 
                 <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
                     <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div  class="card artworkCard" style="width: 18rem;">
-                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                        <div  class="card artworkCard" style="width: 18rem;border-radius: 15px;">
+                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery" style="border-radius: 15px;"></router-link>
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                 <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
@@ -79,11 +79,10 @@
 
 
                 <!-- bought -->
-                <div v-if="bought.length != 0" class="row" id="purchaseResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
-                    <h2>BOUGHT</h2>
+                <div v-if="bought.length != 0" class="row" id="purchaseResult" style="display: none; flex-direction: row; justify-content: left; align-items: center;">
                     <div v-for="imageobj in bought" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                        <div  class="card artworkCard" style="width: 18rem;">
-                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                        <div  class="card artworkCard" style="width: 18rem; border-radius: 15px;">
+                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery" style="border-radius: 15px;"></router-link>
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                 <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
@@ -492,5 +491,17 @@ nav.fill ul li a:hover:after {
 }
 .btn:hover{
     color: white;
+}
+
+.card-title {
+  /* white-space: nowrap; */
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  max-width: 200px;
+  -webkit-box-orient: vertical; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 </style>
