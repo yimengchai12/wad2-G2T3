@@ -101,7 +101,7 @@
 
                                 
                                 
-                                <h6>{{imageobj.artistName}}</h6>
+                                <h6 style="color: rgb(228,36,116)">{{imageobj.artistName}}</h6>
                                 <p class="card-text description">{{imageobj.details}}</p>
                                 <h4>${{imageobj.price}}</h4>
                                 

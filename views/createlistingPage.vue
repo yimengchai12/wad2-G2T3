@@ -1027,10 +1027,6 @@ LEVEL 4. SETTINGS
     --fieldBorderColor: #D1C4E9;
     --fieldBorderColorActive: #673AB7;
 }
-.uploadedImage:hover{
-    border: 2px solid white;
-    
-}
 .image{
     width: 100%;
     height: auto;
