@@ -21,7 +21,7 @@
                         
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-5 pe-5 text-start">
-                            <h3>{{collectionName}}</h3>
+                            <h3 class="titlecard">{{collectionName}}</h3>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%">{{collectionDate}}</h5>
                             <router-link v-if="artistUid == currentUid " to='/profile'>
                                 <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%; text-decoration: underline;">{{artistProfile.name}}</h5>
@@ -344,5 +344,17 @@ a {
 .like:hover,
 .share:hover {
     color: #e42474;
+}
+
+.titlecard {
+  /* white-space: nowrap; */
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  max-width: 200px;
+  -webkit-box-orient: vertical; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 </style>

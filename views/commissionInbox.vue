@@ -104,14 +104,14 @@
                 <div id="inbox">
                     <!-- <button class="btn button" @click="checkList()"> CHECKEHC</button> -->
 
-                    <!-- REceived -->
+                    <!-- Received -->
                     <div v-if="requestObj.length == 0" class="row">
                         <h3 class="py-5">Received</h3> 
                         <h5 class="text-muted text-start">No Commissions Received</h5>
                     </div>
                     <div v-else class="row">
                         <div class="col p-0">
-                            <h3 class="py-5">Commissions Received</h3> 
+                            <h3 class="py-5">Received</h3> 
                             <!-- <div v-if="requestObj[0][artistResponded][0]== 1">sadfdasfasf</div> -->
                             <div class="commissionReply" style="width:82vw">
                                 <table class="table table-striped table-dark table-bordered">
@@ -137,7 +137,7 @@
                                             <td v-else >
                                                 <div data-label="Status" class="d-flex buttonsFormat" style="background-color:rgb(26, 17, 37); justify-content: center;">
                                                     <button class="btn register-on-hover" style="margin-right: 5px;" @click="updateResponse(request, true)">&#10003;</button>
-                                                    <button class="btn signin-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button> 
+                                                    <button class="btn signin-on-hover" style="margin-left: 5px;" @click="updateResponse(request, false)"> &#10007; </button>
                                                 </div>
                                                 
                                             </td>
@@ -156,7 +156,7 @@
                     <div v-else class="row" style="margin-top: 40px; margin-bottom: 60px;">
                         <hr style="width:100%;">
                         <div class="col p-0">
-                            <h3 class="py-5">Commission Sent</h3>
+                            <h3 class="py-5">Sent</h3>
                             <div class="commissionSent" style="width:82vw"> 
                                     <table class="table table-striped table-dark table-bordered">
                                         <thead>
@@ -289,8 +289,8 @@ export default {
         const auth = getAuth();
         const user = auth.currentUser;
         if (user){
-            // console.log(user.email);
-            // console.log(user.uid);
+            console.log(user.email);
+            console.log(user.uid);
             this.request.userid=user.uid;
             this.request.userEmail=user.email;
             this.request.userName = user.displayName;
@@ -298,14 +298,14 @@ export default {
             this.readData();
         }
         else {
-            // console.log("No user")
+            console.log("No user")
         }
 
         
     },
     methods: {
         checkList(){
-            // console.log(this.request.artistList + "  <---ARTIST LIST")
+            console.log(this.request.artistList + "  <---ARTIST LIST")
         },
         displayRequest(){
             var requestContent = document.getElementById("requestForm")
@@ -344,8 +344,8 @@ export default {
                 alert("Artist not found");
             }
             this.sendArtist = '';
-            // console.log(this.request.artistList + "<<<THIS IS THE ARTIST LIST")
-            // console.log(this.usersLinked)
+            console.log(this.request.artistList + "<<<THIS IS THE ARTIST LIST")
+            console.log(this.usersLinked)
         },
 
         // async getAndAddData(){
@@ -364,10 +364,10 @@ export default {
         // },
 
         async saveData(){
-            // console.log(this.usersLinked);
+            console.log(this.usersLinked);
             const date = new Date(); 
             var deadline = new Date(this.request.reqDeadline)
-            // console.log(deadline.getTime())
+            console.log(deadline.getTime())
             // this.request.reqDeadline = new Date(deadline).toLocaleDateString()
 
             let deadline_day = deadline.getDate()      
@@ -389,18 +389,18 @@ export default {
             if (this.sendArtist.length > 0){
                 this.request.artistList.push(this.sendArtist);
             }
-            // console.log(this.request.artistList);
+            console.log(this.request.artistList);
 
             for (let i = 0; i < this.request.artistList.length; i++){
                 this.request.artistList.splice(i, 1, this.usersLinked[this.request.artistList[i]]);
             }
-            // console.log('hii' + this.request.artistList);
+            console.log('hii' + this.request.artistList);
 
             for (let i = 0; i < this.request.artistList.length; i++){
                 this.request.artistReply.push("Pending");
             }
 
-            // console.log(this.request);
+            console.log(this.request);
             await setDoc(doc(db, "requests", this.request.userid +  '|' + this.request.reqTime), this.request)
             .then(() =>{
                 // console.log("Document written with ID: ", docRef.id);
@@ -418,7 +418,7 @@ export default {
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
+                console.log(doc.id, " => ", doc.data());
                 this.requestObj.push(doc.data());
             });
 
@@ -429,10 +429,10 @@ export default {
             const sentSnapshot = await getDocs(sent);
             sentSnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
+                console.log(doc.id, " => ", doc.data());
                 this.sentObj.push(doc.data());
             });
-            // console.log(this.sentObj)
+            console.log(this.sentObj)
 
             //get userid linked to email 
             const usersSnapshot = await getDocs(collection(db, "profiles"));
@@ -442,7 +442,7 @@ export default {
                 this.usersLinked[doc.data().email] = doc.id;
                 this.emailLinked[doc.id] = doc.data().email;
             });
-            // console.log(this.requestObj[0])
+            console.log(this.requestObj[0])
         },
 
         reset(){
@@ -472,9 +472,9 @@ export default {
        
     },
     mounted(){
-            var inbox = document.getElementById("inbox")
+            var inbox = document.getElementById("requestForm")
             inbox.style.display = "none"
-            var navStart = document.getElementById("requestNav")
+            var navStart = document.getElementById("inboxNav")
             navStart.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
     },
 

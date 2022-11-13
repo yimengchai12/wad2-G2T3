@@ -58,7 +58,7 @@
                                 <!-- <span class="input-group-text">$</span> -->
                                 <div class="field field_v1 w-75">
                                     <label for="listing-price" class="ha-screen-reader">Title</label>
-                                    <input id="listing-price" type="text" class="field__input" placeholder="$ 0.00" v-model="images.price" aria-label="amount" required="true" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                                    <input id="listing-price" type="text" class="field__input" placeholder="$ 0" v-model="images.price" aria-label="amount" required="true" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^]/, '0');">
                                     <span class="field__label-wrap" aria-hidden="true" >
                                         <span class="field__label">Price ($)</span>
                                         
