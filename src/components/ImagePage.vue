@@ -22,7 +22,7 @@
 
     <hr class="my-3">
 
-    <div class="text-start" style="padding-top:1px;padding-bottom:10px; height:max-content ;width:83vw;">
+    <div style="padding-top:1px;padding-bottom:10px; height:max-content ;width:83vw;">
         <h2 class="my-3" style="text-align: start;">All</h2>
         <div class="d-flex" style="flex-wrap: wrap;">
         <div v-for="imag in imagesObj" :key="imag" class="me-auto">
