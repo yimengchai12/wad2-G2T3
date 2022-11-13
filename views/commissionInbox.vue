@@ -464,9 +464,9 @@ export default {
        
     },
     mounted(){
-            var inbox = document.getElementById("inbox")
+            var inbox = document.getElementById("requestForm")
             inbox.style.display = "none"
-            var navStart = document.getElementById("requestNav")
+            var navStart = document.getElementById("inboxNav")
             navStart.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
     },
 

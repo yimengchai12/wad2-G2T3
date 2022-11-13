@@ -44,7 +44,7 @@
                                 <router-link to="/listing" class="dropdown-item text-light pl-4 p-2">Create Listing
                                 </router-link>
                             </li>
-                            <li><router-link  to="/commission" class="dropdown-item text-light pl-4 p-2">Commission Requests</router-link></li>
+                            <li><router-link  to="/commissions" class="dropdown-item text-light pl-4 p-2">Commission Requests</router-link></li>
                         </ul>
                     </li>
                     <li class="nav-item ">
