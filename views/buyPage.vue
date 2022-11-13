@@ -91,12 +91,12 @@
                     <h2 class="text-start pt-5">About the Artist</h2>
                     <hr/>
 
-                    <div class="row justify-content-center" style="margin-top: 40px;">
-                        <div class="col-lg-5" style="width: 220px;">
-                             <img class="thumbnail img-fluid rounded-circle m-auto" style="margin-left: 10px" v-bind:src="artistProfile.profilePicture" alt="" />
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-md-5 row">
+                             <img class="thumbnail rounded-circle m-auto" v-bind:src="artistProfile.profilePicture" alt="" />
                         </div>
 
-                        <div class="col-lg-7" style="margin-top: 20px; margin-left: 10px;">
+                        <div class="col-md-7 row" style="margin-top: 20px; margin-left: 0px; padding:0; padding-right: 100px;">
                             <router-link to="/profile" v-if="artistUid == currentUid">
                                 <h4 >{{ artistProfile.name }}</h4>
                             </router-link>
@@ -310,8 +310,10 @@ export default {
 
 <style scoped>
 .thumbnail {
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
+    padding:0;
 }
 
 h1,
