@@ -1,7 +1,7 @@
 <template>
     <logIn></logIn>
     <body>
-        <navBars  :data="{'chatUserEmail': profileObj.email, 'chatUserName': profileObj.name, 'chatUserPhoto': profileObj.profilePicture}"></navBars>
+        <navBars  :data="{'chatUserEmail': profileObj.email, 'chatUserName': profileObj.name, 'chatUserPhoto': profileObj.profilePicture }"></navBars>
         <pageBody>
             <div class="container-fluid text-light pt-5">
 
@@ -65,7 +65,7 @@ export default {
     data(){
         return {
             profileUid: this.$route.params.id,
-            profileObj: {},
+            profileObj: null,
             listed: [],
             currentUserEmail: "",
         }
@@ -100,6 +100,7 @@ export default {
             if (docSnap.exists()) {
                 // console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
+                console.log(this.profileObj);
             } else {
             // doc.data() will be undefined in this case
                 // console.log("No such document!");
