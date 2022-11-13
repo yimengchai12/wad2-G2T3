@@ -367,6 +367,7 @@ export default {
             // console.log(this.usersLinked);
             const date = new Date(); 
             var deadline = new Date(this.request.reqDeadline)
+            
             // console.log(deadline.getTime())
             // this.request.reqDeadline = new Date(deadline).toLocaleDateString()
 
@@ -374,8 +375,7 @@ export default {
             let deadline_month = deadline.getMonth()    
             let deadline_year = deadline.getFullYear()    
             
-            
-            this.request.reqDeadline = `${deadline_day}-${deadline_month}-${deadline_year}`;
+            this.request.reqDeadline = `${deadline_day}-${deadline_month}-${deadline_year} ${deadline.getHours()}:${deadline.getMinutes()}`;
 
             let day = date.getDate();
             let month = date.getMonth() + 1;
@@ -383,8 +383,8 @@ export default {
             let time = date.getTime();
             this.request.reqDate= `${day}-${month}-${year}`;
             this.request.reqTime= `${time}`;
-            var dateFormat = this.request.reqDeadline;
-            this.request.reqDeadline = `${dateFormat.getDate()}-${dateFormat.getMonth() + 1}-${dateFormat.getFullYear()} ${dateFormat.getHours()}:${dateFormat.getMinutes()}`;
+            // var dateFormat = this.request.reqDeadline;
+            // this.request.reqDeadline = `${dateFormat.getDate()}-${dateFormat.getMonth() + 1}-${dateFormat.getFullYear()} ${dateFormat.getHours()}:${dateFormat.getMinutes()}`;
 
             if (this.sendArtist.length > 0){
                 this.request.artistList.push(this.sendArtist);
