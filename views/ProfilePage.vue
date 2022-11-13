@@ -53,7 +53,7 @@
 
                                 <span>
                                     <div class="dropdown">
-                                    <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                    <button role="button" style="background-color:transparent; border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
                                     <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
                                     <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
                                 </ul>
@@ -65,7 +65,7 @@
 
                                 
                                 
-                                <h6>{{imageobj.artistName}}</h6>
+                                <!-- <h6>{{imageobj.artistName}}</h6> -->
                                 <p class="card-text description">{{imageobj.details}}</p>
                                 <h4>${{imageobj.price}}</h4>
                                 
@@ -87,16 +87,16 @@
                                 <div class="d-flex justify-content-between">
                                 <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
 
-                                <span>
+                                <!-- <span>
                                     <div class="dropdown">
-                                    <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                    <button role="button" style="background-color:transparent; border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
                                     <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
                                     <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
                                 </ul>
                                 
                                 
                                 </div>
-                                </span>
+                                </span> -->
                             </div>
 
                                 
