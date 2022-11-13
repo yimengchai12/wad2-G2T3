@@ -65,7 +65,59 @@
                     <div v-else class="row">
                         <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations</h5>
                     </div>
-                </div>
+
+                    <!-- bought -->
+                    <div v-if="bought.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                        <h2>BOUGHT</h2>
+                        <div v-for="imageobj in bought" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                            <div  class="card artworkCard" style="width: 18rem;">
+                                <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                    <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
+
+                                    <span>
+                                        <div class="dropdown">
+                                        <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                        <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
+                                        <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
+                                    </ul>
+                                    
+                                    
+                                    </div>
+                                    </span>
+                                </div>
+
+                                    
+                                    
+                                    <h6>{{imageobj.artistName}}</h6>
+                                    <p class="card-text description">{{imageobj.details}}</p>
+                                    <h4>${{imageobj.price}}</h4>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else class="row">
+                        <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations Bought</h5>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                </div> <!-- end of container -->
+
+
+
+                
             
 
 
@@ -98,6 +150,8 @@ export default {
             profileObj: {
                 profilePicture:'https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif',
             },
+            profilebought: [],
+            bought: [],
             listed: [],
             profile: {
                 name: null,
@@ -172,6 +226,7 @@ export default {
             if (docSnap.exists()) {
                 // console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
+                this.profilebought = docSnap.data().bought;
             } else {
                 // doc.data() will be undefined in this case
                 // console.log("No such document!");
@@ -185,6 +240,17 @@ export default {
                 // console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
+
+            for (let i = 0; i < this.profilebought.length; i++) {
+                const buy = query(collection(db, "images"), where("title", "==", this.profilebought[i]));
+
+                const buySnapshot = await getDocs(buy);
+                buySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    console.log(doc.id, " => ", doc.data());
+                    this.bought.push(doc.data());
+                });
+            }
 
         },
 
