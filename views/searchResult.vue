@@ -272,7 +272,7 @@ nav.fill ul li a:hover:after {
     outline: 1px solid #25192f;
     border-radius: 15px;
     color: white;
-    height: 360px;
+    height: 400px;
 }
 .card:hover{
     background-color: rgb(32,23,43)
@@ -304,5 +304,15 @@ nav.fill ul li a:hover:after {
 .navTab:hover{
     border-bottom: 0px;
 }
-
+.card-title {
+  /* white-space: nowrap; */
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  max-width: 200px;
+  -webkit-box-orient: vertical; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 </style>
