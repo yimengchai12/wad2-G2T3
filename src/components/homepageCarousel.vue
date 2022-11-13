@@ -18,10 +18,8 @@
                                 <h1><div class="input-wrapper">
                                     <span class="placeholder"></span>
                                 </div></h1>
-                                <p>Created by an artificial intelligence program to the Colorado State Fair competition.
-                                    The stunning image depicts royalty in front of a massive window, invoking foreign
-                                    grandeur. The name of the art piece translates to “Space Opera Theater.”</p>
-                                <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore iure, pariatur molestiae molestias quae ab, eius qui deleniti iste architecto reiciendis a rerum porro repudiandae mollitia provident, non temporibus.</p>
+                                <router-link to="/buy/underwater%20world" class="btn pl-4 glow-on-hover" role="button">
                                     View
                                 </router-link>
                             </div>
@@ -30,17 +28,15 @@
                     <div class="backdrop height-inherit col-8 d-none d-lg-inline-block" style="vertical-align:top; ">
                         <div class="vertical-center" style="height:inherit">
                             <img style="height:100%; width:auto;"
-                                src="https://static01.nyt.com/images/2022/09/01/business/00roose-1/merlin_212276709_3104aef5-3dc4-4288-bb44-9e5624db0b37-superJumbo.jpg?quality=75&auto=webp" />
+                                src="../assets/carousel1.png" />
                         </div>
                     </div>
                     <div class="row d-lg-none">
                         <div>
                             <div class="text-start p-4" style="height:max-content;">
-                                <h1>Théâtre D’opéra Spatial</h1>
-                                <p>Created by an artificial intelligence program to the Colorado State Fair competition.
-                                    The stunning image depicts royalty in front of a massive window, invoking foreign
-                                    grandeur. The name of the art piece translates to “Space Opera Theater.”</p>
-                                <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                <h1>Underwater world</h1>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore iure, pariatur molestiae molestias quae ab, eius qui deleniti iste architecto reiciendis a rerum porro repudiandae mollitia provident, non temporibus.</p>
+                                <router-link to="/buy/underwater%20world" class="btn pl-4 glow-on-hover" role="button">
                                     View
                                 </router-link>
                             </div>
@@ -49,7 +45,7 @@
                     <div class="row d-lg-none">
                         <div class="backdrop p-0" style="vertical-align:bottom">
                             <img style="width:100%; height:100%; vertical-align:bottom; border-radius: 20px;"
-                                src="https://static01.nyt.com/images/2022/09/01/business/00roose-1/merlin_212276709_3104aef5-3dc4-4288-bb44-9e5624db0b37-superJumbo.jpg?quality=75&auto=webp" />
+                                src="../assets/carousel1.png" />
                         </div>
                     </div>
 
@@ -60,12 +56,11 @@
                     <div class="carou-border backdrop col-4 d-none d-lg-inline-block">
                         <div class="d-flex justify-content-center">
                             <div class="vertical-center text-start p-4">
-                                <div class="input-wrapper2">
-                                   
+                                <h1><div class="input-wrapper2">
                                     <span class="placeholder"></span>
-                                </div> 
-                                <p>Some representative placeholder content for the first slide.</p>
-                                <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                </div> </h1>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore iure, pariatur molestiae molestias quae ab, eius qui deleniti iste architecto reiciendis a rerum porro repudiandae mollitia provident, non temporibus.</p>
+                                <router-link to="/buy/man%20and%20woman" class="btn pl-4 glow-on-hover" role="button">
                                     View
                                 </router-link>
                             </div>
@@ -73,16 +68,16 @@
                     </div>
                     <div class="backdrop height-inherit col-8 d-none d-lg-inline-block" style="vertical-align:top; ">
                         <div class="vertical-center" style="height:inherit">
-                            <img style="height:100%; width:auto;" src="../assets/carousel_1.gif" />
+                            <img style="height:auto; width:100%;" src="../assets/carousel2.png" />
                         </div>
                     </div>
                     <div class="row d-lg-none">
                         <div>
                             <div class="text-start p-4" style="height:max-content;">
 
-                                <h1>Second Slide!</h1>
-                                <p>Some representative placeholder content for the first slide.</p>
-                                <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                <h1>Explore intimacy</h1>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore iure, pariatur molestiae molestias quae ab, eius qui deleniti iste architecto reiciendis a rerum porro repudiandae mollitia provident, non temporibus.</p>
+                                <router-link to="/buy/man%20and%20woman" class="btn pl-4 glow-on-hover" role="button">
                                     View
                                 </router-link>
                             </div>
@@ -92,7 +87,7 @@
                     <div class="row d-lg-none">
                         <div class="backdrop p-0" style="vertical-align:bottom">
                             <img style="height:100%; width:100%; vertical-align:bottom;  border-radius: 20px;"
-                                src="../assets/carousel_1.gif" />
+                                src="../assets/carousel2.png" />
                         </div>
                     </div>
 
@@ -109,8 +104,8 @@
                                     
                                     <h1 class="placeholder"></h1>
                                 </div> </h1>
-                                <p>Some representative placeholder content for the first slide.</p>
-                                <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore iure, pariatur molestiae molestias quae ab, eius qui deleniti iste architecto reiciendis a rerum porro repudiandae mollitia provident, non temporibus.</p>
+                                <router-link to="/buy/Flesh%20on%20flesh" class="btn pl-4 glow-on-hover" role="button">
                                     View
                                 </router-link>
                             </div>
@@ -118,16 +113,16 @@
                     </div>
                     <div class="backdrop height-inherit col-8 d-none d-lg-inline-block" style="vertical-align:top; ">
                         <div class="vertical-center" style="height:inherit">
-                            <img style="height:100%; width:auto;" src="../assets/carousel_3.gif" />
+                            <img style="height:auto; width:100%;" src="../assets/carousel3.jpeg" />
                         </div>
                     </div>
                     <div class="row d-lg-none">
                         <div>
                             <div class="text-start p-4" style="height:max-content;">
                                 
-                                <h1>Third one!</h1>
-                                <p>Some representative placeholder content for the first slide.</p>
-                                <router-link to="/buy" class="btn pl-4 glow-on-hover" role="button">
+                                <h1>Redefine your self</h1>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore iure, pariatur molestiae molestias quae ab, eius qui deleniti iste architecto reiciendis a rerum porro repudiandae mollitia provident, non temporibus.</p>
+                                <router-link to="/buy/Flesh%20on%20flesh" class="btn pl-4 glow-on-hover" role="button">
                                     View
                                 </router-link>
                             </div>
@@ -136,7 +131,7 @@
                     <div class="row d-lg-none">
                         <div class="backdrop p-0" style="vertical-align:bottom">
                             <img style="height:100%; width:100%; vertical-align:bottom; border-radius: 20px;"
-                                src="../assets/carousel_3.gif" />
+                                src="../assets/carousel3.jpeg" />
                         </div>
                     </div>
 
@@ -210,7 +205,7 @@ export default {
     >.placeholder {
         color: #fffeee;
         pointer-events: none;
-        @include typed("Théâtre D’opéra Spatial",
+        @include typed("Underwater World",
             (type:0.1,pause-typed: 10),
             (caret-width: 2px,
                 caret-space: 2px)
@@ -232,8 +227,8 @@ export default {
     margin-top:-70px;
     display: block;
     // font-family: monospace;
-    font-size: 255%;
-    width: 50%;
+    font-size: 80%;
+    width: 100%;
 
     >input,
     >.placeholder {
@@ -248,7 +243,7 @@ export default {
     >.placeholder {
         color: #fffeee;
         pointer-events: none;
-        @include typed("Second Slide!",
+        @include typed("Explore intimacy",
             (type:0.1,pause-typed: 10),
             (caret-width: 2px,
                 caret-space: 2px)
@@ -270,7 +265,7 @@ export default {
     margin-top:-70px;
     display: block;
     // font-family: monospace;
-    font-size: 100%;
+    font-size: 80%;
     width: 100%;
 
     >input,
@@ -286,7 +281,7 @@ export default {
     >.placeholder {
         color: #fffeee;
         pointer-events: none;
-        @include typed("Third one!",
+        @include typed("Redefine your self",
             (type:0.1,pause-typed: 10),
             (caret-width: 2px,
                 caret-space: 2px)
