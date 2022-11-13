@@ -222,6 +222,14 @@ export default {
                 this.images.title = "";
                 return
             }
+            if (this.images.image == "https://firebasestorage.googleapis.com/v0/b/wad2-6e92f.appspot.com/o/images%2FFrame%20583.png?alt=media&token=7544b0d8-2966-47f3-833a-f4619f7b37c2"){
+                alert("Please upload a photo!");
+                return
+            }
+            if (this.images.title.includes('?')){
+                alert("Please enter a valid title! Remove '?' from title.");
+                return
+            }
             const date = new Date(); 
             this.images.millisec = date.getTime();
             let day = date.getDate();
