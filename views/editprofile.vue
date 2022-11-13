@@ -38,21 +38,21 @@
                 <!-- <div class="d-flex flex-column"> -->
                 <div class="page">
                     <div class="field field_v1 light-text">
-                        <label for="first-name" class="ha-screen-reader">First name</label>
+                        <label for="first-name" class="ha-screen-reader">Userame</label>
                         <input id="first-name" class="field__input light-text" placeholder="Enter your name"
-                            v-model="profile.name">
+                            v-model="profile.name" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">First name</span>
+                            <span class="field__label">Userame</span>
                         </span>
                     </div>
-                    <div class="field field_v2">
+                    <!-- <div class="field field_v2">
                         <label for="last-name" class="ha-screen-reader">Phone</label>
                         <input id="last-name" class="field__input light-text" placeholder="Enter your phone number"
                             v-model="profile.phone">
                         <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Phone</span>
                         </span>
-                    </div>
+                    </div> -->
                     <div class="field field_v3">
                         <label for="email" class="ha-screen-reader">Bio</label>
                         <textarea id="email" class="field__input__bio light-text" placeholder="Enter your bio"
@@ -190,7 +190,7 @@ export default {
     },
 
     created() {
-        console.log(auth.currentUser)
+        // console.log(auth.currentUser)
         this.readData();
     },
 
@@ -213,7 +213,7 @@ export default {
             if (this.profile.bio == null) {
                 this.profile.bio = this.profileObj.bio;
             }
-            console.log(this.profile)
+            // console.log(this.profile)
             const profileRef = doc(db, "profiles", uid);
 
             // Set the "capital" field of the city 'DC'
@@ -224,7 +224,7 @@ export default {
                 updateProfile(auth.currentUser, {
                     displayName: this.profile.name, photoURL: this.profile.profilePicture
                 }).then(() => {
-                    console.log("Profile updated!");
+                    // console.log("Profile updated!");
                 })
             }
 
@@ -243,7 +243,7 @@ export default {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
                 this.profile.name = docSnap.data().name
                 this.profile.bio = docSnap.data().bio
@@ -254,7 +254,7 @@ export default {
                 // this.name=this.profile.Obj.name
             } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
+                // console.log("No such document!");
             }
 
             const q = query(collection(db, "images"), where("userid", "==", uid));
@@ -262,7 +262,7 @@ export default {
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
 
@@ -285,21 +285,21 @@ export default {
                 (snapshot) => {
                     // Observe state change events such as progress, pause, and resume
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
+                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    // console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                         case 'paused':
-                            console.log('Upload is paused');
+                            // console.log('Upload is paused');
                             break;
                         case 'running':
-                            console.log('Upload is running');
+                            // console.log('Upload is running');
                             break;
                     }
 
                     getDownloadURL(ref(storage, 'profiles/' + file.name)).then((url) => {
                         this.profile.profilePicture = url;
                         this.temp_profilePicture = url
-                        console.log(url);
+                        // console.log(url);
                     });
 
                     this.imgchange = true

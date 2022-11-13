@@ -31,11 +31,18 @@
                             </router-link>
                             <h5 style="color:grey; font-style:italic; font-weight:normal; font-size:100%" class="mt-4">{{dimension}}</h5>
                         <div class="row mt-3">
+                            <div class="d-inline-flex flex-wrap mt-3" >
+                                <p v-for="(tag,index) in tags" :key="index" style="width:max-content" class="text-start border rounded-pill me-2">
+                                    <span class="p-2 text-light">{{tag}}</span>  
+                                </p>
+                            </div>
                             <hr class="my-3" style="width:100%">
                             <h1 class="mb-3" style="font-weight:normal">SGD {{collectionPrice}}</h1>
 
 
                                 <a v-if="purchased" :href="collectionImg"  class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" >Download </a>
+
+                                <a v-else-if="currentUid == ''" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto" @click="alert" >Purchase</a>
 
                                 <a v-else-if="!own && !purchase" class="rounded-pill signin-on-hover light-text py-2 px-3 mx-1 text-center" style="text-decoration:none; width:100%; height:auto;" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="loaded=true">Purchase</a>
 
@@ -172,12 +179,12 @@ export default {
             loading: false, 
             lineItems:[
                 {
-                    price: "price_1M2ElaLPH9sbKlnPbEJ6ugug",
+                    price: "",
                     quantity: 1
                 }
             ],
             tags:[],
-            successURL: 'http://localhost:8080/success', 
+            successURL: '', 
             cancelURL: ''
         }
     },
@@ -191,6 +198,10 @@ export default {
     },
 
     methods: {
+        alert(){
+            alert('Please sign in to purchase!')
+        },
+
         reloadPage() {
             this.loaded = false;
             window.location.reload();
@@ -206,7 +217,7 @@ export default {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.buyDescription = docSnap.data();
                 this.tags = this.buyDescription.tags
                 this.collectionImg = this.buyDescription.image
@@ -223,18 +234,18 @@ export default {
                 var img_height = img.height;
                 var str = `${img_width}x${img_height}px`;
                 this.dimension = str;
-                console.log("HI");
-                console.log(this.dimension);
+      
+                // console.log(this.dimension);
 
                 //get artist profile
                 const artistRef = doc(db, "profiles", this.artistUid);
                 const artistSnap = await getDoc(artistRef);
                 if (artistSnap.exists()) {
-                    console.log("Document data:", artistSnap.data());
+                    // console.log("Document data:", artistSnap.data());
                     this.artistProfile = artistSnap.data();
                     this.bio = this.artistProfile.bio;
                 } else {
-                    console.log("No such document!");
+                    // console.log("No such document!");
                 }
 
                 //get currently logged in user
@@ -243,11 +254,11 @@ export default {
                 if (user) {
                     this.currentUid = user.uid;
                     this.photoUrl = user.photoURL;
-                    console.log(user)
+                    // console.log(user)
                     
                 }
                 else {
-                    console.log("No user")
+                    // console.log("No user")
                 }
 
                 if (this.currentUid != this.artistUid){
@@ -257,7 +268,7 @@ export default {
                 const userRef = doc(db, "profiles", this.currentUid);
                 const userSnap = await getDoc(userRef);
                 if (userSnap.exists()) {
-                    console.log("Document data:", userSnap.data());
+                    // console.log("Document data:", userSnap.data());
                     this.bought = userSnap.data().bought;
                     if (this.bought.includes(this.title)){
                         this.purchased = true
@@ -269,7 +280,7 @@ export default {
                     }
                     
                 } else {
-                    console.log("No such document!");
+                    // console.log("No such document!");
                 }
 
                 if (this.collectionPrice == '50'){
@@ -287,7 +298,7 @@ export default {
 
             } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
+                // console.log("No such document!");
             }
         },
     },

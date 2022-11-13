@@ -2,7 +2,13 @@
     <logIn></logIn>
 
     <body>
-        <navBars></navBars>
+        <navBars :data="{
+            chatUserEmail: 'Helper@gmail.com',
+            chatUserName: 'Alexa Help',
+            chatUserPhoto:
+                'https://media.istockphoto.com/id/1221348467/vector/chat-bot-ai-and-customer-service-support-concept-vector-flat-person-illustration-smiling.jpg?s=612x612&w=0&k=20&c=emMSOYb4jWIVQQBVpYvP9LzGwPXXhcmbpZHlE6wgR78=',
+        }">
+        </navBars>
         <pageBody>
             <div class="container-fluid p-0 m-0" style="width:70vw;">
                 <div class="row">
@@ -19,7 +25,7 @@
                             <img class="card__thumb" src="../src/assets/phuket.jpg" style="object-fit:cover" alt="" />
                             <div class="card__header-text">
                                 <h2 class="card__title">Yi Meng Chai</h2>            
-                                <h4 class="card__status">Backend God/Basically Fullstack Dev</h4>
+                                <h4 class="card__status">Backend Dev/Basically Fullstack Dev</h4>
                             </div>
                             </div>
                             <p class="card__description">The brains behind everything you don't see</p>
@@ -150,14 +156,14 @@ export default {
                 (snapshot) => {
                     // Observe state change events such as progress, pause, and resume
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
+                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    // console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                         case 'paused':
-                            console.log('Upload is paused');
+                            // console.log('Upload is paused');
                             break;
                         case 'running':
-                            console.log('Upload is running');
+                            // console.log('Upload is running');
                             break;
                     }
                 },
@@ -171,7 +177,7 @@ export default {
                     }
                 }
             );
-            console.log(e.target.files[0]);
+            // console.log(e.target.files[0]);
 
         }
     }

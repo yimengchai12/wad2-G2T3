@@ -52,7 +52,7 @@
                             <i class="bi bi-book"></i><span class="ms-2">Resources</span></a>
                     </li>
                     <li class="nav-item ">
-                        <router-link class="nav-link text-light px-2 d-flex" target="_blank" to="/aboutus">
+                        <router-link class="nav-link text-light px-2 d-flex" to="/aboutus">
                             <i class="bi bi-code-slash"></i><span class="ms-2">About Us</span></router-link>
                     </li>
                     <!-- <li class="nav-item" v-if="!isLoggedIn" id="login">
@@ -112,8 +112,8 @@ onMounted(() => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            console.log(uid)
-            console.log(user.displayName)
+            // console.log(uid)
+            // console.log(user.displayName)
             isLoggedIn.value = true;
         } else {
             isLoggedIn.value = false;

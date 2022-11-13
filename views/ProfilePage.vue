@@ -30,45 +30,8 @@
                 </div>
 
 
-                <!-- old profile page design -->
-                <!-- <div class="row justify-content-between" style="height:max-content">
-                    <div class="row col-xl-5 justify-content-center">
-                        <div class="row justify-content-center">
-                            <div class="row col-xl-7 p-0" style="height:170px; width:170px;">
-                                <img
-                                    style="height:inherit; width:inherit; object-fit:cover; border-radius: 50%; padding:0;"
-                                    :src="profileObj.profilePicture">
-                                </div>
-                            <div class="row flex-column col-xl-6 p-1">
-                                <h1 class="text-center">{{ profileObj.name }}</h1>
-                                <span>
-                                    <router-link to='/editprofile'><button class="register-on-hover" style="height:fit-content; width:fit-content">Edit
-                                        Profile</button></router-link></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row col-xl-6 align-items-center">
-                        <div class="d-flex flex-column w-75">
-                            <p class="border-start text-start ps-3 light-text">{{ profileObj.bio }}</p>
-                        </div>
-                    </div>
-                </div> -->
                 
-                <hr class="my-5">
-
-                <div class="row">
-                    <section style="padding-top: 30px; padding-left: 0px; padding-right:0px">
-                        <nav class="stroke">
-                            <ul style="padding:0px; margin:0px">
-                                <li class="nav-item d-inline-block" style="padding-right: 20px; cursor: pointer;"><a id="creationNav" @click="showCreations()">Creations</a></li>
-                                <li class="nav-item d-inline-block" style="padding-left: 20px; cursor: pointer;"><a id="purchaseNav" @click="showPurchased()">Purchases</a></li>
-                            </ul>
-                        </nav>
-                    </section>
-                </div>
-
-                <!-- creations -->
-                <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                    <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
                         <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
                             <div  class="card artworkCard" style="width: 18rem;">
                                 <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
@@ -97,19 +60,63 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div v-else class="row" id="artworkResult">
-                    <h5 class="text-muted" style="margin-top: 30px; margin-bottom: 60px;">No Creations</h5>
-                </div>
+                    </div>
+                    <div v-else class="row">
+                        <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations</h5>
+                    </div>
+
+                    <!-- bought -->
+                    <div v-if="bought.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                        <h2>BOUGHT</h2>
+                        <div v-for="imageobj in bought" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                            <div  class="card artworkCard" style="width: 18rem;">
+                                <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                    <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
+
+                                    <span>
+                                        <div class="dropdown">
+                                        <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                        <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
+                                        <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
+                                    </ul>
+                                    
+                                    
+                                    </div>
+                                    </span>
+                                </div>
+
+                                    
+                                    
+                                    <h6>{{imageobj.artistName}}</h6>
+                                    <p class="card-text description">{{imageobj.details}}</p>
+                                    <h4>${{imageobj.price}}</h4>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else class="row">
+                        <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations Bought</h5>
+                    </div>
 
 
-                <!-- purchases -->
-                <div class="row" id="purchaseResult">
-                    
-                </div>
 
 
-            </div>
+
+
+
+
+
+
+
+
+                </div> <!-- end of container -->
+
+
+
+                
             
 
 
@@ -142,6 +149,8 @@ export default {
             profileObj: {
                 profilePicture:'https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif',
             },
+            profilebought: [],
+            bought: [],
             listed: [],
             profile: {
                 name: null,
@@ -163,10 +172,10 @@ export default {
     created() {
         this.readData();
     },
-    mounted() {
-        console.log("HI")
-        console.log(this.listed)},
-
+    // mounted() {
+    //     // console.log("HI")
+    //     // console.log(this.listed)},
+    // }
     methods: {
         showPurchased(){
             console.log("check")
@@ -220,7 +229,7 @@ export default {
             if (this.profile.name != null) {
                 updateProfile(auth.currentUser, {
                 displayName: this.profile.name, photoURL: this.profile.profilePicture}).then(() => {
-                    console.log("Profile updated!");
+                    // console.log("Profile updated!");
                 })
             }
 
@@ -238,11 +247,12 @@ export default {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                // console.log("Document data:", docSnap.data());
                 this.profileObj = docSnap.data();
+                this.profilebought = docSnap.data().bought;
             } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
+                // console.log("No such document!");
             }
 
             const q = query(collection(db, "images"), where("userid", "==", uid));
@@ -250,9 +260,20 @@ export default {
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 this.listed.push(doc.data());
             });
+
+            for (let i = 0; i < this.profilebought.length; i++) {
+                const buy = query(collection(db, "images"), where("title", "==", this.profilebought[i]));
+
+                const buySnapshot = await getDocs(buy);
+                buySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    console.log(doc.id, " => ", doc.data());
+                    this.bought.push(doc.data());
+                });
+            }
 
         },
 
@@ -271,20 +292,20 @@ export default {
                 (snapshot) => {
                     // Observe state change events such as progress, pause, and resume
                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
+                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    // console.log('Upload is ' + progress + '% done');
                     switch (snapshot.state) {
                         case 'paused':
-                            console.log('Upload is paused');
+                            // console.log('Upload is paused');
                             break;
                         case 'running':
-                            console.log('Upload is running');
+                            // console.log('Upload is running');
                             break;
                     }
 
                     getDownloadURL(ref(storage, 'profiles/' + file.name)).then((url) => {
                         this.profile.profilePicture = url;
-                        console.log(url);
+                        // console.log(url);
                     });
                 },
                 (error) => {
