@@ -96,7 +96,7 @@
                              <img class="thumbnail rounded-circle m-auto" v-bind:src="artistProfile.profilePicture" alt="" />
                         </div>
 
-                        <div class="col-md-7 row" style="margin-top: 20px; margin-left: 0px; padding:0; padding-right: 100px;">
+                        <div class="col-md-7 row" style="margin-top: 20px; margin-left: 0px; padding:0;">
                             <router-link to="/profile" v-if="artistUid == currentUid">
                                 <h4 >{{ artistProfile.name }}</h4>
                             </router-link>
