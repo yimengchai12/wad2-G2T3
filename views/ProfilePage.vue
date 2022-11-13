@@ -29,78 +29,90 @@
                     </div>
                 </div>
                 
-                <hr class="my-5">
+
+
+                <div class="row">
+                    <section style="padding-top: 30px; padding-left: 0px; padding-right:0px">
+                        <nav class="stroke">
+                            <ul style="padding:0px; margin:0px">
+                                <li class="nav-item d-inline-block" style="padding-right: 20px; cursor: pointer;"><a id="creationNav" @click="showCreations()">Creations</a></li>
+                                <li class="nav-item d-inline-block" style="padding-left: 20px; cursor: pointer;"><a id="purchaseNav" @click="showPurchased()">Purchases</a></li>
+                            </ul>
+                        </nav>
+                    </section>
+                </div>
 
                 
-                    <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
-                        <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                            <div  class="card artworkCard" style="width: 18rem;">
-                                <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                    <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
+                <div v-if="listed.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                    <div v-for="imageobj in listed" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div  class="card artworkCard" style="width: 18rem;">
+                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
 
-                                    <span>
-                                        <div class="dropdown">
-                                        <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
-                                        <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
-                                        <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
-                                    </ul>
-                                    
-                                    
-                                    </div>
-                                    </span>
+                                <span>
+                                    <div class="dropdown">
+                                    <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                    <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
+                                    <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
+                                </ul>
+                                
+                                
                                 </div>
+                                </span>
+                            </div>
 
-                                    
-                                    
-                                    <h6>{{imageobj.artistName}}</h6>
-                                    <p class="card-text description">{{imageobj.details}}</p>
-                                    <h4>${{imageobj.price}}</h4>
-                                    
-                                </div>
+                                
+                                
+                                <h6>{{imageobj.artistName}}</h6>
+                                <p class="card-text description">{{imageobj.details}}</p>
+                                <h4>${{imageobj.price}}</h4>
+                                
                             </div>
                         </div>
                     </div>
-                    <div v-else class="row">
-                        <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations</h5>
-                    </div>
+                </div>
+                <div v-else class="row" id="artworkResult">
+                    <h5 class="text-muted" style="margin-top: 70px; margin-bottom: 60px;">No Creations</h5>
+                </div>
 
-                    <!-- bought -->
-                    <div v-if="bought.length != 0" class="row" id="artworkResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
-                        <h2>BOUGHT</h2>
-                        <div v-for="imageobj in bought" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
-                            <div  class="card artworkCard" style="width: 18rem;">
-                                <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                    <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
 
-                                    <span>
-                                        <div class="dropdown">
-                                        <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
-                                        <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
-                                        <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
-                                    </ul>
-                                    
-                                    
-                                    </div>
-                                    </span>
+                <!-- bought -->
+                <div v-if="bought.length != 0" class="row" id="purchaseResult" style="display: flex; flex-direction: row; justify-content: left; align-items: center;">
+                    <h2>BOUGHT</h2>
+                    <div v-for="imageobj in bought" :key="imageobj" class="col-lg-3 col-md-4 col-sm-12 colStyle">
+                        <div  class="card artworkCard" style="width: 18rem;">
+                            <router-link :to="'/buy/' + imageobj.title"><img :src="imageobj.image" class="card-img-top gallery"></router-link>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                <router-link :to="'/buy/' + imageobj.title" style="text-decoration:none; color: #fffeee" class="cardtitle"><h4 class="cardtitle card-title text-start">{{imageobj.title}}</h4></router-link>
+
+                                <span>
+                                    <div class="dropdown">
+                                    <button role="button" style="background-color:rgb(32,23,43); border:none" data-bs-toggle="dropdown" aria-expanded="false"><i class="light-text bi bi-three-dots-vertical"></i></button>
+                                    <ul style="background-color:rgb(32,23,43); border:1px solid #32263f;" class="dropdown-menu">
+                                    <li class="dropdown-item light-text text-center text-danger" role="button" @click="deleteData(imageobj.title)"><span>Remove</span></li>
+                                </ul>
+                                
+                                
                                 </div>
+                                </span>
+                            </div>
 
-                                    
-                                    
-                                    <h6>{{imageobj.artistName}}</h6>
-                                    <p class="card-text description">{{imageobj.details}}</p>
-                                    <h4>${{imageobj.price}}</h4>
-                                    
-                                </div>
+                                
+                                
+                                <h6>{{imageobj.artistName}}</h6>
+                                <p class="card-text description">{{imageobj.details}}</p>
+                                <h4>${{imageobj.price}}</h4>
+                                
                             </div>
                         </div>
                     </div>
-                    <div v-else class="row">
-                        <h5 class="text-muted" style="margin-top: 20px; margin-bottom: 60px;">No Creations Bought</h5>
-                    </div>
+                </div>
+                <div v-else class="row" id="purchaseResult">
+                    <h5 class="text-muted" style="margin-top: 70px; margin-bottom: 60px;">You have not purchased anything :(</h5>
+                </div>
 
 
 
@@ -178,6 +190,30 @@ export default {
     //     // console.log(this.listed)},
     // }
     methods: {
+        showPurchased(){
+            console.log("check")
+            var purchaseNav = document.getElementById("purchaseNav")
+            var creationNav = document.getElementById("creationNav")
+            purchaseNav.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+            creationNav.style = "color: white"
+
+            var creationShow = document.getElementById("artworkResult")
+            creationShow.style.display = "none"
+            var purchaseShow = document.getElementById("purchaseResult")
+            purchaseShow.style.display = "flex"
+        },
+        showCreations(){
+            console.log("check")
+            var purchaseNav = document.getElementById("purchaseNav")
+            var creationNav = document.getElementById("creationNav")
+            purchaseNav.style = "color: white"
+            creationNav.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+
+            var creationShow = document.getElementById("artworkResult")
+            creationShow.style.display = "flex"
+            var purchaseShow = document.getElementById("purchaseResult")
+            purchaseShow.style.display = "none"
+        },
         async deleteData(d) {
             await deleteDoc(doc(db, "images", d));
             window.location.reload(true)
@@ -296,6 +332,17 @@ export default {
                 },
             );
         }
+    },
+    mounted(){
+        var purchaseNav = document.getElementById("purchaseNav")
+        var creationNav = document.getElementById("creationNav")
+        purchaseNav.style = "color: white"
+        creationNav.style = "border-bottom: 1px solid rgb(228,36,116); color:rgb(228,36,116)"
+
+        var creationShow = document.getElementById("artworkResult")
+        creationShow.style.display = "flex"
+        var purchaseShow = document.getElementById("purchaseResult")
+        purchaseShow.style.display = "none"
     }
 }
 

@@ -52,6 +52,12 @@ const router = createRouter({
             meta: { requiresAuth: true, 
                 },
         },
+        {
+            path: "/commissions",
+            component: () => import("../../views/commissionInbox.vue"),
+            meta: { requiresAuth: true, 
+            },
+        }
 
     ]
 })
