@@ -130,7 +130,7 @@
                                             <!-- <td>userid: {{request.userid}} </td> -->
                                             <td data-label="Commission Details" >{{request.details}}</td>
                                             <td data-label="Price">${{request.price}} </td>
-                                            <td data-label="Client Details"> {{request.userName}}<br> {{request.userEmail}}</td>
+                                            <td data-label="Client Details"><router-link class="light-text hover" :to="'/profile/'+ request.userid" style="background-color:transparent; text-decoration:none"><span class="hover">{{request.userName}}<br>{{request.userEmail}}</span></router-link></td>
                                             <td data-label="Commission Date">{{request.reqDate}} </td>
                                             <td data-label="Deadline">{{request.reqDeadline}} </td>
                                             <td v-if="request.artistResponded.includes(this.request.userid)" data-label="Status">{{request.artistResponse[request.artistResponded.indexOf(this.request.userid)]}}</td>
@@ -1141,7 +1141,9 @@ CORE STYLES
     bottom: 0;
     left: 0;
 }
-
+.light-text:hover{
+    color:#e42474
+}
 .field__label-wrap::after {
     content: "";
     box-sizing: border-box;
