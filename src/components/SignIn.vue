@@ -85,8 +85,8 @@
                         </span>
                     </div>
                     <div class="field field_v2" v-if="!isLoggedIn">
-                        <label for="signin-password" class="ha-screen-reader">Password</label>
-                        <input type="password" id="signin-password" class="field__input"
+                        <label for="register-password" class="ha-screen-reader">Password</label>
+                        <input type="password" id="register-password" class="field__input"
                             placeholder="Please enter your password" v-model="password" @keyup.enter="signin">
                         <span class="field__label-wrap" aria-hidden="true">
                             <span class="field__label">Password</span>
