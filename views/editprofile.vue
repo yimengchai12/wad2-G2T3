@@ -42,7 +42,7 @@
                         <input id="first-name" class="field__input light-text" placeholder="Enter your name"
                             v-model="profile.name" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
-                            <span class="field__label">Userame</span>
+                            <span class="field__label">Username</span>
                         </span>
                     </div>
                     <!-- <div class="field field_v2">
