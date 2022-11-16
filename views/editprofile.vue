@@ -38,7 +38,7 @@
                 <!-- <div class="d-flex flex-column"> -->
                 <div class="page">
                     <div class="field field_v1 light-text">
-                        <label for="first-name" class="ha-screen-reader">Userame</label>
+                        <label for="first-name" class="ha-screen-reader">Username</label>
                         <input id="first-name" class="field__input light-text" placeholder="Enter your name"
                             v-model="profile.name" disabled>
                         <span class="field__label-wrap" aria-hidden="true">
