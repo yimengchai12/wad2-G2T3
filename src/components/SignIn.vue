@@ -233,7 +233,12 @@ onMounted(() => {
     });
 });
 
+
 const register = () => {
+    if (name.value == ""){
+        alert("Please enter your name")
+        return
+    } 
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
         .then((user) => {
             // console.log("Successfully registered!");
